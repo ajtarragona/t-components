@@ -1,0 +1,69 @@
+
+
+@function svgImageCheck($color) {
+    @return url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>");
+  }
+  @function svgImageRadio($color) {
+    @return url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$color}'/></svg>");
+  }
+
+  @function svgImageSwitch($color) {
+    @return url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$color}'/></svg>");
+  }
+
+.form-check{
+    
+    &.form-switch .form-check-input:not(:checked){
+        --bs-form-switch-bg: #{escape-svg(svgImageSwitch(rgba(0,0,0,0.25)))};
+    }
+    &.form-switch.form-check-light .form-check-input:checked{
+        --bs-form-switch-bg: #{escape-svg(svgImageSwitch(rgba(0,0,0,0.99)))};
+    }
+
+    @each $color, $value in $theme-colors {
+        
+        
+        &.form-check-#{$color}:not(.form-check-primary) {
+            .form-check-input{
+                background-color:rgba($value,0.1);
+                border-color:rgba($value,0.3);
+            }
+            .form-check-input:checked{
+                background-color: $value; //rgba(color-contrast($value),0.5);
+                border-color: $value; //rgba(color-contrast($value),0.5);
+            }
+            .form-check-input:focus{
+                box-shadow: 0 0 0 0.25rem rgba($value, 0.25);
+            }
+            
+            .form-check-input:checked[type=checkbox]{
+                --bs-form-check-bg-image: #{escape-svg(svgImageCheck(color-contrast($value)))};
+            }
+            .form-check-input:checked[type=radio]{
+                --bs-form-check-bg-image: #{escape-svg(svgImageRadio(color-contrast($value)))};
+            }
+            // &.form-switch{
+
+            //     .form-check-input{
+            //         --bs-form-check-bg-image: #{escape-svg(svgImageSwitch(rgba($value,0.99)))};
+
+            //         &:checked{
+            //             --bs-form-check-bg-image: #{escape-svg(svgImageSwitch(color-contrast(rgba($value,0.99))))};
+
+            //         }
+                    
+            //     }
+            // }
+        }
+    }
+}
+
+[data-bs-theme="dark"]{
+    .form-check{
+    
+        &.form-switch .form-check-input:not(:checked){
+            --bs-form-switch-bg: #{escape-svg(svgImageSwitch(rgba(255,255,255,0.25)))};
+        }
+        
+    }    
+}

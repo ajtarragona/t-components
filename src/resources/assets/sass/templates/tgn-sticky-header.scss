@@ -1,0 +1,97 @@
+
+#sticky-header{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	background-color: var(--bs-primary);
+	box-shadow:$box-shadow !important;
+	z-index: 10;
+	@include transition(all 0.5s ease);
+    
+	.tgn-ona-header{
+		@include transition(all 0.5s ease);
+	}
+
+	#menu-opener{
+		padding:5px;
+		display:none;
+	}
+        
+
+    
+    a{
+        color: #fff;
+        &:hover{
+            color: #efefef;
+        }
+    }
+    .display-4{
+        font-size: 2.2rem;
+        white-space: nowrap;
+        font-weight: 500;
+        line-height: 2.1rem;
+    }
+    .social-items{
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+    }
+    #select-translate {
+        text-indent: -9999px;
+        // position: absolute;
+        // background: none;
+        // border: 0;
+        width: 37px;
+        // height: 100%;
+        // padding: 0;
+        // display: none;
+        // visibility: hidden;
+
+        &:hover{
+            cursor: pointer;
+        }
+        &:focus{
+            box-shadow: none;
+            border-color: transparent;
+
+        }
+    }
+    .select-translate-button::after {
+        content: "W";
+        font-family: "simbols_web_AJtgn_bold";
+        color: #fff;
+        font-weight: normal;
+        font-size: 2.6em;
+        line-height: 2rem;
+        pointer-events: none;
+        transition: 0.15s ease-in-out;
+        position: absolute;
+        right: 0;
+        top:1px;
+    }
+    .select-translate-button:hover::after,
+    .select-translate-button:focus::after {
+        color: #efefef;
+    }
+    .select-translate-button .dropdown-menu {
+        min-width: 8rem;
+    }
+    
+}
+[data-bs-theme=dark]{
+    #sticky-header{
+        background-color: var(--bs-dark);
+    }
+}
+body.on-top{
+	#sticky-header{
+		background-color: transparent;
+	
+		box-shadow:none !important;
+
+		.tgn-ona-header{
+			opacity:0;
+		}
+	}
+
+}

@@ -1,0 +1,38 @@
+{
+    "name": "ajtarragona/t-components",
+    "description": "A collection of blade components for your laravel application using Livewire and alpine",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Txomin Medrano Martorell",
+            "email": "tmedrano@tarragona.cat"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.2.5|^8.0",
+        "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
+        "laravel/framework": "^7.29",
+        "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.12"
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "Ajtarragona\\TComponents\\": "./src"
+        },
+        "files": [
+            "src/Helpers/t-components.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ajtarragona\\TComponents\\TComponentsServiceProvider"
+            ]
+        }
+    }
+}

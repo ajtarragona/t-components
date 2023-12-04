@@ -1,0 +1,26 @@
+.form-range{
+    height: 2.3rem;
+
+
+    @each $color, $value in $theme-colors {
+        &.form-range-#{$color}:not([disabled]){
+
+            &::-webkit-slider-thumb{
+                background-color: var(--bs-#{$color});
+            }
+            &::-moz-range-thumb {
+                background-color: var(--bs-#{$color});
+            }
+
+            &::-webkit-slider-runnable-track{
+                // background-color: rgba(#{desaturate($value,50)},0.4); //($value,1);
+                background-color:  #{rgba(desaturate($value,70) , 0.2)};  //lo paso a gris un 70% y lo dejo a un 20 de opacidad
+            }
+            &::-moz-range-track {
+                background-color:  #{rgba(desaturate($value,70) , 0.2)};  //lo paso a gris un 70% y lo dejo a un 20 de opacidad
+            }
+        }
+        
+    }
+   
+}

@@ -1,0 +1,1 @@
+@include('t-components::components.'.config('t-components.theme').'.forms.text',['type'=>'number'])

@@ -1,0 +1,120 @@
+@props([
+    'block' => true,
+    'outer_class' => '',
+    'class' => '',
+    'type'=>'default border',
+    'size'=>'md',
+    'label_position'=>'top',
+    'label'=>'hola',
+    'icon'=>'',
+    'allow_clear'=>false,
+    'selected'=>null,
+    'options'=>[],
+    'open'=>false,
+    'max_height'=>null,
+    'search'=>false,
+    'multiple'=>false,
+])
+
+{{-- {{json_encode($options)}} --}}
+{{-- {{var_export($attributes->getAttributes())}} --}}
+<span 
+    x-data="{
+        open:false,
+        selected:null,
+        multiple:false,
+        options:@json($options),
+        close: function(){
+            this.open=false;
+        },
+        toggle: function(){
+            console.log('toggle',this.open);
+            this.open=!this.open;
+        },
+        clear: function(){
+            this.selected=null;
+        },
+        select: function(key){
+            if(this.multiple){
+                if(!this.selected) this.selected=[];
+                this.selected.push(key);
+            }else{
+                this.selected=key;
+                this.open=false;
+            }
+        },
+        get selectedPreview: function(){
+            if(this.multiple){
+            }else{
+                return this.options[this.selected]??'';
+            }
+        }
+    }" 
+
+    class=" d-{{$block?'block':'inline-block'}} t-component t-component-select {{$outer_class}} position-relative ">
+
+    
+    <span x-text="options"></span>
+
+    <button class="btn btn-{{$type }} btn-{{$size??'md'}} {{$block?'block w-100':'inline-block'}} dropdown-toggle d-inline-flex justify-content-between align-items-center {{$class}}" type="button" :class="{ 'active':open }"  @click="toggle">
+        <div class="pe-2 d-flex flex-{{ $label_position=="side"?'row':'column w-100' }} align-items-start text-truncate">
+            @if($label) 
+                <label class="opacity-75 {{ $label_position=="side"?'me-2':'' }}" ><small>{!! $label !!}</small></label>
+            @endif
+            <div class=" flex-grow-1 d-flex text-truncate">
+                @if($icon) 
+                    <i class="bi bi-{{$icon}} me-2"></i> 
+                @endif 
+                <span class="d-inline-block text-truncate" x-text="selectedPreview">
+                    {{-- <input type="text" class="bg-transparent border-0" value="{!! $this->renderSelected() !!}" /> --}}
+                    {{-- {!! $selected_preview !!} --}}
+
+                </span>
+                @if($allow_clear && $selected)
+                    <a href="#" type="button" @click="clear" class="text-reset d-inline-block z-10 ms-2 align-self-end" ><i class="bi bi-x"></i></a>
+                @endif
+            </div>
+        </div>
+
+    </button>
+    
+    <ul class="dropdown-menu show"  x-show="open" x-transition:enter.duration.100ms
+    x-transition:leave.duration.100ms
+    x-on:click.outside="open = false" x-on:keyup.escape.window="close" style="{{$max_height?('overflow-y:auto;max-height:'.$max_height):''}}">
+        {{-- @if($search)
+            <div class="mx-2 mb-2 position-relative">
+                <i class="bi bi-search position-absolute opacity-75" style="padding-left:7px;padding-top:6px"></i> 
+                <input type="search" class="form-control border-0" form="" style="padding-left:30px"  placeholder="Buscar ..."/>
+                <div class="clearfix visually-hidden position-absolute top-0 end-0 pt-2 pe-5" style="z-index:10" >
+                    <div class="spinner-border spinner-border-sm  text-info float-end" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        @endif --}}
+        
+        <template x-for="(option, key) in options" :key="key"">
+            <li x-text="option"></li>
+        </template>
+
+{{--         
+        @forelse($options as $key=>$option)
+            <li>
+                <a class="dropdown-item {{ ($option["style"]??null) ? ('text-'.$option["style"]):'' }}" href="#" @click.prevent="select('{{$key}}')">
+                    @if($option["icon"]??null) 
+                        <i class="bi bi-{{$option["icon"]}}"></i> 
+                    @endif 
+                    {!! $option["value"]??$option !!}
+                    @if($key == $selected)
+                        <i class="bi bi-check float-end text-{{$type}}"></i>
+                    @endif
+                </a>
+            </li>
+        @empty
+        <div class="opacity-75 px-2 pt-2"><small>No results.</small></div>
+        @endforelse --}}
+    </ul>
+
+    <select class="form-select">
+    </select>
+</span>

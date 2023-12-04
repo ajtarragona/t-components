@@ -1,0 +1,12 @@
+
+.box-card {
+    border: var(--bs-border-width) solid var(--bs-border-color);    
+    background: $white;
+    // background: var(--bs-tertiary-bg);
+
+    padding: 1.5rem;
+}
+
+[data-bs-theme=dark] .box-card{
+    background: lighten($dark,3%);
+}

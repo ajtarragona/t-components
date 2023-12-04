@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,800");
+@import "bootstrap";
+
+
+@import '~bootstrap-icons';
+@import "~flatpickr";
+@import "tgn-iconfont";
+@import "t-box-card";
+@import "t-sidebar";
+@import "t-modal";
+@import "t-ranges";
+@import "t-numbers";
+@import "t-checkboxes";
+@import "t-dates";
+@import "t-selects";
+@import "t-forms";
+
+body{
+    background-color: $gray-200
+}
+
+html[data-bs-theme=dark]{
+    body{
+        background-color: $gray-900
+    }
+}
