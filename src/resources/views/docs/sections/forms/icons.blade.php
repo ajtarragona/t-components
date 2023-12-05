@@ -17,6 +17,14 @@
 <x-t-iconPicker name="icon1" />
 
 <x-t-iconPicker name="icon1" icon="star"/>
+<x-t-iconPicker name="icon1" allowClear value="bi-archive" placeholder="default value"/>
+
+<div class="input-group">
+    <x-t-iconPicker wire:model="dummy" allowClear placeholder="livewire"/>
+    
+    <span class="input-group-text" >@if($dummy)<i class="bi {{$dummy}}"></i>@endif</span>
+</div>
+
 <x-t-iconPicker name="icon1" allowClear placeholder="allowClear"/>
 <x-t-iconPicker name="icon1" allowClear placeholder="allowClear" width="300px"/>
 <x-t-iconPicker name="icon1" allowClear placeholder="allowClear" width="fit-content"/>

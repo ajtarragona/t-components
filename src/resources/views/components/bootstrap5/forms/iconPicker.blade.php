@@ -33,7 +33,7 @@
         placeholder: '{{ addslashes($placeholder) }}',
         width: {{ $width ? '\''.$width.'\'' :'false' }},
         search: {{ $search ? 'true':'false' }},
-        value:  @if($attributes->whereStartsWith('wire:model')->first())  @entangle($attributes->wire('model'))  @else  {{ $value??'null' }} @endif 
+        value:  @if($attributes->whereStartsWith('wire:model')->first())  @entangle($attributes->wire('model'))  @else  {{ $value?('\''.$value.'\'') : 'null' }} @endif 
     })"
 
     @click.away="closeDropdown()" 
@@ -68,8 +68,9 @@
         
         </button>
         
+        
         @if($name)
-            <input type="hidden" x-ref="icon-input" />
+            <input type="hidden" x-ref="icon-input" :value="value" />
         @endif
         
         <ul 
@@ -103,7 +104,7 @@
 
                 <template x-for="(icon,index) in options" :key="index">
                     <li >
-                        <a class="dropdown-item p-2 " :class="{'active':isSelected(icon)}" type="button" @click="select(icon)">
+                        <a class="dropdown-item p-2 " :class="{'active':isSelected(icon)}" type="button" @click="selectIcon(icon)">
                             <i class="bi icon-icon" :class="icon" :title="icon"></i> <span class="icon-label" x-text="icon"></span>
                             <i class="bi bi-check float-end check-icon" x-show="isSelected(icon)"></i>
 

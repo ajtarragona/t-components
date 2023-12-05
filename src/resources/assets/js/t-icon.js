@@ -18,7 +18,6 @@ document.addEventListener('alpine:init', () => {
         value: config.value ?? null,
         allowClear: config.allowClear ?? false,
         hasValue: false,
-        value: null,
         instance :null,
         icon:config.icon??null,
         search:config.search ?? false,
@@ -40,7 +39,7 @@ document.addEventListener('alpine:init', () => {
         clear: function() {
             this.hasValue=false;
             this.value=null;
-            this.$refs['icon-input'].value=null;
+            if(this.$refs['icon-input']) this.$refs['icon-input'].value=null;
             this.$refs['dropdown-btn'].value=null;
             
         },
@@ -51,9 +50,9 @@ document.addEventListener('alpine:init', () => {
             this.open=false;
             this.term=null;
         },
-        select(value){
+        selectIcon(value){
             this.value=value;
-            this.$refs['icon-input'].value=value;
+            if(this.$refs['icon-input']) this.$refs['icon-input'].value=value;
             this.hasValue=true;
             this.closeDropdown();
         },
@@ -82,6 +81,10 @@ document.addEventListener('alpine:init', () => {
 
             this.isLoading=false;
             
+            if(this.value){
+                console.log('hasvalue ', this.value);
+                this.hasValue=true;
+            }
             var btn= this.$refs['dropdown-btn'];
             
           
