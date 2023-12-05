@@ -31347,8 +31347,8 @@ span.flatpickr-weekday {
   font-style: normal;
 }
 
-[class^=icon-],
-[class*=" icon-"] {
+[class^=tgn-icon-],
+[class*=tgn-icon-] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "simbols_web_AJtgn_bold" !important;
   speak: none;
@@ -31362,111 +31362,111 @@ span.flatpickr-weekday {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-logoAJtgn_horitzontal_positiu:before {
+.tgn-icon-logoAJtgn_horitzontal_positiu:before {
   content: "A";
 }
 
-.icon-logoAJtgn_horitzontal_negatiu:before {
+.tgn-icon-logoAJtgn_horitzontal_negatiu:before {
   content: "B";
 }
 
-.icon-logoAJtgn_vertical_positiu:before {
+.tgn-icon-logoAJtgn_vertical_positiu:before {
   content: "C";
 }
 
-.icon-logoAJtgn_vertical_negatiu:before {
+.tgn-icon-logoAJtgn_vertical_negatiu:before {
   content: "D";
 }
 
-.icon-logo_PatrimoniMundial:before {
+.tgn-icon-logo_PatrimoniMundial:before {
   content: "E";
 }
 
-.icon-logo_Twitter:before {
+.tgn-icon-logo_Twitter:before {
   content: "F";
 }
 
-.icon-logo_Youtube:before {
+.tgn-icon-logo_Youtube:before {
   content: "G";
 }
 
-.icon-logo_Facebook:before {
+.tgn-icon-logo_Facebook:before {
   content: "H";
 }
 
-.icon-logo_Instagram:before {
+.tgn-icon-logo_Instagram:before {
   content: "I";
 }
 
-.icon-tgn_amb_ona:before {
+.tgn-icon-tgn_amb_ona:before {
   content: "J";
 }
 
-.icon-ona:before {
+.tgn-icon-ona:before {
   content: "K";
 }
 
-.icon-simbol_Camara:before {
+.tgn-icon-simbol_Camara:before {
   content: "L";
 }
 
-.icon-simbol_Ull:before {
+.tgn-icon-simbol_Ull:before {
   content: "M";
 }
 
-.icon-simbol_Casa:before {
+.tgn-icon-simbol_Casa:before {
   content: "N";
 }
 
-.icon-simbol_Menu:before {
+.tgn-icon-simbol_Menu:before {
   content: "O";
 }
 
-.icon-simbol_Cor:before {
+.tgn-icon-simbol_Cor:before {
   content: "P";
 }
 
-.icon-simbol_Llibre:before {
+.tgn-icon-simbol_Llibre:before {
   content: "Q";
 }
 
-.icon-simbol_Quadrat:before {
+.tgn-icon-simbol_Quadrat:before {
   content: "R";
 }
 
-.icon-simbol_Grafica:before {
+.tgn-icon-simbol_Grafica:before {
   content: "S";
 }
 
-.icon-simbol_Cercle:before {
+.tgn-icon-simbol_Cercle:before {
   content: "T";
 }
 
-.icon-simbol_Creu:before {
+.tgn-icon-simbol_Creu:before {
   content: "U";
 }
 
-.icon-simbol_Lupa:before {
+.tgn-icon-simbol_Lupa:before {
   content: "V";
 }
 
-.icon-simbol_Mon:before {
+.tgn-icon-simbol_Mon:before {
   content: "W";
 }
 
-.icon-simbol_Fletxa_dreta:before {
+.tgn-icon-simbol_Fletxa_dreta:before {
   content: "X";
 }
 
-.icon-simbol_Fletxa_esquerra:before {
+.tgn-icon-simbol_Fletxa_esquerra:before {
   content: "Y";
 }
 
-.icon-simbol_Punts:before {
+.tgn-icon-simbol_Punts:before {
   content: "Z";
 }
 
-.icon-simbol_Punt:before {
+.tgn-icon-simbol_Punt:before {
   content: "[";
 }
 
@@ -32574,6 +32574,24 @@ span.flatpickr-weekday {
 
 [data-bs-theme=dark] .t-form-group.boxed.boxed-dark {
   border-color: #4d5154;
+}
+
+.t-icon-picker .dropdown-menu.layout-grid .icons-container {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.25rem;
+}
+
+.t-icon-picker .dropdown-menu.layout-grid .icons-container li a {
+  border: 1px solid var(--bs-border-color);
+  text-align: center;
+}
+
+.t-icon-picker .dropdown-menu.layout-grid .icons-container li .check-icon,
+.t-icon-picker .dropdown-menu.layout-grid .icons-container li .icon-label {
+  display: none;
 }
 
 body {

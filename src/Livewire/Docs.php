@@ -118,6 +118,10 @@ class Docs extends LiveFullPageComponent
                 "forms_colors"=>[
                     "name"=>"Color pickers",
                     "icon"=>"eyedropper",
+                ],
+                "forms_icons"=>[
+                    "name"=>"Icon pickers",
+                    "icon"=>"eyedropper",
                 ]
             ]
         ]

@@ -186,10 +186,22 @@
                 </div>
             </ul>
             {{-- <span x-text="JSON.stringify(data)" x-show="dataSrc"></span> --}}
-            <select :multiple="multiple" :name="name" :disabled="disabled" class="form-select" hidden x-ref="selectInput">
+            <select :multiple="multiple" :name="name" :disabled="disabled" :readonly="readonly" hidden class="form-select"  x-ref="selectInput">
+                {{-- @if($grouped)
+                    <template x-for="(group_name,gr_index) in Object.values(groups)" :key="gr_index">
+                        <optgroup :label="group_name" x-show="getGroupOptions(group_name).length>0">
+                            <template x-for="(option, index) in getGroupOptions(group_name)" :key="index" >
+                                <option :value="option.key" x-text="option.value" :selected="isSelected(option.key)"></option>
+                                </span>
+                            </template>
+                        </optgroup> 
+                    </template>
+                @else --}}
                 <template x-for="(option,key) in Object.values(data)" >
                     <option :value="option.key" x-text="option.value" :selected="isSelected(option.key)"></option>
                 </template>
+                {{-- @endif --}}
+
             </select>
         </span>
     </div>

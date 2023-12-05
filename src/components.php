@@ -19,6 +19,7 @@ return [
 	// 't-select' => Ajtarragona\TComponents\Components\Forms\Select::class,
 	't-select' => 't-components::components.'.$theme.'.forms.select',
 	't-date' => 't-components::components.'.$theme.'.forms.date',
+	't-iconPicker' => 't-components::components.'.$theme.'.forms.iconPicker',
 	't-checkbox' => 't-components::components.'.$theme.'.forms.checkbox',
 	't-radio' => 't-components::components.'.$theme.'.forms.radio',
 	't-range' => 't-components::components.'.$theme.'.forms.range',

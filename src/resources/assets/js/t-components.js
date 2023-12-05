@@ -1,10 +1,13 @@
 window._ = require("lodash");
 import "bootstrap";
 import "./nightmode";
+
+
 import "./t-modal";
 import "./t-text";
 import "./t-select";
 import "./t-date";
+import "./t-icon";
 import "./livewire";
 
 var Turbolinks = require("turbolinks");
@@ -13,6 +16,7 @@ Turbolinks.start();
 const flatpickr = require("flatpickr");
 
 window.bootstrap =require("bootstrap");
+
 
 var detectOnTop=function(){
     // console.log('detectOnTop',document.documentElement.scrollTop);

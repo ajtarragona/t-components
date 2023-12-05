@@ -13,7 +13,7 @@ $font-path: "../fonts";
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="tgn-icon-"], [class*="tgn-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'simbols_web_AJtgn_bold' !important;
   speak: none;
@@ -28,84 +28,84 @@ $font-path: "../fonts";
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-logoAJtgn_horitzontal_positiu:before {
+.tgn-icon-logoAJtgn_horitzontal_positiu:before {
   content: "\41";
 }
-.icon-logoAJtgn_horitzontal_negatiu:before {
+.tgn-icon-logoAJtgn_horitzontal_negatiu:before {
   content: "\42";
 }
-.icon-logoAJtgn_vertical_positiu:before {
+.tgn-icon-logoAJtgn_vertical_positiu:before {
   content: "\43";
 }
-.icon-logoAJtgn_vertical_negatiu:before {
+.tgn-icon-logoAJtgn_vertical_negatiu:before {
   content: "\44";
 }
-.icon-logo_PatrimoniMundial:before {
+.tgn-icon-logo_PatrimoniMundial:before {
   content: "\45";
 }
-.icon-logo_Twitter:before {
+.tgn-icon-logo_Twitter:before {
   content: "\46";
 }
-.icon-logo_Youtube:before {
+.tgn-icon-logo_Youtube:before {
   content: "\47";
 }
-.icon-logo_Facebook:before {
+.tgn-icon-logo_Facebook:before {
   content: "\48";
 }
-.icon-logo_Instagram:before {
+.tgn-icon-logo_Instagram:before {
   content: "\49";
 }
-.icon-tgn_amb_ona:before {
+.tgn-icon-tgn_amb_ona:before {
   content: "\4a";
 }
-.icon-ona:before {
+.tgn-icon-ona:before {
   content: "\4b";
 }
-.icon-simbol_Camara:before {
+.tgn-icon-simbol_Camara:before {
   content: "\4c";
 }
-.icon-simbol_Ull:before {
+.tgn-icon-simbol_Ull:before {
   content: "\4d";
 }
-.icon-simbol_Casa:before {
+.tgn-icon-simbol_Casa:before {
   content: "\4e";
 }
-.icon-simbol_Menu:before {
+.tgn-icon-simbol_Menu:before {
   content: "\4f";
 }
-.icon-simbol_Cor:before {
+.tgn-icon-simbol_Cor:before {
   content: "\50";
 }
-.icon-simbol_Llibre:before {
+.tgn-icon-simbol_Llibre:before {
   content: "\51";
 }
-.icon-simbol_Quadrat:before {
+.tgn-icon-simbol_Quadrat:before {
   content: "\52";
 }
-.icon-simbol_Grafica:before {
+.tgn-icon-simbol_Grafica:before {
   content: "\53";
 }
-.icon-simbol_Cercle:before {
+.tgn-icon-simbol_Cercle:before {
   content: "\54";
 }
-.icon-simbol_Creu:before {
+.tgn-icon-simbol_Creu:before {
   content: "\55";
 }
-.icon-simbol_Lupa:before {
+.tgn-icon-simbol_Lupa:before {
   content: "\56";
 }
-.icon-simbol_Mon:before {
+.tgn-icon-simbol_Mon:before {
   content: "\57";
 }
-.icon-simbol_Fletxa_dreta:before {
+.tgn-icon-simbol_Fletxa_dreta:before {
   content: "\58";
 }
-.icon-simbol_Fletxa_esquerra:before {
+.tgn-icon-simbol_Fletxa_esquerra:before {
   content: "\59";
 }
-.icon-simbol_Punts:before {
+.tgn-icon-simbol_Punts:before {
   content: "\5a";
 }
-.icon-simbol_Punt:before {
+.tgn-icon-simbol_Punt:before {
   content: "\5b";
 }

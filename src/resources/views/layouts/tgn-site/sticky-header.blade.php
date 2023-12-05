@@ -34,10 +34,10 @@
                     </div>
                     <div id="google_translate_element2"></div>
                 </li> --}}
-                <li class="nav-item social-items d-none d-md-inline"><a class="nav-link py-0 pe-0 ps-1 text-white" aria-label="youtube" href="https://www.youtube.com/channel/UChmPxD2NcAMlp5usVeudSgw"><i class="icon-logo_Youtube"></i></a></li>
-                <li class="nav-item social-items d-none d-md-inline"><a class="nav-link py-0 pe-0 ps-1 text-white" aria-label="twitter" href="https://twitter.com/TGNAjuntament"><i class="icon-logo_Twitter"></i></a></li>
-                <li class="nav-item social-items d-none d-md-inline"><a class="nav-link py-0 pe-0 ps-1 text-white" aria-label="facebook" href="https://www.facebook.com/tarragona.cat/"><i class="icon-logo_Facebook"></i></a></li>
-                <li class="nav-item social-items d-none d-md-inline"><a class="nav-link py-0 pe-0 ps-1 text-white" aria-label="instagram" href="https://www.instagram.com/tarragona_cat/"><i class="icon-logo_Instagram"></i></a></li>
+                <li class="nav-item social-items d-none d-md-inline"><a class="nav-link py-0 pe-0 ps-1 text-white" aria-label="youtube" href="https://www.youtube.com/channel/UChmPxD2NcAMlp5usVeudSgw"><i class="tgn-icon-logo_Youtube"></i></a></li>
+                <li class="nav-item social-items d-none d-md-inline"><a class="nav-link py-0 pe-0 ps-1 text-white" aria-label="twitter" href="https://twitter.com/TGNAjuntament"><i class="tgn-icon-logo_Twitter"></i></a></li>
+                <li class="nav-item social-items d-none d-md-inline"><a class="nav-link py-0 pe-0 ps-1 text-white" aria-label="facebook" href="https://www.facebook.com/tarragona.cat/"><i class="tgn-icon-logo_Facebook"></i></a></li>
+                <li class="nav-item social-items d-none d-md-inline"><a class="nav-link py-0 pe-0 ps-1 text-white" aria-label="instagram" href="https://www.instagram.com/tarragona_cat/"><i class="tgn-icon-logo_Instagram"></i></a></li>
             </ul>
 
             <div id="menu-opener">
