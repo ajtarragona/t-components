@@ -3,6 +3,7 @@
 namespace Ajtarragona\TComponents\Controllers; 
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
 
 class DocsController extends BaseController
@@ -71,6 +72,7 @@ class DocsController extends BaseController
 
       
       $ret= [];
+
       for($i=0;$i<200;$i++){
         $ret[$i+1] = "Option ".($i+1);
       }
@@ -78,9 +80,19 @@ class DocsController extends BaseController
       $ret=collect($ret)->filter(function($item) use ($request){
         if($request->term) return Str::contains(strtolower($item),strtolower($request->term));
         return true;
-      })->all();
+      });
       
+      if($request->page){
+        $chunk=$ret->chunk($request->limit);
+        $tmp=[];
+        if(isset($chunk[$request->page-1])) $tmp=$chunk[$request->page-1];
+        $ret = new LengthAwarePaginator($tmp, $ret->count(), $request->limit, $request->page);
+        // dd($ret->all());
+      }
       
+      $ret=$ret->all();
+        
+      // dd($request->limit);
       if($request->limit) $ret=array_slice($ret,0,$request->limit, true);
       // dd($ret);
       //si hay seleccionados, los devuelvo siempre
@@ -104,7 +116,7 @@ class DocsController extends BaseController
   public function testForm(Request $request)
   {
    
-    return redirect()->back()->with(['formRequest'=>$request->all()]);
+    return redirect()->back()->with(['formRequest'=>$request->except('_token','_method')]);
     
   }
   public function validatedForm(Request $request)

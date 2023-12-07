@@ -15,14 +15,15 @@ document.addEventListener('alpine:init', () => {
         selected: config.selected,
         multiple: config.multiple,
         currentIndex: -1,
-        isLoading: false,
+        isLoading: true,
         isLoaded: true,
         disabled: config.disabled || false,
         readonly: config.readonly || false,
-        limit: config.limit ?? 50,
+        limit: config.limit ?? 20,
         color: config.color ?? 'default',
         icon: config.icon ?? null,
         allowClear: config.allowClear || false,
+        selectedLabelLimitText: config.selectedLabelLimitText || 'and :num more...',
         selectedLabelLimit: config.selectedLabelLimit || false,
         selectedLabelGlue: config.selectedLabelGlue ?? ', ',
         selectedLabelPrefix: config.selectedLabelPrefix ?? '',
@@ -37,15 +38,20 @@ document.addEventListener('alpine:init', () => {
         prefetch: config.prefetch ?? false,
         termName: config.termName ?? 'term',
         limitName: config.limitName ?? 'limit',
+        pageName: config.pageName ?? 'page',
         grouped: config.grouped ?? false,
         groups: [],
         groupOptions: [],
         optionsIndex:0,
-
+        height: config.height ?? false,
+        lazyLoad: config.lazyLoad ?? false,
+        page: 1,
+        allLoaded: false,
+        
         async init() {
             var s = this;
-            // console.log(this.data);
-
+            if(this.lazyLoad && this.limit) this.height=this.limit*2+"rem";
+                    
             if(this.selected == null ){
                 if(this.multiple)
                     this.selected = []
@@ -69,6 +75,7 @@ document.addEventListener('alpine:init', () => {
                 }
 
             }else{
+                this.isLoading=false;
                 if(!this.data) this.data = {}
                 // console.log(this.multiple, this.selected);
                 this.prepareData()
@@ -81,7 +88,9 @@ document.addEventListener('alpine:init', () => {
             this.$watch('term', (async function(values) {
                 // console.log('term changed', values, s.term, s.dataSrc);
                 s.currentIndex=-1
-                s.groupOptions=[]
+                s.groupOptions=[];
+                s.page=1;
+                s.allLoaded=false;
                 if(s.dataSrc){
                     s.isLoaded=false;
                     // console.log("BEFORE TERM CHANGE ASYNC", s.options);
@@ -126,15 +135,37 @@ document.addEventListener('alpine:init', () => {
 
 
         },
-
+        async loadMore(){
+            
+            if(this.dataSrc && !this.allLoaded){
+                this.page++;
+                this.isLoaded=false;
+                await this.getAsyncData();
+                this.prepareOptions();
+            }else{
+                
+                
+                // console.log('loadMore', this.page, (Object.keys(this.data).length/this.limit) );
+                if(this.page < (Object.keys(this.data).length/this.limit) ){
+                    this.page++;
+                    this.prepareOptions();
+                }else{
+                    this.allLoaded=true;
+                }
+            }
+        },
         async getAsyncData() {
             this.isLoading=true;
             // console.log('getAsyncData', this.isLoaded);
             if(!this.isLoaded){
                 var loadedData = await this.loadAsyncData();
-                // console.log(loadedData);
-                for(var key in loadedData){
-                    if(!Object.keys(this.data).includes(key)) this.data[key]=loadedData[key];
+                // console.log('loadedData',loadedData, Object.keys(loadedData).length);
+                if(loadedData && Object.keys(loadedData).length>0){
+                    for(var key in loadedData){
+                        if(!Object.keys(this.data).includes(key)) this.data[key]=loadedData[key];
+                    }
+                }else{
+                    this.allLoaded=true;
                 }
                 // console.log('loaded');
                 this.prepareData()
@@ -151,6 +182,8 @@ document.addEventListener('alpine:init', () => {
             const data = new URLSearchParams();
             data.append(this.termName, this.term);
             data.append(this.limitName,  this.limit);
+            if(this.lazyLoad) data.append(this.pageName,  this.page);
+
             if(this.selected){
                 if(this.multiple){
                     for(var i in this.selected){
@@ -198,9 +231,18 @@ document.addEventListener('alpine:init', () => {
                         }
                     }
                     return true;
-                })
-                .slice(0, this.limit)
-                .reduce((options, key) => {
+                });
+                if(this.limit){
+                    if(this.lazyLoad){
+                        // console.log('limiting page:'+ this.page,this.limit);
+                        this.options = this.options.slice(0,  this.page*this.limit);
+                    }else{
+                        this.options = this.options.slice(0,  this.limit);
+
+                    }
+                }
+
+                this.options=this.options.reduce((options, key) => {
                     options[key] = this.data[key]
                     return options
                 }, {})
@@ -250,9 +292,11 @@ document.addEventListener('alpine:init', () => {
             this.data=data;
             // console.log(this.data);
             //lo paso a options
-            this.options = Object.keys(this.data)
-                .slice(0,this.limit)
-                .reduce((options, key) => {
+            this.options = Object.keys(this.data);
+            
+            if(this.limit) this.options=this.options.slice(0,this.limit);
+
+            this.options=this.options.reduce((options, key) => {
                     options[key] = this.data[key]
                     return options
                 }, {});
@@ -271,6 +315,8 @@ document.addEventListener('alpine:init', () => {
                 // console.log('closeSelect');
                 this.open = false
                 this.term = ''
+                this.page=1;
+                this.allLoaded=false;
                 this.currentIndex=-1
                 var btn= this.$refs['dropdown-btn'];
                 var instance=bootstrap.Dropdown.getInstance(btn);
@@ -343,39 +389,50 @@ document.addEventListener('alpine:init', () => {
         },
 
         selectCurrentOption: function() {
+            if(this.readonly) return;
+            if(this.disabled) return;
+            if(this.options[Object.values(this.options)[this.currentIndex].key].disabled??false)  return;
+
             if(this.currentIndex>=0)
                 this.selectOption(Object.values(this.options)[this.currentIndex].key);
         },
         selectOption: function(value) {
             // console.log('select', value);
             if(this.readonly) return;
-            
-            if(!this.disabled) {
-                // If multiple push to the array, if not, keep that value and close menu
-                if(this.multiple){
-                    if(!this.selected) this.selected=[];
-                    // If it's not already in there
-                    if (!this.selected.includes(value)) {
-                        this.selected.push(value)
-                    }else{
-                        let index = this.selected.indexOf(value);
-                        this.selected.splice(index, 1);
-                    }
-                }
-                else {
-                    // console.log("HOLA");
-                    this.selected=value;
-                    this.closeSelect();
+            if(this.disabled) return;
+            if(this.options[value].disabled??false) return;
+
+            // If multiple push to the array, if not, keep that value and close menu
+            if(this.multiple){
+                if(!this.selected) this.selected=[];
+                // If it's not already in there
+                if (!this.selected.includes(value)) {
+                    this.selected.push(value)
+                }else{
+                    let index = this.selected.indexOf(value);
+                    this.selected.splice(index, 1);
                 }
             }
+            else {
+                // console.log("HOLA");
+                this.selected=value;
+                this.closeSelect();
+            }
+            
         },
 
         increaseIndex: function() {
             // console.log('increaseIndex');
+            
+           
+
             if(this.currentIndex >= Object.keys(this.options).length -1)
                 this.currentIndex = 0
             else
                 this.currentIndex++
+
+
+            if(this.options[Object.values(this.options)[this.currentIndex].key].disabled??false)      this.increaseIndex();           
         },
 
         decreaseIndex: function() {
@@ -383,6 +440,8 @@ document.addEventListener('alpine:init', () => {
                 this.currentIndex = Object.keys(this.options).length-1
             else
                 this.currentIndex--;
+
+            if(this.options[Object.values(this.options)[this.currentIndex].key].disabled??false)      this.decreaseIndex();
         },
 
         isSelected: function(key){
@@ -408,6 +467,8 @@ document.addEventListener('alpine:init', () => {
             }
             if(!this.readonly && this.currentIndex==index) ret.push('active');
 
+           
+            
             if(this.data[key] && (this.data[key].color??null)) ret.push('text-'+this.data[key].color);
             return ret.join(" ");
         },
@@ -469,7 +530,11 @@ document.addEventListener('alpine:init', () => {
                                 // console.log(selected);
                                 selected.splice( this.selectedLabelLimit);
                                 // console.log(selected);
-                                ret= selected.join(this.selectedLabelGlue) + " <small class='opacity-75'>and "+ (this.selected.length - this.selectedLabelLimit) + " more...</small>";
+                                var more=this.selectedLabelLimitText;
+                                more=more.replace(":num",(this.selected.length - this.selectedLabelLimit));
+                                
+
+                                ret= selected.join(this.selectedLabelGlue) + " <small class='opacity-75'>"+more+"</small>";
                                 // $ret= implode($this->selected_label_glue, array_slice($selected, 0, $this->selected_label_limit)) ." and ".(count($selected)-$this->selected_label_limit)." more...";
                             }else{
                                 ret= selected.join(this.selectedLabelGlue);

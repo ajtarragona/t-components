@@ -1,3 +1,5 @@
+
+
 @props([
     'value' => null,
     'multiple'=>false,
@@ -14,7 +16,7 @@
     'size' => 'md',
     'placeholder' => 'Select an icon',
     'search' => false,
-    'layout'=>'list'
+    'grid'=>false
     
 ])
 
@@ -28,18 +30,23 @@
         icon: '{{ $icon }}',
         name: '{{ $name }}',
         id: '{{ $id }}',
-        layout: '{{ $layout }}',
+        grid: {{ $grid ? '\''.$grid.'\'' :'false' }},
         allowClear: {{ $allowClear ? 'true':'false' }},
         placeholder: '{{ addslashes($placeholder) }}',
         width: {{ $width ? '\''.$width.'\'' :'false' }},
         search: {{ $search ? 'true':'false' }},
+        height:{{ $height ? '\''.$height.'\'' :'false' }},
         value:  @if($attributes->whereStartsWith('wire:model')->first())  @entangle($attributes->wire('model'))  @else  {{ $value?('\''.$value.'\'') : 'null' }} @endif 
     })"
 
-    @click.away="closeDropdown()" 
-    @keydown.escape="closeDropdown()"
+  
 >   
-    <span class="dropdown {{$width=='fit-content'?'d-inline-block':''}}" :class="outerClass + (!width?' d-block': '')" :style="(width && width!='fit-content')? width: '' " >
+    <span class="dropdown {{$width=='fit-content'?'d-inline-block':'d-block'}}" 
+        :class="outerClass + (!width?' d-block': '')" 
+        :style="(width && width!='fit-content')? ('width:'+width): '' "
+        @click.away="closeDropdown()" 
+        @keydown.escape="closeDropdown()"
+     >
 
         <button 
                 
@@ -74,7 +81,7 @@
         @endif
         
         <ul 
-            class="dropdown-menu layout-{{$layout}} "
+            class="dropdown-menu layout-{{$grid?'grid':'list'}} "
             :class="{'show':open}"
             x-cloak
             x-ref="dropdown"
@@ -100,7 +107,7 @@
                 <span>Loading...</span>
             </div>
 
-            <div  class="relative icons-container overflow-y-auto" x-show="!isLoading" style="{{ $height ? 'max-height:'.$height:'' }}" >
+            <div  class="relative icons-container overflow-y-auto" x-show="!isLoading" :style="('grid-template-columns: repeat('+grid.cols+', 1fr)') + ';'+ (height ? 'max-height:'+height : '') " >
 
                 <template x-for="(icon,index) in options" :key="index">
                     <li >
@@ -111,6 +118,7 @@
                         </a>
                     </li>
                 </template>
+                <div x-intersect="loadMore()" class="p-2 opacity-50 mt-2" :style="'grid-column: 1 / '+(grid.cols+1)+';'" x-show="!allLoaded"><small>Loading...</small></div>
             </div>
         </ul>
     </span>

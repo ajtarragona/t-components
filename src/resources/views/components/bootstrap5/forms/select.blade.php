@@ -1,7 +1,7 @@
 @props([
     'data' => [],
     'placeholder' => 'Select an option',
-    'limit' => 50,
+    'limit' => 20,
     'color' => 'default',
     'class' => '',
     'outerClass' => '',
@@ -14,6 +14,7 @@
     'emptyOptionsMessage' => 'No results.',
     'allowClear' => false,
     'selectedLabelLimit' => false,
+    'selectedLabelLimitText' => 'and :num more...',
     'search' => false,
     'inlineSearch' => false,
     'selected' => '',
@@ -29,7 +30,7 @@
     'termName'=>false,
     'limitName'=>null,
     'grouped'=>false,
-    
+    'lazyLoad' => false
    
 ])
 
@@ -53,10 +54,11 @@
             multiple: {{ isset($attributes['multiple']) ? 'true':'false' }},
             disabled: {{ isset($attributes['disabled']) ? 'true':'false' }},
             readonly: {{ isset($attributes['readonly']) ? 'true':'false' }},
-            limit: {{ $limit }},
+            limit: {{ (!$limit || isFalse($limit)) ? 'false':  $limit }},
             allowClear: {{ $allowClear ? 'true':'false' }},
             grouped: {{ $grouped ? 'true':'false' }},
             selectedLabelLimit: {{ $selectedLabelLimit ? $selectedLabelLimit:'false' }},
+            selectedLabelLimitText: '{{ addslashes($selectedLabelLimitText) }}',
             search: {{ $search ? 'true':'false' }},
             inlineSearch: {{ $inlineSearch ? 'true':'false' }},
             width: {{ $width ? '\''.$width.'\'' :'false' }},
@@ -67,7 +69,8 @@
             dataSrcMethod:   {{ $dataSrcMethod ? '\''.$dataSrcMethod.'\'' :'null' }},
             prefetch:    {{ isTrue($prefetch) ? 'true':'false' }},
             termName:   {{ $termName ? '\''.$termName.'\'' :'null' }},
-            limitName:   {{ $limitName ? '\''.$limitName.'\'' :'null' }}
+            limitName:   {{ $limitName ? '\''.$limitName.'\'' :'null' }},
+            lazyLoad : {{ $lazyLoad ? 'true':'false' }},
         })"
         
     
@@ -78,7 +81,9 @@
     >
         {{-- <span x-text="open"></span> --}}
 
-        <span class="dropdown {{$width=='fit-content'?'d-inline-block':''}}" :class="outerClass + (!width?' d-block': '')" :style="(width && width!='fit-content')? width: '' "
+        <span class="dropdown {{$width=='fit-content'?'d-inline-block':'d-block'}}" 
+            :class="outerClass + (!width?' d-block': '')" 
+            :style="(width && width!='fit-content')? ('width:'+width): '' "
             @click.away="closeSelect()" 
             @keydown.escape="closeSelect()"
         
@@ -150,17 +155,12 @@
                     />
                 </div>
 
-                <div  class="relative opacity-75 small px-3 p-2" x-show="isLoading" >
-                    <div class="spinner-border spinner-border-sm text-primary" role="status">
-                        <span class="visually-hidden" x-text="loadingMessage"></span>
-                      </div>
-                      <span x-text="loadingMessage"></span>
-                </div>
+               
 
-                <div  class="relative overflow-y-auto" x-show="!isLoading" style="{{ $height ? 'max-height:'.$height:'' }}" >
+                <div  class="relative overflow-y-auto"  :style="(height ? 'max-height:'+height : '') " >
                     
                     
-                    <div x-cloak x-show="Object.values(options).length === 0" class="opacity-75 small px-3 py-2" x-text="emptyOptionsMessage">Gragr</div>
+                    <div x-cloak x-show="!isLoading && Object.values(options).length === 0" class="opacity-75 small px-3 py-2" x-text="emptyOptionsMessage">Gragr</div>
 
                     @if($grouped)
                         
@@ -183,6 +183,15 @@
                            @include("t-components::components.".config('t-components.theme').".forms._select_option")
                         </template>
                     @endif
+
+                    {{-- <div  class="p-2 opacity-50 mt-2" x-show="lazyLoad && !allLoaded"><small>Loading More ...</small></div> --}}
+                    <div x-intersect="await loadMore()"  class="relative opacity-75 small px-3 p-2" x-show="isLoading || (lazyLoad && !allLoaded)" >
+                        <div class="spinner-border spinner-border-sm text-primary" role="status">
+                            <span class="visually-hidden" x-text="loadingMessage"></span>
+                          </div>
+                          <span x-text="loadingMessage"></span>
+                    </div>
+
                 </div>
             </ul>
             {{-- <span x-text="JSON.stringify(data)" x-show="dataSrc"></span> --}}

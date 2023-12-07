@@ -27613,6 +27613,17 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./src/resources/assets/js/bootstrap-icons.json":
+/*!******************************************************!*\
+  !*** ./src/resources/assets/js/bootstrap-icons.json ***!
+  \******************************************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706, 707, 708, 709, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070, 1071, 1072, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1086, 1087, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1099, 1100, 1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112, 1113, 1114, 1115, 1116, 1117, 1118, 1119, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1131, 1132, 1133, 1134, 1135, 1136, 1137, 1138, 1139, 1140, 1141, 1142, 1143, 1144, 1145, 1146, 1147, 1148, 1149, 1150, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247, 1248, 1249, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272, 1273, 1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293, 1294, 1295, 1296, 1297, 1298, 1299, 1300, 1301, 1302, 1303, 1304, 1305, 1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317, 1318, 1319, 1320, 1321, 1322, 1323, 1324, 1325, 1326, 1327, 1328, 1329, 1330, 1331, 1332, 1333, 1334, 1335, 1336, 1337, 1338, 1339, 1340, 1341, 1342, 1343, 1344, 1345, 1346, 1347, 1348, 1349, 1350, 1351, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361, 1362, 1363, 1364, 1365, 1366, 1367, 1368, 1369, 1370, 1371, 1372, 1373, 1374, 1375, 1376, 1377, 1378, 1379, 1380, 1381, 1382, 1383, 1384, 1385, 1386, 1387, 1388, 1389, 1390, 1391, 1392, 1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403, 1404, 1405, 1406, 1407, 1408, 1409, 1410, 1411, 1412, 1413, 1414, 1415, 1416, 1417, 1418, 1419, 1420, 1421, 1422, 1423, 1424, 1425, 1426, 1427, 1428, 1429, 1430, 1431, 1432, 1433, 1434, 1435, 1436, 1437, 1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449, 1450, 1451, 1452, 1453, 1454, 1455, 1456, 1457, 1458, 1459, 1460, 1461, 1462, 1463, 1464, 1465, 1466, 1467, 1468, 1469, 1470, 1471, 1472, 1473, 1474, 1475, 1476, 1477, 1478, 1479, 1480, 1481, 1482, 1483, 1484, 1485, 1486, 1487, 1488, 1489, 1490, 1491, 1492, 1493, 1494, 1495, 1496, 1497, 1498, 1499, 1500, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508, 1509, 1510, 1511, 1512, 1513, 1514, 1515, 1516, 1517, 1518, 1519, 1520, 1521, 1522, 1523, 1524, 1525, 1526, 1527, 1528, 1529, 1530, 1531, 1532, 1533, 1534, 1535, 1536, 1537, 1538, 1539, 1540, 1541, 1542, 1543, 1544, 1545, 1546, 1547, 1548, 1549, 1550, 1551, 1552, 1553, 1554, 1555, 1556, 1557, 1558, 1559, 1560, 1561, 1562, 1563, 1564, 1565, 1566, 1567, 1568, 1569, 1570, 1571, 1572, 1573, 1574, 1575, 1576, 1577, 1578, 1579, 1580, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1594, 1595, 1596, 1597, 1598, 1599, 1600, 1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612, 1613, 1614, 1615, 1616, 1617, 1618, 1619, 1620, 1621, 1622, 1623, 1624, 1625, 1626, 1627, 1628, 1629, 1630, 1631, 1632, 1633, 1634, 1635, 1636, 1637, 1638, 1639, 1640, 1641, 1642, 1643, 1644, 1645, 1646, 1647, 1648, 1649, 1650, 1651, 1652, 1653, 1654, 1655, 1656, 1657, 1658, 1659, 1660, 1661, 1662, 1663, 1664, 1665, 1666, 1667, 1668, 1669, 1670, 1671, 1672, 1673, 1674, 1675, 1676, 1677, 1678, 1679, 1680, 1681, 1682, 1683, 1684, 1685, 1686, 1687, 1688, 1689, 1690, 1691, 1692, 1693, 1694, 1695, 1696, 1697, 1698, 1699, 1700, 1701, 1702, 1703, 1704, 1705, 1706, 1707, 1708, 1709, 1710, 1711, 1712, 1713, 1714, 1715, 1716, 1717, 1718, 1719, 1720, 1721, 1722, 1723, 1724, 1725, 1726, 1727, 1728, 1729, 1730, 1731, 1732, 1733, 1734, 1735, 1736, 1737, 1738, 1739, 1740, 1741, 1742, 1743, 1744, 1745, 1746, 1747, 1748, 1749, 1750, 1751, 1752, 1753, 1754, 1755, 1756, 1757, 1758, 1759, 1760, 1761, 1762, 1763, 1764, 1765, 1766, 1767, 1768, 1769, 1770, 1771, 1772, 1773, 1774, 1775, 1776, 1777, 1778, 1779, 1780, 1781, 1782, 1783, 1784, 1785, 1786, 1787, 1788, 1789, 1790, 1791, 1792, 1793, 1794, 1795, 1796, 1797, 1798, 1799, 1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808, 1809, 1810, 1811, 1812, 1813, 1814, 1815, 1816, 1817, 1818, 1819, 1820, 1821, 1822, 1823, 1824, 1825, 1826, 1827, 1828, 1829, 1830, 1831, 1832, 1833, 1834, 1835, 1836, 1837, 1838, 1839, 1840, 1841, 1842, 1843, 1844, 1845, 1846, 1847, 1848, 1849, 1850, 1851, 1852, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1862, 1863, 1864, 1865, 1866, 1867, 1868, 1869, 1870, 1871, 1872, 1873, 1874, 1875, 1876, 1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884, 1885, 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894, 1895, 1896, 1897, 1898, 1899, 1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[\"bi-0-circle\",\"bi-0-circle-fill\",\"bi-0-square\",\"bi-0-square-fill\",\"bi-1-circle\",\"bi-1-circle-fill\",\"bi-1-square\",\"bi-1-square-fill\",\"bi-123\",\"bi-2-circle\",\"bi-2-circle-fill\",\"bi-2-square\",\"bi-2-square-fill\",\"bi-3-circle\",\"bi-3-circle-fill\",\"bi-3-square\",\"bi-3-square-fill\",\"bi-4-circle\",\"bi-4-circle-fill\",\"bi-4-square\",\"bi-4-square-fill\",\"bi-5-circle\",\"bi-5-circle-fill\",\"bi-5-square\",\"bi-5-square-fill\",\"bi-6-circle\",\"bi-6-circle-fill\",\"bi-6-square\",\"bi-6-square-fill\",\"bi-7-circle\",\"bi-7-circle-fill\",\"bi-7-square\",\"bi-7-square-fill\",\"bi-8-circle\",\"bi-8-circle-fill\",\"bi-8-square\",\"bi-8-square-fill\",\"bi-9-circle\",\"bi-9-circle-fill\",\"bi-9-square\",\"bi-9-square-fill\",\"bi-activity\",\"bi-airplane\",\"bi-airplane-engines\",\"bi-airplane-engines-fill\",\"bi-airplane-fill\",\"bi-alarm\",\"bi-alarm-fill\",\"bi-alexa\",\"bi-align-bottom\",\"bi-align-center\",\"bi-align-end\",\"bi-align-middle\",\"bi-align-start\",\"bi-align-top\",\"bi-alipay\",\"bi-alphabet\",\"bi-alphabet-uppercase\",\"bi-alt\",\"bi-amazon\",\"bi-amd\",\"bi-android\",\"bi-android2\",\"bi-app\",\"bi-app-indicator\",\"bi-apple\",\"bi-archive\",\"bi-archive-fill\",\"bi-arrow-90deg-down\",\"bi-arrow-90deg-left\",\"bi-arrow-90deg-right\",\"bi-arrow-90deg-up\",\"bi-arrow-bar-down\",\"bi-arrow-bar-left\",\"bi-arrow-bar-right\",\"bi-arrow-bar-up\",\"bi-arrow-clockwise\",\"bi-arrow-counterclockwise\",\"bi-arrow-down\",\"bi-arrow-down-circle\",\"bi-arrow-down-circle-fill\",\"bi-arrow-down-left-circle\",\"bi-arrow-down-left-circle-fill\",\"bi-arrow-down-left-square\",\"bi-arrow-down-left-square-fill\",\"bi-arrow-down-right-circle\",\"bi-arrow-down-right-circle-fill\",\"bi-arrow-down-right-square\",\"bi-arrow-down-right-square-fill\",\"bi-arrow-down-square\",\"bi-arrow-down-square-fill\",\"bi-arrow-down-left\",\"bi-arrow-down-right\",\"bi-arrow-down-short\",\"bi-arrow-down-up\",\"bi-arrow-left\",\"bi-arrow-left-circle\",\"bi-arrow-left-circle-fill\",\"bi-arrow-left-square\",\"bi-arrow-left-square-fill\",\"bi-arrow-left-right\",\"bi-arrow-left-short\",\"bi-arrow-repeat\",\"bi-arrow-return-left\",\"bi-arrow-return-right\",\"bi-arrow-right\",\"bi-arrow-right-circle\",\"bi-arrow-right-circle-fill\",\"bi-arrow-right-square\",\"bi-arrow-right-square-fill\",\"bi-arrow-right-short\",\"bi-arrow-through-heart\",\"bi-arrow-through-heart-fill\",\"bi-arrow-up\",\"bi-arrow-up-circle\",\"bi-arrow-up-circle-fill\",\"bi-arrow-up-left-circle\",\"bi-arrow-up-left-circle-fill\",\"bi-arrow-up-left-square\",\"bi-arrow-up-left-square-fill\",\"bi-arrow-up-right-circle\",\"bi-arrow-up-right-circle-fill\",\"bi-arrow-up-right-square\",\"bi-arrow-up-right-square-fill\",\"bi-arrow-up-square\",\"bi-arrow-up-square-fill\",\"bi-arrow-up-left\",\"bi-arrow-up-right\",\"bi-arrow-up-short\",\"bi-arrows\",\"bi-arrows-angle-contract\",\"bi-arrows-angle-expand\",\"bi-arrows-collapse\",\"bi-arrows-collapse-vertical\",\"bi-arrows-expand\",\"bi-arrows-expand-vertical\",\"bi-arrows-fullscreen\",\"bi-arrows-move\",\"bi-arrows-vertical\",\"bi-aspect-ratio\",\"bi-aspect-ratio-fill\",\"bi-asterisk\",\"bi-at\",\"bi-award\",\"bi-award-fill\",\"bi-back\",\"bi-backpack\",\"bi-backpack-fill\",\"bi-backpack2\",\"bi-backpack2-fill\",\"bi-backpack3\",\"bi-backpack3-fill\",\"bi-backpack4\",\"bi-backpack4-fill\",\"bi-backspace\",\"bi-backspace-fill\",\"bi-backspace-reverse\",\"bi-backspace-reverse-fill\",\"bi-badge-3d\",\"bi-badge-3d-fill\",\"bi-badge-4k\",\"bi-badge-4k-fill\",\"bi-badge-8k\",\"bi-badge-8k-fill\",\"bi-badge-ad\",\"bi-badge-ad-fill\",\"bi-badge-ar\",\"bi-badge-ar-fill\",\"bi-badge-cc\",\"bi-badge-cc-fill\",\"bi-badge-hd\",\"bi-badge-hd-fill\",\"bi-badge-sd\",\"bi-badge-sd-fill\",\"bi-badge-tm\",\"bi-badge-tm-fill\",\"bi-badge-vo\",\"bi-badge-vo-fill\",\"bi-badge-vr\",\"bi-badge-vr-fill\",\"bi-badge-wc\",\"bi-badge-wc-fill\",\"bi-bag\",\"bi-bag-check\",\"bi-bag-check-fill\",\"bi-bag-dash\",\"bi-bag-dash-fill\",\"bi-bag-fill\",\"bi-bag-heart\",\"bi-bag-heart-fill\",\"bi-bag-plus\",\"bi-bag-plus-fill\",\"bi-bag-x\",\"bi-bag-x-fill\",\"bi-balloon\",\"bi-balloon-fill\",\"bi-balloon-heart\",\"bi-balloon-heart-fill\",\"bi-ban\",\"bi-ban-fill\",\"bi-bandaid\",\"bi-bandaid-fill\",\"bi-bank\",\"bi-bank2\",\"bi-bar-chart\",\"bi-bar-chart-fill\",\"bi-bar-chart-line\",\"bi-bar-chart-line-fill\",\"bi-bar-chart-steps\",\"bi-basket\",\"bi-basket-fill\",\"bi-basket2\",\"bi-basket2-fill\",\"bi-basket3\",\"bi-basket3-fill\",\"bi-battery\",\"bi-battery-charging\",\"bi-battery-full\",\"bi-battery-half\",\"bi-behance\",\"bi-bell\",\"bi-bell-fill\",\"bi-bell-slash\",\"bi-bell-slash-fill\",\"bi-bezier\",\"bi-bezier2\",\"bi-bicycle\",\"bi-bing\",\"bi-binoculars\",\"bi-binoculars-fill\",\"bi-blockquote-left\",\"bi-blockquote-right\",\"bi-bluetooth\",\"bi-body-text\",\"bi-book\",\"bi-book-fill\",\"bi-book-half\",\"bi-bookmark\",\"bi-bookmark-check\",\"bi-bookmark-check-fill\",\"bi-bookmark-dash\",\"bi-bookmark-dash-fill\",\"bi-bookmark-fill\",\"bi-bookmark-heart\",\"bi-bookmark-heart-fill\",\"bi-bookmark-plus\",\"bi-bookmark-plus-fill\",\"bi-bookmark-star\",\"bi-bookmark-star-fill\",\"bi-bookmark-x\",\"bi-bookmark-x-fill\",\"bi-bookmarks\",\"bi-bookmarks-fill\",\"bi-bookshelf\",\"bi-boombox\",\"bi-boombox-fill\",\"bi-bootstrap\",\"bi-bootstrap-fill\",\"bi-bootstrap-reboot\",\"bi-border\",\"bi-border-all\",\"bi-border-bottom\",\"bi-border-center\",\"bi-border-inner\",\"bi-border-left\",\"bi-border-middle\",\"bi-border-outer\",\"bi-border-right\",\"bi-border-style\",\"bi-border-top\",\"bi-border-width\",\"bi-bounding-box\",\"bi-bounding-box-circles\",\"bi-box\",\"bi-box-arrow-down-left\",\"bi-box-arrow-down-right\",\"bi-box-arrow-down\",\"bi-box-arrow-in-down\",\"bi-box-arrow-in-down-left\",\"bi-box-arrow-in-down-right\",\"bi-box-arrow-in-left\",\"bi-box-arrow-in-right\",\"bi-box-arrow-in-up\",\"bi-box-arrow-in-up-left\",\"bi-box-arrow-in-up-right\",\"bi-box-arrow-left\",\"bi-box-arrow-right\",\"bi-box-arrow-up\",\"bi-box-arrow-up-left\",\"bi-box-arrow-up-right\",\"bi-box-fill\",\"bi-box-seam\",\"bi-box-seam-fill\",\"bi-box2\",\"bi-box2-fill\",\"bi-box2-heart\",\"bi-box2-heart-fill\",\"bi-boxes\",\"bi-braces\",\"bi-braces-asterisk\",\"bi-bricks\",\"bi-briefcase\",\"bi-briefcase-fill\",\"bi-brightness-alt-high\",\"bi-brightness-alt-high-fill\",\"bi-brightness-alt-low\",\"bi-brightness-alt-low-fill\",\"bi-brightness-high\",\"bi-brightness-high-fill\",\"bi-brightness-low\",\"bi-brightness-low-fill\",\"bi-brilliance\",\"bi-broadcast\",\"bi-broadcast-pin\",\"bi-browser-chrome\",\"bi-browser-edge\",\"bi-browser-firefox\",\"bi-browser-safari\",\"bi-brush\",\"bi-brush-fill\",\"bi-bucket\",\"bi-bucket-fill\",\"bi-bug\",\"bi-bug-fill\",\"bi-building\",\"bi-building-add\",\"bi-building-check\",\"bi-building-dash\",\"bi-building-down\",\"bi-building-exclamation\",\"bi-building-fill\",\"bi-building-fill-add\",\"bi-building-fill-check\",\"bi-building-fill-dash\",\"bi-building-fill-down\",\"bi-building-fill-exclamation\",\"bi-building-fill-gear\",\"bi-building-fill-lock\",\"bi-building-fill-slash\",\"bi-building-fill-up\",\"bi-building-fill-x\",\"bi-building-gear\",\"bi-building-lock\",\"bi-building-slash\",\"bi-building-up\",\"bi-building-x\",\"bi-buildings\",\"bi-buildings-fill\",\"bi-bullseye\",\"bi-bus-front\",\"bi-bus-front-fill\",\"bi-c-circle\",\"bi-c-circle-fill\",\"bi-c-square\",\"bi-c-square-fill\",\"bi-cake\",\"bi-cake-fill\",\"bi-cake2\",\"bi-cake2-fill\",\"bi-calculator\",\"bi-calculator-fill\",\"bi-calendar\",\"bi-calendar-check\",\"bi-calendar-check-fill\",\"bi-calendar-date\",\"bi-calendar-date-fill\",\"bi-calendar-day\",\"bi-calendar-day-fill\",\"bi-calendar-event\",\"bi-calendar-event-fill\",\"bi-calendar-fill\",\"bi-calendar-heart\",\"bi-calendar-heart-fill\",\"bi-calendar-minus\",\"bi-calendar-minus-fill\",\"bi-calendar-month\",\"bi-calendar-month-fill\",\"bi-calendar-plus\",\"bi-calendar-plus-fill\",\"bi-calendar-range\",\"bi-calendar-range-fill\",\"bi-calendar-week\",\"bi-calendar-week-fill\",\"bi-calendar-x\",\"bi-calendar-x-fill\",\"bi-calendar2\",\"bi-calendar2-check\",\"bi-calendar2-check-fill\",\"bi-calendar2-date\",\"bi-calendar2-date-fill\",\"bi-calendar2-day\",\"bi-calendar2-day-fill\",\"bi-calendar2-event\",\"bi-calendar2-event-fill\",\"bi-calendar2-fill\",\"bi-calendar2-heart\",\"bi-calendar2-heart-fill\",\"bi-calendar2-minus\",\"bi-calendar2-minus-fill\",\"bi-calendar2-month\",\"bi-calendar2-month-fill\",\"bi-calendar2-plus\",\"bi-calendar2-plus-fill\",\"bi-calendar2-range\",\"bi-calendar2-range-fill\",\"bi-calendar2-week\",\"bi-calendar2-week-fill\",\"bi-calendar2-x\",\"bi-calendar2-x-fill\",\"bi-calendar3\",\"bi-calendar3-event\",\"bi-calendar3-event-fill\",\"bi-calendar3-fill\",\"bi-calendar3-range\",\"bi-calendar3-range-fill\",\"bi-calendar3-week\",\"bi-calendar3-week-fill\",\"bi-calendar4\",\"bi-calendar4-event\",\"bi-calendar4-range\",\"bi-calendar4-week\",\"bi-camera\",\"bi-camera2\",\"bi-camera-fill\",\"bi-camera-reels\",\"bi-camera-reels-fill\",\"bi-camera-video\",\"bi-camera-video-fill\",\"bi-camera-video-off\",\"bi-camera-video-off-fill\",\"bi-capslock\",\"bi-capslock-fill\",\"bi-capsule\",\"bi-capsule-pill\",\"bi-car-front\",\"bi-car-front-fill\",\"bi-card-checklist\",\"bi-card-heading\",\"bi-card-image\",\"bi-card-list\",\"bi-card-text\",\"bi-caret-down\",\"bi-caret-down-fill\",\"bi-caret-down-square\",\"bi-caret-down-square-fill\",\"bi-caret-left\",\"bi-caret-left-fill\",\"bi-caret-left-square\",\"bi-caret-left-square-fill\",\"bi-caret-right\",\"bi-caret-right-fill\",\"bi-caret-right-square\",\"bi-caret-right-square-fill\",\"bi-caret-up\",\"bi-caret-up-fill\",\"bi-caret-up-square\",\"bi-caret-up-square-fill\",\"bi-cart\",\"bi-cart-check\",\"bi-cart-check-fill\",\"bi-cart-dash\",\"bi-cart-dash-fill\",\"bi-cart-fill\",\"bi-cart-plus\",\"bi-cart-plus-fill\",\"bi-cart-x\",\"bi-cart-x-fill\",\"bi-cart2\",\"bi-cart3\",\"bi-cart4\",\"bi-cash\",\"bi-cash-coin\",\"bi-cash-stack\",\"bi-cassette\",\"bi-cassette-fill\",\"bi-cast\",\"bi-cc-circle\",\"bi-cc-circle-fill\",\"bi-cc-square\",\"bi-cc-square-fill\",\"bi-chat\",\"bi-chat-dots\",\"bi-chat-dots-fill\",\"bi-chat-fill\",\"bi-chat-heart\",\"bi-chat-heart-fill\",\"bi-chat-left\",\"bi-chat-left-dots\",\"bi-chat-left-dots-fill\",\"bi-chat-left-fill\",\"bi-chat-left-heart\",\"bi-chat-left-heart-fill\",\"bi-chat-left-quote\",\"bi-chat-left-quote-fill\",\"bi-chat-left-text\",\"bi-chat-left-text-fill\",\"bi-chat-quote\",\"bi-chat-quote-fill\",\"bi-chat-right\",\"bi-chat-right-dots\",\"bi-chat-right-dots-fill\",\"bi-chat-right-fill\",\"bi-chat-right-heart\",\"bi-chat-right-heart-fill\",\"bi-chat-right-quote\",\"bi-chat-right-quote-fill\",\"bi-chat-right-text\",\"bi-chat-right-text-fill\",\"bi-chat-square\",\"bi-chat-square-dots\",\"bi-chat-square-dots-fill\",\"bi-chat-square-fill\",\"bi-chat-square-heart\",\"bi-chat-square-heart-fill\",\"bi-chat-square-quote\",\"bi-chat-square-quote-fill\",\"bi-chat-square-text\",\"bi-chat-square-text-fill\",\"bi-chat-text\",\"bi-chat-text-fill\",\"bi-check\",\"bi-check-all\",\"bi-check-circle\",\"bi-check-circle-fill\",\"bi-check-lg\",\"bi-check-square\",\"bi-check-square-fill\",\"bi-check2\",\"bi-check2-all\",\"bi-check2-circle\",\"bi-check2-square\",\"bi-chevron-bar-contract\",\"bi-chevron-bar-down\",\"bi-chevron-bar-expand\",\"bi-chevron-bar-left\",\"bi-chevron-bar-right\",\"bi-chevron-bar-up\",\"bi-chevron-compact-down\",\"bi-chevron-compact-left\",\"bi-chevron-compact-right\",\"bi-chevron-compact-up\",\"bi-chevron-contract\",\"bi-chevron-double-down\",\"bi-chevron-double-left\",\"bi-chevron-double-right\",\"bi-chevron-double-up\",\"bi-chevron-down\",\"bi-chevron-expand\",\"bi-chevron-left\",\"bi-chevron-right\",\"bi-chevron-up\",\"bi-circle\",\"bi-circle-fill\",\"bi-circle-half\",\"bi-slash-circle\",\"bi-circle-square\",\"bi-clipboard\",\"bi-clipboard-check\",\"bi-clipboard-check-fill\",\"bi-clipboard-data\",\"bi-clipboard-data-fill\",\"bi-clipboard-fill\",\"bi-clipboard-heart\",\"bi-clipboard-heart-fill\",\"bi-clipboard-minus\",\"bi-clipboard-minus-fill\",\"bi-clipboard-plus\",\"bi-clipboard-plus-fill\",\"bi-clipboard-pulse\",\"bi-clipboard-x\",\"bi-clipboard-x-fill\",\"bi-clipboard2\",\"bi-clipboard2-check\",\"bi-clipboard2-check-fill\",\"bi-clipboard2-data\",\"bi-clipboard2-data-fill\",\"bi-clipboard2-fill\",\"bi-clipboard2-heart\",\"bi-clipboard2-heart-fill\",\"bi-clipboard2-minus\",\"bi-clipboard2-minus-fill\",\"bi-clipboard2-plus\",\"bi-clipboard2-plus-fill\",\"bi-clipboard2-pulse\",\"bi-clipboard2-pulse-fill\",\"bi-clipboard2-x\",\"bi-clipboard2-x-fill\",\"bi-clock\",\"bi-clock-fill\",\"bi-clock-history\",\"bi-cloud\",\"bi-cloud-arrow-down\",\"bi-cloud-arrow-down-fill\",\"bi-cloud-arrow-up\",\"bi-cloud-arrow-up-fill\",\"bi-cloud-check\",\"bi-cloud-check-fill\",\"bi-cloud-download\",\"bi-cloud-download-fill\",\"bi-cloud-drizzle\",\"bi-cloud-drizzle-fill\",\"bi-cloud-fill\",\"bi-cloud-fog\",\"bi-cloud-fog-fill\",\"bi-cloud-fog2\",\"bi-cloud-fog2-fill\",\"bi-cloud-hail\",\"bi-cloud-hail-fill\",\"bi-cloud-haze\",\"bi-cloud-haze-fill\",\"bi-cloud-haze2\",\"bi-cloud-haze2-fill\",\"bi-cloud-lightning\",\"bi-cloud-lightning-fill\",\"bi-cloud-lightning-rain\",\"bi-cloud-lightning-rain-fill\",\"bi-cloud-minus\",\"bi-cloud-minus-fill\",\"bi-cloud-moon\",\"bi-cloud-moon-fill\",\"bi-cloud-plus\",\"bi-cloud-plus-fill\",\"bi-cloud-rain\",\"bi-cloud-rain-fill\",\"bi-cloud-rain-heavy\",\"bi-cloud-rain-heavy-fill\",\"bi-cloud-slash\",\"bi-cloud-slash-fill\",\"bi-cloud-sleet\",\"bi-cloud-sleet-fill\",\"bi-cloud-snow\",\"bi-cloud-snow-fill\",\"bi-cloud-sun\",\"bi-cloud-sun-fill\",\"bi-cloud-upload\",\"bi-cloud-upload-fill\",\"bi-clouds\",\"bi-clouds-fill\",\"bi-cloudy\",\"bi-cloudy-fill\",\"bi-code\",\"bi-code-slash\",\"bi-code-square\",\"bi-coin\",\"bi-collection\",\"bi-collection-fill\",\"bi-collection-play\",\"bi-collection-play-fill\",\"bi-columns\",\"bi-columns-gap\",\"bi-command\",\"bi-compass\",\"bi-compass-fill\",\"bi-cone\",\"bi-cone-striped\",\"bi-controller\",\"bi-cookie\",\"bi-copy\",\"bi-cpu\",\"bi-cpu-fill\",\"bi-credit-card\",\"bi-credit-card-2-back\",\"bi-credit-card-2-back-fill\",\"bi-credit-card-2-front\",\"bi-credit-card-2-front-fill\",\"bi-credit-card-fill\",\"bi-crop\",\"bi-crosshair\",\"bi-crosshair2\",\"bi-cup\",\"bi-cup-fill\",\"bi-cup-hot\",\"bi-cup-hot-fill\",\"bi-cup-straw\",\"bi-currency-bitcoin\",\"bi-currency-dollar\",\"bi-currency-euro\",\"bi-currency-exchange\",\"bi-currency-pound\",\"bi-currency-rupee\",\"bi-currency-yen\",\"bi-cursor\",\"bi-cursor-fill\",\"bi-cursor-text\",\"bi-dash\",\"bi-dash-circle\",\"bi-dash-circle-dotted\",\"bi-dash-circle-fill\",\"bi-dash-lg\",\"bi-dash-square\",\"bi-dash-square-dotted\",\"bi-dash-square-fill\",\"bi-database\",\"bi-database-add\",\"bi-database-check\",\"bi-database-dash\",\"bi-database-down\",\"bi-database-exclamation\",\"bi-database-fill\",\"bi-database-fill-add\",\"bi-database-fill-check\",\"bi-database-fill-dash\",\"bi-database-fill-down\",\"bi-database-fill-exclamation\",\"bi-database-fill-gear\",\"bi-database-fill-lock\",\"bi-database-fill-slash\",\"bi-database-fill-up\",\"bi-database-fill-x\",\"bi-database-gear\",\"bi-database-lock\",\"bi-database-slash\",\"bi-database-up\",\"bi-database-x\",\"bi-device-hdd\",\"bi-device-hdd-fill\",\"bi-device-ssd\",\"bi-device-ssd-fill\",\"bi-diagram-2\",\"bi-diagram-2-fill\",\"bi-diagram-3\",\"bi-diagram-3-fill\",\"bi-diamond\",\"bi-diamond-fill\",\"bi-diamond-half\",\"bi-dice-1\",\"bi-dice-1-fill\",\"bi-dice-2\",\"bi-dice-2-fill\",\"bi-dice-3\",\"bi-dice-3-fill\",\"bi-dice-4\",\"bi-dice-4-fill\",\"bi-dice-5\",\"bi-dice-5-fill\",\"bi-dice-6\",\"bi-dice-6-fill\",\"bi-disc\",\"bi-disc-fill\",\"bi-discord\",\"bi-display\",\"bi-display-fill\",\"bi-displayport\",\"bi-displayport-fill\",\"bi-distribute-horizontal\",\"bi-distribute-vertical\",\"bi-door-closed\",\"bi-door-closed-fill\",\"bi-door-open\",\"bi-door-open-fill\",\"bi-dot\",\"bi-download\",\"bi-dpad\",\"bi-dpad-fill\",\"bi-dribbble\",\"bi-dropbox\",\"bi-droplet\",\"bi-droplet-fill\",\"bi-droplet-half\",\"bi-duffle\",\"bi-duffle-fill\",\"bi-ear\",\"bi-ear-fill\",\"bi-earbuds\",\"bi-easel\",\"bi-easel-fill\",\"bi-easel2\",\"bi-easel2-fill\",\"bi-easel3\",\"bi-easel3-fill\",\"bi-egg\",\"bi-egg-fill\",\"bi-egg-fried\",\"bi-eject\",\"bi-eject-fill\",\"bi-emoji-angry\",\"bi-emoji-angry-fill\",\"bi-emoji-astonished\",\"bi-emoji-astonished-fill\",\"bi-emoji-dizzy\",\"bi-emoji-dizzy-fill\",\"bi-emoji-expressionless\",\"bi-emoji-expressionless-fill\",\"bi-emoji-frown\",\"bi-emoji-frown-fill\",\"bi-emoji-grimace\",\"bi-emoji-grimace-fill\",\"bi-emoji-grin\",\"bi-emoji-grin-fill\",\"bi-emoji-heart-eyes\",\"bi-emoji-heart-eyes-fill\",\"bi-emoji-kiss\",\"bi-emoji-kiss-fill\",\"bi-emoji-laughing\",\"bi-emoji-laughing-fill\",\"bi-emoji-neutral\",\"bi-emoji-neutral-fill\",\"bi-emoji-smile\",\"bi-emoji-smile-fill\",\"bi-emoji-smile-upside-down\",\"bi-emoji-smile-upside-down-fill\",\"bi-emoji-sunglasses\",\"bi-emoji-sunglasses-fill\",\"bi-emoji-surprise\",\"bi-emoji-surprise-fill\",\"bi-emoji-tear\",\"bi-emoji-tear-fill\",\"bi-emoji-wink\",\"bi-emoji-wink-fill\",\"bi-envelope\",\"bi-envelope-arrow-down\",\"bi-envelope-arrow-down-fill\",\"bi-envelope-arrow-up\",\"bi-envelope-arrow-up-fill\",\"bi-envelope-at\",\"bi-envelope-at-fill\",\"bi-envelope-check\",\"bi-envelope-check-fill\",\"bi-envelope-dash\",\"bi-envelope-dash-fill\",\"bi-envelope-exclamation\",\"bi-envelope-exclamation-fill\",\"bi-envelope-fill\",\"bi-envelope-heart\",\"bi-envelope-heart-fill\",\"bi-envelope-open\",\"bi-envelope-open-fill\",\"bi-envelope-open-heart\",\"bi-envelope-open-heart-fill\",\"bi-envelope-paper\",\"bi-envelope-paper-fill\",\"bi-envelope-paper-heart\",\"bi-envelope-paper-heart-fill\",\"bi-envelope-plus\",\"bi-envelope-plus-fill\",\"bi-envelope-slash\",\"bi-envelope-slash-fill\",\"bi-envelope-x\",\"bi-envelope-x-fill\",\"bi-eraser\",\"bi-eraser-fill\",\"bi-escape\",\"bi-ethernet\",\"bi-ev-front\",\"bi-ev-front-fill\",\"bi-ev-station\",\"bi-ev-station-fill\",\"bi-exclamation\",\"bi-exclamation-circle\",\"bi-exclamation-circle-fill\",\"bi-exclamation-diamond\",\"bi-exclamation-diamond-fill\",\"bi-exclamation-lg\",\"bi-exclamation-octagon\",\"bi-exclamation-octagon-fill\",\"bi-exclamation-square\",\"bi-exclamation-square-fill\",\"bi-exclamation-triangle\",\"bi-exclamation-triangle-fill\",\"bi-exclude\",\"bi-explicit\",\"bi-explicit-fill\",\"bi-exposure\",\"bi-eye\",\"bi-eye-fill\",\"bi-eye-slash\",\"bi-eye-slash-fill\",\"bi-eyedropper\",\"bi-eyeglasses\",\"bi-facebook\",\"bi-fan\",\"bi-fast-forward\",\"bi-fast-forward-btn\",\"bi-fast-forward-btn-fill\",\"bi-fast-forward-circle\",\"bi-fast-forward-circle-fill\",\"bi-fast-forward-fill\",\"bi-feather\",\"bi-feather2\",\"bi-file\",\"bi-file-arrow-down\",\"bi-file-arrow-down-fill\",\"bi-file-arrow-up\",\"bi-file-arrow-up-fill\",\"bi-file-bar-graph\",\"bi-file-bar-graph-fill\",\"bi-file-binary\",\"bi-file-binary-fill\",\"bi-file-break\",\"bi-file-break-fill\",\"bi-file-check\",\"bi-file-check-fill\",\"bi-file-code\",\"bi-file-code-fill\",\"bi-file-diff\",\"bi-file-diff-fill\",\"bi-file-earmark\",\"bi-file-earmark-arrow-down\",\"bi-file-earmark-arrow-down-fill\",\"bi-file-earmark-arrow-up\",\"bi-file-earmark-arrow-up-fill\",\"bi-file-earmark-bar-graph\",\"bi-file-earmark-bar-graph-fill\",\"bi-file-earmark-binary\",\"bi-file-earmark-binary-fill\",\"bi-file-earmark-break\",\"bi-file-earmark-break-fill\",\"bi-file-earmark-check\",\"bi-file-earmark-check-fill\",\"bi-file-earmark-code\",\"bi-file-earmark-code-fill\",\"bi-file-earmark-diff\",\"bi-file-earmark-diff-fill\",\"bi-file-earmark-easel\",\"bi-file-earmark-easel-fill\",\"bi-file-earmark-excel\",\"bi-file-earmark-excel-fill\",\"bi-file-earmark-fill\",\"bi-file-earmark-font\",\"bi-file-earmark-font-fill\",\"bi-file-earmark-image\",\"bi-file-earmark-image-fill\",\"bi-file-earmark-lock\",\"bi-file-earmark-lock-fill\",\"bi-file-earmark-lock2\",\"bi-file-earmark-lock2-fill\",\"bi-file-earmark-medical\",\"bi-file-earmark-medical-fill\",\"bi-file-earmark-minus\",\"bi-file-earmark-minus-fill\",\"bi-file-earmark-music\",\"bi-file-earmark-music-fill\",\"bi-file-earmark-pdf\",\"bi-file-earmark-pdf-fill\",\"bi-file-earmark-person\",\"bi-file-earmark-person-fill\",\"bi-file-earmark-play\",\"bi-file-earmark-play-fill\",\"bi-file-earmark-plus\",\"bi-file-earmark-plus-fill\",\"bi-file-earmark-post\",\"bi-file-earmark-post-fill\",\"bi-file-earmark-ppt\",\"bi-file-earmark-ppt-fill\",\"bi-file-earmark-richtext\",\"bi-file-earmark-richtext-fill\",\"bi-file-earmark-ruled\",\"bi-file-earmark-ruled-fill\",\"bi-file-earmark-slides\",\"bi-file-earmark-slides-fill\",\"bi-file-earmark-spreadsheet\",\"bi-file-earmark-spreadsheet-fill\",\"bi-file-earmark-text\",\"bi-file-earmark-text-fill\",\"bi-file-earmark-word\",\"bi-file-earmark-word-fill\",\"bi-file-earmark-x\",\"bi-file-earmark-x-fill\",\"bi-file-earmark-zip\",\"bi-file-earmark-zip-fill\",\"bi-file-easel\",\"bi-file-easel-fill\",\"bi-file-excel\",\"bi-file-excel-fill\",\"bi-file-fill\",\"bi-file-font\",\"bi-file-font-fill\",\"bi-file-image\",\"bi-file-image-fill\",\"bi-file-lock\",\"bi-file-lock-fill\",\"bi-file-lock2\",\"bi-file-lock2-fill\",\"bi-file-medical\",\"bi-file-medical-fill\",\"bi-file-minus\",\"bi-file-minus-fill\",\"bi-file-music\",\"bi-file-music-fill\",\"bi-file-pdf\",\"bi-file-pdf-fill\",\"bi-file-person\",\"bi-file-person-fill\",\"bi-file-play\",\"bi-file-play-fill\",\"bi-file-plus\",\"bi-file-plus-fill\",\"bi-file-post\",\"bi-file-post-fill\",\"bi-file-ppt\",\"bi-file-ppt-fill\",\"bi-file-richtext\",\"bi-file-richtext-fill\",\"bi-file-ruled\",\"bi-file-ruled-fill\",\"bi-file-slides\",\"bi-file-slides-fill\",\"bi-file-spreadsheet\",\"bi-file-spreadsheet-fill\",\"bi-file-text\",\"bi-file-text-fill\",\"bi-file-word\",\"bi-file-word-fill\",\"bi-file-x\",\"bi-file-x-fill\",\"bi-file-zip\",\"bi-file-zip-fill\",\"bi-files\",\"bi-files-alt\",\"bi-filetype-aac\",\"bi-filetype-ai\",\"bi-filetype-bmp\",\"bi-filetype-cs\",\"bi-filetype-css\",\"bi-filetype-csv\",\"bi-filetype-doc\",\"bi-filetype-docx\",\"bi-filetype-exe\",\"bi-filetype-gif\",\"bi-filetype-heic\",\"bi-filetype-html\",\"bi-filetype-java\",\"bi-filetype-jpg\",\"bi-filetype-js\",\"bi-filetype-json\",\"bi-filetype-jsx\",\"bi-filetype-key\",\"bi-filetype-m4p\",\"bi-filetype-md\",\"bi-filetype-mdx\",\"bi-filetype-mov\",\"bi-filetype-mp3\",\"bi-filetype-mp4\",\"bi-filetype-otf\",\"bi-filetype-pdf\",\"bi-filetype-php\",\"bi-filetype-png\",\"bi-filetype-ppt\",\"bi-filetype-pptx\",\"bi-filetype-psd\",\"bi-filetype-py\",\"bi-filetype-raw\",\"bi-filetype-rb\",\"bi-filetype-sass\",\"bi-filetype-scss\",\"bi-filetype-sh\",\"bi-filetype-sql\",\"bi-filetype-svg\",\"bi-filetype-tiff\",\"bi-filetype-tsx\",\"bi-filetype-ttf\",\"bi-filetype-txt\",\"bi-filetype-wav\",\"bi-filetype-woff\",\"bi-filetype-xls\",\"bi-filetype-xlsx\",\"bi-filetype-xml\",\"bi-filetype-yml\",\"bi-film\",\"bi-filter\",\"bi-filter-circle\",\"bi-filter-circle-fill\",\"bi-filter-left\",\"bi-filter-right\",\"bi-filter-square\",\"bi-filter-square-fill\",\"bi-fingerprint\",\"bi-fire\",\"bi-flag\",\"bi-flag-fill\",\"bi-floppy\",\"bi-floppy-fill\",\"bi-floppy2\",\"bi-floppy2-fill\",\"bi-flower1\",\"bi-flower2\",\"bi-flower3\",\"bi-folder\",\"bi-folder-check\",\"bi-folder-fill\",\"bi-folder-minus\",\"bi-folder-plus\",\"bi-folder-symlink\",\"bi-folder-symlink-fill\",\"bi-folder-x\",\"bi-folder2\",\"bi-folder2-open\",\"bi-fonts\",\"bi-forward\",\"bi-forward-fill\",\"bi-front\",\"bi-fuel-pump\",\"bi-fuel-pump-diesel\",\"bi-fuel-pump-diesel-fill\",\"bi-fuel-pump-fill\",\"bi-fullscreen\",\"bi-fullscreen-exit\",\"bi-funnel\",\"bi-funnel-fill\",\"bi-gear\",\"bi-gear-fill\",\"bi-gear-wide\",\"bi-gear-wide-connected\",\"bi-gem\",\"bi-gender-ambiguous\",\"bi-gender-female\",\"bi-gender-male\",\"bi-gender-neuter\",\"bi-gender-trans\",\"bi-geo\",\"bi-geo-alt\",\"bi-geo-alt-fill\",\"bi-geo-fill\",\"bi-gift\",\"bi-gift-fill\",\"bi-git\",\"bi-github\",\"bi-gitlab\",\"bi-globe\",\"bi-globe-americas\",\"bi-globe-asia-australia\",\"bi-globe-central-south-asia\",\"bi-globe-europe-africa\",\"bi-globe2\",\"bi-google\",\"bi-google-play\",\"bi-gpu-card\",\"bi-graph-down\",\"bi-graph-down-arrow\",\"bi-graph-up\",\"bi-graph-up-arrow\",\"bi-grid\",\"bi-grid-1x2\",\"bi-grid-1x2-fill\",\"bi-grid-3x2\",\"bi-grid-3x2-gap\",\"bi-grid-3x2-gap-fill\",\"bi-grid-3x3\",\"bi-grid-3x3-gap\",\"bi-grid-3x3-gap-fill\",\"bi-grid-fill\",\"bi-grip-horizontal\",\"bi-grip-vertical\",\"bi-h-circle\",\"bi-h-circle-fill\",\"bi-h-square\",\"bi-h-square-fill\",\"bi-hammer\",\"bi-hand-index\",\"bi-hand-index-fill\",\"bi-hand-index-thumb\",\"bi-hand-index-thumb-fill\",\"bi-hand-thumbs-down\",\"bi-hand-thumbs-down-fill\",\"bi-hand-thumbs-up\",\"bi-hand-thumbs-up-fill\",\"bi-handbag\",\"bi-handbag-fill\",\"bi-hash\",\"bi-hdd\",\"bi-hdd-fill\",\"bi-hdd-network\",\"bi-hdd-network-fill\",\"bi-hdd-rack\",\"bi-hdd-rack-fill\",\"bi-hdd-stack\",\"bi-hdd-stack-fill\",\"bi-hdmi\",\"bi-hdmi-fill\",\"bi-headphones\",\"bi-headset\",\"bi-headset-vr\",\"bi-heart\",\"bi-heart-arrow\",\"bi-heart-fill\",\"bi-heart-half\",\"bi-heart-pulse\",\"bi-heart-pulse-fill\",\"bi-heartbreak\",\"bi-heartbreak-fill\",\"bi-hearts\",\"bi-heptagon\",\"bi-heptagon-fill\",\"bi-heptagon-half\",\"bi-hexagon\",\"bi-hexagon-fill\",\"bi-hexagon-half\",\"bi-highlighter\",\"bi-highlights\",\"bi-hospital\",\"bi-hospital-fill\",\"bi-hourglass\",\"bi-hourglass-bottom\",\"bi-hourglass-split\",\"bi-hourglass-top\",\"bi-house\",\"bi-house-add\",\"bi-house-add-fill\",\"bi-house-check\",\"bi-house-check-fill\",\"bi-house-dash\",\"bi-house-dash-fill\",\"bi-house-door\",\"bi-house-door-fill\",\"bi-house-down\",\"bi-house-down-fill\",\"bi-house-exclamation\",\"bi-house-exclamation-fill\",\"bi-house-fill\",\"bi-house-gear\",\"bi-house-gear-fill\",\"bi-house-heart\",\"bi-house-heart-fill\",\"bi-house-lock\",\"bi-house-lock-fill\",\"bi-house-slash\",\"bi-house-slash-fill\",\"bi-house-up\",\"bi-house-up-fill\",\"bi-house-x\",\"bi-house-x-fill\",\"bi-houses\",\"bi-houses-fill\",\"bi-hr\",\"bi-hurricane\",\"bi-hypnotize\",\"bi-image\",\"bi-image-alt\",\"bi-image-fill\",\"bi-images\",\"bi-inbox\",\"bi-inbox-fill\",\"bi-inboxes-fill\",\"bi-inboxes\",\"bi-incognito\",\"bi-indent\",\"bi-infinity\",\"bi-info\",\"bi-info-circle\",\"bi-info-circle-fill\",\"bi-info-lg\",\"bi-info-square\",\"bi-info-square-fill\",\"bi-input-cursor\",\"bi-input-cursor-text\",\"bi-instagram\",\"bi-intersect\",\"bi-journal\",\"bi-journal-album\",\"bi-journal-arrow-down\",\"bi-journal-arrow-up\",\"bi-journal-bookmark\",\"bi-journal-bookmark-fill\",\"bi-journal-check\",\"bi-journal-code\",\"bi-journal-medical\",\"bi-journal-minus\",\"bi-journal-plus\",\"bi-journal-richtext\",\"bi-journal-text\",\"bi-journal-x\",\"bi-journals\",\"bi-joystick\",\"bi-justify\",\"bi-justify-left\",\"bi-justify-right\",\"bi-kanban\",\"bi-kanban-fill\",\"bi-key\",\"bi-key-fill\",\"bi-keyboard\",\"bi-keyboard-fill\",\"bi-ladder\",\"bi-lamp\",\"bi-lamp-fill\",\"bi-laptop\",\"bi-laptop-fill\",\"bi-layer-backward\",\"bi-layer-forward\",\"bi-layers\",\"bi-layers-fill\",\"bi-layers-half\",\"bi-layout-sidebar\",\"bi-layout-sidebar-inset-reverse\",\"bi-layout-sidebar-inset\",\"bi-layout-sidebar-reverse\",\"bi-layout-split\",\"bi-layout-text-sidebar\",\"bi-layout-text-sidebar-reverse\",\"bi-layout-text-window\",\"bi-layout-text-window-reverse\",\"bi-layout-three-columns\",\"bi-layout-wtf\",\"bi-life-preserver\",\"bi-lightbulb\",\"bi-lightbulb-fill\",\"bi-lightbulb-off\",\"bi-lightbulb-off-fill\",\"bi-lightning\",\"bi-lightning-charge\",\"bi-lightning-charge-fill\",\"bi-lightning-fill\",\"bi-line\",\"bi-link\",\"bi-link-45deg\",\"bi-linkedin\",\"bi-list\",\"bi-list-check\",\"bi-list-columns\",\"bi-list-columns-reverse\",\"bi-list-nested\",\"bi-list-ol\",\"bi-list-stars\",\"bi-list-task\",\"bi-list-ul\",\"bi-lock\",\"bi-lock-fill\",\"bi-luggage\",\"bi-luggage-fill\",\"bi-lungs\",\"bi-lungs-fill\",\"bi-magic\",\"bi-magnet\",\"bi-magnet-fill\",\"bi-mailbox\",\"bi-mailbox-flag\",\"bi-mailbox2\",\"bi-mailbox2-flag\",\"bi-map\",\"bi-map-fill\",\"bi-markdown\",\"bi-markdown-fill\",\"bi-marker-tip\",\"bi-mask\",\"bi-mastodon\",\"bi-medium\",\"bi-megaphone\",\"bi-megaphone-fill\",\"bi-memory\",\"bi-menu-app\",\"bi-menu-app-fill\",\"bi-menu-button\",\"bi-menu-button-fill\",\"bi-menu-button-wide\",\"bi-menu-button-wide-fill\",\"bi-menu-down\",\"bi-menu-up\",\"bi-messenger\",\"bi-meta\",\"bi-mic\",\"bi-mic-fill\",\"bi-mic-mute\",\"bi-mic-mute-fill\",\"bi-microsoft\",\"bi-microsoft-teams\",\"bi-minecart\",\"bi-minecart-loaded\",\"bi-modem\",\"bi-modem-fill\",\"bi-moisture\",\"bi-moon\",\"bi-moon-fill\",\"bi-moon-stars\",\"bi-moon-stars-fill\",\"bi-mortarboard\",\"bi-mortarboard-fill\",\"bi-motherboard\",\"bi-motherboard-fill\",\"bi-mouse\",\"bi-mouse-fill\",\"bi-mouse2\",\"bi-mouse2-fill\",\"bi-mouse3\",\"bi-mouse3-fill\",\"bi-music-note\",\"bi-music-note-beamed\",\"bi-music-note-list\",\"bi-music-player\",\"bi-music-player-fill\",\"bi-newspaper\",\"bi-nintendo-switch\",\"bi-node-minus\",\"bi-node-minus-fill\",\"bi-node-plus\",\"bi-node-plus-fill\",\"bi-noise-reduction\",\"bi-nut\",\"bi-nut-fill\",\"bi-nvidia\",\"bi-nvme\",\"bi-nvme-fill\",\"bi-octagon\",\"bi-octagon-fill\",\"bi-octagon-half\",\"bi-opencollective\",\"bi-optical-audio\",\"bi-optical-audio-fill\",\"bi-option\",\"bi-outlet\",\"bi-p-circle\",\"bi-p-circle-fill\",\"bi-p-square\",\"bi-p-square-fill\",\"bi-paint-bucket\",\"bi-palette\",\"bi-palette-fill\",\"bi-palette2\",\"bi-paperclip\",\"bi-paragraph\",\"bi-pass\",\"bi-pass-fill\",\"bi-passport\",\"bi-passport-fill\",\"bi-patch-check\",\"bi-patch-check-fill\",\"bi-patch-exclamation\",\"bi-patch-exclamation-fill\",\"bi-patch-minus\",\"bi-patch-minus-fill\",\"bi-patch-plus\",\"bi-patch-plus-fill\",\"bi-patch-question\",\"bi-patch-question-fill\",\"bi-pause\",\"bi-pause-btn\",\"bi-pause-btn-fill\",\"bi-pause-circle\",\"bi-pause-circle-fill\",\"bi-pause-fill\",\"bi-paypal\",\"bi-pc\",\"bi-pc-display\",\"bi-pc-display-horizontal\",\"bi-pc-horizontal\",\"bi-pci-card\",\"bi-pci-card-network\",\"bi-pci-card-sound\",\"bi-peace\",\"bi-peace-fill\",\"bi-pen\",\"bi-pen-fill\",\"bi-pencil\",\"bi-pencil-fill\",\"bi-pencil-square\",\"bi-pentagon\",\"bi-pentagon-fill\",\"bi-pentagon-half\",\"bi-people\",\"bi-person-circle\",\"bi-people-fill\",\"bi-percent\",\"bi-person\",\"bi-person-add\",\"bi-person-arms-up\",\"bi-person-badge\",\"bi-person-badge-fill\",\"bi-person-bounding-box\",\"bi-person-check\",\"bi-person-check-fill\",\"bi-person-dash\",\"bi-person-dash-fill\",\"bi-person-down\",\"bi-person-exclamation\",\"bi-person-fill\",\"bi-person-fill-add\",\"bi-person-fill-check\",\"bi-person-fill-dash\",\"bi-person-fill-down\",\"bi-person-fill-exclamation\",\"bi-person-fill-gear\",\"bi-person-fill-lock\",\"bi-person-fill-slash\",\"bi-person-fill-up\",\"bi-person-fill-x\",\"bi-person-gear\",\"bi-person-heart\",\"bi-person-hearts\",\"bi-person-lines-fill\",\"bi-person-lock\",\"bi-person-plus\",\"bi-person-plus-fill\",\"bi-person-raised-hand\",\"bi-person-rolodex\",\"bi-person-slash\",\"bi-person-square\",\"bi-person-standing\",\"bi-person-standing-dress\",\"bi-person-up\",\"bi-person-vcard\",\"bi-person-vcard-fill\",\"bi-person-video\",\"bi-person-video2\",\"bi-person-video3\",\"bi-person-walking\",\"bi-person-wheelchair\",\"bi-person-workspace\",\"bi-person-x\",\"bi-person-x-fill\",\"bi-phone\",\"bi-phone-fill\",\"bi-phone-flip\",\"bi-phone-landscape\",\"bi-phone-landscape-fill\",\"bi-phone-vibrate\",\"bi-phone-vibrate-fill\",\"bi-pie-chart\",\"bi-pie-chart-fill\",\"bi-piggy-bank\",\"bi-piggy-bank-fill\",\"bi-pin\",\"bi-pin-angle\",\"bi-pin-angle-fill\",\"bi-pin-fill\",\"bi-pin-map\",\"bi-pin-map-fill\",\"bi-pinterest\",\"bi-pip\",\"bi-pip-fill\",\"bi-play\",\"bi-play-btn\",\"bi-play-btn-fill\",\"bi-play-circle\",\"bi-play-circle-fill\",\"bi-play-fill\",\"bi-playstation\",\"bi-plug\",\"bi-plug-fill\",\"bi-plugin\",\"bi-plus\",\"bi-plus-circle\",\"bi-plus-circle-dotted\",\"bi-plus-circle-fill\",\"bi-plus-lg\",\"bi-plus-slash-minus\",\"bi-plus-square\",\"bi-plus-square-dotted\",\"bi-plus-square-fill\",\"bi-postage\",\"bi-postage-fill\",\"bi-postage-heart\",\"bi-postage-heart-fill\",\"bi-postcard\",\"bi-postcard-fill\",\"bi-postcard-heart\",\"bi-postcard-heart-fill\",\"bi-power\",\"bi-prescription\",\"bi-prescription2\",\"bi-printer\",\"bi-printer-fill\",\"bi-projector\",\"bi-projector-fill\",\"bi-puzzle\",\"bi-puzzle-fill\",\"bi-qr-code\",\"bi-qr-code-scan\",\"bi-question\",\"bi-question-circle\",\"bi-question-diamond\",\"bi-question-diamond-fill\",\"bi-question-circle-fill\",\"bi-question-lg\",\"bi-question-octagon\",\"bi-question-octagon-fill\",\"bi-question-square\",\"bi-question-square-fill\",\"bi-quora\",\"bi-quote\",\"bi-r-circle\",\"bi-r-circle-fill\",\"bi-r-square\",\"bi-r-square-fill\",\"bi-radar\",\"bi-radioactive\",\"bi-rainbow\",\"bi-receipt\",\"bi-receipt-cutoff\",\"bi-reception-0\",\"bi-reception-1\",\"bi-reception-2\",\"bi-reception-3\",\"bi-reception-4\",\"bi-record\",\"bi-record-btn\",\"bi-record-btn-fill\",\"bi-record-circle\",\"bi-record-circle-fill\",\"bi-record-fill\",\"bi-record2\",\"bi-record2-fill\",\"bi-recycle\",\"bi-reddit\",\"bi-regex\",\"bi-repeat\",\"bi-repeat-1\",\"bi-reply\",\"bi-reply-all\",\"bi-reply-all-fill\",\"bi-reply-fill\",\"bi-rewind\",\"bi-rewind-btn\",\"bi-rewind-btn-fill\",\"bi-rewind-circle\",\"bi-rewind-circle-fill\",\"bi-rewind-fill\",\"bi-robot\",\"bi-rocket\",\"bi-rocket-fill\",\"bi-rocket-takeoff\",\"bi-rocket-takeoff-fill\",\"bi-router\",\"bi-router-fill\",\"bi-rss\",\"bi-rss-fill\",\"bi-rulers\",\"bi-safe\",\"bi-safe-fill\",\"bi-safe2\",\"bi-safe2-fill\",\"bi-save\",\"bi-save-fill\",\"bi-save2\",\"bi-save2-fill\",\"bi-scissors\",\"bi-scooter\",\"bi-screwdriver\",\"bi-sd-card\",\"bi-sd-card-fill\",\"bi-search\",\"bi-search-heart\",\"bi-search-heart-fill\",\"bi-segmented-nav\",\"bi-send\",\"bi-send-arrow-down\",\"bi-send-arrow-down-fill\",\"bi-send-arrow-up\",\"bi-send-arrow-up-fill\",\"bi-send-check\",\"bi-send-check-fill\",\"bi-send-dash\",\"bi-send-dash-fill\",\"bi-send-exclamation\",\"bi-send-exclamation-fill\",\"bi-send-fill\",\"bi-send-plus\",\"bi-send-plus-fill\",\"bi-send-slash\",\"bi-send-slash-fill\",\"bi-send-x\",\"bi-send-x-fill\",\"bi-server\",\"bi-shadows\",\"bi-share\",\"bi-share-fill\",\"bi-shield\",\"bi-shield-check\",\"bi-shield-exclamation\",\"bi-shield-fill\",\"bi-shield-fill-check\",\"bi-shield-fill-exclamation\",\"bi-shield-fill-minus\",\"bi-shield-fill-plus\",\"bi-shield-fill-x\",\"bi-shield-lock\",\"bi-shield-lock-fill\",\"bi-shield-minus\",\"bi-shield-plus\",\"bi-shield-shaded\",\"bi-shield-slash\",\"bi-shield-slash-fill\",\"bi-shield-x\",\"bi-shift\",\"bi-shift-fill\",\"bi-shop\",\"bi-shop-window\",\"bi-shuffle\",\"bi-sign-dead-end\",\"bi-sign-dead-end-fill\",\"bi-sign-do-not-enter\",\"bi-sign-do-not-enter-fill\",\"bi-sign-intersection\",\"bi-sign-intersection-fill\",\"bi-sign-intersection-side\",\"bi-sign-intersection-side-fill\",\"bi-sign-intersection-t\",\"bi-sign-intersection-t-fill\",\"bi-sign-intersection-y\",\"bi-sign-intersection-y-fill\",\"bi-sign-merge-left\",\"bi-sign-merge-left-fill\",\"bi-sign-merge-right\",\"bi-sign-merge-right-fill\",\"bi-sign-no-left-turn\",\"bi-sign-no-left-turn-fill\",\"bi-sign-no-parking\",\"bi-sign-no-parking-fill\",\"bi-sign-no-right-turn\",\"bi-sign-no-right-turn-fill\",\"bi-sign-railroad\",\"bi-sign-railroad-fill\",\"bi-sign-stop\",\"bi-sign-stop-fill\",\"bi-sign-stop-lights\",\"bi-sign-stop-lights-fill\",\"bi-sign-turn-left\",\"bi-sign-turn-left-fill\",\"bi-sign-turn-right\",\"bi-sign-turn-right-fill\",\"bi-sign-turn-slight-left\",\"bi-sign-turn-slight-left-fill\",\"bi-sign-turn-slight-right\",\"bi-sign-turn-slight-right-fill\",\"bi-sign-yield\",\"bi-sign-yield-fill\",\"bi-signal\",\"bi-signpost\",\"bi-signpost-2\",\"bi-signpost-2-fill\",\"bi-signpost-fill\",\"bi-signpost-split\",\"bi-signpost-split-fill\",\"bi-sim\",\"bi-sim-fill\",\"bi-sim-slash\",\"bi-sim-slash-fill\",\"bi-sina-weibo\",\"bi-skip-backward\",\"bi-skip-backward-btn\",\"bi-skip-backward-btn-fill\",\"bi-skip-backward-circle\",\"bi-skip-backward-circle-fill\",\"bi-skip-backward-fill\",\"bi-skip-end\",\"bi-skip-end-btn\",\"bi-skip-end-btn-fill\",\"bi-skip-end-circle\",\"bi-skip-end-circle-fill\",\"bi-skip-end-fill\",\"bi-skip-forward\",\"bi-skip-forward-btn\",\"bi-skip-forward-btn-fill\",\"bi-skip-forward-circle\",\"bi-skip-forward-circle-fill\",\"bi-skip-forward-fill\",\"bi-skip-start\",\"bi-skip-start-btn\",\"bi-skip-start-btn-fill\",\"bi-skip-start-circle\",\"bi-skip-start-circle-fill\",\"bi-skip-start-fill\",\"bi-skype\",\"bi-slack\",\"bi-slash\",\"bi-slash-circle-fill\",\"bi-slash-lg\",\"bi-slash-square\",\"bi-slash-square-fill\",\"bi-sliders\",\"bi-sliders2\",\"bi-sliders2-vertical\",\"bi-smartwatch\",\"bi-snapchat\",\"bi-snow\",\"bi-snow2\",\"bi-snow3\",\"bi-sort-alpha-down\",\"bi-sort-alpha-down-alt\",\"bi-sort-alpha-up\",\"bi-sort-alpha-up-alt\",\"bi-sort-down\",\"bi-sort-down-alt\",\"bi-sort-numeric-down\",\"bi-sort-numeric-down-alt\",\"bi-sort-numeric-up\",\"bi-sort-numeric-up-alt\",\"bi-sort-up\",\"bi-sort-up-alt\",\"bi-soundwave\",\"bi-sourceforge\",\"bi-speaker\",\"bi-speaker-fill\",\"bi-speedometer\",\"bi-speedometer2\",\"bi-spellcheck\",\"bi-spotify\",\"bi-square\",\"bi-square-fill\",\"bi-square-half\",\"bi-stack\",\"bi-stack-overflow\",\"bi-star\",\"bi-star-fill\",\"bi-star-half\",\"bi-stars\",\"bi-steam\",\"bi-stickies\",\"bi-stickies-fill\",\"bi-sticky\",\"bi-sticky-fill\",\"bi-stop\",\"bi-stop-btn\",\"bi-stop-btn-fill\",\"bi-stop-circle\",\"bi-stop-circle-fill\",\"bi-stop-fill\",\"bi-stoplights\",\"bi-stoplights-fill\",\"bi-stopwatch\",\"bi-stopwatch-fill\",\"bi-strava\",\"bi-stripe\",\"bi-subscript\",\"bi-substack\",\"bi-subtract\",\"bi-suit-club\",\"bi-suit-club-fill\",\"bi-suit-diamond\",\"bi-suit-diamond-fill\",\"bi-suit-heart\",\"bi-suit-heart-fill\",\"bi-suit-spade\",\"bi-suit-spade-fill\",\"bi-suitcase\",\"bi-suitcase-fill\",\"bi-suitcase-lg\",\"bi-suitcase-lg-fill\",\"bi-suitcase2\",\"bi-suitcase2-fill\",\"bi-sun\",\"bi-sun-fill\",\"bi-sunglasses\",\"bi-sunrise\",\"bi-sunrise-fill\",\"bi-sunset\",\"bi-sunset-fill\",\"bi-superscript\",\"bi-symmetry-horizontal\",\"bi-symmetry-vertical\",\"bi-table\",\"bi-tablet\",\"bi-tablet-fill\",\"bi-tablet-landscape\",\"bi-tablet-landscape-fill\",\"bi-tag\",\"bi-tag-fill\",\"bi-tags\",\"bi-tags-fill\",\"bi-taxi-front\",\"bi-taxi-front-fill\",\"bi-telegram\",\"bi-telephone\",\"bi-telephone-fill\",\"bi-telephone-forward\",\"bi-telephone-forward-fill\",\"bi-telephone-inbound\",\"bi-telephone-inbound-fill\",\"bi-telephone-minus\",\"bi-telephone-minus-fill\",\"bi-telephone-outbound\",\"bi-telephone-outbound-fill\",\"bi-telephone-plus\",\"bi-telephone-plus-fill\",\"bi-telephone-x\",\"bi-telephone-x-fill\",\"bi-tencent-qq\",\"bi-terminal\",\"bi-terminal-dash\",\"bi-terminal-fill\",\"bi-terminal-plus\",\"bi-terminal-split\",\"bi-terminal-x\",\"bi-text-center\",\"bi-text-indent-left\",\"bi-text-indent-right\",\"bi-text-left\",\"bi-text-paragraph\",\"bi-text-right\",\"bi-text-wrap\",\"bi-textarea\",\"bi-textarea-resize\",\"bi-textarea-t\",\"bi-thermometer\",\"bi-thermometer-half\",\"bi-thermometer-high\",\"bi-thermometer-low\",\"bi-thermometer-snow\",\"bi-thermometer-sun\",\"bi-threads\",\"bi-threads-fill\",\"bi-three-dots\",\"bi-three-dots-vertical\",\"bi-thunderbolt\",\"bi-thunderbolt-fill\",\"bi-ticket\",\"bi-ticket-detailed\",\"bi-ticket-detailed-fill\",\"bi-ticket-fill\",\"bi-ticket-perforated\",\"bi-ticket-perforated-fill\",\"bi-tiktok\",\"bi-toggle-off\",\"bi-toggle-on\",\"bi-toggle2-off\",\"bi-toggle2-on\",\"bi-toggles\",\"bi-toggles2\",\"bi-tools\",\"bi-tornado\",\"bi-train-freight-front\",\"bi-train-freight-front-fill\",\"bi-train-front\",\"bi-train-front-fill\",\"bi-train-lightrail-front\",\"bi-train-lightrail-front-fill\",\"bi-translate\",\"bi-transparency\",\"bi-trash\",\"bi-trash-fill\",\"bi-trash2\",\"bi-trash2-fill\",\"bi-trash3\",\"bi-trash3-fill\",\"bi-tree\",\"bi-tree-fill\",\"bi-trello\",\"bi-triangle\",\"bi-triangle-fill\",\"bi-triangle-half\",\"bi-trophy\",\"bi-trophy-fill\",\"bi-tropical-storm\",\"bi-truck\",\"bi-truck-flatbed\",\"bi-truck-front\",\"bi-truck-front-fill\",\"bi-tsunami\",\"bi-tv\",\"bi-tv-fill\",\"bi-twitch\",\"bi-twitter\",\"bi-twitter-x\",\"bi-type\",\"bi-type-bold\",\"bi-type-h1\",\"bi-type-h2\",\"bi-type-h3\",\"bi-type-h4\",\"bi-type-h5\",\"bi-type-h6\",\"bi-type-italic\",\"bi-type-strikethrough\",\"bi-type-underline\",\"bi-ubuntu\",\"bi-ui-checks\",\"bi-ui-checks-grid\",\"bi-ui-radios\",\"bi-ui-radios-grid\",\"bi-umbrella\",\"bi-umbrella-fill\",\"bi-unindent\",\"bi-union\",\"bi-unity\",\"bi-universal-access\",\"bi-universal-access-circle\",\"bi-unlock\",\"bi-unlock-fill\",\"bi-upc\",\"bi-upc-scan\",\"bi-upload\",\"bi-usb\",\"bi-usb-c\",\"bi-usb-c-fill\",\"bi-usb-drive\",\"bi-usb-drive-fill\",\"bi-usb-fill\",\"bi-usb-micro\",\"bi-usb-micro-fill\",\"bi-usb-mini\",\"bi-usb-mini-fill\",\"bi-usb-plug\",\"bi-usb-plug-fill\",\"bi-usb-symbol\",\"bi-valentine\",\"bi-valentine2\",\"bi-vector-pen\",\"bi-view-list\",\"bi-view-stacked\",\"bi-vignette\",\"bi-vimeo\",\"bi-vinyl\",\"bi-vinyl-fill\",\"bi-virus\",\"bi-virus2\",\"bi-voicemail\",\"bi-volume-down\",\"bi-volume-down-fill\",\"bi-volume-mute\",\"bi-volume-mute-fill\",\"bi-volume-off\",\"bi-volume-off-fill\",\"bi-volume-up\",\"bi-volume-up-fill\",\"bi-vr\",\"bi-wallet\",\"bi-wallet-fill\",\"bi-wallet2\",\"bi-watch\",\"bi-water\",\"bi-webcam\",\"bi-webcam-fill\",\"bi-wechat\",\"bi-whatsapp\",\"bi-wifi\",\"bi-wifi-1\",\"bi-wifi-2\",\"bi-wifi-off\",\"bi-wikipedia\",\"bi-wind\",\"bi-window\",\"bi-window-dash\",\"bi-window-desktop\",\"bi-window-dock\",\"bi-window-fullscreen\",\"bi-window-plus\",\"bi-window-sidebar\",\"bi-window-split\",\"bi-window-stack\",\"bi-window-x\",\"bi-windows\",\"bi-wordpress\",\"bi-wrench\",\"bi-wrench-adjustable\",\"bi-wrench-adjustable-circle\",\"bi-wrench-adjustable-circle-fill\",\"bi-x\",\"bi-x-circle\",\"bi-x-circle-fill\",\"bi-x-diamond\",\"bi-x-diamond-fill\",\"bi-x-lg\",\"bi-x-octagon\",\"bi-x-octagon-fill\",\"bi-x-square\",\"bi-x-square-fill\",\"bi-xbox\",\"bi-yelp\",\"bi-yin-yang\",\"bi-youtube\",\"bi-zoom-in\",\"bi-zoom-out\"]");
+
+/***/ }),
+
 /***/ "./src/resources/assets/js/livewire.js":
 /*!*********************************************!*\
   !*** ./src/resources/assets/js/livewire.js ***!
@@ -27808,9 +27819,12 @@ document.addEventListener('alpine:init', function () {
   !*** ./src/resources/assets/js/t-icon.js ***!
   \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw new Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw new Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -27818,7 +27832,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /**
  * Script para extraer bootstrap icons
  * 
- * JSON.stringify(Array.prototype.map.call(document.querySelectorAll('#icons-list > li'),(item)=>{
+ * Current Bootstrap icons: v1.11.0
+ * 
+ * Run this script in console at page: https://icons.getbootstrap.com/
+ * 
+ JSON.stringify(Array.prototype.map.call(document.querySelectorAll('#icons-list > li'),(item)=>{
     //return item.querySelector('.bi').getAttribute('class');
     return 'bi-'+item.dataset.name;
     return {
@@ -27826,13 +27844,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         class:item.querySelector('.bi').getAttribute('class')
     };//return item.attribute('data-name');
 }));
-}));
  */
 
+var bootstrap_icons = __webpack_require__(/*! ./bootstrap-icons.json */ "./src/resources/assets/js/bootstrap-icons.json");
 document.addEventListener('alpine:init', function () {
   Alpine.data('tIconPicker', function (config) {
-    var _config$value, _config$allowClear, _config$icon, _config$search, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$color, _config$size, _config$placeholder, _config$layout;
-    return {
+    var _config$value, _config$allowClear, _config$icon, _config$search, _config$class, _config$outerClass, _config$width, _config$height, _config$name, _config$id, _config$color, _config$size, _config$placeholder, _config$grid, _config$grid2, _ref;
+    return _ref = {
       value: (_config$value = config.value) !== null && _config$value !== void 0 ? _config$value : null,
       allowClear: (_config$allowClear = config.allowClear) !== null && _config$allowClear !== void 0 ? _config$allowClear : false,
       hasValue: false,
@@ -27847,95 +27865,145 @@ document.addEventListener('alpine:init', function () {
       btnClass: (_config$class = config["class"]) !== null && _config$class !== void 0 ? _config$class : '',
       outerClass: (_config$outerClass = config.outerClass) !== null && _config$outerClass !== void 0 ? _config$outerClass : '',
       width: (_config$width = config.width) !== null && _config$width !== void 0 ? _config$width : false,
+      height: (_config$height = config.height) !== null && _config$height !== void 0 ? _config$height : false,
       name: (_config$name = config.name) !== null && _config$name !== void 0 ? _config$name : false,
       id: (_config$id = config.id) !== null && _config$id !== void 0 ? _config$id : false,
       color: (_config$color = config.color) !== null && _config$color !== void 0 ? _config$color : 'default',
       size: (_config$size = config.size) !== null && _config$size !== void 0 ? _config$size : 'md',
       placeholder: (_config$placeholder = config.placeholder) !== null && _config$placeholder !== void 0 ? _config$placeholder : 'Choose icon...',
-      layout: (_config$layout = config.layout) !== null && _config$layout !== void 0 ? _config$layout : 'list',
-      clear: function clear() {
-        this.hasValue = false;
-        this.value = null;
-        if (this.$refs['icon-input']) this.$refs['icon-input'].value = null;
-        this.$refs['dropdown-btn'].value = null;
-      },
-      openDropdown: function openDropdown() {
-        this.open = true;
-      },
-      closeDropdown: function closeDropdown() {
-        this.open = false;
-        this.term = null;
-      },
-      selectIcon: function selectIcon(value) {
-        this.value = value;
-        if (this.$refs['icon-input']) this.$refs['icon-input'].value = value;
-        this.hasValue = true;
-        this.closeDropdown();
-      },
-      isSelected: function isSelected(value) {
-        return value == this.value;
-      },
-      btnClasses: function btnClasses() {
-        var ret = [this.btnClass];
-
-        // if(this.open) ret.push('active');
-        if (this.disabled) ret.push('disabled');
-        if (!this.width) {
-          ret.push('w-100');
-        }
-        ret.push('btn-' + this.color);
-        ret.push('btn-' + this.size);
-        return ret.join(" ");
-      },
-      init: function init() {
-        var _this = this;
-        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-          var d, response, btn;
-          return _regeneratorRuntime().wrap(function _callee$(_context) {
-            while (1) switch (_context.prev = _context.next) {
-              case 0:
-                d = _this;
-                _this.isLoading = true;
-                // d.instance = new Iconpicker(this.$refs['icon-input'],{});
-                _context.next = 4;
-                return fetch('https://unpkg.com/codethereal-iconpicker@1.2.1/dist/iconsets/bootstrap5.json');
-              case 4:
-                response = _context.sent;
-                _context.next = 7;
-                return response.json();
-              case 7:
-                _this.icons = _context.sent;
-                _this.isLoading = false;
-                if (_this.value) {
-                  console.log('hasvalue ', _this.value);
-                  _this.hasValue = true;
-                }
-                btn = _this.$refs['dropdown-btn'];
-                btn.addEventListener('shown.bs.dropdown', function (event) {
-                  event.target.classList.remove('show');
-                  d.openDropdown();
-                });
-                _context.next = 14;
-                return _this.icons;
-              case 14:
-                _this.options = _context.sent;
-                _this.$watch('term', function (values) {
-                  // console.log(d.icons, d.term);
-                  d.options = d.icons.filter(function (icon) {
-                    if (d.term) {
-                      return icon.toLowerCase().includes(d.term.toLowerCase());
-                    }
-                    return true;
-                  });
-                });
-              case 16:
-              case "end":
-                return _context.stop();
-            }
-          }, _callee);
-        }))();
+      grid: (_config$grid = config.grid) !== null && _config$grid !== void 0 ? _config$grid : 'list',
+      page: 1,
+      pagesize: 50
+    }, _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_ref, "grid", (_config$grid2 = config.grid) !== null && _config$grid2 !== void 0 ? _config$grid2 : false), "allLoaded", false), "iconSrc", {
+      // bootstrap: 'https://unpkg.com/codethereal-iconpicker@1.2.1/dist/iconsets/bootstrap5.json'
+      bootstrap: bootstrap_icons
+    }), "clear", function clear() {
+      this.hasValue = false;
+      this.value = null;
+      if (this.$refs['icon-input']) this.$refs['icon-input'].value = null;
+      this.$refs['dropdown-btn'].value = null;
+      this.closeDropdown();
+    }), "openDropdown", function openDropdown() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _this.open = true;
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }))();
+    }), "prepareOptions", function prepareOptions() {
+      var d = this;
+      this.options = d.icons;
+      if (d.term) {
+        this.options = this.options.filter(function (icon) {
+          return icon.toLowerCase().includes(d.term.toLowerCase());
+        });
       }
-    };
+      this.options = this.options.slice(0, this.page * this.pagesize);
+    }), "closeDropdown", function closeDropdown() {
+      this.open = false;
+      this.term = null;
+    }), "selectIcon", function selectIcon(value) {
+      this.value = value;
+      if (this.$refs['icon-input']) this.$refs['icon-input'].value = value;
+      this.hasValue = true;
+      this.closeDropdown();
+    }), "isSelected", function isSelected(value) {
+      return value == this.value;
+    }), "btnClasses", function btnClasses() {
+      var ret = [this.btnClass];
+
+      // if(this.open) ret.push('active');
+      if (this.disabled) ret.push('disabled');
+      if (!this.width) {
+        ret.push('w-100');
+      }
+      ret.push('btn-' + this.color);
+      ret.push('btn-' + this.size);
+      return ret.join(" ");
+    }), _defineProperty(_defineProperty(_ref, "loadMore", function loadMore() {
+      if (this.page < this.icons.length / this.pagesize) {
+        // console.log('loadMore', this.page, this.icons.length/this.pagesize);
+        // console.log('load');
+        this.page++;
+        this.prepareOptions();
+      } else {
+        this.allLoaded = true;
+      }
+    }), "init", function init() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var d, btn, tmp;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              d = _this2;
+              if (_this2.value) {
+                console.log('hasvalue ', _this2.value);
+                _this2.hasValue = true;
+              }
+              btn = _this2.$refs['dropdown-btn'];
+              btn.addEventListener('shown.bs.dropdown', function (event) {
+                event.target.classList.remove('show');
+                d.openDropdown();
+              });
+              _this2.isLoading = true;
+              if (_this2.grid) {
+                tmp = _this2.grid.split('x');
+                if (tmp.length == 2 && parseInt(tmp[0]) && parseInt(tmp[1])) {
+                  _this2.grid = {
+                    cols: parseInt(tmp[0]),
+                    rows: parseInt(tmp[1])
+                  };
+                  _this2.height = _this2.grid.rows * 2.8 + "rem";
+                  _this2.pagesize = _this2.grid.cols * _this2.grid.rows;
+                } else {
+                  _this2.grid = false;
+                }
+                // console.log(this.grid);
+              }
+
+              // CARREGO LES ICONES
+
+              _this2.icons = sessionStorage.getItem("t-icons.bootstrap");
+              if (_this2.icons) {
+                _this2.icons = JSON.parse(_this2.icons);
+              } else {
+                // const response = await fetch(this.iconSrc.bootstrap)
+                // this.icons= await response.json();
+                _this2.icons = _this2.iconSrc.bootstrap;
+                sessionStorage.setItem("t-icons.bootstrap", JSON.stringify(_this2.icons));
+              }
+              _this2.isLoading = false;
+              _this2.prepareOptions();
+              _this2.$watch('term', function (values) {
+                d.page = 1;
+                // console.log('term changed');
+                d.prepareOptions();
+              });
+              //     // console.log(d.icons, d.term);
+              //     d.options = d.icons.filter(function(icon){
+              //         if(d.term){ 
+              //            var options = icon.toLowerCase().includes(d.term.toLowerCase());
+              //            d.page=1;
+              //            d.prepareOptions(options);
+              //         }
+              //         return true;
+              //     });
+
+              // }));
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    });
   });
 });
 
@@ -28135,7 +28203,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 document.addEventListener('alpine:init', function () {
   Alpine.data('tSelectComponent', function (config) {
-    var _config$data, _config$size, _config$search, _config$inlineSearch, _config$limit, _config$color, _config$icon, _config$selectedLabel, _config$selectedLabel2, _config$selectedLabel3, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$dataSrc, _config$dataSrcMethod, _config$prefetch, _config$termName, _config$limitName, _config$grouped;
+    var _config$data, _config$size, _config$search, _config$inlineSearch, _config$limit, _config$color, _config$icon, _config$selectedLabel, _config$selectedLabel2, _config$selectedLabel3, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$dataSrc, _config$dataSrcMethod, _config$prefetch, _config$termName, _config$limitName, _config$pageName, _config$grouped, _config$height, _config$lazyLoad;
     return {
       data: (_config$data = config.data) !== null && _config$data !== void 0 ? _config$data : [],
       open: false,
@@ -28151,14 +28219,15 @@ document.addEventListener('alpine:init', function () {
       selected: config.selected,
       multiple: config.multiple,
       currentIndex: -1,
-      isLoading: false,
+      isLoading: true,
       isLoaded: true,
       disabled: config.disabled || false,
       readonly: config.readonly || false,
-      limit: (_config$limit = config.limit) !== null && _config$limit !== void 0 ? _config$limit : 50,
+      limit: (_config$limit = config.limit) !== null && _config$limit !== void 0 ? _config$limit : 20,
       color: (_config$color = config.color) !== null && _config$color !== void 0 ? _config$color : 'default',
       icon: (_config$icon = config.icon) !== null && _config$icon !== void 0 ? _config$icon : null,
       allowClear: config.allowClear || false,
+      selectedLabelLimitText: config.selectedLabelLimitText || 'and :num more...',
       selectedLabelLimit: config.selectedLabelLimit || false,
       selectedLabelGlue: (_config$selectedLabel = config.selectedLabelGlue) !== null && _config$selectedLabel !== void 0 ? _config$selectedLabel : ', ',
       selectedLabelPrefix: (_config$selectedLabel2 = config.selectedLabelPrefix) !== null && _config$selectedLabel2 !== void 0 ? _config$selectedLabel2 : '',
@@ -28173,10 +28242,15 @@ document.addEventListener('alpine:init', function () {
       prefetch: (_config$prefetch = config.prefetch) !== null && _config$prefetch !== void 0 ? _config$prefetch : false,
       termName: (_config$termName = config.termName) !== null && _config$termName !== void 0 ? _config$termName : 'term',
       limitName: (_config$limitName = config.limitName) !== null && _config$limitName !== void 0 ? _config$limitName : 'limit',
+      pageName: (_config$pageName = config.pageName) !== null && _config$pageName !== void 0 ? _config$pageName : 'page',
       grouped: (_config$grouped = config.grouped) !== null && _config$grouped !== void 0 ? _config$grouped : false,
       groups: [],
       groupOptions: [],
       optionsIndex: 0,
+      height: (_config$height = config.height) !== null && _config$height !== void 0 ? _config$height : false,
+      lazyLoad: (_config$lazyLoad = config.lazyLoad) !== null && _config$lazyLoad !== void 0 ? _config$lazyLoad : false,
+      page: 1,
+      allLoaded: false,
       init: function init() {
         var _this = this;
         return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
@@ -28184,7 +28258,8 @@ document.addEventListener('alpine:init', function () {
           return _regeneratorRuntime().wrap(function _callee2$(_context2) {
             while (1) switch (_context2.prev = _context2.next) {
               case 0:
-                s = _this; // console.log(this.data);
+                s = _this;
+                if (_this.lazyLoad && _this.limit) _this.height = _this.limit * 2 + "rem";
                 if (_this.selected == null) {
                   if (_this.multiple) _this.selected = [];else _this.selected = '';
                 } else {
@@ -28197,26 +28272,27 @@ document.addEventListener('alpine:init', function () {
                   }
                 }
                 if (!_this.dataSrc) {
-                  _context2.next = 9;
+                  _context2.next = 10;
                   break;
                 }
                 // console.log(this.dataSrc);
                 _this.isLoaded = false;
                 if (!_this.prefetch) {
-                  _context2.next = 7;
+                  _context2.next = 8;
                   break;
                 }
-                _context2.next = 7;
+                _context2.next = 8;
                 return _this.getAsyncData();
-              case 7:
-                _context2.next = 12;
+              case 8:
+                _context2.next = 14;
                 break;
-              case 9:
+              case 10:
+                _this.isLoading = false;
                 if (!_this.data) _this.data = {};
                 // console.log(this.multiple, this.selected);
                 _this.prepareData();
                 _this.prepareOptions();
-              case 12:
+              case 14:
                 if (_this.name && _this.multiple && !_this.name.endsWith('[]')) _this.name += '[]';
                 _this.$watch('term', /*#__PURE__*/function () {
                   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(values) {
@@ -28226,19 +28302,21 @@ document.addEventListener('alpine:init', function () {
                           // console.log('term changed', values, s.term, s.dataSrc);
                           s.currentIndex = -1;
                           s.groupOptions = [];
+                          s.page = 1;
+                          s.allLoaded = false;
                           if (!s.dataSrc) {
-                            _context.next = 9;
+                            _context.next = 11;
                             break;
                           }
                           s.isLoaded = false;
                           // console.log("BEFORE TERM CHANGE ASYNC", s.options);
-                          _context.next = 6;
+                          _context.next = 8;
                           return s.getAsyncData();
-                        case 6:
+                        case 8:
                           return _context.abrupt("return", _context.sent);
-                        case 9:
+                        case 11:
                           s.prepareOptions();
-                        case 10:
+                        case 12:
                         case "end":
                           return _context.stop();
                       }
@@ -28272,85 +28350,123 @@ document.addEventListener('alpine:init', function () {
 
                   // });
                 });
-              case 17:
+              case 19:
               case "end":
                 return _context2.stop();
             }
           }, _callee2);
         }))();
       },
-      getAsyncData: function getAsyncData() {
+      loadMore: function loadMore() {
         var _this2 = this;
         return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-          var loadedData, key;
           return _regeneratorRuntime().wrap(function _callee3$(_context3) {
             while (1) switch (_context3.prev = _context3.next) {
               case 0:
-                _this2.isLoading = true;
-                // console.log('getAsyncData', this.isLoaded);
-                if (_this2.isLoaded) {
+                if (!(_this2.dataSrc && !_this2.allLoaded)) {
                   _context3.next = 8;
                   break;
                 }
-                _context3.next = 4;
-                return _this2.loadAsyncData();
-              case 4:
-                loadedData = _context3.sent;
-                // console.log(loadedData);
-                for (key in loadedData) {
-                  if (!Object.keys(_this2.data).includes(key)) _this2.data[key] = loadedData[key];
-                }
-                // console.log('loaded');
-                _this2.prepareData();
-                // console.log(this.data);
+                _this2.page++;
+                _this2.isLoaded = false;
+                _context3.next = 5;
+                return _this2.getAsyncData();
+              case 5:
                 _this2.prepareOptions();
-                // console.log(this.options);
+                _context3.next = 9;
+                break;
               case 8:
-                _this2.isLoading = false;
-                _this2.isLoaded = true;
-              case 10:
+                // console.log('loadMore', this.page, (Object.keys(this.data).length/this.limit) );
+                if (_this2.page < Object.keys(_this2.data).length / _this2.limit) {
+                  _this2.page++;
+                  _this2.prepareOptions();
+                } else {
+                  _this2.allLoaded = true;
+                }
+              case 9:
               case "end":
                 return _context3.stop();
             }
           }, _callee3);
         }))();
       },
-      loadAsyncData: function loadAsyncData() {
+      getAsyncData: function getAsyncData() {
         var _this3 = this;
         return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-          var s, data, i, response, url;
+          var loadedData, key;
           return _regeneratorRuntime().wrap(function _callee4$(_context4) {
             while (1) switch (_context4.prev = _context4.next) {
               case 0:
-                s = _this3;
+                _this3.isLoading = true;
+                // console.log('getAsyncData', this.isLoaded);
+                if (_this3.isLoaded) {
+                  _context4.next = 8;
+                  break;
+                }
+                _context4.next = 4;
+                return _this3.loadAsyncData();
+              case 4:
+                loadedData = _context4.sent;
+                // console.log('loadedData',loadedData, Object.keys(loadedData).length);
+                if (loadedData && Object.keys(loadedData).length > 0) {
+                  for (key in loadedData) {
+                    if (!Object.keys(_this3.data).includes(key)) _this3.data[key] = loadedData[key];
+                  }
+                } else {
+                  _this3.allLoaded = true;
+                }
+                // console.log('loaded');
+                _this3.prepareData();
+                // console.log(this.data);
+                _this3.prepareOptions();
+                // console.log(this.options);
+              case 8:
+                _this3.isLoading = false;
+                _this3.isLoaded = true;
+              case 10:
+              case "end":
+                return _context4.stop();
+            }
+          }, _callee4);
+        }))();
+      },
+      loadAsyncData: function loadAsyncData() {
+        var _this4 = this;
+        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+          var s, data, i, response, url;
+          return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+            while (1) switch (_context5.prev = _context5.next) {
+              case 0:
+                s = _this4;
                 data = new URLSearchParams();
-                data.append(_this3.termName, _this3.term);
-                data.append(_this3.limitName, _this3.limit);
-                if (_this3.selected) {
-                  if (_this3.multiple) {
-                    for (i in _this3.selected) {
-                      data.append('selected[' + i + ']', _this3.selected[i]);
+                data.append(_this4.termName, _this4.term);
+                data.append(_this4.limitName, _this4.limit);
+                if (_this4.lazyLoad) data.append(_this4.pageName, _this4.page);
+                if (_this4.selected) {
+                  if (_this4.multiple) {
+                    for (i in _this4.selected) {
+                      data.append('selected[' + i + ']', _this4.selected[i]);
                     }
                   } else {
-                    data.append('selected', _this3.selected);
+                    data.append('selected', _this4.selected);
                   }
                 }
                 if (!(s.dataSrcMethod.toUpperCase() == "GET" || s.dataSrcMethod.toUpperCase() == "DELETE")) {
-                  _context4.next = 13;
+                  _context5.next = 14;
                   break;
                 }
                 // console.log(s.dataSrc+"?"+data.toString());
                 url = s.dataSrc;
                 if (s.dataSrc.includes('?')) url += "&";else url += "?";
-                _context4.next = 10;
+                _context5.next = 11;
                 return fetch(url + data.toString());
-              case 10:
-                response = _context4.sent;
-                _context4.next = 17;
+              case 11:
+                response = _context5.sent;
+                _context5.next = 18;
                 break;
-              case 13:
+              case 14:
                 data.append('_token', document.querySelector('head meta[name="csrf-token"]').content);
-                _context4.next = 16;
+                _context5.next = 17;
                 return fetch(s.dataSrc, {
                   method: s.dataSrcMethod.toUpperCase(),
                   headers: {
@@ -28358,29 +28474,29 @@ document.addEventListener('alpine:init', function () {
                   },
                   body: data
                 });
-              case 16:
-                response = _context4.sent;
               case 17:
-                _context4.next = 19;
+                response = _context5.sent;
+              case 18:
+                _context5.next = 20;
                 return response.json();
-              case 19:
-                return _context4.abrupt("return", _context4.sent);
               case 20:
+                return _context5.abrupt("return", _context5.sent);
+              case 21:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
-          }, _callee4);
+          }, _callee5);
         }))();
       },
       prepareOptions: function prepareOptions() {
-        var _this4 = this;
-        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+        var _this5 = this;
+        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
           var s;
-          return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-            while (1) switch (_context5.prev = _context5.next) {
+          return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+            while (1) switch (_context6.prev = _context6.next) {
               case 0:
-                s = _this4;
-                _this4.options = Object.keys(_this4.data).filter(function (key) {
+                s = _this5;
+                _this5.options = Object.keys(_this5.data).filter(function (key) {
                   // console.log('filter',s.term);
                   if (s.term) {
                     if (this.dataSrc) {} else {
@@ -28388,15 +28504,24 @@ document.addEventListener('alpine:init', function () {
                     }
                   }
                   return true;
-                }).slice(0, _this4.limit).reduce(function (options, key) {
-                  options[key] = _this4.data[key];
+                });
+                if (_this5.limit) {
+                  if (_this5.lazyLoad) {
+                    // console.log('limiting page:'+ this.page,this.limit);
+                    _this5.options = _this5.options.slice(0, _this5.page * _this5.limit);
+                  } else {
+                    _this5.options = _this5.options.slice(0, _this5.limit);
+                  }
+                }
+                _this5.options = _this5.options.reduce(function (options, key) {
+                  options[key] = _this5.data[key];
                   return options;
                 }, {});
-              case 2:
+              case 4:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
-          }, _callee5);
+          }, _callee6);
         }))();
       },
       prepareOption: function prepareOption(option, key, group) {
@@ -28419,51 +28544,53 @@ document.addEventListener('alpine:init', function () {
         return ret;
       },
       prepareData: function prepareData() {
-        var _this5 = this;
-        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+        var _this6 = this;
+        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
           var data, gr_key, op_key, key;
-          return _regeneratorRuntime().wrap(function _callee6$(_context6) {
-            while (1) switch (_context6.prev = _context6.next) {
+          return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+            while (1) switch (_context7.prev = _context7.next) {
               case 0:
                 data = [];
-                _this5.groups = [];
-                if (_this5.grouped) {
+                _this6.groups = [];
+                if (_this6.grouped) {
                   // console.log('prepareData', this.data);
 
                   // var tmp=[];
-                  for (gr_key in _this5.data) {
+                  for (gr_key in _this6.data) {
                     // this.data[key][gr_key];
                     // var grdata=[];
-                    for (op_key in _this5.data[gr_key]) {
-                      data[op_key] = _this5.prepareOption(_this5.data[gr_key][op_key], op_key, gr_key);
+                    for (op_key in _this6.data[gr_key]) {
+                      data[op_key] = _this6.prepareOption(_this6.data[gr_key][op_key], op_key, gr_key);
                       // data[op_key]= grdata[op_key];
                     }
 
-                    _this5.groups.push(gr_key);
+                    _this6.groups.push(gr_key);
                   }
 
                   // console.log('groups', this.groups);
                 } else {
-                  for (key in _this5.data) {
-                    data[key] = _this5.prepareOption(_this5.data[key], key, null);
+                  for (key in _this6.data) {
+                    data[key] = _this6.prepareOption(_this6.data[key], key, null);
                   }
                 }
-                _this5.data = data;
+                _this6.data = data;
                 // console.log(this.data);
                 //lo paso a options
-                _this5.options = Object.keys(_this5.data).slice(0, _this5.limit).reduce(function (options, key) {
-                  options[key] = _this5.data[key];
+                _this6.options = Object.keys(_this6.data);
+                if (_this6.limit) _this6.options = _this6.options.slice(0, _this6.limit);
+                _this6.options = _this6.options.reduce(function (options, key) {
+                  options[key] = _this6.data[key];
                   return options;
                 }, {});
 
                 // if(this.grouped)console.log( this.options );
 
                 // console.log(Object.values(this.options).filter((option)=>{ return option.group=="Trains" }));
-              case 5:
+              case 7:
               case "end":
-                return _context6.stop();
+                return _context7.stop();
             }
-          }, _callee6);
+          }, _callee7);
         }))();
       },
       getGroupOptions: function getGroupOptions(group) {
@@ -28476,6 +28603,8 @@ document.addEventListener('alpine:init', function () {
           // console.log('closeSelect');
           this.open = false;
           this.term = '';
+          this.page = 1;
+          this.allLoaded = false;
           this.currentIndex = -1;
           var btn = this.$refs['dropdown-btn'];
           var instance = bootstrap.Dropdown.getInstance(btn);
@@ -28484,37 +28613,37 @@ document.addEventListener('alpine:init', function () {
         }
       },
       openSelect: function openSelect() {
-        var _this6 = this;
-        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
-          return _regeneratorRuntime().wrap(function _callee7$(_context7) {
-            while (1) switch (_context7.prev = _context7.next) {
+        var _this7 = this;
+        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
+          return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+            while (1) switch (_context8.prev = _context8.next) {
               case 0:
-                if (!_this6.disabled) {
-                  _context7.next = 2;
+                if (!_this7.disabled) {
+                  _context8.next = 2;
                   break;
                 }
-                return _context7.abrupt("return");
+                return _context8.abrupt("return");
               case 2:
                 console.log('openSelect');
-                if (_this6.open) {
-                  _context7.next = 10;
+                if (_this7.open) {
+                  _context8.next = 10;
                   break;
                 }
-                _this6.open = true;
-                _this6.term = '';
-                _this6.currentIndex = -1;
+                _this7.open = true;
+                _this7.term = '';
+                _this7.currentIndex = -1;
                 // console.log(this.dataSrc ,this.prefetch);
-                if (!(_this6.dataSrc && !_this6.prefetch)) {
-                  _context7.next = 10;
+                if (!(_this7.dataSrc && !_this7.prefetch)) {
+                  _context8.next = 10;
                   break;
                 }
-                _context7.next = 10;
-                return _this6.getAsyncData();
+                _context8.next = 10;
+                return _this7.getAsyncData();
               case 10:
               case "end":
-                return _context7.stop();
+                return _context8.stop();
             }
-          }, _callee7);
+          }, _callee8);
         }))();
       },
       // toggleSelect: function() {
@@ -28553,35 +28682,46 @@ document.addEventListener('alpine:init', function () {
         this.closeSelect();
       },
       selectCurrentOption: function selectCurrentOption() {
+        var _this$options$Object$;
+        if (this.readonly) return;
+        if (this.disabled) return;
+        if ((_this$options$Object$ = this.options[Object.values(this.options)[this.currentIndex].key].disabled) !== null && _this$options$Object$ !== void 0 ? _this$options$Object$ : false) return;
         if (this.currentIndex >= 0) this.selectOption(Object.values(this.options)[this.currentIndex].key);
       },
       selectOption: function selectOption(value) {
+        var _this$options$value$d;
         // console.log('select', value);
         if (this.readonly) return;
-        if (!this.disabled) {
-          // If multiple push to the array, if not, keep that value and close menu
-          if (this.multiple) {
-            if (!this.selected) this.selected = [];
-            // If it's not already in there
-            if (!this.selected.includes(value)) {
-              this.selected.push(value);
-            } else {
-              var index = this.selected.indexOf(value);
-              this.selected.splice(index, 1);
-            }
+        if (this.disabled) return;
+        if ((_this$options$value$d = this.options[value].disabled) !== null && _this$options$value$d !== void 0 ? _this$options$value$d : false) return;
+
+        // If multiple push to the array, if not, keep that value and close menu
+        if (this.multiple) {
+          if (!this.selected) this.selected = [];
+          // If it's not already in there
+          if (!this.selected.includes(value)) {
+            this.selected.push(value);
           } else {
-            // console.log("HOLA");
-            this.selected = value;
-            this.closeSelect();
+            var index = this.selected.indexOf(value);
+            this.selected.splice(index, 1);
           }
+        } else {
+          // console.log("HOLA");
+          this.selected = value;
+          this.closeSelect();
         }
       },
       increaseIndex: function increaseIndex() {
+        var _this$options$Object$2;
         // console.log('increaseIndex');
+
         if (this.currentIndex >= Object.keys(this.options).length - 1) this.currentIndex = 0;else this.currentIndex++;
+        if ((_this$options$Object$2 = this.options[Object.values(this.options)[this.currentIndex].key].disabled) !== null && _this$options$Object$2 !== void 0 ? _this$options$Object$2 : false) this.increaseIndex();
       },
       decreaseIndex: function decreaseIndex() {
+        var _this$options$Object$3;
         if (this.currentIndex <= 0) this.currentIndex = Object.keys(this.options).length - 1;else this.currentIndex--;
+        if ((_this$options$Object$3 = this.options[Object.values(this.options)[this.currentIndex].key].disabled) !== null && _this$options$Object$3 !== void 0 ? _this$options$Object$3 : false) this.decreaseIndex();
       },
       isSelected: function isSelected(key) {
         // console.log('isSelected ',key, this.selected);
@@ -28660,7 +28800,9 @@ document.addEventListener('alpine:init', function () {
               // console.log(selected);
               selected.splice(this.selectedLabelLimit);
               // console.log(selected);
-              ret = selected.join(this.selectedLabelGlue) + " <small class='opacity-75'>and " + (this.selected.length - this.selectedLabelLimit) + " more...</small>";
+              var more = this.selectedLabelLimitText;
+              more = more.replace(":num", this.selected.length - this.selectedLabelLimit);
+              ret = selected.join(this.selectedLabelGlue) + " <small class='opacity-75'>" + more + "</small>";
               // $ret= implode($this->selected_label_glue, array_slice($selected, 0, $this->selected_label_limit)) ." and ".(count($selected)-$this->selected_label_limit)." more...";
             } else {
               ret = selected.join(this.selectedLabelGlue);

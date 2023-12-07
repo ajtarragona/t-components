@@ -1,6 +1,7 @@
 @isset($attributes['multiple'])
     <li >
-        <a class="dropdown-item pe-2" type="button"
+        <a class="dropdown-item pe-2" type="button" 
+            :disabled="option.disabled??false"
             :class="optionClass(option.key,index)"
             @click.prevent.stop="selectOption(option.key)"
             >
@@ -13,9 +14,10 @@
             <i class="bi bi-check float-end" x-show="isSelected(option.key)"></i>
         </a>
     </li>
-    @else
+@else
     <li >
         <a class="dropdown-item pe-2" type="button"
+            :disabled="option.disabled??false"
             :class="optionClass(option.key,index)"
             @click.prevent.stop="selectOption(option.key)"
             >
