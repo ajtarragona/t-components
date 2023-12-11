@@ -27890,7 +27890,8 @@ document.addEventListener('alpine:init', function () {
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _this.open = true;
-            case 1:
+              document.documentElement.classList.add('select-opened');
+            case 2:
             case "end":
               return _context.stop();
           }
@@ -27908,6 +27909,7 @@ document.addEventListener('alpine:init', function () {
     }), "closeDropdown", function closeDropdown() {
       this.open = false;
       this.term = null;
+      document.documentElement.classList.remove('select-opened');
     }), "selectIcon", function selectIcon(value) {
       this.value = value;
       if (this.$refs['icon-input']) this.$refs['icon-input'].value = value;
@@ -28340,6 +28342,8 @@ document.addEventListener('alpine:init', function () {
                 btn.addEventListener('shown.bs.dropdown', function (event) {
                   // do something...
                   // console.log('event',event);
+                  event.preventDefault();
+                  event.stopPropagation();
                   event.target.classList.remove('show');
                   s.openSelect();
 
@@ -28408,7 +28412,12 @@ document.addEventListener('alpine:init', function () {
               case 4:
                 loadedData = _context4.sent;
                 // console.log('loadedData',loadedData, Object.keys(loadedData).length);
+                //
                 if (loadedData && Object.keys(loadedData).length > 0) {
+                  //si solo devuelve los datos selecionados, asumimos que ha acabado
+                  if (_this3.selected && (_this3.multiple && _this3.selected == Object.keys(loadedData) || !_this3.multiple && Object.keys(loadedData).length == 1 && _this3.selected == Object.keys(loadedData)[0])) {
+                    _this3.allLoaded = true;
+                  }
                   for (key in loadedData) {
                     if (!Object.keys(_this3.data).includes(key)) _this3.data[key] = loadedData[key];
                   }
@@ -28610,6 +28619,7 @@ document.addEventListener('alpine:init', function () {
           var instance = bootstrap.Dropdown.getInstance(btn);
           // console.log(instance);
           instance.hide();
+          document.documentElement.classList.remove('select-opened');
         }
       },
       openSelect: function openSelect() {
@@ -28624,7 +28634,6 @@ document.addEventListener('alpine:init', function () {
                 }
                 return _context8.abrupt("return");
               case 2:
-                console.log('openSelect');
                 if (_this7.open) {
                   _context8.next = 10;
                   break;
@@ -28632,6 +28641,7 @@ document.addEventListener('alpine:init', function () {
                 _this7.open = true;
                 _this7.term = '';
                 _this7.currentIndex = -1;
+                document.documentElement.classList.add('select-opened');
                 // console.log(this.dataSrc ,this.prefetch);
                 if (!(_this7.dataSrc && !_this7.prefetch)) {
                   _context8.next = 10;
@@ -28683,6 +28693,8 @@ document.addEventListener('alpine:init', function () {
       },
       selectCurrentOption: function selectCurrentOption() {
         var _this$options$Object$;
+        // console.log('selectCurrentOption',this.currentIndex);
+
         if (this.readonly) return;
         if (this.disabled) return;
         if ((_this$options$Object$ = this.options[Object.values(this.options)[this.currentIndex].key].disabled) !== null && _this$options$Object$ !== void 0 ? _this$options$Object$ : false) return;

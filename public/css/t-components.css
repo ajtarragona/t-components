@@ -32011,6 +32011,100 @@ span.flatpickr-weekday {
   cursor: default;
 }
 
+@media (max-width: 575.98px) {
+  html.select-opened {
+    overflow: hidden;
+  }
+
+  .t-select::before {
+    content: " ";
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1045;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 200ms ease-out;
+  }
+
+  .t-select.opened::before {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  .t-select.with-search .dropdown-menu {
+    top: 1em !important;
+    transform: none !important;
+  }
+
+  .t-select.with-search .dropdown-menu .options-container {
+    max-height: 70svh !important;
+  }
+
+  .t-select .dropdown-menu {
+    position: fixed !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 1em !important;
+    width: calc(100% - 2em);
+    transform: translateY(-50%) !important;
+    z-index: 1050;
+    inset: calc(50vh - 2em) auto auto 0 !important;
+    overflow: hidden;
+  }
+
+  .t-select .dropdown-menu .options-container {
+    max-height: 80svh !important;
+  }
+
+  .t-select .dropdown-menu .options-container .group-container > span:not(:last-of-type) li.list-option {
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  .t-select .dropdown-menu .options-container li.list-option:not(:last-of-type) {
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  .t-select .dropdown-menu .options-container li.list-option .dropdown-item {
+    font-size: 16pt;
+    padding: 0.5em 1em;
+  }
+
+  .t-select .dropdown-menu .options-container li.list-option .dropdown-item:hover,
+  .t-select .dropdown-menu .options-container li.list-option .dropdown-item:focus {
+    background-color: transparent;
+    color: var(--bs-dropdown-link-hover-color);
+  }
+
+  .t-select .dropdown-menu .options-container li.list-option .dropdown-item:active {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: var(--bs-dropdown-link-hover-bg);
+  }
+
+  .t-select .dropdown-menu .options-container li.list-option .dropdown-item i.check-icon {
+    border: 2px solid var(--bs-border-color);
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.2em;
+    margin-top: 2px;
+    color: var(--bs-primary);
+  }
+
+  .t-select .dropdown-menu .options-container li.list-option .dropdown-item.selected i.check-icon {
+    border-color: var(--bs-primary);
+  }
+
+  [data-bs-theme=dark] .t-select .dropdown-menu.show {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+  }
+}
+
 .btn.btn-default {
   --bs-btn-color: var(--bs-body-color);
   --bs-btn-bg: var(--bs-body-bg);

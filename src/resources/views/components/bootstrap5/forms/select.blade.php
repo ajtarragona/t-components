@@ -36,7 +36,7 @@
 
  @if(!$native)
     
-    <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}}"
+    <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}}" :class="{'opened':open,'with-search':search}"
         x-data="tSelectComponent({
             selected: @if($attributes->whereStartsWith('wire:model')->first()) @entangle($attributes->wire('model')) @else {{ $selected ? (is_array($selected)?json_encode($selected):$selected) :'null' }} @endif,
             data: {{ json_encode($data) }},
@@ -71,6 +71,8 @@
             termName:   {{ $termName ? '\''.$termName.'\'' :'null' }},
             limitName:   {{ $limitName ? '\''.$limitName.'\'' :'null' }},
             lazyLoad : {{ $lazyLoad ? 'true':'false' }},
+            height:{{ $height ? '\''.$height.'\'' :'false' }},
+
         })"
         
     
@@ -89,7 +91,6 @@
         
 
         >
-
             @if($search && $inlineSearch)
                 <input class="form-control"
                     placeholder="{{$searchPlaceholder}}" 
@@ -141,57 +142,60 @@
                 x-trap.noreturn="search && open "
                 
             >
+                <div class="inner">
 
-                <div class="px-2 pb-2" x-show="search">
-                    <x-t-text 
-                        icon="search" 
-                        placeholder="{{$searchPlaceholder}}" 
-                        x-model.debounce="term" 
-                        allowClear 
-                        x-ref="searchInput"
-                        @keydown.enter.prevent.stop="selectCurrentOption()"
-                        @keyup.down.prevent="increaseIndex()"
-                        @keyup.up.prevent="decreaseIndex()"
-                    />
-                </div>
+                    <div class="px-2 pb-2 pt-2 pt-sm-0" x-show="search">
+                        <x-t-text 
+                            icon="search" 
+                            placeholder="{{$searchPlaceholder}}" 
+                            x-model.debounce="term" 
+                            allowClear 
+                            x-ref="searchInput"
+                            @keydown.enter.prevent.stop="selectCurrentOption()"
+                            @keyup.down.prevent="increaseIndex()"
+                            @keyup.up.prevent="decreaseIndex()"
+                        />
+                    </div>
 
                
 
-                <div  class="relative overflow-y-auto"  :style="(height ? 'max-height:'+height : '') " >
-                    
-                    
-                    <div x-cloak x-show="!isLoading && Object.values(options).length === 0" class="opacity-75 small px-3 py-2" x-text="emptyOptionsMessage">Gragr</div>
-
-                    @if($grouped)
+                    <div  class="relative overflow-y-auto options-container"  :style="(height ? 'max-height:'+height : '') " >
                         
-                        <template x-for="(group_name,gr_index) in Object.values(groups)" :key="gr_index">
-                            <span x-show="getGroupOptions(group_name).length>0">
-                                <li x-show="gr_index>0"><hr class="dropdown-divider"></li>
+                        
+                        <div x-cloak x-show="!isLoading && Object.values(options).length === 0" class="opacity-75 small px-3 py-2" x-text="emptyOptionsMessage">Gragr</div>
 
-                                <li><h6 class="dropdown-header" x-html="group_name"></h6></li>
-                                    
-                                <template x-for="(option, index) in getGroupOptions(group_name)" :key="index" >
-                                    <span >
-                                    @include("t-components::components.".config('t-components.theme').".forms._select_option")
-                                    </span>
-                                </template>
-                            </span> 
-                        </template>
+                        @if($grouped)
+                            
+                            <template x-for="(group_name,gr_index) in Object.values(groups)" :key="gr_index">
+                                <span x-show="getGroupOptions(group_name).length>0" class="group-container" >
+                                    <li x-show="gr_index>0"><hr class="dropdown-divider"></li>
 
-                    @else
-                        <template x-for="(option, index) in Object.values(options)" :key="index" >
-                           @include("t-components::components.".config('t-components.theme').".forms._select_option")
-                        </template>
-                    @endif
+                                    <li class="group-header"><h6 class="dropdown-header" x-html="group_name"></h6></li>
+                                        
+                                    <template x-for="(option, index) in getGroupOptions(group_name)" :key="index" >
+                                        <span class="group-item" x-data="{ index: optionsIndex }" x-init="optionsIndex++">
+                                            {{-- <span x-text="index"></span> --}}
+                                            @include("t-components::components.".config('t-components.theme').".forms._select_option")
+                                        </span>
+                                    </template>
+                                </span> 
+                            </template>
 
-                    {{-- <div  class="p-2 opacity-50 mt-2" x-show="lazyLoad && !allLoaded"><small>Loading More ...</small></div> --}}
-                    <div x-intersect="await loadMore()"  class="relative opacity-75 small px-3 p-2" x-show="isLoading || (lazyLoad && !allLoaded)" >
-                        <div class="spinner-border spinner-border-sm text-primary" role="status">
-                            <span class="visually-hidden" x-text="loadingMessage"></span>
-                          </div>
-                          <span x-text="loadingMessage"></span>
+                        @else
+                            <template x-for="(option, index) in Object.values(options)" :key="index" >
+                            @include("t-components::components.".config('t-components.theme').".forms._select_option")
+                            </template>
+                        @endif
+
+                        {{-- <div  class="p-2 opacity-50 mt-2" x-show="lazyLoad && !allLoaded"><small>Loading More ...</small></div> --}}
+                        <div x-intersect.margin.100px="await loadMore()"  class="relative opacity-75 small p-3" x-show="isLoading || (lazyLoad && !allLoaded)" >
+                            <div class="spinner-border spinner-border-sm text-primary" role="status">
+                                <span class="visually-hidden" x-text="loadingMessage"></span>
+                            </div>
+                            <span x-text="loadingMessage"></span>
+                        </div>
+
                     </div>
-
                 </div>
             </ul>
             {{-- <span x-text="JSON.stringify(data)" x-show="dataSrc"></span> --}}
@@ -215,7 +219,7 @@
         </span>
     </div>
 @else
-    <select id="{{$id}}" name="{{$name}}" class="form-select {{$class}}">
+    <select id="{{$id}}" name="{{$name}}" {{ isset($attributes['multiple'])?'multiple':''}} class="form-select {{$class}}">
         @foreach($data as $key=>$value)
             <option value="{{$key}}" {{$selected==$key?'selected':''}}>{{$value}}</option>
         @endforeach

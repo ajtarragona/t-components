@@ -53,6 +53,12 @@
         2 => 'bbbb bbb',
         3 => 'cccc ccc',
     ]" />
+
+    <x-t-select native name="select-natiu" multiple class="mb-2" :data="[
+        1 => 'aaaa aaa',
+        2 => 'bbbb bbb',
+        3 => 'cccc ccc',
+    ]" />
     <button type="submit" class="btn btn-primary my-3">Test form</button>
 
 </x-t-form>
@@ -465,7 +471,7 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
 
 <h5>Alçada</h5>
 <p>podem definir una alçada màxima amb l'atribut <code>height</code>.</p>
-<x-t-select placeholder="A lot of options" allow-clear height="200px" class="mb-2"
+<x-t-select placeholder="A lot of options (height 120px)" allow-clear height="120px" class="mb-2"
     :data="[
         1 => 'aaaa aaa',
         2 => 'bbbb bbb',
@@ -489,7 +495,7 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
         20 => 'cccc ccc',
     ]" />
 
-<x-t-select placeholder="A lot of options" allow-clear height="200px" search :data="[
+<x-t-select placeholder="A lot of options (height 200px)" allow-clear height="200px" search :data="[
     1 => 'aaaa aaa',
     2 => 'bbbb bbb',
     3 => 'cccc ccc',
@@ -535,7 +541,7 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
         Aquest s'hauria de tenir en compte per retornar la pàgina de resultats que toqui. Podem modificar
         el nom del paràmetre amb <code>pageName="newname"</code></p>
         
-    <x-t-select placeholder="Async lazyload" lazy-load  name="async-lazy" selected="122" search limit="10" :data-src="route('t-components.testAjax')" class="mb-2" />
+    <x-t-select placeholder="Async lazyload " lazy-load  prefetch name="async-lazy" selected="122" search limit="10" :data-src="route('t-components.testAjax')" class="mb-2" />
 
     <p>Les dades s'obtenen quan es desplega el select per primera vegada. Podem afegir l'atribut
         <code>prefetch</code> per que s'otinguin a la càrrega inicial. </p>
@@ -674,8 +680,11 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
 <h5>Icones</h5>
 <p>Podem definir icones tant pel select com per cadascuna de les opcions.</p>
 <p>S'ha de posar el nom de la icona del paquet <a href="https://icons.getbootstrap.com/" target="_blank">bootstrap icons</a></p>
+
 <x-t-select width="fit-content" icon="ticket" placeholder="Choose transport" :data="[
     1 => ['value' => 'Airplane', 'icon' => 'airplane'],
     2 => ['value' => 'Car', 'icon' => 'car-front'],
     3 => ['value' => 'Train', 'icon' => 'train-front'],
 ]" />
+
+<hr class="mb-5"/>

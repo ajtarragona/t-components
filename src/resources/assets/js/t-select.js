@@ -119,6 +119,8 @@ document.addEventListener('alpine:init', () => {
             btn.addEventListener('shown.bs.dropdown', event => {
                 // do something...
                 // console.log('event',event);
+                event.preventDefault();
+                event.stopPropagation();
                 event.target.classList.remove('show');
                 s.openSelect();
 
@@ -160,7 +162,13 @@ document.addEventListener('alpine:init', () => {
             if(!this.isLoaded){
                 var loadedData = await this.loadAsyncData();
                 // console.log('loadedData',loadedData, Object.keys(loadedData).length);
-                if(loadedData && Object.keys(loadedData).length>0){
+                //
+                if(loadedData &&  Object.keys(loadedData).length>0  ) {
+                    //si solo devuelve los datos selecionados, asumimos que ha acabado
+                    if( this.selected && ( (this.multiple && this.selected==Object.keys(loadedData)) || (!this.multiple && Object.keys(loadedData).length==1 && this.selected == Object.keys(loadedData)[0] ) )){
+                        this.allLoaded=true;    
+                    }
+
                     for(var key in loadedData){
                         if(!Object.keys(this.data).includes(key)) this.data[key]=loadedData[key];
                     }
@@ -322,20 +330,21 @@ document.addEventListener('alpine:init', () => {
                 var instance=bootstrap.Dropdown.getInstance(btn);
                 // console.log(instance);
                 instance.hide();
-
+                document.documentElement.classList.remove('select-opened');
                 
             }
         },
         async openSelect() {
             if(this.disabled) return;
 
-            console.log('openSelect');
+            // console.log('openSelect');
 
             
             if(!this.open){
                 this.open = true
                 this.term = ''
                 this.currentIndex=-1;
+                document.documentElement.classList.add('select-opened');
                 // console.log(this.dataSrc ,this.prefetch);
                 if(this.dataSrc && !this.prefetch){
                     await this.getAsyncData();
@@ -389,10 +398,11 @@ document.addEventListener('alpine:init', () => {
         },
 
         selectCurrentOption: function() {
+            // console.log('selectCurrentOption',this.currentIndex);
+
             if(this.readonly) return;
             if(this.disabled) return;
             if(this.options[Object.values(this.options)[this.currentIndex].key].disabled??false)  return;
-
             if(this.currentIndex>=0)
                 this.selectOption(Object.values(this.options)[this.currentIndex].key);
         },

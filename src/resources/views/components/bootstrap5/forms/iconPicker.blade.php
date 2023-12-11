@@ -21,7 +21,7 @@
 ])
 
 <span 
- class="t-select t-icon-picker flex-grow-1 {{$attributes["outer-class"]??''}}"
+ class="t-select t-icon-picker flex-grow-1 {{$attributes["outer-class"]??''}}" :class="{'opened':open,'with-search':search}"
     x-data="tIconPicker({
         color: '{{ $color }}',
         class: '{{ $class }}',
@@ -90,7 +90,7 @@
                 
             >
 
-                <div class="px-2 pb-2" x-show="search">
+                <div class="px-2 pb-2 pt-2 pt-sm-0" x-show="search">
                     <x-t-text 
                         icon="search" 
                         placeholder="Type to search..." 
@@ -107,18 +107,19 @@
                 <span>Loading...</span>
             </div>
 
-            <div  class="relative icons-container overflow-y-auto" x-show="!isLoading" :style="('grid-template-columns: repeat('+grid.cols+', 1fr)') + ';'+ (height ? 'max-height:'+height : '') " >
+            <div  class="relative icons-container overflow-y-auto options-container" x-show="!isLoading" :style="('grid-template-columns: repeat('+grid.cols+', 1fr)') + ';'+ (height ? 'max-height:'+height : '') " >
 
                 <template x-for="(icon,index) in options" :key="index">
-                    <li >
-                        <a class="dropdown-item p-2 " :class="{'active':isSelected(icon)}" type="button" @click="selectIcon(icon)">
+                    <li class="list-option">
+                        <a class="dropdown-item" :class="{'selected':isSelected(icon), 'active':isSelected(icon) && grid && grid!='list'}" type="button" @click="selectIcon(icon)">
                             <i class="bi icon-icon" :class="icon" :title="icon"></i> <span class="icon-label" x-text="icon"></span>
-                            <i class="bi bi-check float-end check-icon" x-show="isSelected(icon)"></i>
 
+                            <i class="check-icon bi float-end" x-show="!grid || grid=='list'" :class="isSelected(icon)?'bi-check':''"></i>
+                            
                         </a>
                     </li>
                 </template>
-                <div x-intersect="loadMore()" class="p-2 opacity-50 mt-2" :style="'grid-column: 1 / '+(grid.cols+1)+';'" x-show="!allLoaded"><small>Loading...</small></div>
+                <div x-intersect="loadMore()" class="p-3 p-sm-2 opacity-50 mt-2" :style="'grid-column: 1 / '+(grid.cols+1)+';'" x-show="!allLoaded"><small>Loading...</small></div>
             </div>
         </ul>
     </span>

@@ -58,7 +58,8 @@ document.addEventListener('alpine:init', () => {
         },
         async openDropdown(){
             this.open=true;
-           
+            document.documentElement.classList.add('select-opened');
+                
 
         },
         prepareOptions(){
@@ -76,6 +77,8 @@ document.addEventListener('alpine:init', () => {
         closeDropdown(){
             this.open=false;
             this.term=null;
+            document.documentElement.classList.remove('select-opened');
+                
         },
         selectIcon(value){
             this.value=value;
