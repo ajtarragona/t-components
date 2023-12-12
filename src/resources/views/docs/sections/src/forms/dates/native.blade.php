@@ -4,3 +4,5 @@
 
 <p>Per defecte en mòbils sempre es mostra el selector natiu. Si ho volem desactivar cal posar <code>nativeMobile="false"</code></p>
 <x-t-date name="flat-native-mobile" nativeMobile="false" placeholder="nativeMobile='false'"  />
+<x-t-date name="flat-native-mobile-date-time" enable-time nativeMobile="false" placeholder="nativeMobile='false'"  />
+<x-t-date name="flat-native-mobile-time" enable-time enable-date="false" nativeMobile="false" placeholder="nativeMobile='false'"  />

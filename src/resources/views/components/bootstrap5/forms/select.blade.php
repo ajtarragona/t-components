@@ -120,7 +120,7 @@
                 @keyup.down.prevent="increaseIndex()"
                 @keyup.up.prevent="decreaseIndex()"
             >
-                <div class="text-truncate ">
+                <div class="text-truncate flex-grow-1 text-start">
                     
                     <i class="bi me-2 " :class="'bi-'+icon+' '+(selected?'':'opacity-50') " x-show="icon"></i> 
         

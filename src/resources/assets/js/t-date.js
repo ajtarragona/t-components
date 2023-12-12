@@ -26,9 +26,17 @@ document.addEventListener('alpine:init', () => {
                     }
                     d.instance = flatpickr(this.$refs['date-input'],{
                         defaultDate: val,
+                        appendTo: document.getElementById('calendars-container'),
                         plugins: [labelPlugin()],
-                        onOpen: function(selectedDates, dateStr, instance) { d.focused=true },
-                        onClose: function(selectedDates, dateStr, instance) { d.focused=false },
+                        onOpen: function(selectedDates, dateStr, instance) { 
+                            d.focused=true;
+                            document.documentElement.classList.add('calendar-opened');
+                         },
+                        onClose: function(selectedDates, dateStr, instance) { 
+                            d.focused=false;
+                            document.documentElement.classList.remove('calendar-opened');
+
+                         },
 
                     });
                 }

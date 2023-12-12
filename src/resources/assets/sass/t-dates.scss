@@ -36,6 +36,22 @@
         color: var(--bs-body-color);
     }
 
+    .flatpickr-day.flatpickr-disabled, 
+    .flatpickr-day.flatpickr-disabled:hover{
+        color: rgba(var(--bs-body-color-rgb),0.3) !important;
+        background: transparent !important;
+        border-color:transparent  !important;
+
+    } 
+    .flatpickr-day.prevMonthDay, 
+    .flatpickr-day.nextMonthDay, 
+    .flatpickr-day.notAllowed, 
+    .flatpickr-day.notAllowed.prevMonthDay, 
+    .flatpickr-day.notAllowed.nextMonthDay{
+        color: rgba(var(--bs-body-color-rgb),0.3);
+        background: transparent;
+        border-color:transparent;
+    }
     .numInputWrapper span.arrowUp:after {
         border-bottom-color: var(--bs-body-color);
     }
@@ -62,12 +78,12 @@
     .flatpickr-day.nextMonthDay.today.inRange{
         color: var(--bs-body-color);
         border-radius: 0px;
-        background-color: rgba(var(--bs-body-color-rgb), 0.1);
+        // background-color: rgba(var(--bs-body-color-rgb), 0.1);
         border-color: transparent;
-        box-shadow: -5px 0 0 rgba(var(--bs-body-color-rgb), 0.1);//, 5px 0 0 rgba(var(--bs-body-color-rgb), 0.1);
+        // box-shadow: -5px 0 0 rgba(var(--bs-body-color-rgb), 0.1);//, 5px 0 0 rgba(var(--bs-body-color-rgb), 0.1);
     }
     .flatpickr-day.endRange{
-        box-shadow: -5px 0 0 rgba(var(--bs-body-color-rgb), 0.1);//, 5px 0 0 rgba(var(--bs-body-color-rgb), 0.1);
+        // box-shadow: -5px 0 0 rgba(var(--bs-body-color-rgb), 0.1);//, 5px 0 0 rgba(var(--bs-body-color-rgb), 0.1);
     }
 
     .flatpickr-day:hover,
@@ -86,12 +102,7 @@
     }
     
 
-    .flatpickr-day.flatpickr-disabled,
-    .flatpickr-day.flatpickr-disabled:hover{
-        opacity:.2;
-        background: transparent;
-        border-color:transparent;
-    }
+    
     &.arrowTop:before,
     &.arrowTop:after,
     &.arrowBottom:before,
@@ -147,4 +158,118 @@
     .flatpickr-monthDropdown-months option {
         // color: var(--bs-body-bg);
     }
+}
+
+
+@include media-breakpoint-down(sm) { 
+    #calendars-container{
+        background-color: rgba(0,0,0,0.6);
+        position: fixed;
+        top:0;
+        left:0;
+        width:100vw;
+        height:0;
+        z-index:1045;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 200ms ease-out;
+    
+    }
+
+    .flatpickr-calendar{
+        .flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month{
+            height:auto;
+            padding:1em;
+        }
+        .flatpickr-months .flatpickr-prev-month svg, .flatpickr-months .flatpickr-next-month svg{
+            height:22px;
+            width:22px;
+        }
+
+        .flatpickr-months .flatpickr-month{
+            height:60px
+        }
+        .flatpickr-current-month{
+            height:auto;
+            padding-top:0;
+        }
+
+        .flatpickr-current-month .flatpickr-monthDropdown-months{
+             font-size: 17pt;
+             padding:.5em 1em;
+             text-align: center;
+            
+        }
+        .flatpickr-current-month .numInputWrapper{
+            // width: 7ch;
+        }
+        .flatpickr-current-month input.cur-year{
+            font-size: 17pt;
+            padding:.5em;
+        }
+        .flatpickr-time{
+            height: 48px !important;
+            line-height: 48px;
+            max-height: 48px;   
+        }
+        .flatpickr-time .numInputWrapper{
+            height: 48px;
+        }
+        .flatpickr-time input{
+            font-size: 13pt;
+            padding: .5em;
+        }
+        .flatpickr-time-separator{
+            font-size: 13pt;
+        }
+        .flatpickr-days,
+        .dayContainer{
+            width: 100% !important;
+            max-width: none !important;
+        }
+        .flatpickr-day{
+            max-width: none !important;
+            width: auto !important;
+            font-size: 12pt;
+            height:auto !important;
+            line-height:normal !important;
+            padding:1.2em .5em;
+
+        }
+
+
+    }
+    
+    html.calendar-opened{
+        overflow: hidden;
+
+        #calendars-container{
+            opacity:1;
+            height:100vh;
+            pointer-events: all;
+        
+        }
+
+        .flatpickr-calendar.open{
+            position:fixed !important;
+            padding-top:0;
+            padding-bottom:0;
+            margin:1em !important;
+            //   background-color: var(--bs-body-bg);
+            // border: 1px solid var(--bs-border-color);
+            width: calc(100% - 2em);
+            // left:0  !important;
+            // top:calc(50vh - 2em) !important;
+            
+            transform: translateY(-50%) !important;
+            z-index:1050;
+          
+            top: calc(50vh - 2em) !important;
+            left:0 !important;
+    
+          
+            overflow: hidden;
+        }
+    }
+
 }

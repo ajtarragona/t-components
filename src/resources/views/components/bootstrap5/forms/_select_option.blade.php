@@ -5,13 +5,16 @@
             :class="optionClass(option.key,index)"
             @click.prevent.stop="selectOption(option.key)"
             >
-            
-            <i class="bi me-2" :class="'bi-'+option.icon??false" x-show="option.icon??false"></i> 
-            
-            <span x-html="option.value"></span>
-
-            
-            <i class="check-icon  bi float-end" :class="isSelected(option.key)?'bi-check':''"></i>
+            <div class="d-flex justify-content-between">
+                <div class="flex-grow-1 text-truncate pe-2">
+                    <i class="bi me-2" :class="'bi-'+option.icon??false" x-show="option.icon??false"></i> 
+                
+                    <span class="text-truncate" x-html="option.value"></span>
+                </div>
+                <div>
+                    <i class="check-icon  bi float-end" :class="isSelected(option.key)?'bi-check':''"></i>
+                </div>
+            </div>
         </a>
     </li>
 @else
@@ -22,10 +25,17 @@
             @click.prevent.stop="selectOption(option.key)"
             >
             
-            <i class="bi me-2" :class="'bi-'+option.icon??false" x-show="option.icon??false"></i> 
-            <span x-html="option.value"></span>
-
-            <i class="check-icon  bi float-end" :class="isSelected(option.key)?'bi-check':''"></i>
+            <div class="d-flex justify-content-between">
+                <div class="flex-grow-1 text-truncate pe-2">
+                    <i class="bi me-2" :class="'bi-'+option.icon??false" x-show="option.icon??false"></i> 
+                
+                    <span class="text-truncate" x-html="option.value"></span>
+                </div>
+                <div>
+                    <i class="check-icon  bi float-end" :class="isSelected(option.key)?'bi-check':''"></i>
+                </div>
+            </div>
+            
         </a>
     </li>
 @endisset

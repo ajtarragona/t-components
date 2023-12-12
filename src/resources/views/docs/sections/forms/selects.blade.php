@@ -319,7 +319,7 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
 <div class="input-group ">
 
     <x-t-text icon="text-left" />
-    <x-t-date icon="calendar " placeholder="" />
+    <x-t-date icon="calendar" nativeMobile="false" placeholder="" />
 
     <x-t-select icon="book" selected="3" allow-clear :data="[
         1 => 'dfdf',
@@ -461,6 +461,7 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
         1 => 'aa',
         2 => 'bbbb bbbbb',
         3 => 'cccc',
+        3 => 'Ex cupidatat et dolor cillum dolore laborum tempor consectetur. Dolore consectetur consectetur exercitation minim deserunt enim amet velit eu sunt mollit.',
     ]" />
 
 

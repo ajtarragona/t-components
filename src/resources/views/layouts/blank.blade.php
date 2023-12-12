@@ -41,7 +41,7 @@
 <body class="on-top">
 
 	@yield('content') 
-
+	<div id="calendars-container"></div>
 	<livewire:t-modals-container /> 
 </body>
 </html>

@@ -1,8 +1,8 @@
 @props([
     'native'=>false,
     'value' => null,
-    'icon'=>null,
-    'placeholder'=>'',
+        'icon'=>null,
+        'placeholder'=>'',
     'dateFormat'=>'d/m/Y',
     'timeFormat'=>'H:i',
     'allowInput'=>false,
