@@ -12,6 +12,8 @@
     </div>
 </div>
 <hr/>
+@include('t-components::docs._form_request')
+
 
 <x-t-form action="{{route('t-components.testForm')}}" method="get"> 
 
@@ -44,9 +46,7 @@
 
     <x-t-button icon="save" type="submit">Submit</x-t-button>
 
-    @if(session('formRequest'))
-        <div class="mt-2">@dump(session('formRequest'))</div>
-    @endif
+   
 </x-t-form>
 
 <hr/>

@@ -12,6 +12,10 @@
     'checked'=>false,
 ])
 
+@php
+    if(!$id) $id=str_slug($name)."_".$value;
+@endphp
+
 <div x-data=""
 
 class="form-check form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} "  >

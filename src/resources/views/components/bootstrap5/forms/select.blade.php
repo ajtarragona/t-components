@@ -88,6 +88,7 @@
             :style="(width && width!='fit-content')? ('width:'+width): '' "
             @click.away="closeSelect()" 
             @keydown.escape="closeSelect()"
+            @keydown.tab="closeSelect()"
         
 
         >

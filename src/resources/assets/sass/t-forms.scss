@@ -16,9 +16,17 @@
   $btn-default-disabled-bg:       shade-color($body-bg, 10%) !default;
   $btn-default-disabled-color:       shade-color($body-color, 10%) !default;
   $btn-default-disabled-border:       shade-color($border-color, 10%) !default;
-  
+    
+    .btn:focus {
+        color: var(--bs-btn-hover-color);
+        background-color: var(--bs-btn-hover-bg);
+        border-color: var(--bs-btn-focus-border-color);
+        outline: 0;
+        box-shadow: var(--bs-btn-focus-box-shadow);
+    }
 
   .btn.btn-default{
+
     // background-color:var(--bs-body-bg);
     // border:  $input-border-width solid $input-border-color;
 
@@ -26,9 +34,9 @@
     --bs-btn-bg: var(--bs-body-bg);
     --bs-btn-border-color: var(--bs-border-color);
     --bs-btn-hover-color: var(--bs-btn-color);
-
+    --bs-btn-hover-border-color: var(--bs-border-color);
     --bs-btn-hover-bg: var(--bs-btn-bg);
-    --bs-btn-hover-border-color: var(--bs-btn-border-color);
+
     // --bs-btn-focus-shadow-rgb: 181, 53, 89;
     --bs-btn-active-color: #{$btn-default-active-color};
     --bs-btn-active-bg: #{$btn-default-active-bg};
@@ -37,7 +45,9 @@
     --bs-btn-disabled-color: #{$btn-default-disabled-color};
     --bs-btn-disabled-bg: var(--bs-secondary-bg);
     --bs-btn-disabled-border-color: #{$btn-default-disabled-border};
-
+    
+    --bs-btn-focus-border-color: #{$input-focus-border-color};
+    --bs-btn-focus-box-shadow : #{$input-focus-box-shadow};
     
     &.disabled{
         border-color: var(--bs-border-color);
@@ -52,14 +62,14 @@
         
     // }
     // &:focus,
-    &:focus-visible
-    {
-      color: var(--bs-body-color);
-      background-color: var(--bs-body-bg);
-      border-color: $input-focus-border-color;
-      outline: 0;
-      box-shadow: $input-focus-box-shadow
-    }
+    // &:focus-visible
+    // {
+    // //   color: var(--bs-body-color);
+    // //   background-color: var(--bs-body-bg);
+    //   border-color: $input-focus-border-color;
+    // //   outline: 0;
+    // //   box-shadow: $input-focus-box-shadow
+    // }
   
   }
   
@@ -144,8 +154,16 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow-x: hidden;
-        opacity: .8;
+        // opacity: .8;
+        color: rgba(var(--bs-body-color-rgb),0.8);
     }
+
+    &.focused{
+        .form-label{
+            color: var(--bs-body-color-rgb);
+        }
+    }
+
 
     &.label-start,
     &.label-end{
@@ -229,7 +247,7 @@
             .form-label{
                 top:-1.5rem;
                 left:0rem;
-                opacity:0.8;
+                opacity:1;
             }
         }
     }
@@ -299,6 +317,9 @@
             // margin-top:1rem;
             margin-left:-1rem;
         }
+        .form-text{
+            opacity:.7;
+        }
 
         @each $color, $value in $theme-colors {
             &.boxed-#{$color} {
@@ -321,7 +342,106 @@
         
         
     }
+
+
+    &.underlined{
+        // border-top:1px solid transparent;
+        border-bottom:1px solid var(--bs-border-color);
+        border-radius: 0px;
+
+        padding-bottom:.5em;
+        
+        &.label-top{
+            padding-top:.5em;
+
+        }
+
+        .t-input input,
+        .t-select .t-select-dropdown,
+        .t-input textarea{
+            border-color: transparent;
+            background-color: transparent;
+            padding-right: .5em;
+            padding-left: .5em;
+        }
+
+        .t-input input:focus,
+        .t-select .t-select-dropdown:focus,
+        .t-input textarea:focus
+        {
+            
+            box-shadow: none;
+
+        }
+        .t-input:not(.with-icon){
+            input,
+            textarea{
+                padding-left: 0;
+            }
+
+        }
+        .t-select:not(.with-icon){
+            .t-select-dropdown{
+                padding-left: 0;
+            }
+
+        }
+
+        .form-text{
+            opacity:.7;
+        }
+        &.focused{
+            
+            // color: $input-focus-color;
+            // background-color: $input-focus-bg;
+            // border-top-width: 0px;
+            border-color: $input-focus-border-color;
+            box-shadow: 0px 0.25rem 0px 0px $focus-ring-color;
+            
+            @include transition($input-transition);
+        }
+
+        .t-select .dropdown-menu{
+            // margin-top:1rem;
+            // margin-top:2px !important;
+        }
+        @each $color, $value in $theme-colors {
+            &.underlined-#{$color} {
+                color: $value;
+                border-color: shade-color($value,20%);
+                &.focused{
+                    box-shadow: 0px 0.25rem 0px 0px rgba($value, 0.25);
+                }
+
+                .t-form-control{
+                    border-color:transparent;
+                }
+            }
+        }
+    }
+
 }
+
+@include media-breakpoint-down(sm) { 
+    .t-form-group{
+        &.label-start,
+        &.label-end{
+            flex-direction: column;
+            align-items: normal;
+            .form-label{
+                width:100% !important;
+                display:block;
+                padding-right: 0em !important;
+                padding-left: 0em !important;
+            }
+        }
+
+        &.label-end{
+            flex-direction: column-reverse;
+        }
+    }
+}
+
 
 [data-bs-theme="dark"]{
     .t-form-group{

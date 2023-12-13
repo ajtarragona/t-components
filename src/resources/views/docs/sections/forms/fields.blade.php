@@ -30,5 +30,6 @@
   </div>
 </div>
 
+@include('t-components::docs._form_request')
 
 @include('t-components::docs.sections.src.forms.fields')

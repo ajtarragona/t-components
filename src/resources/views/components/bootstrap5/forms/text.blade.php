@@ -10,6 +10,10 @@
     // 'maxlength' => false,
     
 ])
+@php
+//si no pasan el ID y sí el name, el ID será igual al name
+if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] = $attributes["name"];
+@endphp
 
 <span 
     x-data="tTextComponent({

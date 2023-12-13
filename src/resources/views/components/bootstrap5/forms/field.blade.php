@@ -3,6 +3,7 @@
     'labelPlacement'=>'top',
     'for'=>false,
     'boxed'=>false,
+    'underlined'=>false,
     'floating'=>false,
     'icon'=>null,
     'labelAlign'=>'left',
@@ -20,7 +21,7 @@
     }"
     x-init=""
     :class="{'focused':focused,'required':required}"
-    {{ $attributes->merge(['class' => 't-form-group ' . ($floating?' floating ':''). ($boxed?'boxed '.($color?'boxed-'.$color:''):($color?'text-'.$color:'')). ' label-'. $labelPlacement ]) }}>
+    {{ $attributes->merge(['class' => 't-form-group ' . ($floating?' floating ':''). ($boxed?'boxed '.($color?'boxed-'.$color:''):($color?'text-'.$color:'')). ($underlined?' underlined '.($color?' underlined-'.$color:''):($color?' text-'.$color:'')) .' label-'. $labelPlacement ]) }}>
     
     
     @if($label || $icon) 

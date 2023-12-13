@@ -19,9 +19,9 @@
 </div>
 
 <hr />
-@if(session('formRequest'))
-    <div class="mt-2 " wire:ignore>@dump(session('formRequest'))</div>
-@endif
+@include('t-components::docs._form_request')
+
+
 <h5>Formularis</h5>
 
 <x-t-form action="{{route('t-components.testForm')}}" method="get" > 

@@ -13,6 +13,10 @@
     'checked'=>false,
 ])
 
+@php
+    if(!$id) $id=str_slug($name)."_".$value;
+@endphp
+
 <div x-data="{
     indeterminate: {{$indeterminate?'true':'false'}}
 }"

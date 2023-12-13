@@ -70,10 +70,10 @@
            
     
     <x-t-button icon="save" type="submit" class="mt-3">Submit</x-t-button>
-    @if(session('formRequest'))
-        <div class="mt-2" wire:ignore>@dump(session('formRequest'))</div>
-    @endif
+   
 </x-t-form>
 
+
+@include('t-components::docs._form_request')
 
 

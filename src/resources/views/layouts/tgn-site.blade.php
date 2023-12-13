@@ -47,6 +47,8 @@
 			@yield('body')
 	</main>
 
-	
+	<div id="calendars-container"></div>
+	<livewire:t-modals-container /> 
+
 </body>
 </html>
