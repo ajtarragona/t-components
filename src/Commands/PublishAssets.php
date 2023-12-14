@@ -61,6 +61,15 @@ class PublishAssets extends Command
         // dd($origin, $destination);
         File::copyDirectory($origin, $destination);
 
+
+        //copy images to public
+        $origin = public_path('vendor/ajtarragona/images');
+        $destination= public_path('images');
+        
+        $this->line("Copying images ...");
+        // dd($origin, $destination);
+        File::copyDirectory($origin, $destination);
+
         // Storage::copy($origin,$destination);
 
         $this->line("Publishing assets ...");

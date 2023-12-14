@@ -9,7 +9,10 @@
     'charCounter'=>false
     
 ])
-
+@php
+//si no pasan el ID y sí el name, el ID será igual al name
+if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] = $attributes["name"];
+@endphp
 <span 
     x-data="tTextComponent({
         allowClear: {{ $allowClear ? 'true':'false' }},
@@ -23,8 +26,7 @@
     
 
     <textarea 
-        @focus="focused=true" 
-        @blur="focused=false" 
+       
         @input="refresh()"
         x-ref="input" 
         placeholder="{{$placeholder}}"  

@@ -11,7 +11,7 @@
     <div class="col-4">
         <x-t-field label="Camp select" for="select-field-14" class="mb-2">
             <x-t-select 
-               
+                name="select-field-14"
                 :data="[
                     1=>'aaa',
                     2=>'bbb',
@@ -208,6 +208,15 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
     />
 </x-t-field>
 
+<x-t-field label="Boxed checks"  class="mb-2" boxed>
+    <div class="py-2">
+        <x-t-checkbox  name="boxed-ch1-check1[]" value="1" >Opció 1</x-t-checkbox>
+        <x-t-checkbox  name="boxed-ch1-check1[]" value="2" >Opció 2</x-t-checkbox>
+        <x-t-checkbox  name="boxed-ch1-check1[]" value="3" >Opció 3</x-t-checkbox>
+    </div>
+
+</x-t-field>
+
 <x-t-field label="Boxed with Form text" for="text-field-21-2" boxed  form-text="Adipisicing tempor ea dolore fugiat culpa voluptate qui labore." class="mb-2">
     <x-t-text id="text-field-21-2"  placeholder="Boxed with form-text" />
 </x-t-field>
@@ -253,6 +262,15 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
                 ]"
 
             />
+        </x-t-field>
+
+        <x-t-field label="Boxed checks"  class="mb-2" underlined>
+            <div class="py-2">
+                <x-t-checkbox  name="underlined-ch1-check1[]" value="1" >Opció 1</x-t-checkbox>
+                <x-t-checkbox  name="underlined-ch1-check1[]" value="2" >Opció 2</x-t-checkbox>
+                <x-t-checkbox  name="underlined-ch1-check1[]" value="3" >Opció 3</x-t-checkbox>
+            </div>
+        
         </x-t-field>
 
         <x-t-field label="Underlined with Form text" for="text-field-21-u-2" underlined  form-text="Adipisicing tempor ea dolore fugiat culpa voluptate qui labore." class="mb-2">

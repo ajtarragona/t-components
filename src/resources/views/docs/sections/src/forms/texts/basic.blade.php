@@ -1,5 +1,5 @@
 
-<x-t-text type="email" icon="envelope" placeholder="name@example.com"/>
+<x-t-text type="email" icon="envelope" name="kakaka" placeholder="name@example.com"/>
 
 
     

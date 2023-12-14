@@ -90,6 +90,10 @@ class Docs extends LiveFullPageComponent
                     "name"=>"Textareas",
                     "icon"=>"textarea-resize",
                 ],
+                "forms_texteditors"=>[
+                    "name"=>"Rich Text Editors",
+                    "icon"=>"textarea-t",
+                ],
                 "forms_numbers"=>[
                     "name"=>"Numbers",
                     "icon"=>"123",

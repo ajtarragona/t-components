@@ -33,6 +33,10 @@ if($value){
 }
 
 
+
+//si no pasan el ID y sí el name, el ID será igual al name
+if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] = $attributes["name"];
+
 if(isset($attributes["id"])) $altInput="true"; //parche
 
 @endphp
@@ -52,8 +56,8 @@ wire:key="{{ rand() }}"
 
     <input placeholder="{{$placeholder}}" 
         {{ $attributes->except(['type'])->merge(['class' => 'form-control '.((isset($attributes["name"]) && $errors->has($attributes["name"]) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'').' t-form-control '.($color?('bg-'.$color .' text-bg-'.$color):'')]) }} 
-        {{-- @focus="focused=true" 
-        @blur="focused=false" --}}
+        
+        
         {{-- :type="native?'date':'text'"  --}}
 
         type="{{$native?'date':'text'}}"

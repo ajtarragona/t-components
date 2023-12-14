@@ -33,7 +33,10 @@
     'lazyLoad' => false
    
 ])
-
+@php
+//si no pasan el ID y sí el name, el ID será igual al name
+if(!$id && $name) $id = $name;
+@endphp
  @if(!$native)
     
     <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}}" :class="{'opened':open,'with-search':search}"
@@ -115,8 +118,7 @@
                 x-ref="dropdown-btn"
                 
                 {{-- @click="toggleSelect()" --}}
-                @focus="focused=true" 
-                @blur="focused=false"
+                
                 @keyup.enter.prevent="selectCurrentOption()"
                 @keyup.down.prevent="increaseIndex()"
                 @keyup.up.prevent="decreaseIndex()"

@@ -27714,14 +27714,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _t_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_t_modal__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./t-text */ "./src/resources/assets/js/t-text.js");
 /* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_t_text__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./t-select */ "./src/resources/assets/js/t-select.js");
-/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_t_select__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _t_date__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./t-date */ "./src/resources/assets/js/t-date.js");
-/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./t-icon */ "./src/resources/assets/js/t-icon.js");
-/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_t_icon__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./livewire */ "./src/resources/assets/js/livewire.js");
-/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_livewire__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./t-texteditor */ "./src/resources/assets/js/t-texteditor.js");
+/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_t_texteditor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./t-select */ "./src/resources/assets/js/t-select.js");
+/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_t_select__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _t_date__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./t-date */ "./src/resources/assets/js/t-date.js");
+/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./t-icon */ "./src/resources/assets/js/t-icon.js");
+/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_t_icon__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./livewire */ "./src/resources/assets/js/livewire.js");
+/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_livewire__WEBPACK_IMPORTED_MODULE_8__);
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
 
 
 
@@ -27734,6 +27737,9 @@ var Turbolinks = __webpack_require__(/*! turbolinks */ "./node_modules/turbolink
 Turbolinks.start();
 var flatpickr = __webpack_require__(/*! flatpickr */ "./node_modules/flatpickr/dist/esm/index.js");
 window.bootstrap = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+
+// const quilljs = require("quill");
+
 var detectOnTop = function detectOnTop() {
   // console.log('detectOnTop',document.documentElement.scrollTop);
   if (document.documentElement.scrollTop > 0) {
@@ -27792,11 +27798,11 @@ document.addEventListener('alpine:init', function () {
               appendTo: document.getElementById('calendars-container'),
               plugins: [flatpickr_dist_plugins_labelPlugin_labelPlugin__WEBPACK_IMPORTED_MODULE_0___default()()],
               onOpen: function onOpen(selectedDates, dateStr, instance) {
-                d.focused = true;
+                // d.focused=true;
                 document.documentElement.classList.add('calendar-opened');
               },
               onClose: function onClose(selectedDates, dateStr, instance) {
-                d.focused = false;
+                // d.focused=false;
                 document.documentElement.classList.remove('calendar-opened');
               }
             });
@@ -28881,6 +28887,159 @@ document.addEventListener('alpine:init', function () {
         this.inputLength = this.$refs['input'].value.length;
         return this.inputLength;
       }
+    };
+  });
+});
+
+/***/ }),
+
+/***/ "./src/resources/assets/js/t-texteditor.js":
+/*!*************************************************!*\
+  !*** ./src/resources/assets/js/t-texteditor.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// import Quill from 'quill';
+
+// import Toolbar from 'quill/modules/toolbar';
+// import Snow from 'quill/themes/snow';
+
+// import Bold from 'quill/formats/bold';
+// import Italic from 'quill/formats/italic';
+// import Header from 'quill/formats/header';
+
+// Quill.register({
+//   'modules/toolbar': Toolbar,
+//   'themes/snow': Snow,
+//   'formats/bold': Bold,
+//   'formats/italic': Italic,
+//   'formats/header': Header
+// });
+
+// import Trix from "trix"
+
+document.addEventListener('alpine:init', function () {
+  Alpine.data('tTextEditorComponent', function (config) {
+    var _config$placeholder, _config$bubble, _config$value, _config$readonly, _config$toolbar;
+    return {
+      instance: null,
+      placeholder: (_config$placeholder = config.placeholder) !== null && _config$placeholder !== void 0 ? _config$placeholder : null,
+      bubble: (_config$bubble = config.bubble) !== null && _config$bubble !== void 0 ? _config$bubble : false,
+      value: (_config$value = config.value) !== null && _config$value !== void 0 ? _config$value : null,
+      readonly: (_config$readonly = config.readonly) !== null && _config$readonly !== void 0 ? _config$readonly : false,
+      toolbar: (_config$toolbar = config.toolbar) !== null && _config$toolbar !== void 0 ? _config$toolbar : 'simple',
+      toolbars: {
+        mini: ['bold', 'italic', 'underline', 'strike'],
+        simple: [[{
+          'header': [1, 2, 3, 4, 5, 6, false]
+        }], ['bold', 'italic', 'underline', 'strike'],
+        // toggled buttons
+        [{
+          'list': 'ordered'
+        }, {
+          'list': 'bullet'
+        }], [{
+          'color': []
+        }, {
+          'background': []
+        }],
+        // dropdown with defaults from theme
+        [{
+          'align': []
+        }], ['clean'] // remove formatting button
+        ],
+
+        advanced: [[{
+          'header': [1, 2, 3, 4, 5, 6, false]
+        }], ['bold', 'italic', 'underline', 'strike'],
+        // toggled buttons
+        ['blockquote', 'code-block'], [{
+          'header': 1
+        }, {
+          'header': 2
+        }],
+        // custom button values
+        [{
+          'list': 'ordered'
+        }, {
+          'list': 'bullet'
+        }], [{
+          'script': 'sub'
+        }, {
+          'script': 'super'
+        }],
+        // superscript/subscript
+        [{
+          'indent': '-1'
+        }, {
+          'indent': '+1'
+        }],
+        // outdent/indent
+        [{
+          'direction': 'rtl'
+        }],
+        // text direction
+
+        [{
+          'size': ['small', false, 'large', 'huge']
+        }],
+        // custom dropdown
+
+        [{
+          'color': []
+        }, {
+          'background': []
+        }],
+        // dropdown with defaults from theme
+        [{
+          'font': []
+        }], [{
+          'align': []
+        }], ['clean'] // remove formatting button
+        ]
+      },
+
+      theme: config.bubble ? 'bubble' : 'snow',
+      init: function init() {
+        var d = this;
+        // this.refresh();
+        // console.log("init texteditor", this );
+        d.instance = new Quill(d.$refs['q-editor'], {
+          theme: d.theme,
+          placeholder: d.placeholder,
+          modules: {
+            toolbar: d.toolbars[d.toolbar]
+          },
+          readOnly: d.readonly
+        });
+        // console.log('value',d.value);
+        d.$refs['q-input'].value = d.value;
+        // d.instance.setText(d.value);
+        // d.instance.container.firstChild.innerHTML;
+
+        d.instance.on('text-change', function (delta, oldDelta, source) {
+          // console.log(d.instance.container.firstChild.innerHTML)
+          d.$refs['q-input'].value = d.instance.container.firstChild.innerHTML;
+          d.value = d.instance.container.firstChild.innerHTML;
+        });
+      }
+
+      // clear: function() {
+      //     // this.$refs['input'].value = '';
+      //     // if(this.$refs['input']._x_model) this.$refs['input']._x_model.set('');
+      //     // this.hasValue=false;
+      //     // this.$refs['input'].dispatchEvent(new Event('change', { 'bubbles': true }));
+      //     this.refresh();
+      // },
+      // refresh: function() {
+      //     // this.checkValue();
+      //     // this.getInputLength();
+      // },
+      // checkValue: function() {
+      //     // if(this.$refs['input'].value != '') this.hasValue=true;
+      //     // else this.hasValue=false;
+      // },
     };
   });
 });

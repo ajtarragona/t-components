@@ -29,11 +29,11 @@ document.addEventListener('alpine:init', () => {
                         appendTo: document.getElementById('calendars-container'),
                         plugins: [labelPlugin()],
                         onOpen: function(selectedDates, dateStr, instance) { 
-                            d.focused=true;
+                            // d.focused=true;
                             document.documentElement.classList.add('calendar-opened');
                          },
                         onClose: function(selectedDates, dateStr, instance) { 
-                            d.focused=false;
+                            // d.focused=false;
                             document.documentElement.classList.remove('calendar-opened');
 
                          },

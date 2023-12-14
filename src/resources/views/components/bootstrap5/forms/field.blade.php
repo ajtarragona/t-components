@@ -15,12 +15,11 @@
 
 <div  
     x-data="{
-        focused:false, 
         required:{{$required?'true':'false'}},
         floating:{{$floating?'true':'false'}},
     }"
     x-init=""
-    :class="{'focused':focused,'required':required}"
+    :class="{'required':required}"
     {{ $attributes->merge(['class' => 't-form-group ' . ($floating?' floating ':''). ($boxed?'boxed '.($color?'boxed-'.$color:''):($color?'text-'.$color:'')). ($underlined?' underlined '.($color?' underlined-'.$color:''):($color?' text-'.$color:'')) .' label-'. $labelPlacement ]) }}>
     
     

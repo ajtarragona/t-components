@@ -16,4 +16,5 @@ mix.js('src/resources/assets/js/t-components.js', 'public/js')
 	.sass('src/resources/assets/sass/t-components.scss', 'public/css')
 	.sass('src/resources/assets/sass/tgn-site.scss', 'public/css')
 	.copyDirectory('src/resources/assets/img', 'public/img')
-	.copyDirectory('fonts', 'public/fonts');
+	.copyDirectory('fonts', 'public/fonts')
+	.copyDirectory('images', 'public/images');

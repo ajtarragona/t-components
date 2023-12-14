@@ -8,18 +8,30 @@
 	<meta name="base-url" content="{{ url('') }}">
 	<meta name="lang" content="{{ app()->getLocale() }}">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	@yield('meta')
 
 	<title>@yield('title') | {{ config('app.name')}}</title>
-	
-	<link href="{{ asset('vendor/ajtarragona/css/t-components.css') }}" rel="stylesheet">
-	@yield('css')
-	
+
+
+	{{-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css"> --}}
+
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	<link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+
+	@hasSection('pre-css')
+		@yield('pre-css')
+	@else
+		<link href="{{ asset('vendor/ajtarragona/css/t-components.css') }}" rel="stylesheet">
+	@endif
+
 	@livewireStyles
 
-	
+	@yield('css')
+
+
+
 	<!-- Alpine Plugins -->
 	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
@@ -30,17 +42,27 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 	<script defer src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
+
+	{{-- <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script> --}}
+
+	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
 	<script src="{{ asset('vendor/ajtarragona/js/t-components.js') }}" data-turbolinks-suppress-warning></script>
 
 	@livewireScripts
+
 	@yield('js')
-	
+
 
 </head>
 
 <body class="on-top">
-
-	@yield('content') 
+	<div class="container-fluid">
+		
+		@yield('content')
+	
+	</div>
 	<div id="calendars-container"></div>
 	<livewire:t-modals-container /> 
 </body>

@@ -1,10 +1,11 @@
 window._ = require("lodash");
 import "bootstrap";
-import "./nightmode";
 
+import "./nightmode";
 
 import "./t-modal";
 import "./t-text";
+import "./t-texteditor";
 import "./t-select";
 import "./t-date";
 import "./t-icon";
@@ -17,6 +18,7 @@ const flatpickr = require("flatpickr");
 
 window.bootstrap =require("bootstrap");
 
+// const quilljs = require("quill");
 
 var detectOnTop=function(){
     // console.log('detectOnTop',document.documentElement.scrollTop);

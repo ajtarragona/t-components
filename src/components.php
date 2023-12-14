@@ -13,6 +13,7 @@ return [
 	't-field' => 't-components::components.'.$theme.'.forms.field',
 	't-text' => 't-components::components.'.$theme.'.forms.text',
 	't-textarea' => 't-components::components.'.$theme.'.forms.textarea',
+	't-texteditor' => 't-components::components.'.$theme.'.forms.texteditor',
 	't-number' => 't-components::components.'.$theme.'.forms.number',
 	't-alert' => 't-components::components.'.$theme.'.alert',
 	't-modal' => 't-components::components.'.$theme.'.modal',

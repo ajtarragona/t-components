@@ -27,8 +27,8 @@ if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] 
     >
 
     <input 
-        @focus="focused=true" 
-        @blur="focused=false" 
+       
+    
         @input="checkValue()"
         @if(!isTrue($allowInput)) @keypress.prevent.stop="true" @endif
         type="{{$type}}" 

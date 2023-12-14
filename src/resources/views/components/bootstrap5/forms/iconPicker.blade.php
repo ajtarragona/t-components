@@ -19,7 +19,10 @@
     'grid'=>false
     
 ])
-
+@php
+//si no pasan el ID y sí el name, el ID será igual al name
+if(!$id && $name) $id = $name;
+@endphp
 <span 
  class="t-select t-icon-picker flex-grow-1 {{$attributes["outer-class"]??''}}" :class="{'opened':open,'with-search':search}"
     x-data="tIconPicker({
@@ -60,8 +63,8 @@
             x-ref="dropdown-btn"
             
             {{-- @click="toggleSelect()" --}}
-            @focus="focused=true" 
-            @blur="focused=false"
+           
+            
 
         >
             <div class="text-truncate ">

@@ -1,4 +1,5 @@
 @extends('t-components::layouts.blank')
+
 @section('layout-name','side-nav')
 
 @section('content')
