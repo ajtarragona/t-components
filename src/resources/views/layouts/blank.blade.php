@@ -58,11 +58,9 @@
 </head>
 
 <body class="on-top">
-	<div class="container-fluid">
 		
-		@yield('content')
+	@yield('content')
 	
-	</div>
 	<div id="calendars-container"></div>
 	<livewire:t-modals-container /> 
 </body>
