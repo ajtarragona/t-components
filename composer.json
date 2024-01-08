@@ -17,7 +17,6 @@
         "guzzlehttp/guzzle": "^6.3",
         "livewire/livewire": "^1.0",
         "laravel/helpers": "^1.0@dev"
-        
     },
     "autoload": {
         "psr-4": {

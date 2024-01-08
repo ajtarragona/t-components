@@ -1,3 +1,7 @@
+@extends('t-components::layouts.'.$page_layout, [
+    'main_nav'=>$main_nav,
+    't_page'=>$t_page,
+])
 
 @section('header-image',"https://unsplash.it/1920/1080?random")
 {{-- @section('header-image',"https://www.tarragona.cat/comerc/som-comerc/image")") --}}
@@ -17,6 +21,8 @@ Id ut dolor quis ea qui magna non ea aliqua enim nulla et.
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 @endsection
+
+@section('body')
 
 <div class=" my-3 container-fluid">
     
@@ -57,3 +63,4 @@ Id ut dolor quis ea qui magna non ea aliqua enim nulla et.
     
 </div>
 
+@endsection

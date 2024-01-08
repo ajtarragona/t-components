@@ -13,6 +13,8 @@ Route::group(['prefix' => 'ajtarragona/t-components','middleware' => ['web']], f
 	Route::post('/validatedForm', 'Ajtarragona\TComponents\Controllers\DocsController@validatedForm')->name('t-components.validatedForm');
 	Route::get('/layout/{layout}', 'Ajtarragona\TComponents\Controllers\DocsController@setLayout')->name('t-components.setLayout');
 	
-	Route::get('/{t_page?}', Docs::class)->name('t-components.docs');
+	// Route::get('/{t_page?}', Docs::class)->name('t-components.docs');
+	Route::get('/{t_page?}', 'Ajtarragona\TComponents\Controllers\DocsController@docs')->name('t-components.docs');
+
 	
 });

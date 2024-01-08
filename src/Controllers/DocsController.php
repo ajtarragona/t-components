@@ -1,7 +1,8 @@
 <?php
 
-namespace Ajtarragona\TComponents\Controllers; 
+namespace Ajtarragona\TComponents\Controllers;
 
+use Ajtarragona\TComponents\Livewire\Docs;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
@@ -11,11 +12,14 @@ class DocsController extends BaseController
 
   
 
-  public function docs()
+  public function docs($t_page=null)
   {
-    // $this->publishPackageAssets();
-    // $args=[];
-    // return $this->view('docs.home', $args);
+    $this->publishPackageAssets();
+    if(!$t_page) $t_page='overview';
+    $page_layout= session('t-components-docs-layout',"top-nav");
+    $main_nav=config('t-components.docs.main_nav',[]);
+    $args=compact('page_layout','main_nav','t_page');
+    return $this->view('docs.home', $args);
   }
 
   

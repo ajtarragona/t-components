@@ -3,6 +3,7 @@
 namespace Ajtarragona\TComponents;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Str;
 
 class DirectivesRepository
 {
@@ -30,7 +31,8 @@ class DirectivesRepository
     {
         
         collect($components)->each(function ($name, $viewOrClass) {
-            Blade::component($name, $viewOrClass);
+            // dump($name);
+            Blade::component($name, Str::snake($viewOrClass));
         
            // Blade::directive($key, $item);
         });

@@ -4,7 +4,7 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body" >
-           <pre class=""><code class="language-html">{{$src}}</code></pre>
+           <pre class=""><code class="language-html">{{$src??''}}</code></pre>
         </div>
     </div>
 
