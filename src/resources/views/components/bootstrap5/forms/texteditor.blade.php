@@ -14,6 +14,9 @@
 if(!$id && $name) $id = $name;
 @endphp
 <div 
+    x-modelable="value"
+    {{ $attributes->whereStartsWith('x-') }}
+
     x-data="tTextEditorComponent({
         bubble: {{ $bubble?'true':'false' }},
         value: @if($attributes->whereStartsWith('wire:model')->first()) @entangle($attributes->wire('model')) @else '{{ addslashes($value) }}' @endif ,

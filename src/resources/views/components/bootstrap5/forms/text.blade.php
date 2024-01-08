@@ -34,6 +34,7 @@ if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] 
         type="{{$type}}" 
         placeholder="{{$placeholder}}" 
         x-ref="input" 
+        
         {{ $attributes->except(['type','size'])->merge([
             'class' => 'form-control t-form-control '.((isset($attributes["name"]) && $errors->has($attributes["name"]) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':''). ' form-control-'.$size .' '. ($color?('bg-'.$color.' text-bg-'.$color):'')
         ]) }} 

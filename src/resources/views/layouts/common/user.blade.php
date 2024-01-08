@@ -3,7 +3,7 @@
         <img src="https://xsgames.co/randomusers/avatar.php?g={{rand(0,1)?'male':'female'}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
         <span class="mx-1">User  name</span>
     </a>
-    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
+    <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser1">
         <li><a class="dropdown-item" href="#">Settings</a></li>
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li>

@@ -11,12 +11,14 @@
     'width' => false,
     'class'=>null,
     'outerClass'=>null,
+    'menuClass'=>null,
     'name'=>null,
     'id'=>null,
     'size' => 'md',
     'placeholder' => 'Select an icon',
     'search' => false,
-    'grid'=>false
+    'grid'=>false,
+    'overflow' => false
     
 ])
 @php
@@ -25,6 +27,10 @@ if(!$id && $name) $id = $name;
 @endphp
 <span 
  class="t-select t-icon-picker flex-grow-1 {{$attributes["outer-class"]??''}}" :class="{'opened':open,'with-search':search}"
+    x-modelable="value"
+    
+    {{ $attributes->whereStartsWith('x-') }}
+
     x-data="tIconPicker({
         color: '{{ $color }}',
         class: '{{ $class }}',
@@ -57,6 +63,10 @@ if(!$id && $name) $id = $name;
             class="btn dropdown-toggle t-select-dropdown d-flex align-items-center justify-content-start {{((isset($attributes["name"]) && $errors->has($attributes["name"]) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'')}}"
             data-bs-toggle="dropdown"
             data-bs-auto-close="true"
+            @if($overflow)
+                {{-- data-bs-boundary="viewport" --}}
+                data-bs-config='{"popperConfig":{"strategy":"fixed"}}'
+            @endif
             :class="btnClasses()"
             :id="id"
             :style="(width && width!='fit-content')?('width:'+width) :'' "
@@ -69,22 +79,21 @@ if(!$id && $name) $id = $name;
         >
             <div class="text-truncate ">
                 
-                <i class="bi me-2 " :class="'bi-'+icon+' '+(hasValue?'':'opacity-50') " x-show="icon"></i>
-                <i class="bi" :class="value" x-show="hasValue"></i> 
-                <span x-html="hasValue ? value  : placeholder" :class="{'opacity-50':!hasValue}" ></span>
+                <i class="bi me-2 " :class="'bi-'+icon+' '+(value?'':'opacity-50') " x-show="icon"></i>
+                <i class="bi" :class="value" x-show="value"></i> 
+                <span x-html="value ? value  : placeholder" :class="{'opacity-50':!value}" ></span>
                 
             </div>
-            <span :class="{'opacity-0 pe-none':!(allowClear && hasValue), 'ms-auto': width!='fit-content', 'ms-2': width=='fit-content'}" :visibility="{'hidden':!(allowClear && hasValue)}"  @click.prevent.stop="clear" class="text-reset  z-10  align-self-end" ><i class="bi bi-x"></i></span>
+            <span :class="{'opacity-0 pe-none':!(allowClear && value), 'ms-auto': width!='fit-content', 'ms-2': width=='fit-content'}" :visibility="{'hidden':!(allowClear && value)}"  @click.prevent.stop="clear" class="text-reset  z-10  align-self-end" ><i class="bi bi-x"></i></span>
         
         </button>
         
         
-        @if($name)
-            <input type="hidden" x-ref="icon-input" :value="value" />
-        @endif
+        
+        <input type="hidden" x-ref="icon-input" :value="value" name="{{$name}}"  />
         
         <ul 
-            class="dropdown-menu layout-{{$grid?'grid':'list'}} "
+            class="dropdown-menu layout-{{$grid?'grid':'list'}} {{$menuClass??''}}" 
             :class="{'show':open}"
             x-cloak
             x-ref="dropdown"

@@ -1,5 +1,5 @@
 @if($main_nav??null)
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 " >
 
         @foreach($main_nav as $group_name=>$group)
             <li class="nav-item {{($group["items"]??null)?'dropdown':''}}">

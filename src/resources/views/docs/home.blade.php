@@ -18,7 +18,7 @@ Id ut dolor quis ea qui magna non ea aliqua enim nulla et.
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 @endsection
 
-<div class=" mb-3 ">
+<div class=" my-3 container-fluid">
     
     <div class="row">
         
@@ -40,6 +40,7 @@ Id ut dolor quis ea qui magna non ea aliqua enim nulla et.
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item {{ $page_layout=='top-nav' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','top-nav')}}" >Top Nav</a></li>
+                    <li><a class="dropdown-item {{ $page_layout=='top-nav-fw' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','top-nav-fw')}}" >Top Nav Fullwidth</a></li>
                     <li><a class="dropdown-item {{ $page_layout=='side-nav' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','side-nav')}}" >Side Nav</a></li>
                     <li><a class="dropdown-item {{ $page_layout=='tgn-site' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','tgn-site')}}" >TGN Site</a></li>
                     <li><a class="dropdown-item {{ $page_layout=='blank' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','blank')}}" >Blank</a></li>

@@ -54,7 +54,7 @@
 
 
 <h5>Validació Livewire</h5>
-<livewire:t-components-test-form/>
+@livewire('t-components-test-form')
 
 
 

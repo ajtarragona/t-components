@@ -22,7 +22,7 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('tIconPicker', (config) => ({
         value: config.value ?? null,
         allowClear: config.allowClear ?? false,
-        hasValue: false,
+        // hasValue: false,
         instance :null,
         icon:config.icon??null,
         search:config.search ?? false,
@@ -50,13 +50,13 @@ document.addEventListener('alpine:init', () => {
             bootstrap:bootstrap_icons
         },
         clear: function() {
-            this.hasValue=false;
+            // this.hasValue=false;
             this.value=null;
             if(this.$refs['icon-input']) this.$refs['icon-input'].value=null;
             this.$refs['dropdown-btn'].value=null;
             this.closeDropdown();
         },
-        async openDropdown(){
+        openDropdown(){
             this.open=true;
             document.documentElement.classList.add('select-opened');
                 
@@ -81,9 +81,11 @@ document.addEventListener('alpine:init', () => {
                 
         },
         selectIcon(value){
+            // console.log('selectIcon ', value);
+                
             this.value=value;
             if(this.$refs['icon-input']) this.$refs['icon-input'].value=value;
-            this.hasValue=true;
+            // this.hasValue=true;
             this.closeDropdown();
         },
         isSelected: function(value){
@@ -113,13 +115,13 @@ document.addEventListener('alpine:init', () => {
                 this.allLoaded=true;
             }
         },
-        async init() {
+        init() {
             var d=this;
            
-            
+            // console.log('init iconpicker',this.value);
             if(this.value){
-                console.log('hasvalue ', this.value);
-                this.hasValue=true;
+                // console.log('hasvalue ', this.value);
+                // this.hasValue=true;
             }
             var btn= this.$refs['dropdown-btn'];
             

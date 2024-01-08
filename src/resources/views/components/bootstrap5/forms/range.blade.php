@@ -16,7 +16,7 @@ if(!$id && $name) $id = $name;
 <span class="t-input">
     <input type="range" 
         class="form-range form-range-{{$color}} {{$attributes["class"]??''}}" 
-
+        
         id="{{ $id }}"
         name="{{ $name }}"
         {{ $attributes }}

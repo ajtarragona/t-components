@@ -43,6 +43,8 @@ if(isset($attributes["id"])) $altInput="true"; //parche
 
 <span 
 wire:key="{{ rand() }}"
+x-modelable="value"
+{{ $attributes->whereStartsWith('x-') }}
 
  class="t-input flex-grow-1  {{$native?'':'flatpickr'}} {{$icon?'with-icon':''}} {{$attributes["outer-class"]??''}}"
     x-data="tDate({

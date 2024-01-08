@@ -11,8 +11,8 @@ import "./t-date";
 import "./t-icon";
 import "./livewire";
 
-var Turbolinks = require("turbolinks");
-Turbolinks.start();
+// var Turbolinks = require("turbolinks");
+// Turbolinks.start();
 
 const flatpickr = require("flatpickr");
 

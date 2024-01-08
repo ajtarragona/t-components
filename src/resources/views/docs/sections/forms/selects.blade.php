@@ -86,6 +86,20 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
 
 <hr/>
 
+<h5>Dins d'un contenidor amb overflow</h5>
+
+<p>Si el desplegable el tenim dins un contenidor amb overflow, podem afegir l'atribut <code>overflow</code>.</p>
+<div style="padding:10px;width:600px;height:100px;overflow:auto;outline:2px solid cyan">
+    <x-t-select placeholder="no overflow" lazy-load class="mb-2" limit="10" :data="$longData" />
+</div>
+<div style="padding:10px;width:600px;height:100px;overflow:auto;outline:2px solid cyan">
+    <x-t-select placeholder="overflow" overflow lazy-load class="mb-2" limit="10" :data="$longData" />
+</div>
+
+
+<hr/>
+
+
 <h5>Deshabilitat</h5>
 <p>Com a un select natiu, podem deshabilitar-lo afegint l'atribut <code>disabled</code>.</p>
 <x-t-select multiple name="select3" disabled selectedLabelLimit="2" class="mb-2" placeholder="disabled" :data="[

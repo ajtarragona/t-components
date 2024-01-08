@@ -5,6 +5,7 @@
     'color' => 'default',
     'class' => '',
     'outerClass' => '',
+    'menuClass' => '',
     'label' => '',
     'icon' => null,
     'size' => 'md',
@@ -30,7 +31,8 @@
     'termName'=>false,
     'limitName'=>null,
     'grouped'=>false,
-    'lazyLoad' => false
+    'lazyLoad' => false,
+    'overflow' => false
    
 ])
 @php
@@ -40,6 +42,9 @@ if(!$id && $name) $id = $name;
  @if(!$native)
     
     <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}}" :class="{'opened':open,'with-search':search}"
+        x-modelable="selected"
+        {{ $attributes->whereStartsWith('x-') }}
+
         x-data="tSelectComponent({
             selected: @if($attributes->whereStartsWith('wire:model')->first()) @entangle($attributes->wire('model')) @else {{ $selected ? (is_array($selected)?json_encode($selected):$selected) :'null' }} @endif,
             data: {{ json_encode($data) }},
@@ -116,7 +121,10 @@ if(!$id && $name) $id = $name;
                 :id="id"
                 :style="(width && width!='fit-content')?('width:'+width) :'' "
                 x-ref="dropdown-btn"
-                
+                @if($overflow)
+                    {{-- data-bs-boundary="viewport" --}}
+                    data-bs-config='{"popperConfig":{"strategy":"fixed"}}'
+                @endif
                 {{-- @click="toggleSelect()" --}}
                 
                 @keyup.enter.prevent="selectCurrentOption()"
@@ -137,7 +145,7 @@ if(!$id && $name) $id = $name;
 
 
             <ul 
-                class="dropdown-menu  "
+                class="dropdown-menu  {{$menuClass??''}}"
                 :class="{'show':open}"
                 {{-- x-show="open" --}}
                 x-cloak

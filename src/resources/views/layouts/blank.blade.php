@@ -41,14 +41,15 @@
 	<!-- Alpine Core -->
 	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-	<script defer src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
+	{{-- <script defer src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script> --}}
 
 	{{-- <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script> --}}
 
 	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 
-	<script src="{{ asset('vendor/ajtarragona/js/t-components.js') }}" data-turbolinks-suppress-warning></script>
+	{{-- <script src="{{ asset('vendor/ajtarragona/js/t-components.js') }}" data-turbolinks-suppress-warning></script> --}}
+	<script src="{{ asset('vendor/ajtarragona/js/t-components.js') }}" ></script>
 
 	@livewireScripts
 
@@ -62,6 +63,6 @@
 	@yield('content')
 	
 	<div id="calendars-container"></div>
-	<livewire:t-modals-container /> 
+	@livewire('t-modals-container')
 </body>
 </html>
