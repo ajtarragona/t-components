@@ -21,14 +21,14 @@
 			</div>
 				<div class="offcanvas-bodyflex-column mb-auto align-items-start t-sidebar">
 					
-							
 					@include('t-components::layouts.side-nav.main-nav')
-
+					@yield('nav-start')
 				</div>
 				
 				
 				
 				<div class="w-100 ">
+					@yield('nav-end')
 					@include('t-components::layouts.common.user')
 				</div>
 			
@@ -48,13 +48,14 @@
 
 						
 					    @include('t-components::layouts.side-nav.main-nav')
-
+						@yield('nav-start')
 					</div>
 					
 					
 					
 					<div class="py-3 w-100 ">
-					@include('t-components::layouts.common.user')
+						@yield('nav-end')
+						@include('t-components::layouts.common.user')
 					</div>
 				</div>
 			</div>

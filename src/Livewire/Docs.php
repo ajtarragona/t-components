@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 class Docs extends LiveFullPageComponent
 {
 
+    
     public $s=null;
     public $t_page='overview';
     public $src_path=null;

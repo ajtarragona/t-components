@@ -64,5 +64,7 @@
 	
 	<div id="calendars-container"></div>
 	@livewire('t-modals-container')
+	@yield('footer-js')
+
 </body>
 </html>

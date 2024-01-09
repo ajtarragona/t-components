@@ -3,7 +3,7 @@
 
         @foreach($main_nav as $group_name=>$group)
             <li class="nav-item {{($group["items"]??null)?'dropdown':''}}">
-                <a class="nav-link {{($group["items"]??null)?'dropdown-toggle':''}} {{in_array(($t_page??null),array_keys($group["items"]))?'active':'' }}" 
+                <a class="nav-link {{($group["items"]??null)?'dropdown-toggle':''}} {{ (( $group["items"]??null) && in_array(($t_page??null),array_keys($group["items"])))?'active':'' }}" 
                     @if($group["url"]??null)
                         href="{{$group["url"]}}"
                     @else
