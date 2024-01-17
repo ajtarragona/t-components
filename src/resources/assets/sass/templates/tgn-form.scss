@@ -5,7 +5,7 @@
             max-width: 1280px;
         }
     }
-    
+
     .main-container {
         display: flex;
         flex-direction: column;
@@ -33,9 +33,26 @@
         }
     }
 
+    .user-dropdown-btn{
+        background-color: var(--bs-gray-300);
+        display: inline-block;
+        padding:.5em .8em .5em .5em;
+        border-radius:50px;
+        font-size:.8em;
+        font-weight: 600;
+        text-transform: uppercase;
+        &:hover{
+            background-color: var(--bs-gray-400);
+
+        }
+        img{ 
+            width:24px;
+            height:24px;
+        }
+    }
     .sticky-header{
         background-color: $white; //$gray-200
-        box-shadow:$box-shadow !important;
+        box-shadow:$box-shadow-sm !important;
 	    z-index: 10;
     }
 
@@ -92,7 +109,7 @@
                     color: var(--bs-gray-900);
                 }
 
-                &::after{
+                &:not(:last-child)::after{
                     border-bottom:2px solid var(--bs-gray-900);
                 
                 }
@@ -106,14 +123,20 @@
                 width:30px;
                 height:1px;
                 border-bottom:2px solid var(--bs-gray-500);
-                margin-left:.8em;
-                margin-right:.8em;
+                margin-left:.2em;
+                margin-right:.2em;
                 position:relative;
                 top:-3px
             }
 
             a{
                 text-decoration: none;
+                display: inline-block;
+                border-radius:50px;
+                padding:.6em 0.8em;
+                &:hover{
+                    background-color: rgba(var(--bs-primary-rgb),0.05);
+                }
             }
 
             // &:last-child::after{
@@ -136,6 +159,13 @@
 
 
 [data-bs-theme=dark]{
+    .user-dropdown-btn{
+        background-color: var(--bs-gray-800);
+        color:$white;
+        &:hover{
+            background-color: var(--bs-gray-700);
+        }
+    }
     .sticky-header{
         background-color: var(--bs-dark);
     }

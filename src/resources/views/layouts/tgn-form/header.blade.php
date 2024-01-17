@@ -21,10 +21,16 @@
 <div class="sticky-header sticky-top ">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col py-4">
+            <div class="col-sm-9 py-3">
                 @yield('breadcrumb')
                 
             </div>
+            <div class="col-sm-3  py-3 d-flex justify-content-end">
+                @yield('nav-end')
+				@include('t-components::layouts.common.user')
+				
+            </div>
+
         </div>
     </div>
 </div>
