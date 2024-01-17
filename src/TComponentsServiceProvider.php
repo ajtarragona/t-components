@@ -65,7 +65,7 @@ class TComponentsServiceProvider extends ServiceProvider
         $this->mergeConfigFrom($config, 't-components');
 
 
-        // $this->registerDirectives();
+        $this->registerDirectives();
 
         $this->registerComponents();
         
@@ -104,7 +104,7 @@ class TComponentsServiceProvider extends ServiceProvider
     public function registerDirectives()
     {
         $directives = require __DIR__.'/directives.php';
-
+        // dd($directives);
         DirectivesRepository::register($directives);
 
     } 

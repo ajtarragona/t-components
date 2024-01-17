@@ -17,7 +17,7 @@
 @endphp
 
 <div x-data=""
-
+    x-modelable="checked"
 class="form-check form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} "  >
     <input class="form-check-input" x-ref="input" type="radio"  {{$checked?'checked':''}}   {{$switch?'role="switch"':''}} value="{{$value}}" {{$disabled?'disabled':''}} id="{{$id}}" name="{{ $name }}">
     @if($slot || $icon)

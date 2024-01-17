@@ -1,0 +1,156 @@
+.tgn-form{
+
+    @media (min-width: 1200px){
+        .container, .container-sm, .container-md, .container-lg, .container-xl {
+            max-width: 1280px;
+        }
+    }
+    
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    main {
+     flex: 1;
+    }
+    
+
+    header{
+        .site-title{
+            font-size:13pt;
+            font-weight:600;
+            // color:var(--bs-$gray-800;
+        }
+        .tarragona-logo{
+            height: 48px;
+            svg{
+                height:100%;
+                width:auto;
+            }
+           
+        }
+    }
+
+    .sticky-header{
+        background-color: $white; //$gray-200
+        box-shadow:$box-shadow !important;
+	    z-index: 10;
+    }
+
+    body{
+        background-color: $white; //$gray-200
+        min-height:100%;
+    }
+
+    footer{
+        background-color: var(--bs-gray-200);
+        padding-top:2em;
+        padding-bottom:2em;
+        
+
+        .tarragona-logo{
+            height: 48px;
+            svg{
+                height:100%;
+                width:auto;
+            }
+        }
+        .social-icons{
+            font-size: 20pt;
+            li{
+                margin-left:.6em;
+            }
+        }
+    }
+
+
+    .form-page-title{
+        line-height: 1em;
+        margin-bottom:1em;
+    }
+    .form-tabs{
+        margin: 0;
+        display: flex;
+        padding: 0;
+        flex-wrap: wrap;
+        list-style: none;
+        align-items: center;
+
+        li{
+            list-style: none;
+            color: var(--bs-gray-500);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 11pt;
+
+            &.complete{
+
+                color: var(--bs-gray-900);
+                a{
+                    color: var(--bs-gray-900);
+                }
+
+                &::after{
+                    border-bottom:2px solid var(--bs-gray-900);
+                
+                }
+            }
+            &.current{
+                color: var(--bs-primary);
+            }
+            &:not(:last-child)::after{
+                content: "";
+                display:inline-block;
+                width:30px;
+                height:1px;
+                border-bottom:2px solid var(--bs-gray-500);
+                margin-left:.8em;
+                margin-right:.8em;
+                position:relative;
+                top:-3px
+            }
+
+            a{
+                text-decoration: none;
+            }
+
+            // &:last-child::after{
+            //     display:none
+            // }
+            // a{
+
+            // }
+        }
+    }
+
+    .form-buttons{
+        margin-top:4em;
+    }
+
+}
+
+
+
+
+
+[data-bs-theme=dark]{
+    .sticky-header{
+        background-color: var(--bs-dark);
+    }
+
+    .tarragona-logo svg .texto{
+        fill:$white;
+    }
+    footer{
+        background-color: var(--bs-gray-800);
+    }
+}
+
+body.on-top{
+	.sticky-header{
+        box-shadow:none !important;
+
+    }
+}

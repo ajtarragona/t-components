@@ -29017,6 +29017,17 @@ document.addEventListener('alpine:init', function () {
 
 /***/ }),
 
+/***/ "./src/resources/assets/sass/tgn-form.scss":
+/*!*************************************************!*\
+  !*** ./src/resources/assets/sass/tgn-form.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./src/resources/assets/sass/tgn-site.scss":
 /*!*************************************************!*\
   !*** ./src/resources/assets/sass/tgn-site.scss ***!
@@ -29029,15 +29040,16 @@ document.addEventListener('alpine:init', function () {
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************!*\
-  !*** multi ./src/resources/assets/js/t-components.js ./src/resources/assets/sass/t-components.scss ./src/resources/assets/sass/tgn-site.scss ***!
-  \***********************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** multi ./src/resources/assets/js/t-components.js ./src/resources/assets/sass/t-components.scss ./src/resources/assets/sass/tgn-site.scss ./src/resources/assets/sass/tgn-form.scss ***!
+  \*****************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\js\t-components.js */"./src/resources/assets/js/t-components.js");
 __webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\sass\t-components.scss */"./src/resources/assets/sass/t-components.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\sass\tgn-site.scss */"./src/resources/assets/sass/tgn-site.scss");
+__webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\sass\tgn-site.scss */"./src/resources/assets/sass/tgn-site.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\sass\tgn-form.scss */"./src/resources/assets/sass/tgn-form.scss");
 
 
 /***/ })

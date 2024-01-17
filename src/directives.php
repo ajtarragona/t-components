@@ -297,7 +297,7 @@ return [
     | @view components
     |---------------------------------------------------------------------
     */
-   
+   /*
     'icon' => function ($expression) {
         return "<?php echo icon({$expression}); ?>";
     },
@@ -373,9 +373,6 @@ return [
     'tablecount' => function($expression) {
         return "<?php echo tablecount({$expression}); ?>";
     }, 
-    'currentpath' => function($expression) {
-        return "<?php echo currentpath({$expression}); ?>";
-    }, 
     'includeSrc' => function($expression) {
         return "<?php echo includeSrc({$expression}); ?>";
     },
@@ -384,7 +381,15 @@ return [
     },
     'appVersion' => function($expression) {
         return "<?php echo appVersion({$expression}); ?>";
+    },  */
+    'currentpath' => function($expression) {
+        return "<?php echo currentpath({$expression}); ?>";
+    }, 
+    'svg' => function($expression) {
+        return "<?php echo svg({$expression}); ?>";
     },  
+
+
 
 ];
         

@@ -16,6 +16,7 @@ class DirectivesRepository
     {
         
         collect($directives)->each(function ($item, $key) {
+            // dump($key, $item);
             Blade::directive($key, $item);
         });
     }

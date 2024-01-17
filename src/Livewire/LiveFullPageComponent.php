@@ -13,12 +13,12 @@ class LiveFullPageComponent extends Component
     
     protected function publishPackageAssets(){
         if(config("t-components.autopublish")){
-        //   Artisan::call('t-components:publish');
-        Artisan::call('vendor:publish', [
-            '--tag' => 't-components-assets', 
-            '--force' => 1
-        ]);
-      }
+            //   Artisan::call('t-components:publish');
+            Artisan::call('vendor:publish', [
+                '--tag' => 't-components-assets', 
+                '--force' => 1
+            ]);
+        }
   }
   
   public function view($view, $args=[]){

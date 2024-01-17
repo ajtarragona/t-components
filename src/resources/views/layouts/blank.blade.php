@@ -64,6 +64,7 @@
 	
 	<div id="calendars-container"></div>
 	@livewire('t-modals-container')
+	@include('t-components::layouts.common.confirm')
 	@yield('footer-js')
 
 </body>

@@ -43,6 +43,7 @@ Id ut dolor quis ea qui magna non ea aliqua enim nulla et.
                     <li><a class="dropdown-item {{ $page_layout=='top-nav-fw' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','top-nav-fw')}}" >Top Nav Fullwidth</a></li>
                     <li><a class="dropdown-item {{ $page_layout=='side-nav' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','side-nav')}}" >Side Nav</a></li>
                     <li><a class="dropdown-item {{ $page_layout=='tgn-site' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','tgn-site')}}" >TGN Site</a></li>
+                    <li><a class="dropdown-item {{ $page_layout=='tgn-form' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','tgn-form')}}" >TGN Form</a></li>
                     <li><a class="dropdown-item {{ $page_layout=='blank' ? 'active':''}}" data-turbolinks="false" href="{{ route('t-components.setLayout','blank')}}" >Blank</a></li>
 
                 </ul>

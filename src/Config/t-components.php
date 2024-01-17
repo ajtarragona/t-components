@@ -18,6 +18,11 @@ return [
 				'destroy_on_close' => false,
 			],
 		]
-	]
+	],
+	'svg_paths' => [
+		// base_path('resources/svg'),
+		// base_path('resources/images'),
+		base_path('public/'),
+	],
 ];
 

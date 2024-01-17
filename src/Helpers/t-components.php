@@ -242,11 +242,11 @@
 
 
 
-// if (! function_exists('currentpath')) {
-// 	function currentpath($args=false){
-// 		return request()->path();
-// 	}
-// }
+if (! function_exists('currentpath')) {
+	function currentpath($args=false){
+		return request()->path();
+	}
+}
 
 
 
