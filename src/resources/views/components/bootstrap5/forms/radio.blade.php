@@ -9,16 +9,22 @@
     'disabled'=>false,
     'value'=>1,
     'reverse'=>false,
-    'checked'=>false,
+    'checked'=>false,   
+    'size'=>'md',   
 ])
 
 @php
     if(!$id) $id=str_slug($name)."_".$value;
 @endphp
 
-<div x-data=""
+<div 
+    x-data="{
+        checked: {{ isTrue($checked)?'true':'false' }},
+    }"
     x-modelable="checked"
-class="form-check form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} "  >
+    {{ $attributes->whereStartsWith('x-') }}
+    
+    class="form-check  form-check-{{$size}} form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} "  >
     <input class="form-check-input" x-ref="input" type="radio"  {{$checked?'checked':''}}   {{$switch?'role="switch"':''}} value="{{$value}}" {{$disabled?'disabled':''}} id="{{$id}}" name="{{ $name }}">
     @if($slot || $icon)
         <label class="form-check-label" for="{{$id}}">

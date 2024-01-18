@@ -11,6 +11,7 @@
     'value'=>1,
     'reverse'=>false,
     'checked'=>false,   
+    'size'=>'md',   
 ])
 
 @php
@@ -18,17 +19,17 @@
 @endphp
 
 <div 
-x-data="{
-    indeterminate: {{isTrue($indeterminate)?'true':'false'}},
-    checked: {{ isTrue($checked)?'true':'false' }},
-}"
+    x-data="{
+        indeterminate: {{isTrue($indeterminate)?'true':'false'}},
+        checked: {{ isTrue($checked)?'true':'false' }},
+    }"
 
-x-modelable="checked" 
-{{ $attributes->whereStartsWith('x-') }}
+    x-modelable="checked" 
+    {{ $attributes->whereStartsWith('x-') }}
 
-x-init="$refs['input'].indeterminate=indeterminate"
+    x-init="$refs['input'].indeterminate=indeterminate"
 
-class="form-check form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} "  >
+    class="form-check form-check-{{$size}} form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} "  >
 
     
     <input class="form-check-input" x-ref="input" type="checkbox" x-model="checked"  {{$switch?'role="switch"':''}} value="{{$value}}" {{$disabled?'disabled':''}} id="{{$id}}" name="{{ $name }}">

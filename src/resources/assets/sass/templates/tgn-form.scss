@@ -1,4 +1,11 @@
-.tgn-form{
+
+//   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  .tgn-form{
+
+    // *{
+    //     font-family: 'Inter', sans-serif;
+    // }
 
     @media (min-width: 1200px){
         .container, .container-sm, .container-md, .container-lg, .container-xl {
@@ -57,6 +64,7 @@
     }
 
     body{
+        
         background-color: $white; //$gray-200
         min-height:100%;
     }
@@ -82,11 +90,15 @@
         }
     }
 
-
+    .form-heading{
+        margin-bottom:3em;
+    }
     .form-page-title{
         line-height: 1em;
-        margin-bottom:1em;
+        margin-bottom:.3em;
     }
+    
+    
     .form-tabs{
         margin: 0;
         display: flex;
@@ -114,9 +126,7 @@
                 
                 }
             }
-            &.current{
-                color: var(--bs-primary);
-            }
+            
             &:not(:last-child)::after{
                 content: "";
                 display:inline-block;
@@ -129,13 +139,33 @@
                 top:-3px
             }
 
-            a{
+            > span{
+
+                display: inline-block;
+                border-radius:50px;
+                padding:.6em 0.8em;
+               
+            }
+
+            > a{
                 text-decoration: none;
                 display: inline-block;
                 border-radius:50px;
                 padding:.6em 0.8em;
                 &:hover{
                     background-color: rgba(var(--bs-primary-rgb),0.05);
+                }
+            }
+
+            &.current{
+                color: var(--bs-primary);
+
+            }
+
+            &.current ~ li > a {
+                color: var(--bs-gray-600);
+                &:hover{
+                    background-color: rgba(var(--bs-gray-600),0.05);
                 }
             }
 

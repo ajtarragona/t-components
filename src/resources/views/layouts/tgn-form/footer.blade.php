@@ -1,4 +1,4 @@
-<footer class="">
+<footer class="" data-turbo-permanent id="page-main-footer">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">

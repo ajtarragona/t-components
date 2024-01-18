@@ -31672,6 +31672,10 @@ span.flatpickr-weekday {
   background-color: rgba(37, 37, 37, 0.2);
 }
 
+.form-check .form-check-label {
+  vertical-align: middle;
+}
+
 .form-check.form-switch .form-check-input:not(:checked) {
   --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
 }
@@ -31854,6 +31858,56 @@ span.flatpickr-weekday {
 
 .form-check.form-check-dark:not(.form-check-primary) .form-check-input:checked[type=radio] {
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.form-check.form-check-lg {
+  min-height: 1.8em;
+  line-height: 1.8em;
+  padding-left: 2em;
+}
+
+.form-check.form-check-lg .form-check-input {
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: -2em;
+}
+
+.form-check.form-check-lg .form-check-label {
+  font-size: 1.1em;
+  line-height: 1.8em;
+}
+
+.form-check.form-check-lg.form-switch {
+  padding-left: 3.3em;
+}
+
+.form-check.form-check-lg.form-switch .form-check-input {
+  width: 2.8rem;
+  margin-left: -3.3em;
+}
+
+.form-check.form-check-sm {
+  min-height: 0.9rem;
+  padding-left: 1.2em;
+}
+
+.form-check.form-check-sm .form-check-input {
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: -1.2em;
+}
+
+.form-check.form-check-sm .form-check-label {
+  font-size: 0.8em;
+}
+
+.form-check.form-check-sm.form-switch {
+  padding-left: 2em;
+}
+
+.form-check.form-check-sm.form-switch .form-check-input {
+  width: 1.6rem;
+  margin-left: -2em;
 }
 
 [data-bs-theme=dark] .form-check.form-switch .form-check-input:not(:checked) {
@@ -33265,6 +33319,81 @@ span.flatpickr-weekday {
 [data-bs-theme=dark] .ql-bubble.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
 [data-bs-theme=dark] .ql-bubble .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
   fill: #212529;
+}
+
+.stepwizard {
+  /*progressbar*/
+  /*ProgressBar before any progress*/
+  /*ProgressBar connectors*/
+  /*Color number of the step and the connector before it*/
+}
+
+.stepwizard .stepwizard-header {
+  margin-bottom: 2em;
+}
+
+.stepwizard .step-footer {
+  border-top: 1px solid rgb(213, 213, 213);
+  margin-top: 2em;
+  padding: 1em;
+}
+
+.stepwizard .stepwizard-bar {
+  margin-bottom: 30px;
+  color: lightgrey;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.stepwizard .stepwizard-bar .active {
+  color: #a8113c;
+}
+
+.stepwizard .stepwizard-bar .active a {
+  color: #a8113c;
+}
+
+.stepwizard .stepwizard-bar li {
+  list-style-type: none;
+  position: relative;
+  text-align: center;
+  flex: 1;
+}
+
+.stepwizard .stepwizard-bar li a {
+  text-decoration: none;
+  color: lightgrey;
+}
+
+.stepwizard .stepwizard-bar li .icon {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  display: block;
+  font-size: 18px;
+  color: #ffffff;
+  background: lightgray;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px;
+}
+
+.stepwizard .stepwizard-bar li:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: lightgray;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: -1;
+}
+
+.stepwizard .stepwizard-bar li.active .icon,
+.stepwizard .stepwizard-bar li.active:after {
+  background-color: #a8113c;
 }
 
 body {

@@ -3,5 +3,5 @@
     'name' => ''
 ])
 @if($family=="bootstrap")
-    <i {{$attributes->merge(['class'=>'bi bi-'.$name])}}></i>
+    <i {{$attributes->merge(['class'=>'icon bi bi-'.$name])}}></i>
 @endif

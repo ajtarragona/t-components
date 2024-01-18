@@ -27692,18 +27692,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nightmode__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nightmode__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _t_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./t-modal */ "./src/resources/assets/js/t-modal.js");
 /* harmony import */ var _t_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_t_modal__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./t-text */ "./src/resources/assets/js/t-text.js");
-/* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_t_text__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./t-texteditor */ "./src/resources/assets/js/t-texteditor.js");
-/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_t_texteditor__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./t-select */ "./src/resources/assets/js/t-select.js");
-/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_t_select__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _t_date__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./t-date */ "./src/resources/assets/js/t-date.js");
-/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./t-icon */ "./src/resources/assets/js/t-icon.js");
-/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_t_icon__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./livewire */ "./src/resources/assets/js/livewire.js");
-/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_livewire__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _t_confirm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./t-confirm */ "./src/resources/assets/js/t-confirm.js");
+/* harmony import */ var _t_confirm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_t_confirm__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./t-text */ "./src/resources/assets/js/t-text.js");
+/* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_t_text__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./t-texteditor */ "./src/resources/assets/js/t-texteditor.js");
+/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_t_texteditor__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./t-select */ "./src/resources/assets/js/t-select.js");
+/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_t_select__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _t_date__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./t-date */ "./src/resources/assets/js/t-date.js");
+/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./t-icon */ "./src/resources/assets/js/t-icon.js");
+/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_t_icon__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./livewire */ "./src/resources/assets/js/livewire.js");
+/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_livewire__WEBPACK_IMPORTED_MODULE_9__);
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
 
 
 
@@ -27734,6 +27737,44 @@ window.addEventListener("scroll", detectOnTop);
 window.addEventListener('DOMContentLoaded', function () {
   detectOnTop();
 });
+
+/***/ }),
+
+/***/ "./src/resources/assets/js/t-confirm.js":
+/*!**********************************************!*\
+  !*** ./src/resources/assets/js/t-confirm.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Define alpine store for confirmModal
+document.addEventListener('alpine:init', function () {
+  Alpine.store('confirmModal', {
+    open: false,
+    title: '',
+    message: '',
+    color: 'red',
+    okText: 'OK',
+    cancelText: 'Cancel',
+    onOk: function onOk() {},
+    onCancel: function onCancel() {}
+  });
+});
+window.customConfirm = function (props) {
+  return new Promise(function (resolve, reject) {
+    var confirmModal = Alpine.store('confirmModal');
+    Object.assign(confirmModal, props);
+    confirmModal.onOk = function () {
+      confirmModal.open = false;
+      resolve(true);
+    };
+    confirmModal.onCancel = function () {
+      confirmModal.open = false;
+      resolve(false);
+    };
+    confirmModal.open = true;
+  });
+};
 
 /***/ }),
 
