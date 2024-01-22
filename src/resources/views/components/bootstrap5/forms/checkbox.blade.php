@@ -11,6 +11,7 @@
     'value'=>1,
     'reverse'=>false,
     'checked'=>false,   
+    'outerClass'=>false,   
     'size'=>'md',   
 ])
 
@@ -29,7 +30,7 @@
 
     x-init="$refs['input'].indeterminate=indeterminate"
 
-    class="form-check form-check-{{$size}} form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} "  >
+    class="form-check form-check-{{$size}} form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} {{$outerClass}}"  >
 
     
     <input class="form-check-input" x-ref="input" type="checkbox" x-model="checked"  {{$switch?'role="switch"':''}} value="{{$value}}" {{$disabled?'disabled':''}} id="{{$id}}" name="{{ $name }}">

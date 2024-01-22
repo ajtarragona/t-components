@@ -27,10 +27,6 @@
             </div>
             <div class="col-sm-3  py-3 d-flex justify-content-end">
                 @yield('nav-end')
-                <div data-turbo-permanent id="user-badge">
-				@include('t-components::layouts.common.user')
-                </div>
-				
             </div>
 
         </div>

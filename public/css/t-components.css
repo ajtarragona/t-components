@@ -22289,6 +22289,78 @@ fieldset:disabled .btn {
   }
 }
 
+.text-gray-100 {
+  color: #f8f9fa;
+}
+
+.bg-gray-100 {
+  background-color: #f8f9fa;
+}
+
+.text-gray-200 {
+  color: #e9ecef;
+}
+
+.bg-gray-200 {
+  background-color: #e9ecef;
+}
+
+.text-gray-300 {
+  color: #dee2e6;
+}
+
+.bg-gray-300 {
+  background-color: #dee2e6;
+}
+
+.text-gray-400 {
+  color: #ced4da;
+}
+
+.bg-gray-400 {
+  background-color: #ced4da;
+}
+
+.text-gray-500 {
+  color: #adb5bd;
+}
+
+.bg-gray-500 {
+  background-color: #adb5bd;
+}
+
+.text-gray-600 {
+  color: #6c757d;
+}
+
+.bg-gray-600 {
+  background-color: #6c757d;
+}
+
+.text-gray-700 {
+  color: #495057;
+}
+
+.bg-gray-700 {
+  background-color: #495057;
+}
+
+.text-gray-800 {
+  color: #343a40;
+}
+
+.bg-gray-800 {
+  background-color: #343a40;
+}
+
+.text-gray-900 {
+  color: #212529;
+}
+
+.bg-gray-900 {
+  background-color: #212529;
+}
+
 /*!
  * Bootstrap Icons v1.11.1 (https://icons.getbootstrap.com/)
  * Copyright 2019-2023 The Bootstrap Authors
@@ -32196,6 +32268,29 @@ span.flatpickr-weekday {
 .t-select .dropdown-item[disabled] {
   opacity: 0.25;
   cursor: default;
+}
+
+html.select-opened .t-select.overlay::before {
+  content: " ";
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1045;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 200ms ease-out;
+}
+
+html.select-opened .t-select.overlay.opened::before {
+  pointer-events: all;
+  opacity: 1;
+}
+
+html.select-opened .t-select.overlay .dropdown-menu {
+  z-index: 1050;
 }
 
 @media (max-width: 575.98px) {

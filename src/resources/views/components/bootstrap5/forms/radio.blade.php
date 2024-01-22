@@ -11,6 +11,8 @@
     'reverse'=>false,
     'checked'=>false,   
     'size'=>'md',   
+    'outerClass'=>false,   
+
 ])
 
 @php
@@ -24,8 +26,8 @@
     x-modelable="checked"
     {{ $attributes->whereStartsWith('x-') }}
     
-    class="form-check  form-check-{{$size}} form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} "  >
-    <input class="form-check-input" x-ref="input" type="radio"  {{$checked?'checked':''}}   {{$switch?'role="switch"':''}} value="{{$value}}" {{$disabled?'disabled':''}} id="{{$id}}" name="{{ $name }}">
+    class="form-check  form-check-{{$size}} form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} {{$outerClass}}"  >
+    <input class="form-check-input" x-ref="input" type="radio"  x-model="checked" {{$checked?'checked':''}}   {{$switch?'role="switch"':''}} value="{{$value}}" {{$disabled?'disabled':''}} id="{{$id}}" name="{{ $name }}">
     @if($slot || $icon)
         <label class="form-check-label" for="{{$id}}">
             @if($icon)

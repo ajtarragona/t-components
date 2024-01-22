@@ -32,7 +32,8 @@
     'limitName'=>null,
     'grouped'=>false,
     'lazyLoad' => false,
-    'overflow' => false
+    'overflow' => false,
+    'overlay' => false,
    
 ])
 @php
@@ -41,7 +42,7 @@ if(!$id && $name) $id = $name;
 @endphp
  @if(!$native)
     
-    <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}}" :class="{'opened':open,'with-search':search}"
+    <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}}" :class="{'overlay':overlay, 'opened':open,'with-search':search}"
         x-modelable="selected"
         {{ $attributes->whereStartsWith('x-') }}
 
@@ -79,6 +80,7 @@ if(!$id && $name) $id = $name;
             termName:   {{ $termName ? '\''.$termName.'\'' :'null' }},
             limitName:   {{ $limitName ? '\''.$limitName.'\'' :'null' }},
             lazyLoad : {{ $lazyLoad ? 'true':'false' }},
+            overlay : {{ $overlay ? 'true':'false' }},
             height:{{ $height ? '\''.$height.'\'' :'false' }},
 
         })"

@@ -22,7 +22,42 @@
     //   .dropdown-toggle:invalid, .dropdown-toggle.is-invalid {
     //     border-color: var(--bs-form-invalid-border-color);
     // }
+    
+    
 
+}
+
+html.select-opened{
+    // overflow: hidden;
+    
+    .t-select.overlay{
+
+        &::before{
+            content:' ';
+            background-color: rgba(0,0,0,0.6);
+            position: fixed;
+            top:0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            z-index:1045;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 200ms ease-out;
+        }
+
+        
+
+        &.opened::before{
+            pointer-events: all;
+            opacity:1;
+        }
+
+        .dropdown-menu{
+            // position:fixed !important;
+            z-index:1050;
+        }
+    }
 }
 
 @include media-breakpoint-down(sm) { 

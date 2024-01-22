@@ -47,6 +47,7 @@ document.addEventListener('alpine:init', () => {
         lazyLoad: config.lazyLoad ?? false,
         page: 1,
         allLoaded: false,
+        overlay: config.overlay ?? false,
         
         async init() {
             var s = this;
@@ -478,8 +479,9 @@ document.addEventListener('alpine:init', () => {
             if(!this.readonly && this.currentIndex==index) ret.push('active');
 
            
-            
+            // console.log(this.data[key]);
             if(this.data[key] && (this.data[key].color??null)) ret.push('text-'+this.data[key].color);
+            if(this.data[key] && (this.data[key].class??null)) ret.push(this.data[key].class);
             return ret.join(" ");
         },
         btnClasses: function(){

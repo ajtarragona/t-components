@@ -20,18 +20,23 @@
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 	<link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
 
-	@hasSection('pre-css')
-		@yield('pre-css')
+	@yield('pre-css')
+	
+	@hasSection('replace-css')
+		@yield('replace-css')
 	@else
-		<link href="{{ asset('vendor/ajtarragona/css/t-components.css') }}" rel="stylesheet">
+	<link href="{{ asset('vendor/ajtarragona/css/t-components.css') }}" rel="stylesheet">
 	@endif
-
+	
 	@livewireStyles
 
 	@yield('css')
-
-
-
+	
+	
+	
+	@hasSection('pre-js')
+		@yield('pre-js')
+	@endif
 	<!-- Alpine Plugins -->
 	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>

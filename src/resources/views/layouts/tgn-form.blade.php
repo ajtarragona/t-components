@@ -1,7 +1,7 @@
 @extends('t-components::layouts.blank')
 
 @section('layout-name','tgn-form')
-@section('pre-css')
+@section('replace-css')
 	<link href="{{ asset('vendor/ajtarragona/css/tgn-form.css') }}" rel="stylesheet">
 @endsection
 

@@ -28215,7 +28215,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 document.addEventListener('alpine:init', function () {
   Alpine.data('tSelectComponent', function (config) {
-    var _config$data, _config$size, _config$search, _config$inlineSearch, _config$limit, _config$color, _config$icon, _config$selectedLabel, _config$selectedLabel2, _config$selectedLabel3, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$dataSrc, _config$dataSrcMethod, _config$prefetch, _config$termName, _config$limitName, _config$pageName, _config$grouped, _config$height, _config$lazyLoad;
+    var _config$data, _config$size, _config$search, _config$inlineSearch, _config$limit, _config$color, _config$icon, _config$selectedLabel, _config$selectedLabel2, _config$selectedLabel3, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$dataSrc, _config$dataSrcMethod, _config$prefetch, _config$termName, _config$limitName, _config$pageName, _config$grouped, _config$height, _config$lazyLoad, _config$overlay;
     return {
       data: (_config$data = config.data) !== null && _config$data !== void 0 ? _config$data : [],
       open: false,
@@ -28263,6 +28263,7 @@ document.addEventListener('alpine:init', function () {
       lazyLoad: (_config$lazyLoad = config.lazyLoad) !== null && _config$lazyLoad !== void 0 ? _config$lazyLoad : false,
       page: 1,
       allLoaded: false,
+      overlay: (_config$overlay = config.overlay) !== null && _config$overlay !== void 0 ? _config$overlay : false,
       init: function init() {
         var _this = this;
         return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
@@ -28756,7 +28757,7 @@ document.addEventListener('alpine:init', function () {
         return this.multiple && this.selected.length > 0 || !this.multiple && this.selected;
       },
       optionClass: function optionClass(key, index) {
-        var _this$data$key$color;
+        var _this$data$key$color, _this$data$key$class;
         var ret = [];
         if (this.multiple) {
           if (this.selected.includes(key)) ret.push('selected');
@@ -28764,7 +28765,10 @@ document.addEventListener('alpine:init', function () {
           if (this.selected == key) ret.push('selected');
         }
         if (!this.readonly && this.currentIndex == index) ret.push('active');
+
+        // console.log(this.data[key]);
         if (this.data[key] && ((_this$data$key$color = this.data[key].color) !== null && _this$data$key$color !== void 0 ? _this$data$key$color : null)) ret.push('text-' + this.data[key].color);
+        if (this.data[key] && ((_this$data$key$class = this.data[key]["class"]) !== null && _this$data$key$class !== void 0 ? _this$data$key$class : null)) ret.push(this.data[key]["class"]);
         return ret.join(" ");
       },
       btnClasses: function btnClasses() {

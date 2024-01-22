@@ -26,10 +26,10 @@
         També podem passar les dades com un array en que cada opció és un array asociatiu, amb una sèrie d'atributs
         (obligatòriament ha de tenir l'atribut "value", i opcionalment altres com color, icon, disabled ...).</p>
 
-    <x-t-select name="select1" class="mb-2" :data="[
+    <x-t-select name="select1"  class="mb-2" :data="[
         1 => 'aaaa aaa',
         2 => 'bbbb bbb',
-        3 => 'cccc ccc',
+        3 => ['value'=>'cccc ccc'],
     ]" />
 
     <p>Es pot personalitzar el placeholder amb l'atribut <code>placeholder</code>. </p>   
@@ -654,9 +654,9 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
 
 
 
-<p>També podem definir un estil diferent per cada opció. En aquest cas hem de passar l'atribut color a cada opció de l'array de dades.</p>
+<p>També podem definir un color diferent per cada opció. En aquest cas hem de passar l'atribut <code>color</code> a cada opció de l'array de dades.</p>
 <p>Això definirà el color tant de la opció com del propi select per la opció seleccionada.</p>
-<div class="row">
+<div class="row mb-2">
     <div class="col">
         <x-t-select allow-clear placeholder="Tria Estil" :data="[
             1 => ['value' => 'success', 'color' => 'success'],
@@ -677,7 +677,12 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
     </div>
 </div>
 
-
+<p>Adicionalment, podem definir classes css específiques per cada opció. En aquest cas hem de passar l'atribut <code>class</code>.</p>
+<x-t-select width="fit-content" icon="ticket" placeholder="Amb CSS per opció" :data="[
+    1 => ['value' => 'Opció 1'],
+    2 => ['value' => 'Opció 1'],
+    3 => ['value' => 'Altres opcions', 'icon'=>'three-dots', 'class'=>'text-muted border-top pt-3 pb-1'],
+]" />
 
 
 
@@ -694,6 +699,17 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
     1 => ['value' => 'Airplane', 'icon' => 'airplane'],
     2 => ['value' => 'Car', 'icon' => 'car-front'],
     3 => ['value' => 'Train', 'icon' => 'train-front'],
+]" />
+
+<hr class="mb-5"/>
+
+<h5>Overlay</h5>
+<p>Podem mostrar un overlay quan es desplega el select afegint l'atribut <code>overlay</code>.</p>
+
+<x-t-select overlay  placeholder="Amb overlay" :data="[
+    1 => 'aaaa aaa',
+    2 => 'bbbb bbb',
+    3 => 'cccc ccc',
 ]" />
 
 <hr class="mb-5"/>
