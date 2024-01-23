@@ -32284,6 +32284,38 @@ html.select-opened .t-select.overlay::before {
   transition: all 200ms ease-out;
 }
 
+html.select-opened .t-select.overlay.overlay-primary::before {
+  background-color: rgba(168, 17, 60, 0.6);
+}
+
+html.select-opened .t-select.overlay.overlay-secondary::before {
+  background-color: rgba(108, 117, 125, 0.6);
+}
+
+html.select-opened .t-select.overlay.overlay-success::before {
+  background-color: rgba(25, 135, 84, 0.6);
+}
+
+html.select-opened .t-select.overlay.overlay-info::before {
+  background-color: rgba(13, 202, 240, 0.6);
+}
+
+html.select-opened .t-select.overlay.overlay-warning::before {
+  background-color: rgba(255, 193, 7, 0.6);
+}
+
+html.select-opened .t-select.overlay.overlay-danger::before {
+  background-color: rgba(220, 53, 69, 0.6);
+}
+
+html.select-opened .t-select.overlay.overlay-light::before {
+  background-color: rgba(248, 249, 250, 0.6);
+}
+
+html.select-opened .t-select.overlay.overlay-dark::before {
+  background-color: rgba(33, 37, 41, 0.6);
+}
+
 html.select-opened .t-select.overlay.opened::before {
   pointer-events: all;
   opacity: 1;

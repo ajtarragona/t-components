@@ -46,6 +46,16 @@ html.select-opened{
             transition: all 200ms ease-out;
         }
 
+
+        @each $color, $value in $theme-colors {
+            &.overlay-#{$color} {
+                &::before{
+                    background-color: rgba($value,0.6)
+                }
+            }
+          
+        }
+          
         
 
         &.opened::before{

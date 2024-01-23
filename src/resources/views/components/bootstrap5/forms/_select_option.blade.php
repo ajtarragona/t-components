@@ -10,6 +10,8 @@
                     <i class="bi me-2" :class="'bi-'+option.icon??false" x-show="option.icon??false"></i> 
                 
                     <span class="text-truncate" x-html="option.value"></span>
+                    <div class="text-gray-500 " style="white-space:normal" x-cloak x-show="option.description??false"><small x-html="option.description??''"></small></div>
+
                 </div>
                 <div>
                     <i class="check-icon  bi float-end" :class="isSelected(option.key)?'bi-check':''"></i>
@@ -30,6 +32,7 @@
                     <i class="bi me-2" :class="'bi-'+option.icon??false" x-show="option.icon??false"></i> 
                 
                     <span class="text-truncate" x-html="option.value"></span>
+                    <div class="text-gray-500" style="white-space:normal" x-cloak x-show="option.description??false"><small x-html="option.description??''"></small></div>
                 </div>
                 <div>
                     <i class="check-icon  bi float-end" :class="isSelected(option.key)?'bi-check':''"></i>

@@ -34,6 +34,7 @@
     'lazyLoad' => false,
     'overflow' => false,
     'overlay' => false,
+    'overlayColor' => false,
    
 ])
 @php
@@ -42,7 +43,7 @@ if(!$id && $name) $id = $name;
 @endphp
  @if(!$native)
     
-    <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}}" :class="{'overlay':overlay, 'opened':open,'with-search':search}"
+    <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}} {{ $overlayColor?('overlay-'.$overlayColor) : '' }}" :class="{'overlay':overlay, 'opened':open,'with-search':search}"
         x-modelable="selected"
         {{ $attributes->whereStartsWith('x-') }}
 

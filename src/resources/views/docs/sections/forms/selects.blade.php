@@ -29,7 +29,7 @@
     <x-t-select name="select1"  class="mb-2" :data="[
         1 => 'aaaa aaa',
         2 => 'bbbb bbb',
-        3 => ['value'=>'cccc ccc'],
+        3 => 'cccc ccc',
     ]" />
 
     <p>Es pot personalitzar el placeholder amb l'atribut <code>placeholder</code>. </p>   
@@ -705,6 +705,7 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
 
 <h5>Overlay</h5>
 <p>Podem mostrar un overlay quan es desplega el select afegint l'atribut <code>overlay</code>.</p>
+<p>Podem definir el color de l'overlay amb <code>overlay-color</code>.</p>
 
 <x-t-select overlay  placeholder="Amb overlay" :data="[
     1 => 'aaaa aaa',
@@ -712,4 +713,28 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
     3 => 'cccc ccc',
 ]" />
 
+
+<x-t-select overlay overlay-color="primary" placeholder="Amb overlay primary" :data="[
+    1 => 'aaaa aaa',
+    2 => 'bbbb bbb',
+    3 => 'cccc ccc',
+]" />
+
+<x-t-select overlay overlay-color="info" placeholder="Amb overlay info" :data="[
+    1 => 'aaaa aaa',
+    2 => 'bbbb bbb',
+    3 => 'cccc ccc',
+]" />
+
+
 <hr class="mb-5"/>
+
+
+<h5>Descripció a les opcions</h5>
+<p>Podem afegir una descripció a cada opció amb l'atribut  <code>description</code>.</p>
+
+<x-t-select  placeholder="Amb descripcions" :data="[
+    1 => ['value' => 'Opció 1', 'description' => 'Nisi in deserunt excepteur ad eiusmod.'],
+    2 => ['value' => 'Opció 2', 'description' => 'Id labore deserunt adipisicing dolore veniam.'],
+    3 => ['value' => 'Opció 3', 'description' => 'Ea nostrud culpa sint magna cillum laboris commodo.'],
+]" />

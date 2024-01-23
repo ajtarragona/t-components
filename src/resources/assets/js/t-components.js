@@ -8,6 +8,7 @@ import "./t-confirm";
 import "./t-text";
 import "./t-texteditor";
 import "./t-select";
+import "./t-file";
 import "./t-date";
 import "./t-icon";
 import "./livewire";

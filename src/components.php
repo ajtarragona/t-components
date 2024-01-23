@@ -25,6 +25,7 @@ return [
 	't-checkbox' => 't-components::components.'.$theme.'.forms.checkbox',
 	't-radio' => 't-components::components.'.$theme.'.forms.radio',
 	't-range' => 't-components::components.'.$theme.'.forms.range',
+	't-file' => 't-components::components.'.$theme.'.forms.file',
 	// 'badge' => 'ajtarragona-web-components::components.'.$theme.'.badge',
 	// 'card' => 'ajtarragona-web-components::components.'.$theme.'.card',
 	// 'listgroup' => 'ajtarragona-web-components::components.'.$theme.'.listgroup',
