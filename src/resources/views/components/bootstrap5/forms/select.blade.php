@@ -48,7 +48,7 @@ if(!$id && $name) $id = $name;
         {{ $attributes->whereStartsWith('x-') }}
 
         x-data="tSelectComponent({
-            selected: @if($attributes->whereStartsWith('wire:model')->first()) @entangle($attributes->wire('model')) @else {{ $selected ? (is_array($selected)?json_encode($selected):$selected) :'null' }} @endif,
+            selected: @if($attributes->whereStartsWith('wire:model')->first()) @entangle($attributes->wire('model')) @else {{ $selected ? (is_array($selected)?json_encode($selected):("'".$selected."'")) :'null' }} @endif,
             data: {{ json_encode($data) }},
             color: '{{ $color }}',
             class: '{{ $class }}',
@@ -141,7 +141,7 @@ if(!$id && $name) $id = $name;
                     <span x-html="renderSelected()" :class="{'opacity-50':!hasSelected()}" ></span>
                     
                 </div>
-                <span :class="{'opacity-0 pe-none':!(allowClear && hasSelected()), 'ms-auto': width!='fit-content', 'ms-2': width=='fit-content'}" :visibility="{'hidden':!(allowClear && hasSelected())}"  @click.prevent.stop="clearSelected" class="text-reset  z-10  align-self-end" ><i class="bi bi-x"></i></span>
+                <span :class="{'opacity-0 pe-none':!(allowClear && hasSelected()), 'ms-auto': width!='fit-content', 'ms-2': width=='fit-content'}" :visibility="{'hidden':!(allowClear && hasSelected())}"  @click.prevent.stop="clearSelected" class="text-reset  z-10  align-self-end" x-cloak ><i class="bi bi-x"></i></span>
             
             </button>
             

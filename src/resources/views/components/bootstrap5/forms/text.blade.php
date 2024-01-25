@@ -43,7 +43,7 @@ if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] 
 
     <i class="t-icon bi" :class="'bi-'+icon" x-show="icon"></i> 
     
-    <a type="button" x-show="allowClear && hasValue" @click.prevent.stop="clear" class="position-absolute end-0 top-0 p-2 text-reset  z-10  align-self-end {{$type=="number"?'me-4':''}}" ><i class="bi bi-x"></i></a>
+    <a type="button"  x-cloak x-show="allowClear && hasValue" @click.prevent.stop="clear" class="position-absolute end-0 top-0 p-2 text-reset  z-10  align-self-end {{$type=="number"?'me-4':''}}" ><i class="bi bi-x"></i></a>
 
     
 </span>

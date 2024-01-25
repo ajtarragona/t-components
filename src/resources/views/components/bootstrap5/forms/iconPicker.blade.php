@@ -84,7 +84,7 @@ if(!$id && $name) $id = $name;
                 <span x-html="value ? value  : placeholder" :class="{'opacity-50':!value}" ></span>
                 
             </div>
-            <span :class="{'opacity-0 pe-none':!(allowClear && value), 'ms-auto': width!='fit-content', 'ms-2': width=='fit-content'}" :visibility="{'hidden':!(allowClear && value)}"  @click.prevent.stop="clear" class="text-reset  z-10  align-self-end" ><i class="bi bi-x"></i></span>
+            <span  x-cloak :class="{'opacity-0 pe-none':!(allowClear && value), 'ms-auto': width!='fit-content', 'ms-2': width=='fit-content'}" :visibility="{'hidden':!(allowClear && value)}"  @click.prevent.stop="clear" class="text-reset  z-10  align-self-end" ><i class="bi bi-x"></i></span>
         
         </button>
         

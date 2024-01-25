@@ -133,6 +133,18 @@
         {
             opacity:0.5;
         }
+
+        input.form-control-sm  + .t-icon
+        {
+            font-size: $font-size-sm;
+            padding: 0.35rem 0.5rem;
+        }
+        input.form-control-lg  + .t-icon
+        {
+            font-size: $font-size-lg;
+            padding: 0.6rem 0.7rem;
+
+        }
     }
 }
 

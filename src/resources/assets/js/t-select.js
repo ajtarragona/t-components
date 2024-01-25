@@ -192,7 +192,7 @@ document.addEventListener('alpine:init', () => {
             data.append(this.termName, this.term);
             data.append(this.limitName,  this.limit);
             if(this.lazyLoad) data.append(this.pageName,  this.page);
-
+            // _d('loadAsyncData', this.selected);
             if(this.selected){
                 if(this.multiple){
                     for(var i in this.selected){
@@ -379,6 +379,35 @@ document.addEventListener('alpine:init', () => {
                 this.selected = ''
             }
 
+            this.emitChanged();
+            
+        },
+
+        emitChanged: function() {
+            // _d('emitChanged: t-select-changed',this.selected);
+
+            var obj=null;
+            if(this.selected){
+                if(this.multiple){
+                    obj=[];
+                    for(var i in this.selected){
+                        obj[this.selected[i]] =  this.options[this.selected[i]];
+                    }
+                }else{
+                    
+                    obj = this.options[this.selected]
+                }
+            }
+            if(obj) obj=Alpine.raw(obj);
+
+            this.$dispatch('t-select-changed',{
+                input_id:this.id, 
+                input_name:this.name, 
+                value: this.selected,
+                value_obj: obj,
+            });
+            // this.$refs['dropdown-btn'].dispatchEvent(new CustomEvent('tselectchanged',{ bubbles :true, value: this.selected }));
+                    
         },
 
         clearSelected: function() {
@@ -395,7 +424,7 @@ document.addEventListener('alpine:init', () => {
                 this.selected = ''
             }
             this.closeSelect()
-
+            this.emitChanged();
         },
 
         selectCurrentOption: function() {
@@ -429,7 +458,7 @@ document.addEventListener('alpine:init', () => {
                 this.selected=value;
                 this.closeSelect();
             }
-            
+            this.emitChanged();
         },
 
         increaseIndex: function() {

@@ -1,5 +1,7 @@
 
 <x-t-form wire:submit.prevent="submitForm">
+    <pre>{{ var_export($errors) }}</pre>
+    
     <x-t-field label="Camp obligatori" label-placement="start" required for="f3-tf-1" class="mb-2">
         <x-t-text id="f3-tf-1" wire:model="form.text1" />
     </x-t-field>

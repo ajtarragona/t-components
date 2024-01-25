@@ -28494,6 +28494,7 @@ document.addEventListener('alpine:init', function () {
                 data.append(_this4.termName, _this4.term);
                 data.append(_this4.limitName, _this4.limit);
                 if (_this4.lazyLoad) data.append(_this4.pageName, _this4.page);
+                // _d('loadAsyncData', this.selected);
                 if (_this4.selected) {
                   if (_this4.multiple) {
                     for (i in _this4.selected) {
@@ -28721,7 +28722,32 @@ document.addEventListener('alpine:init', function () {
         } else {
           this.selected = '';
         }
+        this.emitChanged();
       },
+      emitChanged: function emitChanged() {
+        // _d('emitChanged: t-select-changed',this.selected);
+
+        var obj = null;
+        if (this.selected) {
+          if (this.multiple) {
+            obj = [];
+            for (var i in this.selected) {
+              obj[this.selected[i]] = this.options[this.selected[i]];
+            }
+          } else {
+            obj = this.options[this.selected];
+          }
+        }
+        if (obj) obj = Alpine.raw(obj);
+        this.$dispatch('t-select-changed', {
+          input_id: this.id,
+          input_name: this.name,
+          value: this.selected,
+          value_obj: obj
+        });
+        // this.$refs['dropdown-btn'].dispatchEvent(new CustomEvent('tselectchanged',{ bubbles :true, value: this.selected }));
+      },
+
       clearSelected: function clearSelected() {
         if (this.disabled) return;
         if (this.readonly) return;
@@ -28733,6 +28759,7 @@ document.addEventListener('alpine:init', function () {
           this.selected = '';
         }
         this.closeSelect();
+        this.emitChanged();
       },
       selectCurrentOption: function selectCurrentOption() {
         var _this$options$Object$;
@@ -28765,6 +28792,7 @@ document.addEventListener('alpine:init', function () {
           this.selected = value;
           this.closeSelect();
         }
+        this.emitChanged();
       },
       increaseIndex: function increaseIndex() {
         var _this$options$Object$2;

@@ -38,7 +38,7 @@ if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] 
     
     <i class="t-icon bi" :class="'bi-'+icon" x-show="icon"></i> 
     <small x-show="charCounter && inputLength" class="position-absolute end-0 bottom-0 m-1 badge text-bg-secondary fw-normal z-10 " x-text="inputLength"></small>
-    <a type="button" x-show="allowClear && hasValue" @click.prevent.stop="clear" class="position-absolute end-0 top-0 p-2 text-reset z-10 " ><i class="bi bi-x"></i></a>
+    <a type="button"  x-cloak x-show="allowClear && hasValue" @click.prevent.stop="clear" class="position-absolute end-0 top-0 p-2 text-reset z-10 " ><i class="bi bi-x"></i></a>
 
 
 </span>
