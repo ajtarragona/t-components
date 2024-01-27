@@ -12,9 +12,10 @@
 		@include('t-components::layouts.tgn-form.header')
 		
 		<main role="main" id="main-container" class="container pt-3">
-				@yield('body')
+			@yield('body')
 		</main>
-
+			
+		@yield('pre-footer')
 		@include('t-components::layouts.tgn-form.footer')
 	</div>
 	

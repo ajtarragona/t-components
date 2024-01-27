@@ -28247,7 +28247,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 document.addEventListener('alpine:init', function () {
   Alpine.data('tSelectComponent', function (config) {
-    var _config$data, _config$size, _config$search, _config$inlineSearch, _config$limit, _config$color, _config$icon, _config$selectedLabel, _config$selectedLabel2, _config$selectedLabel3, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$dataSrc, _config$dataSrcMethod, _config$prefetch, _config$termName, _config$limitName, _config$pageName, _config$grouped, _config$height, _config$lazyLoad, _config$overlay;
+    var _config$data, _config$size, _config$search, _config$inlineSearch, _config$limit, _config$color, _config$icon, _config$selectedLabel, _config$selectedLabel2, _config$selectedLabel3, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$dataSrc, _config$dataSrcMethod, _config$dataSrcParams, _config$prefetch, _config$termName, _config$limitName, _config$pageName, _config$grouped, _config$height, _config$lazyLoad, _config$overlay;
     return {
       data: (_config$data = config.data) !== null && _config$data !== void 0 ? _config$data : [],
       open: false,
@@ -28283,6 +28283,7 @@ document.addEventListener('alpine:init', function () {
       id: (_config$id = config.id) !== null && _config$id !== void 0 ? _config$id : false,
       dataSrc: (_config$dataSrc = config.dataSrc) !== null && _config$dataSrc !== void 0 ? _config$dataSrc : null,
       dataSrcMethod: (_config$dataSrcMethod = config.dataSrcMethod) !== null && _config$dataSrcMethod !== void 0 ? _config$dataSrcMethod : 'get',
+      dataSrcParams: (_config$dataSrcParams = config.dataSrcParams) !== null && _config$dataSrcParams !== void 0 ? _config$dataSrcParams : {},
       prefetch: (_config$prefetch = config.prefetch) !== null && _config$prefetch !== void 0 ? _config$prefetch : false,
       termName: (_config$termName = config.termName) !== null && _config$termName !== void 0 ? _config$termName : 'term',
       limitName: (_config$limitName = config.limitName) !== null && _config$limitName !== void 0 ? _config$limitName : 'limit',
@@ -28445,7 +28446,8 @@ document.addEventListener('alpine:init', function () {
             while (1) switch (_context4.prev = _context4.next) {
               case 0:
                 _this3.isLoading = true;
-                // console.log('getAsyncData', this.isLoaded);
+
+                // _d('getAsyncData', this.isLoaded);
                 if (_this3.isLoaded) {
                   _context4.next = 8;
                   break;
@@ -28467,11 +28469,11 @@ document.addEventListener('alpine:init', function () {
                 } else {
                   _this3.allLoaded = true;
                 }
-                // console.log('loaded');
+                // _d('loaded');
                 _this3.prepareData();
-                // console.log(this.data);
+                // _d(this.data);
                 _this3.prepareOptions();
-                // console.log(this.options);
+                // _d(this.options);
               case 8:
                 _this3.isLoading = false;
                 _this3.isLoaded = true;
@@ -28485,10 +28487,11 @@ document.addEventListener('alpine:init', function () {
       loadAsyncData: function loadAsyncData() {
         var _this4 = this;
         return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
-          var s, data, i, response, url;
+          var s, data, i, dataParamKey, response, url;
           return _regeneratorRuntime().wrap(function _callee5$(_context5) {
             while (1) switch (_context5.prev = _context5.next) {
               case 0:
+                // _d('loadAsyncData', Alpine.raw(this));
                 s = _this4;
                 data = new URLSearchParams();
                 data.append(_this4.termName, _this4.term);
@@ -28504,22 +28507,30 @@ document.addEventListener('alpine:init', function () {
                     data.append('selected', _this4.selected);
                   }
                 }
+                if (_this4.dataSrcParams) {
+                  // _d('this.dataSrcParams',data,this.dataSrcParams);
+                  for (dataParamKey in _this4.dataSrcParams) {
+                    data.append(dataParamKey, _this4.dataSrcParams[dataParamKey]);
+                  }
+                }
                 if (!(s.dataSrcMethod.toUpperCase() == "GET" || s.dataSrcMethod.toUpperCase() == "DELETE")) {
-                  _context5.next = 14;
+                  _context5.next = 15;
                   break;
                 }
                 // console.log(s.dataSrc+"?"+data.toString());
                 url = s.dataSrc;
                 if (s.dataSrc.includes('?')) url += "&";else url += "?";
-                _context5.next = 11;
+
+                // console.log('loadAsyncData',url, data.toString());
+                _context5.next = 12;
                 return fetch(url + data.toString());
-              case 11:
+              case 12:
                 response = _context5.sent;
-                _context5.next = 18;
+                _context5.next = 19;
                 break;
-              case 14:
+              case 15:
                 data.append('_token', document.querySelector('head meta[name="csrf-token"]').content);
-                _context5.next = 17;
+                _context5.next = 18;
                 return fetch(s.dataSrc, {
                   method: s.dataSrcMethod.toUpperCase(),
                   headers: {
@@ -28527,14 +28538,14 @@ document.addEventListener('alpine:init', function () {
                   },
                   body: data
                 });
-              case 17:
-                response = _context5.sent;
               case 18:
-                _context5.next = 20;
+                response = _context5.sent;
+              case 19:
+                _context5.next = 21;
                 return response.json();
-              case 20:
-                return _context5.abrupt("return", _context5.sent);
               case 21:
+                return _context5.abrupt("return", _context5.sent);
+              case 22:
               case "end":
                 return _context5.stop();
             }
@@ -28579,6 +28590,7 @@ document.addEventListener('alpine:init', function () {
       },
       prepareOption: function prepareOption(option, key, group) {
         var ret;
+        // _d('prepareOption',option,key);
         if (_typeof(option) == 'object') {
           var _option$value;
           // console.log(Object.keys(this.data[key]));
@@ -28594,6 +28606,7 @@ document.addEventListener('alpine:init', function () {
             key: key
           };
         }
+        // _d('ret',ret);
         return ret;
       },
       prepareData: function prepareData() {
@@ -28904,6 +28917,47 @@ document.addEventListener('alpine:init', function () {
         }
 
         return ret;
+      },
+      setAttribute: function setAttribute(e) {
+        if (e.detail.target != this.id) return;
+        this[e.detail.attribute] = e.detail.value;
+      },
+      reload: function reload(e) {
+        var _this8 = this;
+        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9() {
+          var s;
+          return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+            while (1) switch (_context9.prev = _context9.next) {
+              case 0:
+                if (!(e.detail.target != _this8.id)) {
+                  _context9.next = 2;
+                  break;
+                }
+                return _context9.abrupt("return");
+              case 2:
+                // _d('reload');
+                s = _this8; // if(this.dataSrc){
+                s.selected = null;
+                s.data = [];
+                s.options = {};
+                s.currentIndex = -1;
+                s.groupOptions = [];
+                s.page = 1;
+                s.allLoaded = false;
+                _this8.isLoaded = false;
+                _this8.isLoading = true;
+                if (!_this8.prefetch) {
+                  _context9.next = 15;
+                  break;
+                }
+                _context9.next = 15;
+                return _this8.getAsyncData();
+              case 15:
+              case "end":
+                return _context9.stop();
+            }
+          }, _callee9);
+        }))();
       }
     };
   });

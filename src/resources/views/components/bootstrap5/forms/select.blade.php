@@ -27,6 +27,7 @@
     'native' => false,
     'dataSrc'=>null,
     'dataSrcMethod'=>null,
+    'dataSrcParams'=>null,
     'prefetch'=>false,
     'termName'=>false,
     'limitName'=>null,
@@ -46,6 +47,9 @@ if(!$id && $name) $id = $name;
     <div class="flex-grow-1 t-select {{$attributes["outer-class"]??''}} {{ $overlayColor?('overlay-'.$overlayColor) : '' }}" :class="{'overlay':overlay, 'opened':open,'with-search':search}"
         x-modelable="selected"
         {{ $attributes->whereStartsWith('x-') }}
+
+        x-on:t-select-set.window="setAttribute(event)"
+        x-on:t-select-reload.window="reload(event)"
 
         x-data="tSelectComponent({
             selected: @if($attributes->whereStartsWith('wire:model')->first()) @entangle($attributes->wire('model')) @else {{ $selected ? (is_array($selected)?json_encode($selected):("'".$selected."'")) :'null' }} @endif,
@@ -77,6 +81,7 @@ if(!$id && $name) $id = $name;
             selectedLabelGlue: {{ !is_null($selectedLabelGlue)? '\''.addslashes($selectedLabelGlue).'\'' :'null' }},
             dataSrc:   {{ $dataSrc ? '\''.$dataSrc.'\'' :'null' }},
             dataSrcMethod:   {{ $dataSrcMethod ? '\''.$dataSrcMethod.'\'' :'null' }},
+            dataSrcParams:   {{ $dataSrcParams ? $dataSrcParams :'null' }},
             prefetch:    {{ isTrue($prefetch) ? 'true':'false' }},
             termName:   {{ $termName ? '\''.$termName.'\'' :'null' }},
             limitName:   {{ $limitName ? '\''.$limitName.'\'' :'null' }},
@@ -202,7 +207,7 @@ if(!$id && $name) $id = $name;
                         @endif
 
                         {{-- <div  class="p-2 opacity-50 mt-2" x-show="lazyLoad && !allLoaded"><small>Loading More ...</small></div> --}}
-                        <div x-intersect.margin.100px="await loadMore()"  class="relative opacity-75 small p-3" x-show="isLoading || (lazyLoad && !allLoaded)" >
+                        <div x-intersect.margin.200px="await loadMore()"  class="relative opacity-75 small p-3" x-show="isLoading || (lazyLoad && !allLoaded)" >
                             <div class="spinner-border spinner-border-sm text-primary" role="status">
                                 <span class="visually-hidden" x-text="loadingMessage"></span>
                             </div>

@@ -91,12 +91,13 @@ class GMapsHelper
         'format'=>"PNG",
         'key'=>config('t-components.gmaps.api_key'),
         'zoom' => config('t-components.gmaps.default_zoom'),
-        'center'=> config('t-components.gmaps.tgn_coords')
+        'center'=> config('t-components.gmaps.tgn_coords'),
+        'class'=>''
       ];
 
       $options = array_merge($defaults, $options);
 
-
+      
         // dump($this->circlesides);
         $w = $options["width"];
         $h =  $options["height"];
@@ -105,7 +106,7 @@ class GMapsHelper
 
         
         // dd($this->center);
-        $url="https://maps.googleapis.com/maps/api/staticmap?".http_build_query(array_except($options,['width','height','zoom','center','class'])); //."&key=".$apikey;
+        $url="https://maps.googleapis.com/maps/api/staticmap?".http_build_query(array_except($options,['width','height','center','class'])); //."&key=".$apikey;
         
         if($markers){
             $prepared_markers=[];
@@ -172,7 +173,7 @@ class GMapsHelper
             if($prepared_markers) $url.="&markers=".implode("|",$prepared_markers);
             if($polygons) $url.="&path=".implode("&path=",$polygons);
         }else{
-            $url.="&zoom=".$options["zoom"]."&center=".$options["center"];
+            $url.="&center=".$options["center"];
         }
 
         

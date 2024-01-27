@@ -35,6 +35,7 @@ document.addEventListener('alpine:init', () => {
         id: config.id ?? false,
         dataSrc: config.dataSrc ?? null,
         dataSrcMethod: config.dataSrcMethod ?? 'get',
+        dataSrcParams: config.dataSrcParams ?? {},
         prefetch: config.prefetch ?? false,
         termName: config.termName ?? 'term',
         limitName: config.limitName ?? 'limit',
@@ -138,8 +139,9 @@ document.addEventListener('alpine:init', () => {
 
 
         },
+        
         async loadMore(){
-            
+            // _d('loadMore');
             if(this.dataSrc && !this.allLoaded){
                 this.page++;
                 this.isLoaded=false;
@@ -159,7 +161,8 @@ document.addEventListener('alpine:init', () => {
         },
         async getAsyncData() {
             this.isLoading=true;
-            // console.log('getAsyncData', this.isLoaded);
+            
+            // _d('getAsyncData', this.isLoaded);
             if(!this.isLoaded){
                 var loadedData = await this.loadAsyncData();
                 // console.log('loadedData',loadedData, Object.keys(loadedData).length);
@@ -176,17 +179,18 @@ document.addEventListener('alpine:init', () => {
                 }else{
                     this.allLoaded=true;
                 }
-                // console.log('loaded');
+                // _d('loaded');
                 this.prepareData()
-                // console.log(this.data);
+                // _d(this.data);
                 this.prepareOptions()
-                // console.log(this.options);
+                // _d(this.options);
             }
             this.isLoading=false;
             this.isLoaded=true;
             
         },
         async loadAsyncData() {
+            // _d('loadAsyncData', Alpine.raw(this));
             var s=this;
             const data = new URLSearchParams();
             data.append(this.termName, this.term);
@@ -203,14 +207,23 @@ document.addEventListener('alpine:init', () => {
                     data.append('selected',  this.selected);
                 }
             }
+
+            if(this.dataSrcParams){
+                // _d('this.dataSrcParams',data,this.dataSrcParams);
+                for(var dataParamKey in this.dataSrcParams){
+                    data.append(dataParamKey,  this.dataSrcParams[dataParamKey]);
+                }
+            }
+
             let response;
 
-            // console.log('loadAsyncData',s.dataSrcMethod)
             if(s.dataSrcMethod.toUpperCase()=="GET" || s.dataSrcMethod.toUpperCase()=="DELETE"){
                 // console.log(s.dataSrc+"?"+data.toString());
                 var url=s.dataSrc;
                 if(s.dataSrc.includes('?')) url+="&";
                 else url+="?";
+                
+                // console.log('loadAsyncData',url, data.toString());
                 response = await fetch( url+data.toString());
             }else{
                 data.append('_token', document.querySelector('head meta[name="csrf-token"]').content);
@@ -258,6 +271,7 @@ document.addEventListener('alpine:init', () => {
         },
         prepareOption: function(option,key,group) {
             var ret;
+            // _d('prepareOption',option,key);
             if(typeof option == 'object'){
                 // console.log(Object.keys(this.data[key]));
                 ret = {...{key:key, group:group,  value:option.value ?? ''}, ...option};
@@ -268,6 +282,7 @@ document.addEventListener('alpine:init', () => {
                     key: key
                 };
             }
+            // _d('ret',ret);
             return ret;
 
         },
@@ -591,7 +606,37 @@ document.addEventListener('alpine:init', () => {
                 }
             
             return ret;
-        }
+        },
+
+        setAttribute(e){
+            if(e.detail.target!=this.id) return;
+            this[e.detail.attribute] = e.detail.value;
+           
+        },
+        async reload(e){
+
+            if(e.detail.target!=this.id) return;
+
+            // _d('reload');
+            var s=this;
+            // if(this.dataSrc){
+                s.selected=null;
+                s.data=[];
+                s.options= {};
+                s.currentIndex=-1
+                s.groupOptions=[];
+                s.page=1;
+                s.allLoaded=false;
+                this.isLoaded=false;
+                this.isLoading=true;
+                if(this.prefetch){
+                    await this.getAsyncData();
+                }
+                // _d('options',this.options);
+                // this.prepareOptions();
+            // }
+            
+        },
     
     }))
 })
