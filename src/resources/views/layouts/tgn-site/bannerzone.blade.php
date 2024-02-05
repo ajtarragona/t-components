@@ -48,8 +48,7 @@
             <div class="col-sm-auto mx-auto px-0">
                 <div class="nav-tabs-wrapper ">
                     @include('t-components::layouts.tgn-site.main-nav')
-                    @yield('nav-start')
-                    @yield('nav-end')
+                   
                 </div>
                 <div class="sparkly d-inline d-md-none"></div>
             </div>

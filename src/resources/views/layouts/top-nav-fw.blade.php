@@ -12,13 +12,12 @@
 			<div class="collapse navbar-collapse " id="navbarSupportedContent">
 			 	<div class="d-lg-flex w-100 justify-content-between">
 					<div>
-						@include('t-components::layouts.top-nav.main-nav')
 						@yield('nav-start')
 						
 					</div>
 					<div class="navbar-actions">
 						@yield('nav-end')
-						@include('t-components::layouts.common.user')
+						
 					</div>
 				</div>
 			</div>

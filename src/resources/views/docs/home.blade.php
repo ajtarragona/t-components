@@ -18,6 +18,22 @@ Id ut dolor quis ea qui magna non ea aliqua enim nulla et.
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 @endsection
 
+@section('nav-start')
+    @includeIf('t-components::layouts.'.$page_layout.'.main-nav')
+@endsection
+
+@section('nav-end')
+    @include('t-components::layouts.common.user')
+@endsection
+
+
+@section('phone-menu')
+    @if($page_layout=='tgn-form')
+        @includeIf('t-components::layouts.side-nav.main-nav')
+
+    @endif
+@endsection
+
 <div class=" my-3 container-fluid">
     
     <div class="row">
