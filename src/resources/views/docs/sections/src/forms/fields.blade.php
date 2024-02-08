@@ -178,7 +178,7 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
 <h5>Boxed</h5>
 <p>Amb l'atribut <code>boxed</code> s'inclourà la label dins de la caixa del camp.</p>
 <x-t-field label="Boxed text" for="text-field-3" label-placement="top" boxed class="mb-2">
-    <x-t-text id="text-field-3" placeholder="boxed text"/>
+    <x-t-text id="text-field-3" placeholder="boxed text" />
 </x-t-field>
 
 <x-t-field label="Boxed text align start" for="text-field-4" label-placement="start" icon="text-left" boxed class="mb-2">
@@ -191,7 +191,7 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
 
 
 <x-t-field label="Boxed textarea" for="text-field-5" label-placement="top" boxed class="mb-2">
-    <x-t-textarea id="text-field-5" placeholder="Boxed textarea"></x-t-textarea>
+    <x-t-textarea id="text-field-5" placeholder="Boxed textarea" ></x-t-textarea>
 </x-t-field>
 
 
@@ -234,7 +234,7 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
         <h5>Underlined</h5>
         <p>Amb l'atribut <code>underlined</code> utilitzarem un estil més net, amb una línia per sota.</p>
         <x-t-field label="Underlined text" for="text-field-u-3" label-placement="top" underlined class="mb-2">
-            <x-t-text id="text-field-u-3" placeholder="underlined text"/>
+            <x-t-text id="text-field-u-3" placeholder="underlined text" icon="card-text"/>
         </x-t-field>
 
         <x-t-field label="Underlined text align start" for="text-field-u-4" label-placement="start" icon="text-left" underlined class="mb-2">
@@ -242,18 +242,19 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
         </x-t-field>
 
         <x-t-field label="Underlined date " for="text-field-4-u-1" label-placement="start" icon="calendar" underlined class="mb-2">
-            <x-t-date id="text-field-4-u-1" placeholder="underlined date " />
+            <x-t-date id="text-field-4-u-1" placeholder="underlined date " icon="card-text"/>
         </x-t-field>
 
 
         <x-t-field label="Underlined textarea" for="text-field-u-5" label-placement="top" underlined class="mb-2">
-            <x-t-textarea id="text-field-u-5" placeholder="underlined textarea"></x-t-textarea>
+            <x-t-textarea id="text-field-u-5" placeholder="underlined textarea" icon="card-text"></x-t-textarea>
         </x-t-field>
 
 
         <x-t-field label="Underlined select" for="text-field-u-21" label-placement="top" underlined class="mb-2">
             <x-t-select 
-                id="text-field-u-21" 
+            icon="card-text"
+            id="text-field-u-21" 
                 placeholder="underlined select"
                 :data="[
                     1=>'aaa',

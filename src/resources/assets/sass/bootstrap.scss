@@ -58,6 +58,26 @@ $utilities: map-merge(
     "border-end": map-merge(
       map-get($utilities, "border-end"),
       ( responsive: true ),
+    ),
+    "rounded": map-merge(
+      map-get($utilities, "rounded"),
+      ( responsive: true ),
+    ),
+    "rounded-end": map-merge(
+      map-get($utilities, "rounded-end"),
+      ( responsive: true ),
+    ),
+    "rounded-start": map-merge(
+      map-get($utilities, "rounded-start"),
+      ( responsive: true ),
+    ),
+    "rounded-top": map-merge(
+      map-get($utilities, "rounded-top"),
+      ( responsive: true ),
+    ),
+    "rounded-bottom": map-merge(
+      map-get($utilities, "rounded-bottom"),
+      ( responsive: true ),
     )
   )
 );

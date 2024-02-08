@@ -89,10 +89,10 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
 <h5>Dins d'un contenidor amb overflow</h5>
 
 <p>Si el desplegable el tenim dins un contenidor amb overflow, podem afegir l'atribut <code>overflow</code>.</p>
-<div style="padding:10px;width:600px;height:100px;overflow:auto;outline:2px solid cyan">
+<div style="padding:10px;width:100%;height:100px;overflow:auto;outline:2px solid cyan">
     <x-t-select placeholder="no overflow" lazy-load class="mb-2" limit="10" :data="$longData" />
 </div>
-<div style="padding:10px;width:600px;height:100px;overflow:auto;outline:2px solid cyan">
+<div style="padding:10px;width:100%;height:100px;overflow:auto;outline:2px solid cyan">
     <x-t-select placeholder="overflow" overflow lazy-load class="mb-2" limit="10" :data="$longData" />
 </div>
 

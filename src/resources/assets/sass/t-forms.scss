@@ -382,6 +382,11 @@
         .t-input textarea{
             border-color: transparent;
             background-color: transparent;
+        }
+        .t-input:not(.with-icon) input,
+        .t-select:not(.with-icon) .t-select-dropdown,
+        .q-wrapper,
+        .t-input:not(.with-icon) textarea{
             padding-right: .5em;
             padding-left: .5em;
         }

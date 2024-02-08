@@ -85,8 +85,8 @@ class GMapsHelper
       $circlesides=100;
 
       $defaults=[
-        'width'=>300,
-        'height'=>180,
+        'width'=>500,
+        'height'=>300,
         'maptype'=>"roadmap",
         'format'=>"PNG",
         'key'=>config('t-components.gmaps.api_key'),
