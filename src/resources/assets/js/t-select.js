@@ -165,13 +165,18 @@ document.addEventListener('alpine:init', () => {
             // _d('getAsyncData', this.isLoaded);
             if(!this.isLoaded){
                 var loadedData = await this.loadAsyncData();
-                // console.log('loadedData',loadedData, Object.keys(loadedData).length);
+                // console.log('loadedData',Object.keys(loadedData).length);
                 //
                 if(loadedData &&  Object.keys(loadedData).length>0  ) {
                     //si solo devuelve los datos selecionados, asumimos que ha acabado
+                    //si devuelve menos datos que el límite, tb ha acabado
+                    if(Object.keys(loadedData).length < this.limit){
+                        this.allLoaded=true;    
+                    }
                     if( this.selected && ( (this.multiple && this.selected==Object.keys(loadedData)) || (!this.multiple && Object.keys(loadedData).length==1 && this.selected == Object.keys(loadedData)[0] ) )){
                         this.allLoaded=true;    
                     }
+
 
                     for(var key in loadedData){
                         if(!Object.keys(this.data).includes(key)) this.data[key]=loadedData[key];
@@ -242,18 +247,25 @@ document.addEventListener('alpine:init', () => {
 
         async prepareOptions() {
             var s=this;
+            // _d('prepareOptions before',  Object.keys(this.data).length, this.page, this.limit);
+            
+
             this.options=Object.keys(this.data)
                 .filter(function(key){
-                    // console.log('filter',s.term);
-                    if(s.term){ 
-                        if(this.dataSrc){
-                            
-                        }else{
-                            return s.data[key].value.toLowerCase().includes(s.term.toLowerCase())
+                    // _d('filter',s.term, s.dataSrc);
+                    if(s.term){
+                        var terms=s.term.split(" ");
+                        for(var t of terms){
+                            if(s.data[key].value.toLowerCase().includes(t.toLowerCase())) return true;
                         }
+                        return false;
+                        // }
                     }
                     return true;
                 });
+
+                // _d('prepareOptions after 1',  Object.keys(this.options).length);
+            
                 if(this.limit){
                     if(this.lazyLoad){
                         // console.log('limiting page:'+ this.page,this.limit);
@@ -263,11 +275,18 @@ document.addEventListener('alpine:init', () => {
 
                     }
                 }
+                // _d('prepareOptions after 2',  Object.keys(this.options).length);
+            
 
                 this.options=this.options.reduce((options, key) => {
                     options[key] = this.data[key]
                     return options
-                }, {})
+                }, {});
+
+                // _d('prepareOptions after 3',  Object.keys(this.options).length);
+            
+
+
         },
         prepareOption: function(option,key,group) {
             var ret;
@@ -289,8 +308,9 @@ document.addEventListener('alpine:init', () => {
         async prepareData() {
             var data=[];
             this.groups=[];
+            // _d('prepareData',Object.keys(this.data).length);
             if(this.grouped){
-                // console.log('prepareData', this.data);
+                
                 
                 // var tmp=[];
                 for(var gr_key in this.data){
@@ -314,9 +334,11 @@ document.addEventListener('alpine:init', () => {
                 }
             }
             this.data=data;
+            // _d('preparedData',Object.keys(this.data).length);
             // console.log(this.data);
             //lo paso a options
             this.options = Object.keys(this.data);
+            // _d('options before',Object.keys(this.options).length, this.limit);
             
             if(this.limit) this.options=this.options.slice(0,this.limit);
 
@@ -325,7 +347,9 @@ document.addEventListener('alpine:init', () => {
                     return options
                 }, {});
 
+            // _d('options after',Object.keys(this.options).length);
             
+            // console.log('prepareData', this.data,this.options);
                 // if(this.grouped)console.log( this.options );
             
             // console.log(Object.values(this.options).filter((option)=>{ return option.group=="Trains" }));
