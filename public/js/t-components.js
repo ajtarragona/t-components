@@ -27707,6 +27707,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_t_icon__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./livewire */ "./src/resources/assets/js/livewire.js");
 /* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_livewire__WEBPACK_IMPORTED_MODULE_10__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 
@@ -27739,6 +27745,15 @@ var detectOnTop = function detectOnTop() {
 window.addEventListener("scroll", detectOnTop);
 window.addEventListener('DOMContentLoaded', function () {
   detectOnTop();
+});
+window.addEventListener("load", function (event) {
+  // console.log("loaded");
+
+  //initialize tooltips bootstrap
+  var tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  var tooltipList = _toConsumableArray(tooltipTriggerList).map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
 });
 
 /***/ }),
@@ -27856,22 +27871,214 @@ document.addEventListener('alpine:init', function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 document.addEventListener('alpine:init', function () {
   Alpine.data('tFile', function (config) {
+    var _config$placement, _config$required, _config$multiple, _config$label, _config$form_text, _config$container_cla, _config$class, _config$maxsize, _config$signed, _config$allowed_types, _config$auto_upload, _config$files;
     return {
       imageUrl: '',
-      selectFile: function selectFile(event) {
-        var _this = this;
-        var file = event.target.files[0];
-        var reader = new FileReader();
-        if (event.target.files.length < 1) {
-          return;
+      placement: (_config$placement = config.placement) !== null && _config$placement !== void 0 ? _config$placement : 'left',
+      required: (_config$required = config.required) !== null && _config$required !== void 0 ? _config$required : false,
+      multiple: (_config$multiple = config.multiple) !== null && _config$multiple !== void 0 ? _config$multiple : false,
+      label: (_config$label = config.label) !== null && _config$label !== void 0 ? _config$label : '',
+      form_text: (_config$form_text = config.form_text) !== null && _config$form_text !== void 0 ? _config$form_text : '',
+      container_class: (_config$container_cla = config.container_class) !== null && _config$container_cla !== void 0 ? _config$container_cla : '',
+      "class": (_config$class = config["class"]) !== null && _config$class !== void 0 ? _config$class : '',
+      maxsize: (_config$maxsize = config.maxsize) !== null && _config$maxsize !== void 0 ? _config$maxsize : null,
+      signed: (_config$signed = config.signed) !== null && _config$signed !== void 0 ? _config$signed : false,
+      allowed_types: (_config$allowed_types = config.allowed_types) !== null && _config$allowed_types !== void 0 ? _config$allowed_types : '',
+      auto_upload: (_config$auto_upload = config.auto_upload) !== null && _config$auto_upload !== void 0 ? _config$auto_upload : false,
+      files: (_config$files = config.files) !== null && _config$files !== void 0 ? _config$files : null,
+      strings: {
+        required: 'Obligatori',
+        optional: 'Opcional',
+        multiple: 'Admet múltiples arxius',
+        single: 'Només admet un arxiu',
+        all_allowed: 'Qualsevol tipus d\'arxiu',
+        signed: 'Requereix signatura electrònica',
+        not_signed: 'No requereix signatura electrònica',
+        maxsize: 'Mida màxima',
+        not_maxsize: 'Sense limitació de mida',
+        select_single: 'Selecciona un arxiu',
+        select_multiple: 'Selecciona multiples arxius',
+        multiple_files: 'Multiples arxius',
+        types: {
+          pdf: 'PDF',
+          word: 'Documents',
+          excel: 'Fulls de càlcul',
+          image: 'Imatges',
+          other: 'Altres',
+          zip: 'Arxius comprimits'
         }
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          return _this.imageUrl = reader.result;
-        };
-      }
+      },
+      type_icons: {
+        pdf: 'bi-file-pdf',
+        word: 'bi-file-word',
+        excel: 'bi-file-excel',
+        image: 'bi-file-image',
+        other: 'bi-files',
+        zip: 'bi-file-zip'
+      },
+      mimes: {
+        zip: ['application/x-zip-compressed', 'application/x-7z-compressed', 'application/vnd.rar'],
+        pdf: ['application/pdf'],
+        word: ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword', 'application/vnd.oasis.opendocument.text'],
+        excel: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel', 'application/xls', 'application/vnd.oasis.opendocument.spreadsheet'],
+        image: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/tiff']
+      },
+      init: function init() {
+        // console.log('init',Alpine.raw(this.files));
+        if (this.files) {
+          var _this$files$name;
+          //si solo pasan un file, lo meto en un array
+          if ((_this$files$name = this.files.name) !== null && _this$files$name !== void 0 ? _this$files$name : null) {
+            tmp = [];
+            tmp.push(this.files);
+            this.files = tmp;
+            // console.log(Alpine.raw(this.files));
+          }
+        }
+        // console.log('allowed_types',this.allowed_types);
+        // console.log(this.getAllowedTypes());
+      },
+      placementRight: function placementRight() {
+        return this.placement == 'right';
+      },
+      colInputClass: function colInputClass() {
+        var ret = this.placementRight() ? 'ms-md-auto ps-md-4 order-last' : 'pe-md-4 ';
+        if (this.hasFiles()) ret += " with-files";
+        return ret;
+      },
+      colDetailClass: function colDetailClass() {
+        return this.placementRight() ? 'pe-md-4 ' : 'ps-md-4';
+      },
+      requiredLabel: function requiredLabel() {
+        return this.required ? this.strings.required : this.strings.optional;
+      },
+      multipleLabel: function multipleLabel() {
+        return this.multiple ? this.strings.multiple : this.strings.single;
+      },
+      signedLabel: function signedLabel() {
+        return this.signed ? this.strings.signed : this.strings.not_signed;
+      },
+      maxsizeLabel: function maxsizeLabel() {
+        return this.maxsize ? this.strings.maxsize + ": " + this.humanSize(this.maxsize) : this.strings.not_maxsize;
+      },
+      selectedFilesLabel: function selectedFilesLabel() {
+        var o = this;
+
+        // console.log('this.files',Alpine.raw(this.files));
+        if (this.hasFiles()) {
+          if (this.files.length > 1) {
+            var size = 0;
+            this.files.map(function (file) {
+              return size += file.size;
+            });
+            return "<div><strong class='d-block mb-1'>" + this.strings.multiple_files + '</strong><small class="text-muted">' + o.humanSize(size / 1024) + "</small></div>";
+          } else {
+            var file = this.files[0];
+            return "<div><strong  class='d-block mb-1'>" + file.name + '</strong><small class="text-muted">' + o.humanSize(file.size / 1024) + "</small></div>";
+          }
+        } else {
+          return this.strings[this.multiple ? 'select_multiple' : 'select_single'] + "...";
+        }
+      },
+      getAllowedTypes: function getAllowedTypes() {
+        return this.allowed_types ? this.allowed_types.split(',') : [];
+      },
+      allowedImages: function allowedImages() {
+        return this.getAllowedTypes().includes('image');
+      },
+      allowedWord: function allowedWord() {
+        return this.getAllowedTypes().includes('word');
+      },
+      allowedPdf: function allowedPdf() {
+        return this.getAllowedTypes().includes('pdf');
+      },
+      allowedExcel: function allowedExcel() {
+        return this.getAllowedTypes().includes('excel');
+      },
+      allowedAll: function allowedAll() {
+        return this.getAllowedTypes().length == 0;
+      },
+      allowedOther: function allowedOther() {
+        var o = this;
+        var types = Object.keys(o.strings.types);
+        var allowed = this.getAllowedTypes();
+
+        // return allowed.some(strA => !types.includes(strA));
+        // console.log('types',types, allowed);
+
+        var ret = false;
+        for (var i = 0; i < allowed.length; i++) {
+          var tipo = allowed[i];
+          if (!types.includes(tipo)) {
+            if (ret === false) ret = [];
+            ret.push(tipo);
+          }
+        }
+        // console.log('hola');
+        return ret;
+      },
+      hasFiles: function hasFiles() {
+        return this.files ? this.files.length > 0 : false;
+      },
+      humanSize: function humanSize(kilobytes) {
+        if (!kilobytes) return;
+        console.log('humanSize', kilobytes);
+        // if(!this.maxsize) return '';
+
+        // kilobytes=this.maxsize;
+        kilobytes = parseFloat(kilobytes);
+        if (kilobytes >= 1024) {
+          var megabytes = kilobytes / 1024;
+          return megabytes.toFixed(2).replace(/\.?0+$/, "") + "MB";
+        } else {
+          return kilobytes.toFixed(2).replace(/\.?0+$/, "") + "KB";
+        }
+      },
+      clear: function clear() {
+        this.files = null;
+        this.$refs.input.value = '';
+      },
+      showFiles: function showFiles() {
+        console.log('showFiles', Alpine.raw(this.files));
+      },
+      fileType: function fileType(file) {
+        return this.typeFromMime(file.type);
+      },
+      fileTypeDescription: function fileTypeDescription(file) {
+        var type = this.typeFromMime(file.type);
+        if (type) return this.strings.types[type];
+        return this.strings.types.other;
+      },
+      fileTypeIcon: function fileTypeIcon(file) {
+        var type = this.typeFromMime(file.type);
+        if (type) return this.type_icons[type];
+        return 'bi-file';
+      },
+      typeFromMime: function typeFromMime(mime) {
+        var entradaEncontrada = Object.entries(this.mimes).find(function (_ref) {
+          var _ref2 = _slicedToArray(_ref, 2),
+            tipo = _ref2[0],
+            tiposMime = _ref2[1];
+          return tiposMime.includes(mime);
+        });
+        return entradaEncontrada ? entradaEncontrada[0] : null;
+      } // selectFile (event) {
+      //     const file = event.target.files[0]
+      //     const reader = new FileReader()
+      //     if (event.target.files.length < 1) {
+      //         return
+      //     }
+      //     reader.readAsDataURL(file)
+      //     reader.onload = () => (this.imageUrl = reader.result)
+      // },
     };
   });
 });
@@ -29230,15 +29437,27 @@ document.addEventListener('alpine:init', function () {
 
 /***/ }),
 
+/***/ "./src/resources/assets/sass/tgn-web.scss":
+/*!************************************************!*\
+  !*** ./src/resources/assets/sass/tgn-web.scss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*****************************************************************************************************************************************************************************************!*\
-  !*** multi ./src/resources/assets/js/t-components.js ./src/resources/assets/sass/t-components.scss ./src/resources/assets/sass/tgn-site.scss ./src/resources/assets/sass/tgn-form.scss ***!
-  \*****************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./src/resources/assets/js/t-components.js ./src/resources/assets/sass/t-components.scss ./src/resources/assets/sass/tgn-web.scss ./src/resources/assets/sass/tgn-site.scss ./src/resources/assets/sass/tgn-form.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\js\t-components.js */"./src/resources/assets/js/t-components.js");
 __webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\sass\t-components.scss */"./src/resources/assets/sass/t-components.scss");
+__webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\sass\tgn-web.scss */"./src/resources/assets/sass/tgn-web.scss");
 __webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\sass\tgn-site.scss */"./src/resources/assets/sass/tgn-site.scss");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel\packages\ajtarragona\t-components\src\resources\assets\sass\tgn-form.scss */"./src/resources/assets/sass/tgn-form.scss");
 

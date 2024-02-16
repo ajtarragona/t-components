@@ -1,8 +1,8 @@
 @props([
     'native'=>false,
     'value' => null,
-        'icon'=>null,
-        'placeholder'=>'',
+    'icon'=>null,
+    'placeholder'=>'',
     'dateFormat'=>'d/m/Y',
     'timeFormat'=>'H:i',
     'allowInput'=>false,
@@ -39,6 +39,14 @@ if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] 
 
 if(isset($attributes["id"])) $altInput="true"; //parche
 
+
+$errorname=$attributes["name"]??'';
+
+if($errorname){
+    // dump($errorname);
+    $errorname=str_replace(["[","]"],[".",""],$errorname);
+    // dump($errorname);
+}
 @endphp
 
 <span 
@@ -57,7 +65,7 @@ x-modelable="value"
 >   
 
     <input placeholder="{{$placeholder}}" 
-        {{ $attributes->except(['type'])->merge(['class' => 'form-control '.((isset($attributes["name"]) && $errors->has($attributes["name"]) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'').' t-form-control '.($color?('bg-'.$color .' text-bg-'.$color):'')]) }} 
+        {{ $attributes->except(['type'])->merge(['class' => 'form-control '.(($errorname && $errors->has($errorname) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'').' t-form-control '.($color?('bg-'.$color .' text-bg-'.$color):'')]) }} 
         
         
         {{-- :type="native?'date':'text'"  --}}

@@ -41,6 +41,10 @@
 @php
 //si no pasan el ID y sí el name, el ID será igual al name
 if(!$id && $name) $id = $name;
+$errorname=$name;
+if($errorname){
+    $errorname=str_replace(["[","]"],[".",""],$errorname);
+}
 @endphp
  @if(!$native)
     
@@ -122,7 +126,7 @@ if(!$id && $name) $id = $name;
             <button 
                 
                 type="button"
-                class="btn dropdown-toggle t-select-dropdown d-flex align-items-center justify-content-start {{((isset($attributes["name"]) && $errors->has($attributes["name"]) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'')}}"
+                class="btn dropdown-toggle t-select-dropdown d-flex align-items-center justify-content-start {{(($errorname && $errors->has($errorname) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'')}}"
                 data-bs-toggle="dropdown"
                 data-bs-auto-close="false"
                 :class="btnClasses()"
@@ -219,6 +223,8 @@ if(!$id && $name) $id = $name;
             </ul>
             {{-- <span x-text="JSON.stringify(data)" x-show="dataSrc"></span> --}}
             <select :multiple="multiple" :name="name" :disabled="disabled" :readonly="readonly" hidden class="form-select"  x-ref="selectInput">
+                <option value=''>-</option>
+
                 {{-- @if($grouped)
                     <template x-for="(group_name,gr_index) in Object.values(groups)" :key="gr_index">
                         <optgroup :label="group_name" x-show="getGroupOptions(group_name).length>0">
@@ -238,7 +244,7 @@ if(!$id && $name) $id = $name;
         </span>
     </div>
 @else
-    <select id="{{$id}}" name="{{$name}}" {{ isset($attributes['multiple'])?'multiple':''}} class="form-select {{$class}}">
+    <select id="{{$id}}" name="{{$name}}" {{ isset($attributes['multiple'])?'multiple':''}}  {{$attributes->whereStartsWith('x-on')}}  class="form-select {{$class}}">
         @foreach($data as $key=>$value)
             <option value="{{$key}}" {{$selected==$key?'selected':''}}>{{$value}}</option>
         @endforeach

@@ -12,6 +12,14 @@
 @php
 //si no pasan el ID y sí el name, el ID será igual al name
 if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] = $attributes["name"];
+
+$errorname=$attributes["name"]??'';
+
+if($errorname){
+    // dump($errorname);
+    $errorname=str_replace(["[","]"],[".",""],$errorname);
+    // dump($errorname);
+}
 @endphp
 <span 
     x-data="tTextComponent({
@@ -31,7 +39,7 @@ if(!($attributes["id"]??null) && ($attributes["name"]??null)) $attributes["id"] 
         x-ref="input" 
         placeholder="{{$placeholder}}"  
         {{ $attributes->merge([
-            'class' => 'form-control t-form-control '.((isset($attributes["name"]) && $errors->has($attributes["name"]) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':''). ' form-control-'.$size.' '. ($color?('bg-'.$color.' text-bg-'.$color):'')
+            'class' => 'form-control t-form-control '.(($errorname && $errors->has($errorname) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':''). ' form-control-'.$size.' '. ($color?('bg-'.$color.' text-bg-'.$color):'')
         ]) }} 
     >{{ $slot }}</textarea>
 

@@ -8,7 +8,8 @@
 	<meta name="base-url" content="{{ url('') }}">
 	<meta name="lang" content="{{ app()->getLocale() }}">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
+	<meta name="viewport" content="minimum-scale=1,initial-scale=1,width=device-width">
 
 	@yield('meta')
 

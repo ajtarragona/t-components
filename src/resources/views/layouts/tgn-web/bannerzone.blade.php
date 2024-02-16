@@ -1,6 +1,6 @@
 <div id="bannerzone" style="background-image:url(@yield('header-image'))" class="vignette-full">
 
-    @include('t-components::layouts.tgn-site.sticky-header')
+    @include('t-components::layouts.tgn-web.sticky-header')
     
     <div class="banner container">
         <div class="row">
@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-sm-auto mx-auto px-0">
                 <div class="nav-tabs-wrapper ">
-                    @include('t-components::layouts.tgn-site.main-nav')
+                    @include('t-components::layouts.tgn-web.main-nav')
                    
                 </div>
                 <div class="sparkly d-inline d-md-none"></div>

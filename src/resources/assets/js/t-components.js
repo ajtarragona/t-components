@@ -39,3 +39,14 @@ window.addEventListener('DOMContentLoaded', () => {
     
     detectOnTop();
 });
+
+
+window.addEventListener("load", (event) => {
+
+    // console.log("loaded");
+
+    //initialize tooltips bootstrap
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+});

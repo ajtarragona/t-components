@@ -37571,6 +37571,88 @@ html.select-opened .t-select.overlay .dropdown-menu {
   }
 }
 
+.t-input-file {
+  display: block;
+}
+
+.t-input-file label.form-label {
+  font-size: 1.3em;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--bs-gray-900);
+  margin-bottom: 0;
+}
+
+.t-input-file .form-text {
+  font-size: 0.8em;
+  color: var(--bs-gray-500);
+}
+
+.t-input-file .file-btn {
+  height: 130px;
+  width: 92px;
+  padding: 0em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid var(--bs-border-color);
+  background-color: transparent;
+  color: var(--bs-primary);
+  border-radius: var(--bs-border-radius);
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+.t-input-file .file-btn i {
+  font-size: 1.7rem;
+}
+
+.t-input-file .file-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: var(--bs-gray-900);
+}
+
+.t-input-file .file-btn .badge {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  font-size: 1rem;
+}
+
+.t-input-file .with-files .file-btn {
+  border-color: var(--bs-gray-900);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.t-input-file .col-file-input {
+  width: 150px;
+}
+
+@media (max-width: 767.98px) {
+  .t-input-file .col-file-input {
+    width: auto;
+  }
+
+  .placeholders {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+[data-bs-theme=dark] .t-input-file label.form-label {
+  color: var(--bs-gray-100);
+}
+
+[data-bs-theme=dark] .t-input-file .file-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--bs-gray-600);
+}
+
 .btn:focus {
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);

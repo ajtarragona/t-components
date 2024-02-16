@@ -24,6 +24,15 @@
 @php
 //si no pasan el ID y sí el name, el ID será igual al name
 if(!$id && $name) $id = $name;
+
+
+$errorname=$name;
+
+if($errorname){
+    // dump($errorname);
+    $errorname=str_replace(["[","]"],[".",""],$errorname);
+    // dump($errorname);
+}
 @endphp
 <span 
  class="t-select t-icon-picker flex-grow-1 {{$attributes["outer-class"]??''}}" :class="{'opened':open,'with-search':search}"
@@ -60,7 +69,7 @@ if(!$id && $name) $id = $name;
         <button 
                 
             type="button"
-            class="btn dropdown-toggle t-select-dropdown d-flex align-items-center justify-content-start {{((isset($attributes["name"]) && $errors->has($attributes["name"]) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'')}}"
+            class="btn dropdown-toggle t-select-dropdown d-flex align-items-center justify-content-start {{(($errorname && $errors->has($errorname) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'')}}"
             data-bs-toggle="dropdown"
             data-bs-auto-close="true"
             @if($overflow)
