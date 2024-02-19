@@ -27871,15 +27871,22 @@ document.addEventListener('alpine:init', function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 document.addEventListener('alpine:init', function () {
   Alpine.data('tFile', function (config) {
-    var _config$placement, _config$required, _config$multiple, _config$label, _config$form_text, _config$container_cla, _config$class, _config$maxsize, _config$signed, _config$allowed_types, _config$auto_upload, _config$files;
+    var _config$placement, _config$required, _config$multiple, _config$label, _config$form_text, _config$container_cla, _config$class, _config$maxsize, _config$signed, _config$allowed_types, _config$auto_upload, _config$files, _config$strings;
     return {
       imageUrl: '',
       placement: (_config$placement = config.placement) !== null && _config$placement !== void 0 ? _config$placement : 'left',
@@ -27894,7 +27901,9 @@ document.addEventListener('alpine:init', function () {
       allowed_types: (_config$allowed_types = config.allowed_types) !== null && _config$allowed_types !== void 0 ? _config$allowed_types : '',
       auto_upload: (_config$auto_upload = config.auto_upload) !== null && _config$auto_upload !== void 0 ? _config$auto_upload : false,
       files: (_config$files = config.files) !== null && _config$files !== void 0 ? _config$files : null,
-      strings: {
+      dragover: false,
+      clear: false,
+      strings: _objectSpread({
         required: 'Obligatori',
         optional: 'Opcional',
         multiple: 'Admet múltiples arxius',
@@ -27915,7 +27924,7 @@ document.addEventListener('alpine:init', function () {
           other: 'Altres',
           zip: 'Arxius comprimits'
         }
-      },
+      }, (_config$strings = config.strings) !== null && _config$strings !== void 0 ? _config$strings : {}),
       type_icons: {
         pdf: 'bi-file-pdf',
         word: 'bi-file-word',
@@ -27929,10 +27938,12 @@ document.addEventListener('alpine:init', function () {
         pdf: ['application/pdf'],
         word: ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword', 'application/vnd.oasis.opendocument.text'],
         excel: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel', 'application/xls', 'application/vnd.oasis.opendocument.spreadsheet'],
-        image: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/tiff']
+        image: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/tiff'],
+        xml: ['application/xml'],
+        txt: ['text/plain']
       },
       init: function init() {
-        // console.log('init',Alpine.raw(this.files));
+        // console.log('init',Alpine.raw(this.strings), Alpine.raw(config.strings??{}));
         if (this.files) {
           var _this$files$name;
           //si solo pasan un file, lo meto en un array
@@ -27949,8 +27960,14 @@ document.addEventListener('alpine:init', function () {
       placementRight: function placementRight() {
         return this.placement == 'right';
       },
+      containerClass: function containerClass() {
+        var ret = this.container_class;
+        if (this.dragover) ret += " dragover";
+        return ret;
+      },
       colInputClass: function colInputClass() {
         var ret = this.placementRight() ? 'ms-md-auto ps-md-4 order-last' : 'pe-md-4 ';
+        if (this.multiple) ret += " multiple";
         if (this.hasFiles()) ret += " with-files";
         return ret;
       },
@@ -28030,7 +28047,7 @@ document.addEventListener('alpine:init', function () {
       },
       humanSize: function humanSize(kilobytes) {
         if (!kilobytes) return;
-        console.log('humanSize', kilobytes);
+        // console.log('humanSize',kilobytes);
         // if(!this.maxsize) return '';
 
         // kilobytes=this.maxsize;
@@ -28042,9 +28059,45 @@ document.addEventListener('alpine:init', function () {
           return kilobytes.toFixed(2).replace(/\.?0+$/, "") + "KB";
         }
       },
-      clear: function clear() {
+      setFiles: function setFiles(event) {
+        console.log('setFiles', event);
+        this.files = Object.values(event.target.files);
+        console.log('this.files', this.files);
+        if (this.files.length == 0) {
+          this.doClear();
+        } else {
+          this.$refs.clearfile_input.value = null;
+          this.clear = false;
+        }
+      },
+      drop: function drop(event) {
+        // console.log('drop',Array.from(event.dataTransfer.files));
+        if (!event.dataTransfer.files) return;
+        this.files = Array.from(event.dataTransfer.files);
+        this.dragover = false;
+        // const formData = new FormData()
+
+        // for (let item of event.dataTransfer.items) {
+        //   if (item.kind === 'file') {
+        //     const file = item.getAsFile()
+        //     if (file) {
+        //       if (!file.type.match('image.*')) {
+        //         alert('only images supported')
+        //         return
+        //       }
+        //       formData.append('files', file)
+        //     }
+        //   }
+        // }
+
+        //...
+      },
+      doClear: function doClear() {
+        console.log('clear');
         this.files = null;
         this.$refs.input.value = '';
+        this.$refs.clearfile_input.value = 1;
+        this.clear = true;
       },
       showFiles: function showFiles() {
         console.log('showFiles', Alpine.raw(this.files));
@@ -28070,6 +28123,29 @@ document.addEventListener('alpine:init', function () {
           return tiposMime.includes(mime);
         });
         return entradaEncontrada ? entradaEncontrada[0] : null;
+      },
+      acceptedMimes: function acceptedMimes() {
+        var ret = [];
+        // console.log('acceptedMimes',Alpine.raw(this.getAllowedTypes()),Alpine.raw(this.mimes));
+        var _iterator = _createForOfIteratorHelper(this.getAllowedTypes()),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var type = _step.value;
+            // console.log(type);
+            if (this.mimes[type]) {
+              ret = ret.concat(this.mimes[type]);
+            } else {
+              ret.push(type);
+            }
+          }
+          // console.log(ret);
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        return ret.join(",");
       } // selectFile (event) {
       //     const file = event.target.files[0]
       //     const reader = new FileReader()
@@ -28457,9 +28533,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 document.addEventListener('alpine:init', function () {
   Alpine.data('tSelectComponent', function (config) {
-    var _config$data, _config$size, _config$search, _config$inlineSearch, _config$limit, _config$color, _config$icon, _config$selectedLabel, _config$selectedLabel2, _config$selectedLabel3, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$dataSrc, _config$dataSrcMethod, _config$dataSrcParams, _config$prefetch, _config$termName, _config$limitName, _config$pageName, _config$grouped, _config$height, _config$lazyLoad, _config$overlay;
+    var _config$dataOptions, _config$size, _config$search, _config$inlineSearch, _config$limit, _config$color, _config$icon, _config$selectedLabel, _config$selectedLabel2, _config$selectedLabel3, _config$class, _config$outerClass, _config$width, _config$name, _config$id, _config$dataSrc, _config$dataSrcMethod, _config$dataSrcParams, _config$prefetch, _config$termName, _config$limitName, _config$pageName, _config$grouped, _config$height, _config$lazyLoad, _config$overlay;
     return {
-      data: (_config$data = config.data) !== null && _config$data !== void 0 ? _config$data : [],
+      dataOptions: (_config$dataOptions = config.dataOptions) !== null && _config$dataOptions !== void 0 ? _config$dataOptions : [],
       open: false,
       size: (_config$size = config.size) !== null && _config$size !== void 0 ? _config$size : 'md',
       term: '',
@@ -28516,6 +28592,8 @@ document.addEventListener('alpine:init', function () {
               case 0:
                 s = _this;
                 if (_this.lazyLoad && _this.limit) _this.height = _this.limit * 2 + "rem";
+
+                // console.log('tSelect',config);
                 if (_this.selected == null) {
                   if (_this.multiple) _this.selected = [];else _this.selected = '';
                 } else {
@@ -28544,7 +28622,7 @@ document.addEventListener('alpine:init', function () {
                 break;
               case 10:
                 _this.isLoading = false;
-                if (!_this.data) _this.data = {};
+                if (!_this.dataOptions) _this.dataOptions = {};
                 // console.log(this.multiple, this.selected);
                 _this.prepareData();
                 _this.prepareOptions();
@@ -28635,7 +28713,7 @@ document.addEventListener('alpine:init', function () {
                 break;
               case 8:
                 // console.log('loadMore', this.page, (Object.keys(this.data).length/this.limit) );
-                if (_this2.page < Object.keys(_this2.data).length / _this2.limit) {
+                if (_this2.page < Object.keys(_this2.dataOptions).length / _this2.limit) {
                   _this2.page++;
                   _this2.prepareOptions();
                 } else {
@@ -28678,7 +28756,7 @@ document.addEventListener('alpine:init', function () {
                     _this3.allLoaded = true;
                   }
                   for (key in loadedData) {
-                    if (!Object.keys(_this3.data).includes(key)) _this3.data[key] = loadedData[key];
+                    if (!Object.keys(_this3.dataOptions).includes(key)) _this3.dataOptions[key] = loadedData[key];
                   }
                 } else {
                   _this3.allLoaded = true;
@@ -28774,7 +28852,7 @@ document.addEventListener('alpine:init', function () {
             while (1) switch (_context6.prev = _context6.next) {
               case 0:
                 s = _this5; // _d('prepareOptions before',  Object.keys(this.data).length, this.page, this.limit);
-                _this5.options = Object.keys(_this5.data).filter(function (key) {
+                _this5.options = Object.keys(_this5.dataOptions).filter(function (key) {
                   // _d('filter',s.term, s.dataSrc);
                   if (s.term) {
                     var terms = s.term.split(" ");
@@ -28783,7 +28861,7 @@ document.addEventListener('alpine:init', function () {
                     try {
                       for (_iterator.s(); !(_step = _iterator.n()).done;) {
                         var t = _step.value;
-                        if (s.data[key].value.toLowerCase().includes(t.toLowerCase())) return true;
+                        if (s.dataOptions[key].value.toLowerCase().includes(t.toLowerCase())) return true;
                       }
                     } catch (err) {
                       _iterator.e(err);
@@ -28810,7 +28888,7 @@ document.addEventListener('alpine:init', function () {
                 // _d('prepareOptions after 2',  Object.keys(this.options).length);
 
                 _this5.options = _this5.options.reduce(function (options, key) {
-                  options[key] = _this5.data[key];
+                  options[key] = _this5.dataOptions[key];
                   return options;
                 }, {});
 
@@ -28827,7 +28905,7 @@ document.addEventListener('alpine:init', function () {
         // _d('prepareOption',option,key);
         if (_typeof(option) == 'object') {
           var _option$value;
-          // console.log(Object.keys(this.data[key]));
+          // console.log(Object.keys(this.dataOptions[key]));
           ret = _objectSpread(_objectSpread({}, {
             key: key,
             group: group,
@@ -28855,11 +28933,11 @@ document.addEventListener('alpine:init', function () {
                 // _d('prepareData',Object.keys(this.data).length);
                 if (_this6.grouped) {
                   // var tmp=[];
-                  for (gr_key in _this6.data) {
+                  for (gr_key in _this6.dataOptions) {
                     // this.data[key][gr_key];
                     // var grdata=[];
-                    for (op_key in _this6.data[gr_key]) {
-                      data[op_key] = _this6.prepareOption(_this6.data[gr_key][op_key], op_key, gr_key);
+                    for (op_key in _this6.dataOptions[gr_key]) {
+                      data[op_key] = _this6.prepareOption(_this6.dataOptions[gr_key][op_key], op_key, gr_key);
                       // data[op_key]= grdata[op_key];
                     }
 
@@ -28868,26 +28946,26 @@ document.addEventListener('alpine:init', function () {
 
                   // console.log('groups', this.groups);
                 } else {
-                  for (key in _this6.data) {
-                    data[key] = _this6.prepareOption(_this6.data[key], key, null);
+                  for (key in _this6.dataOptions) {
+                    data[key] = _this6.prepareOption(_this6.dataOptions[key], key, null);
                   }
                 }
-                _this6.data = data;
-                // _d('preparedData',Object.keys(this.data).length);
-                // console.log(this.data);
+                _this6.dataOptions = data;
+                // _d('preparedData',Object.keys(this.dataOptions).length);
+                // console.log(this.dataOptions);
                 //lo paso a options
-                _this6.options = Object.keys(_this6.data);
+                _this6.options = Object.keys(_this6.dataOptions);
                 // _d('options before',Object.keys(this.options).length, this.limit);
 
                 if (_this6.limit) _this6.options = _this6.options.slice(0, _this6.limit);
                 _this6.options = _this6.options.reduce(function (options, key) {
-                  options[key] = _this6.data[key];
+                  options[key] = _this6.dataOptions[key];
                   return options;
                 }, {});
 
                 // _d('options after',Object.keys(this.options).length);
 
-                // console.log('prepareData', this.data,this.options);
+                // console.log('prepareData', this.dataOptions,this.options);
                 // if(this.grouped)console.log( this.options );
 
                 // console.log(Object.values(this.options).filter((option)=>{ return option.group=="Trains" }));
@@ -29069,7 +29147,7 @@ document.addEventListener('alpine:init', function () {
         return this.multiple && this.selected.length > 0 || !this.multiple && this.selected;
       },
       optionClass: function optionClass(key, index) {
-        var _this$data$key$color, _this$data$key$class;
+        var _this$dataOptions$key, _this$dataOptions$key2;
         var ret = [];
         if (this.multiple) {
           if (this.selected.includes(key)) ret.push('selected');
@@ -29079,12 +29157,12 @@ document.addEventListener('alpine:init', function () {
         if (!this.readonly && this.currentIndex == index) ret.push('active');
 
         // console.log(this.data[key]);
-        if (this.data[key] && ((_this$data$key$color = this.data[key].color) !== null && _this$data$key$color !== void 0 ? _this$data$key$color : null)) ret.push('text-' + this.data[key].color);
-        if (this.data[key] && ((_this$data$key$class = this.data[key]["class"]) !== null && _this$data$key$class !== void 0 ? _this$data$key$class : null)) ret.push(this.data[key]["class"]);
+        if (this.dataOptions[key] && ((_this$dataOptions$key = this.dataOptions[key].color) !== null && _this$dataOptions$key !== void 0 ? _this$dataOptions$key : null)) ret.push('text-' + this.dataOptions[key].color);
+        if (this.dataOptions[key] && ((_this$dataOptions$key2 = this.dataOptions[key]["class"]) !== null && _this$dataOptions$key2 !== void 0 ? _this$dataOptions$key2 : null)) ret.push(this.dataOptions[key]["class"]);
         return ret.join(" ");
       },
       btnClasses: function btnClasses() {
-        var _this$data$this$selec, _this$data$this$selec2;
+        var _this$dataOptions$thi, _this$dataOptions$thi2;
         var ret = [this.btnClass];
 
         // if(this.open) ret.push('active');
@@ -29094,8 +29172,8 @@ document.addEventListener('alpine:init', function () {
         }
 
         // console.log(this.multiple,this.selected);
-        if (!this.multiple && this.selected && ((_this$data$this$selec = this.data[this.selected]) !== null && _this$data$this$selec !== void 0 ? _this$data$this$selec : null) && ((_this$data$this$selec2 = this.data[this.selected].color) !== null && _this$data$this$selec2 !== void 0 ? _this$data$this$selec2 : null)) {
-          ret.push('btn-' + this.data[this.selected].color);
+        if (!this.multiple && this.selected && ((_this$dataOptions$thi = this.dataOptions[this.selected]) !== null && _this$dataOptions$thi !== void 0 ? _this$dataOptions$thi : null) && ((_this$dataOptions$thi2 = this.dataOptions[this.selected].color) !== null && _this$dataOptions$thi2 !== void 0 ? _this$dataOptions$thi2 : null)) {
+          ret.push('btn-' + this.dataOptions[this.selected].color);
         } else {
           // if(this.color=="default") ret.push('btn-default');
           // else 
@@ -29114,18 +29192,18 @@ document.addEventListener('alpine:init', function () {
             //     ret="<small class='opacity-75'>"+ (this.selected.length) + " selected...</small>";
             // }else{
             var selected = [];
-            // console.log(this.selected,this.data);
+            // console.log(this.selected,this.dataOptions);
             for (var key in this.selected) {
-              var _this$data$this$selec3;
-              if ((_this$data$this$selec3 = this.data[this.selected[key]]) !== null && _this$data$this$selec3 !== void 0 ? _this$data$this$selec3 : null) {
-                var _this$data$this$selec4;
+              var _this$dataOptions$thi3;
+              if ((_this$dataOptions$thi3 = this.dataOptions[this.selected[key]]) !== null && _this$dataOptions$thi3 !== void 0 ? _this$dataOptions$thi3 : null) {
+                var _this$dataOptions$thi4;
                 var optionTxt = "";
                 optionTxt += this.selectedLabelPrefix;
-                var color = (_this$data$this$selec4 = this.data[this.selected[key]].color) !== null && _this$data$this$selec4 !== void 0 ? _this$data$this$selec4 : null;
+                var color = (_this$dataOptions$thi4 = this.dataOptions[this.selected[key]].color) !== null && _this$dataOptions$thi4 !== void 0 ? _this$dataOptions$thi4 : null;
                 if (color) {
                   optionTxt += "<span class='badge text-bg-" + color + "'>";
                 }
-                optionTxt += this.data[this.selected[key]].value;
+                optionTxt += this.dataOptions[this.selected[key]].value;
                 if (color) {
                   optionTxt += "</span>";
                 }
@@ -29148,10 +29226,10 @@ document.addEventListener('alpine:init', function () {
             // }
           }
         } else {
-          var _this$data$this$selec5;
-          if (this.selected && ((_this$data$this$selec5 = this.data[this.selected]) !== null && _this$data$this$selec5 !== void 0 ? _this$data$this$selec5 : null)) {
+          var _this$dataOptions$thi5;
+          if (this.selected && ((_this$dataOptions$thi5 = this.dataOptions[this.selected]) !== null && _this$dataOptions$thi5 !== void 0 ? _this$dataOptions$thi5 : null)) {
             // console.log(this.data, this.selected);
-            ret = this.data[this.selected].value; //["value"];
+            ret = this.dataOptions[this.selected].value; //["value"];
           }
         }
 
@@ -29177,7 +29255,7 @@ document.addEventListener('alpine:init', function () {
                 // _d('reload');
                 s = _this8; // if(this.dataSrc){
                 s.selected = null;
-                s.data = [];
+                s.dataOptions = [];
                 s.options = {};
                 s.currentIndex = -1;
                 s.groupOptions = [];

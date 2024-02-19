@@ -1,3 +1,4 @@
+
 @props([
     'color'=>'',
     'icon'=>null,
@@ -12,7 +13,7 @@
     'containerClass' =>'',
     'class' =>'',
     'readonly'=>false,
-    'label' =>'',
+    'label' =>'ddf',
     'formText' =>'',
     'signed' =>false,
     'autoUpload' =>false,
@@ -32,15 +33,11 @@
     $input_name=$name;
     if($multiple && ! ends_with($name, "[]")) $input_name.="[]";
 
-
-
 @endphp
 
 
-{{-- @dump($name) --}}
 
-
-<div class=" t-input-file " :class="container_class" x-data='tFile({
+<div class=" t-input-file " :class="containerClass()" x-data='tFile({
     placement: "{{$placement}}",
     required:  {{$required?'true':'false'}},
     multiple: {{$multiple?'true':'false'}},
@@ -52,15 +49,26 @@
     allowed_types :  "{{$allowedTypes}}",
     class :  "{{$class}}",
     auto_upload :  {{$autoUpload?'true':'false'}},
-    files : @json($files??[])
+    files : @json($files??[]),
+    dragover: false,
+    strings : @json(__('t-components::t-components.files'))
+    
+   
+})'
 
-})'>
+
+>
+{{-- @dump(__('t-components::t-components.files')) --}}
     
     <div class=""  id="file_container_{{str_slug($name)}}" >
 
         <div class="d-block d-md-flex ">
             <div class="col-file-input dropend" :class="colInputClass()">
-                <label for="file_{{str_slug($name)}}" class="file-btn mb-2" >
+                <label for="file_{{str_slug($name)}}" class="file-btn mb-2" 
+                    @dragover.prevent="dragover = true"
+                    @dragleave.prevent="dragover = false"
+                    @drop.prevent="drop"
+                >
                     
                     <template x-if="!hasFiles()" x-cloak >
                         <i class="bi bi-plus" title="Afegir arxiu" ></i>
@@ -68,9 +76,9 @@
 
                     <template x-if="hasFiles()" x-cloak >
                         <div class="d-flex flex-column align-items-center justify-content-around">
-                            <i class="bi bi-x" @click.prevent.stop="clear()" title="Esborrar" ></i>
+                            <i class="bi bi-x" @click.prevent.stop="doClear()" title="Esborrar" ></i>
                             
-                            <i class="bi bi-plus" x-show="multiple" title="Afegir arxiu"></i>
+                            <i class="bi bi-plus" x-show="multiple" title="{{ __t('filed.Afegir arxiu')}}"></i>
                             <i class="bi bi-list-task" x-show="multiple" @click.prevent.stop="showFiles()"  data-bs-toggle="modal" data-bs-target="#file_detail_{{str_slug($name??'')}}" title="Veure arxius"></i>
                         </div>
                     </template>
@@ -87,8 +95,8 @@
                     </small>
                 </div>
 
-                
-                <input class="form-control" x-ref="input" hidden type="file" x-on:change="files = Object.values($event.target.files)"   id="file_{{str_slug($name)}}" name="{{$input_name}}" :multiple ="multiple">
+                <input type="hidden" name="clearfile_{{$input_name}}" value="" x-ref="clearfile_input" :disabled="!clear"/>
+                <input class="form-control" x-ref="input" hidden type="file" x-on:change="setFiles"  :accept="acceptedMimes()" id="file_{{str_slug($name)}}" name="{{$input_name}}" :multiple ="multiple">
             </div>
 
             <div class="col-file-detail pt-4 pt-md-0 " :class="colDetailClass()">
@@ -102,7 +110,7 @@
                     <div class="d-block d-lg-flex text-gray-500 mt-2 ">
                         <div class=" border-bottom border-bottom-lg-0 border-end-0 border-end-lg pe-0 pe-lg-3">
                             <div class="">
-                                <h5 class="text-gray-600 fs-6">{{ __('Característiques') }}</h5>
+                                <h5 class="text-gray-600 fs-6">{{ __t('files.Característiques') }}</h5>
                                 <small>
                                     <ul class="list-unstyled">
                                         <li class="text-truncate">
@@ -128,7 +136,7 @@
                         </div>
                         <div class=" ps-0 ps-lg-3 pt-3 pt-lg-0">
                             <div class="">
-                                <h5 class="text-gray-600 fs-6">{{ __('Tipus admesos') }}</h5>
+                                <h5 class="text-gray-600 fs-6">{{ __t('files.Tipus admesos') }}</h5>
                                 <small>
                                 <ul class="list-inline">
                                     <template x-if="allowedAll()">

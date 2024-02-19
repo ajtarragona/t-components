@@ -1,9 +1,11 @@
 @if(isset($attributes["name"]) || isset($name))
 
     @php
-        $errorname=$attributes["name"]??($name??'');
-        if($errorname){
-            $errorname=str_replace(["[","]"],[".",""],$errorname);
+        if(!isset($errorname)){
+            $errorname=$attributes["name"]??($name??'');
+            if($errorname){
+                $errorname=str_replace(["[","]"],[".",""],$errorname);
+            }
         }
         
     @endphp

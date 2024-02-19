@@ -12,7 +12,7 @@
         <x-t-field label="Camp select" for="select-field-14" class="mb-2">
             <x-t-select 
                 name="select-field-14"
-                :data="[
+                :dataOptions="[
                     1=>'aaa',
                     2=>'bbb',
                     3=>'cccccc'
@@ -199,7 +199,7 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
     <x-t-select 
         id="text-field-21" 
         placeholder="Boxed select"
-        :data="[
+        :dataOptions="[
             1=>'aaa',
             2=>'bbb',
             3=>'cccccc'
@@ -256,7 +256,7 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
             icon="card-text"
             id="text-field-u-21" 
                 placeholder="underlined select"
-                :data="[
+                :dataOptions="[
                     1=>'aaa',
                     2=>'bbb',
                     3=>'cccccc'
@@ -318,7 +318,7 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
     id="text-field-26" 
     placeholder="Color danger boxed"
     color="danger"
-    :data="[
+    :dataOptions="[
         1=>'aaa',
         2=>'bbb',
         3=>'cccccc'
@@ -341,7 +341,7 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
     id="text-field-cu-26"  
     class="text-danger" 
     placeholder="Color danger underlined"
-    :data="[
+    :dataOptions="[
         1=>'aaa',
         2=>'bbb',
         3=>'cccccc'

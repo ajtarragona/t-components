@@ -34,11 +34,11 @@ class TComponentsServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/resources/views', 't-components');
         
         //idiomas
-        // $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'tgn');
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 't-components');
 
-        // $this->publishes([
-        //     __DIR__.'/resources/lang' => resource_path('lang/vendor/t-components'),
-        // ], 't-components-translations');
+        $this->publishes([
+            __DIR__.'/resources/lang' => resource_path('lang/vendor/t-components'),
+        ], 't-components-translations');
 
         //publico vistas
         if ($this->app->runningInConsole()) {

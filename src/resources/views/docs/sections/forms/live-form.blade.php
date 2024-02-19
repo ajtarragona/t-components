@@ -13,14 +13,14 @@
         <x-t-date wire:model="form.data" id="f3-df-1"  allowClear placeholder="date required"/>
     </x-t-field>
     <x-t-field label="Camp select obligatori" label-placement="start"  required for="f3-sf-1" class="mb-2">
-        <x-t-select id="f3-sf-1" wire:model="form.select1" allowClear :data="[
+        <x-t-select id="f3-sf-1" wire:model="form.select1" allowClear :dataOptions="[
             1=>'Opció 1',
             2=>'Opció 2',
             3=>'Opció 3',
         ]"/>
     </x-t-field>
     <x-t-field label="Camp select multiple" label-placement="start"  for="f3-sf-2" class="mb-2">
-        <x-t-select id="f3-sf-2" wire:model="form.select_multi" multiple allowClear :data="[
+        <x-t-select id="f3-sf-2" wire:model="form.select_multi" multiple allowClear :dataOptions="[
             1=>'Opció 1',
             2=>'Opció 2',
             3=>'Opció 3',

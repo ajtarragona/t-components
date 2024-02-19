@@ -42,5 +42,11 @@ if (! function_exists('_uuid')) {
 
 
 
+if (! function_exists('__t')) {
+	function __t($string, $args=[],$locale=null){
+		return __('t-components::t-components.'.$string, $args,$locale);
+	}
+}
+
 
 

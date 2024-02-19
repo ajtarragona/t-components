@@ -1,6 +1,8 @@
 
 .t-input-file{
     display: block;
+
+   
     label.form-label{
         font-size:1.3em;
         font-weight: 500;
@@ -46,6 +48,10 @@
         &:hover{
             background-color: rgba(0,0,0,0.1);
             border-color:var(--bs-gray-900);
+            &::after{
+                background-color: rgba(0,0,0,0.1);
+                border-color:var(--bs-gray-900) !important;
+            }
         }
 
         .badge{
@@ -62,10 +68,40 @@
             border-color: var(--bs-gray-900);
             background-color: rgba(255,255,255,0.5);
         }
+        &.multiple{
+            .file-btn::after{
+                border-color: var(--bs-gray-900);
+                background-color: var(--bs-border-color);
+            
+            }
+        }
     }
-
+    .multiple{
+        .file-btn::after{
+            content:'';
+            position:absolute;
+            left:-12px;
+            border-radius:5px 0px 0px 5px;
+            top:3px;
+            height: calc(100% - 6px);
+            width:10px;
+            border:2px solid var(--bs-border-color);
+            // background-color: var(--bs-border-color);
+            border-right-width: 0px;
+        }
+    }
     .col-file-input {
         width:150px;
+    }
+
+    &.dragover{
+        .file-btn{
+            border-style: dotted;
+            border-color:var(--bs-primary);
+            &::after{
+                border-color:var(--bs-primary);
+            }
+        }
     }
 }
 
@@ -91,6 +127,24 @@
             &:hover{
                 background-color: rgba(255,255,255,0.1);
                 border-color:var(--bs-gray-600);
+                &::after{
+                    background-color: rgba(255,255,255,0.1) !important;
+                    border-color:var(--bs-gray-600) !important;
+                }
+            }
+        }
+
+        .with-files{
+            .file-btn{
+                border-color: var(--bs-gray-500);
+                background-color: rgba(0,0,0,0.2);
+            }
+            &.multiple{
+                .file-btn::after{
+                    border-color: var(--bs-gray-500);
+                    background-color: rgba(0,0,0,0.3);
+                
+                }
             }
         }
     }

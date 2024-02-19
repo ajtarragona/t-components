@@ -1,7 +1,7 @@
 
 document.addEventListener('alpine:init', () => {
     Alpine.data('tSelectComponent', (config) => ({
-        data: config.data ?? [],
+        dataOptions: config.dataOptions ?? [],
         open: false,
         size: config.size ?? 'md',
         term: '',
@@ -54,6 +54,7 @@ document.addEventListener('alpine:init', () => {
             var s = this;
             if(this.lazyLoad && this.limit) this.height=this.limit*2+"rem";
                     
+            // console.log('tSelect',config);
             if(this.selected == null ){
                 if(this.multiple)
                     this.selected = []
@@ -78,7 +79,7 @@ document.addEventListener('alpine:init', () => {
 
             }else{
                 this.isLoading=false;
-                if(!this.data) this.data = {}
+                if(!this.dataOptions) this.dataOptions = {}
                 // console.log(this.multiple, this.selected);
                 this.prepareData()
                 this.prepareOptions()
@@ -151,7 +152,7 @@ document.addEventListener('alpine:init', () => {
                 
                 
                 // console.log('loadMore', this.page, (Object.keys(this.data).length/this.limit) );
-                if(this.page < (Object.keys(this.data).length/this.limit) ){
+                if(this.page < (Object.keys(this.dataOptions).length/this.limit) ){
                     this.page++;
                     this.prepareOptions();
                 }else{
@@ -179,7 +180,7 @@ document.addEventListener('alpine:init', () => {
 
 
                     for(var key in loadedData){
-                        if(!Object.keys(this.data).includes(key)) this.data[key]=loadedData[key];
+                        if(!Object.keys(this.dataOptions).includes(key)) this.dataOptions[key]=loadedData[key];
                     }
                 }else{
                     this.allLoaded=true;
@@ -250,13 +251,13 @@ document.addEventListener('alpine:init', () => {
             // _d('prepareOptions before',  Object.keys(this.data).length, this.page, this.limit);
             
 
-            this.options=Object.keys(this.data)
+            this.options=Object.keys(this.dataOptions)
                 .filter(function(key){
                     // _d('filter',s.term, s.dataSrc);
                     if(s.term){
                         var terms=s.term.split(" ");
                         for(var t of terms){
-                            if(s.data[key].value.toLowerCase().includes(t.toLowerCase())) return true;
+                            if(s.dataOptions[key].value.toLowerCase().includes(t.toLowerCase())) return true;
                         }
                         return false;
                         // }
@@ -279,7 +280,7 @@ document.addEventListener('alpine:init', () => {
             
 
                 this.options=this.options.reduce((options, key) => {
-                    options[key] = this.data[key]
+                    options[key] = this.dataOptions[key]
                     return options
                 }, {});
 
@@ -292,7 +293,7 @@ document.addEventListener('alpine:init', () => {
             var ret;
             // _d('prepareOption',option,key);
             if(typeof option == 'object'){
-                // console.log(Object.keys(this.data[key]));
+                // console.log(Object.keys(this.dataOptions[key]));
                 ret = {...{key:key, group:group,  value:option.value ?? ''}, ...option};
             }else{
                 ret = {
@@ -313,11 +314,11 @@ document.addEventListener('alpine:init', () => {
                 
                 
                 // var tmp=[];
-                for(var gr_key in this.data){
+                for(var gr_key in this.dataOptions){
                     // this.data[key][gr_key];
                     // var grdata=[];
-                    for(var op_key in this.data[gr_key]){
-                        data[op_key] =this.prepareOption(this.data[gr_key][op_key], op_key, gr_key);
+                    for(var op_key in this.dataOptions[gr_key]){
+                        data[op_key] =this.prepareOption(this.dataOptions[gr_key][op_key], op_key, gr_key);
                         // data[op_key]= grdata[op_key];
                     }
 
@@ -328,28 +329,28 @@ document.addEventListener('alpine:init', () => {
             
             }else{
 
-                for(var key in this.data){
-                    data[key]= this.prepareOption(this.data[key],key, null);
+                for(var key in this.dataOptions){
+                    data[key]= this.prepareOption(this.dataOptions[key],key, null);
                     
                 }
             }
-            this.data=data;
-            // _d('preparedData',Object.keys(this.data).length);
-            // console.log(this.data);
+            this.dataOptions=data;
+            // _d('preparedData',Object.keys(this.dataOptions).length);
+            // console.log(this.dataOptions);
             //lo paso a options
-            this.options = Object.keys(this.data);
+            this.options = Object.keys(this.dataOptions);
             // _d('options before',Object.keys(this.options).length, this.limit);
             
             if(this.limit) this.options=this.options.slice(0,this.limit);
 
             this.options=this.options.reduce((options, key) => {
-                    options[key] = this.data[key]
+                    options[key] = this.dataOptions[key]
                     return options
                 }, {});
 
             // _d('options after',Object.keys(this.options).length);
             
-            // console.log('prepareData', this.data,this.options);
+            // console.log('prepareData', this.dataOptions,this.options);
                 // if(this.grouped)console.log( this.options );
             
             // console.log(Object.values(this.options).filter((option)=>{ return option.group=="Trains" }));
@@ -548,8 +549,8 @@ document.addEventListener('alpine:init', () => {
 
            
             // console.log(this.data[key]);
-            if(this.data[key] && (this.data[key].color??null)) ret.push('text-'+this.data[key].color);
-            if(this.data[key] && (this.data[key].class??null)) ret.push(this.data[key].class);
+            if(this.dataOptions[key] && (this.dataOptions[key].color??null)) ret.push('text-'+this.dataOptions[key].color);
+            if(this.dataOptions[key] && (this.dataOptions[key].class??null)) ret.push(this.dataOptions[key].class);
             return ret.join(" ");
         },
         btnClasses: function(){
@@ -562,8 +563,8 @@ document.addEventListener('alpine:init', () => {
             }
 
             // console.log(this.multiple,this.selected);
-            if(!this.multiple && this.selected &&  (this.data[this.selected]??null) && (this.data[this.selected].color??null) ){
-                ret.push('btn-'+this.data[this.selected].color);
+            if(!this.multiple && this.selected &&  (this.dataOptions[this.selected]??null) && (this.dataOptions[this.selected].color??null) ){
+                ret.push('btn-'+this.dataOptions[this.selected].color);
             }else{
                 // if(this.color=="default") ret.push('btn-default');
                 // else 
@@ -585,18 +586,18 @@ document.addEventListener('alpine:init', () => {
                         //     ret="<small class='opacity-75'>"+ (this.selected.length) + " selected...</small>";
                         // }else{
                             let selected=[];
-                            // console.log(this.selected,this.data);
+                            // console.log(this.selected,this.dataOptions);
                             for(var key in this.selected){
-                                if(this.data[this.selected[key]]??null){
+                                if(this.dataOptions[this.selected[key]]??null){
                                     var optionTxt="";
                                     optionTxt+=this.selectedLabelPrefix;
                                     
-                                    var color=this.data[this.selected[key]].color??null;
+                                    var color=this.dataOptions[this.selected[key]].color??null;
 
                                     if(color){
                                         optionTxt+="<span class='badge text-bg-"+color+"'>";
                                     }
-                                    optionTxt+=this.data[this.selected[key]].value;
+                                    optionTxt+=this.dataOptions[this.selected[key]].value;
                                     if(color){
                                         optionTxt+="</span>";
                                     }
@@ -623,9 +624,9 @@ document.addEventListener('alpine:init', () => {
                        
                     }
                 }else{
-                    if(this.selected && (this.data[this.selected]??null)){
+                    if(this.selected && (this.dataOptions[this.selected]??null)){
                         // console.log(this.data, this.selected);
-                        ret= this.data[this.selected].value;//["value"];
+                        ret= this.dataOptions[this.selected].value;//["value"];
                     }
                 }
             
@@ -645,7 +646,7 @@ document.addEventListener('alpine:init', () => {
             var s=this;
             // if(this.dataSrc){
                 s.selected=null;
-                s.data=[];
+                s.dataOptions=[];
                 s.options= {};
                 s.currentIndex=-1
                 s.groupOptions=[];

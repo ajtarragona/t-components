@@ -37616,6 +37616,11 @@ html.select-opened .t-select.overlay .dropdown-menu {
   border-color: var(--bs-gray-900);
 }
 
+.t-input-file .file-btn:hover::after {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: var(--bs-gray-900) !important;
+}
+
 .t-input-file .file-btn .badge {
   position: absolute;
   right: -10px;
@@ -37628,8 +37633,34 @@ html.select-opened .t-select.overlay .dropdown-menu {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.t-input-file .with-files.multiple .file-btn::after {
+  border-color: var(--bs-gray-900);
+  background-color: var(--bs-border-color);
+}
+
+.t-input-file .multiple .file-btn::after {
+  content: "";
+  position: absolute;
+  left: -12px;
+  border-radius: 5px 0px 0px 5px;
+  top: 3px;
+  height: calc(100% - 6px);
+  width: 10px;
+  border: 2px solid var(--bs-border-color);
+  border-right-width: 0px;
+}
+
 .t-input-file .col-file-input {
   width: 150px;
+}
+
+.t-input-file.dragover .file-btn {
+  border-style: dotted;
+  border-color: var(--bs-primary);
+}
+
+.t-input-file.dragover .file-btn::after {
+  border-color: var(--bs-primary);
 }
 
 @media (max-width: 767.98px) {
@@ -37651,6 +37682,21 @@ html.select-opened .t-select.overlay .dropdown-menu {
 [data-bs-theme=dark] .t-input-file .file-btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: var(--bs-gray-600);
+}
+
+[data-bs-theme=dark] .t-input-file .file-btn:hover::after {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: var(--bs-gray-600) !important;
+}
+
+[data-bs-theme=dark] .t-input-file .with-files .file-btn {
+  border-color: var(--bs-gray-500);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-bs-theme=dark] .t-input-file .with-files.multiple .file-btn::after {
+  border-color: var(--bs-gray-500);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .btn:focus {

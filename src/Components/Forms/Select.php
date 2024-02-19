@@ -2,113 +2,71 @@
 
 namespace Ajtarragona\TComponents\Components\Forms;
 
-use Illuminate\View\Component;
+use ReflectionFunction;
 
-class Select extends Component
+class Select extends Input
 {
-    
-    
-    public $data=[];
-    public $color="default";
-    public $size = "md";
-    public $block = false;
-    // public $name='';
-    // public $id='';
-    public $icon=null;
-    public $max_height=null;
-    // public $required = false;
-    // public $disabled= false;
-    public $selected = null;
-    // public $multiple = false;
-    public $allow_clear=true;
-    public $multiple=false;
-    
 
-    // public $open=false;
-    // public $options_url=null;
-    // public $fetch_on_show=false;
-    // public $options_method="get";
-    // public $filtered_options=[];
-    // public $selected_preview = "";
-    public $label;
-    public $label_position="top";
-    // public $style = "default";
-    // public $placeholder= 'Choose...';
-    // public $multiple=false;
-    // public $selected_label_limit=5;
-    // public $selected_label_glue=", ";
-    // public $class="";
-    // public $outer_class="";
-    // public $model=null;
-    // public $search=false;
-    // public $term=null;
-    // public $block=false;
-    // public $term_min_length=2;
+    protected $view = 'forms.select';
 
     
-    public function __construct($color=false, $data=[], $icon=null,$selected=null,$block=null,$allow_clear=true,$label=null,$multiple=false)
+    public $dataOptions = [];
+
+    public $placeholder = 'Select an option';
+    public $limit =  20;
+    public $color =  'default';
+    public $class =  '';
+    public $outerClass =  '';
+    public $menuClass =  '';
+    public $label =  '';
+    public $icon =  null;
+    public $size =  'md';
+   
+    public $searchPlaceholder =  'Type to search...';
+    public $emptyOptionsMessage =  'No results.';
+    public $allowClear =  false;
+    public $selectedLabelLimit =  false;
+    public $selectedLabelLimitText =  'and :num more...';
+    public $search =  false;
+    public $inlineSearch =  false;
+    public $selected =  '';
+    public $width =  false;
+    public $height =  false;
+    public $selectedLabelPrefix =  null;
+    public $selectedLabelSufix =  null;
+    public $selectedLabelGlue =  null;
+    public $native =  false;
+    public $dataSrc = null;
+    public $dataSrcMethod = null;
+    public $dataSrcParams = null;
+    public $prefetch = false;
+    public $termName = false;
+    public $limitName = null;
+    public $grouped = false;
+    public $lazyLoad =  false;
+    public $overflow =  false;
+    public $overlay =  false;
+    public $overlayColor =  false;
+  
+    
+
+    
+    public function __construct(
+        $id = null, $name=null, $required=false, $disabled=false, $multiple=false,
+        $dataOptions = [], $placeholder = 'Select an option', $limit =  20, $color =  'default', $class =  '', $outerClass =  '', $menuClass =  '', $label =  '', $icon =  null, $size =  'md'  , $searchPlaceholder =  'Type to search...', $emptyOptionsMessage =  'No results.', $allowClear =  false, $selectedLabelLimit =  false, $selectedLabelLimitText =  'and :num more...', $search =  false, $inlineSearch =  false, $selected =  '', $width =  false, $height =  false, $selectedLabelPrefix =  null, $selectedLabelSufix =  null, $selectedLabelGlue =  null, $native =  false, $dataSrc = null, $dataSrcMethod = null, $dataSrcParams = null, $prefetch = false, $termName = false, $limitName = null, $grouped = false, $lazyLoad =  false, $overflow =  false, $overlay =  false, $overlayColor =  false
+       
+        )
     {
-        //
+        parent::__construct($id , $name, $required, $disabled, $multiple);
         // dd($this);
-        // dump($color);
-        $this->color=$color;
-        $this->data=$data;
-        $this->icon=$icon;
-        $this->selected=$selected;
-        $this->block=$block;
-        $this->allow_clear=$allow_clear;
-        $this->label=$label;
-        // $this->prepareData();
+        foreach(get_defined_vars() as $key=>$value){
+            if( !in_array($key, ['id','name','required','disabled','multiple']) && $value!= $this->{$key}) $this->{$key} = $value;
+        }
+       
+    //    dump($this);
     }
 
-    public function getColor() {
-        // $selOption=$this->getSelectedOption();
-        // if(!$this->multiple && isset($selOption["style"])){
-        //     return $selOption["style"];
-        // }
-        return $this->color=="default"?($this->color." border"):$this->color;
-    }
-
-    public function getIcon() {
-        // $selOption=$this->getSelectedOption();
-        // if(!$this->multiple && isset($selOption["icon"])){
-        //     return $selOption["icon"];
-        // }
-        return $this->icon;
-    }
-
-    protected function prepareData(){
-        $data=[];
-        
-         if(is_assoc($this->data)){
-             foreach($this->data as $key=>$value){
-                 $data[$key]=["key"=>$key,"value"=>$value];
-             }
-         }else{
-                 foreach($this->data as $value){
-                     if(!is_array($value)){
-                         $data[$value]=["key"=>$value,"value"=>$value];
-                     }else{
-                         $d=array_merge(["key"=>0,"value"=>""],$value); //minimo que tenga key y value
-                         $data[$d["key"]]=$d;
-                     }
-                 }
-         }
-        
-        $this->data=$data;
-        // $this->filtered_options=$this->options;
- 
-     }
+    
  
  
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        $theme=config('t-components.theme');
-        return view('t-components::components.'.$theme.'.forms.select');
-    }
 }

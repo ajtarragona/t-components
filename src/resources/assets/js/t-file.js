@@ -14,6 +14,8 @@
             allowed_types : config.allowed_types??'',
             auto_upload : config.auto_upload??false,
             files:config.files??null,
+            dragover:false,
+            clear:false,
             strings : {
                 required: 'Obligatori',
                 optional: 'Opcional',
@@ -35,8 +37,8 @@
                     other: 'Altres',
                     zip: 'Arxius comprimits',
 
-                }
-
+                },
+                ... config.strings??{}
             },
             type_icons : {
                 pdf: 'bi-file-pdf',
@@ -52,9 +54,11 @@
                 word : ['application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/msword','application/vnd.oasis.opendocument.text'],
                 excel : ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/vnd.ms-excel','application/xls','application/vnd.oasis.opendocument.spreadsheet'],
                 image : ['image/png','image/jpeg','image/jpg','image/gif','image/tiff'],
+                xml : ['application/xml'],
+                txt : ['text/plain'],
             },
             init() {
-                // console.log('init',Alpine.raw(this.files));
+                // console.log('init',Alpine.raw(this.strings), Alpine.raw(config.strings??{}));
                 if(this.files){
                     //si solo pasan un file, lo meto en un array
                     if(this.files.name??null){
@@ -70,8 +74,14 @@
             placementRight(){
                 return this.placement=='right';
             },
+            containerClass(){
+                var ret=this.container_class;
+                if(this.dragover) ret+=" dragover";
+                return ret;
+            },
             colInputClass(){
                 var ret = this.placementRight() ? 'ms-md-auto ps-md-4 order-last':'pe-md-4 ';
+                if(this.multiple) ret+=" multiple";
                 if(this.hasFiles()) ret+=" with-files";
                 return ret;
             },
@@ -153,7 +163,7 @@
             },
             humanSize(kilobytes) {
                 if(!kilobytes) return;
-                console.log('humanSize',kilobytes);
+                // console.log('humanSize',kilobytes);
                 // if(!this.maxsize) return '';
                 
                 // kilobytes=this.maxsize;
@@ -166,9 +176,45 @@
                     return kilobytes.toFixed(2).replace(/\.?0+$/, "") + "KB";
                   }
             },
-            clear(){
+             setFiles(event) {
+                console.log('setFiles',event);
+                this.files = Object.values(event.target.files);
+                console.log('this.files',this.files);
+                if(this.files.length==0){
+                    this.doClear();
+                }else{
+                    this.$refs.clearfile_input.value=null;
+                    this.clear=false;
+                }
+             },
+             drop(event) {
+                // console.log('drop',Array.from(event.dataTransfer.files));
+                if (!event.dataTransfer.files) return;
+                this.files=Array.from(event.dataTransfer.files);
+                this.dragover=false;
+                // const formData = new FormData()
+              
+                // for (let item of event.dataTransfer.items) {
+                //   if (item.kind === 'file') {
+                //     const file = item.getAsFile()
+                //     if (file) {
+                //       if (!file.type.match('image.*')) {
+                //         alert('only images supported')
+                //         return
+                //       }
+                //       formData.append('files', file)
+                //     }
+                //   }
+                // }
+              
+                //...
+            },
+            doClear(){
+                console.log('clear');
                 this.files=null;
                 this.$refs.input.value='';
+                this.$refs.clearfile_input.value=1;
+                this.clear=true;
             },
             showFiles(){
                 console.log('showFiles',Alpine.raw(this.files));
@@ -189,6 +235,21 @@
             typeFromMime(mime) {
                 const entradaEncontrada = Object.entries(this.mimes).find(([tipo, tiposMime]) => tiposMime.includes(mime));
                 return entradaEncontrada ? entradaEncontrada[0] : null;
+            }, 
+            acceptedMimes(){
+                var ret=[];
+                // console.log('acceptedMimes',Alpine.raw(this.getAllowedTypes()),Alpine.raw(this.mimes));
+                for(var type of this.getAllowedTypes()){
+                    // console.log(type);
+                    if(this.mimes[type]){
+                        ret=ret.concat(this.mimes[type]);
+                    }else{
+                        ret.push(type);
+                    }
+
+                }
+                // console.log(ret);
+                return ret.join(",");
             }
               
             // selectFile (event) {
