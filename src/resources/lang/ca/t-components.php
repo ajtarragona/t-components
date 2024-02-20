@@ -29,5 +29,11 @@ return [
         ]
 
             
-    ]
+    ],
+
+    "Normativa legal"  => "Normativa legal",
+    "Tractament de dades personals" => "Tractament de dades personals",
+    "Catàleg de tràmits" => "Catàleg de tràmits",
+    "Seu electrònica" =>"Seu electrònica",
+    "Lloc web" => "Lloc web",
 ];

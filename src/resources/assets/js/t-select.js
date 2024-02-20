@@ -8,7 +8,7 @@ document.addEventListener('alpine:init', () => {
         search: config.search ?? false,
         inlineSearch: config.inlineSearch ?? false,
         options: {},
-        placeholder: config.placeholder,
+        placeholder: config.placeholder || 'Select an option',
         emptyOptionsMessage: config.emptyOptionsMessage || 'No results match your search.',
         searchPlaceholder: config.searchPlaceholder || 'Type to search...',
         loadingMessage: config.loadingMessage || 'Loading...',
@@ -265,9 +265,10 @@ document.addEventListener('alpine:init', () => {
                     return true;
                 });
 
-                // _d('prepareOptions after 1',  Object.keys(this.options).length);
+                // console.log('prepareOptions after 1', Alpine.raw(this.dataOptions), Alpine.raw(this.options),this.limit,parseInt(this.limit));
             
-                if(this.limit){
+                if(parseInt(this.limit)){
+                    // console.log("LIMIT",this.limit);
                     if(this.lazyLoad){
                         // console.log('limiting page:'+ this.page,this.limit);
                         this.options = this.options.slice(0,  this.page*this.limit);
@@ -283,7 +284,9 @@ document.addEventListener('alpine:init', () => {
                     options[key] = this.dataOptions[key]
                     return options
                 }, {});
-
+                // console.log('prepareOptions after 3', Alpine.raw(this.options));
+            
+               
                 // _d('prepareOptions after 3',  Object.keys(this.options).length);
             
 

@@ -1,6 +1,14 @@
 @include('t-components::docs._form_request')
 
 
+
+{{-- <x-t-select name="select1"  class="mb-3" readonly pepe="pepe" :data-options="[
+        1 => 'aaaa aaa',
+        2 => 'bbbb bbb',
+        3 => 'cccc ccc',
+    ]" /> --}}
+
+
 <div class="d-block d-sm-flex justify-content-between">
     <div>
         <h1>Selects</h1>
@@ -26,14 +34,14 @@
         També podem passar les dades com un array en que cada opció és un array asociatiu, amb una sèrie d'atributs
         (obligatòriament ha de tenir l'atribut "value", i opcionalment altres com color, icon, disabled ...).</p>
 
-    <x-t-select name="select1"  class="mb-3" :data-options="[
+    <x-t-select name="select1"  class="mb-3" pepe="pepe" :data-options="[
         1 => 'aaaa aaa',
         2 => 'bbbb bbb',
         3 => 'cccc ccc',
     ]" />
 
     <p>Es pot personalitzar el placeholder amb l'atribut <code>placeholder</code>. </p>   
-    <x-t-select name="select-placeholder" class="mb-2" placeholder="Tria una opció, som-hi!" :data-options="[
+    <x-t-select name="select-placeholder" class="mb-2" placeholder='Tria una o"dsdsdspció, solalalalam-hi!' :data-options="[
         1 => 'aaaa aaa',
         2 => 'bbbb bbb',
         3 => 'cccc ccc',

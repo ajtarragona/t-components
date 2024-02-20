@@ -1,9 +1,6 @@
-{{-- @extends('t-components::components.bootstrap5.forms.input_layout')
-@section('input-body') --}}
-{{-- @dump($dataOptions??[]) --}}
-        
+     
     @if(!$native)
-        
+        {{-- {{ $attributes }} --}}
         <div class="flex-grow-1 t-select {{ $overlayColor?('overlay-'.$overlayColor) : '' }}" :class="{'overlay':overlay, 'opened':open,'with-search':search}"
             x-modelable="selected"
             {{ $attributes->whereStartsWith('x-') }}
@@ -11,7 +8,10 @@
             x-on:t-select-set.window="setAttribute(event)"
             x-on:t-select-reload.window="reload(event)"
 
-            x-data='tSelectComponent(@json($properties()))'
+            x-data="tSelectComponent({
+                @if($attributes->whereStartsWith('wire:model')->first()) selected:  @entangle($attributes->wire('model')), @endif
+                ... {{$properties($attributes->whereStartsWith('wire:model')->first()?['selected']:[])}}
+            })"
             
         
             
@@ -170,5 +170,3 @@
     @endif
 
     @include('t-components::components.'.config('t-components.theme').'.forms._input_error')
-
-{{-- @endsection --}}

@@ -25,5 +25,12 @@ return [
             'other'=> 'Otros',
             'zip'=> 'Archivos comprimidos',
         ]
-    ]
+    ],
+
+    "Normativa legal"  => "Normativa legal",
+    "Tractament de dades personals" => "Tratamiento de datos personales",
+    "Catàleg de tràmits" => "Catálogo de trámites",
+    "Seu electrònica" =>"Sede electrónica",
+    "Lloc web" => "Sitio web",
+
 ];

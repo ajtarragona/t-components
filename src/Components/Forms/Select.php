@@ -47,23 +47,60 @@ class Select extends Input
     public $overflow =  false;
     public $overlay =  false;
     public $overlayColor =  false;
-  
-    
+    public $wire =  false;
+     
 
     
     public function __construct(
-        $id = null, $name=null, $required=false, $disabled=false, $multiple=false,
-        $dataOptions = [], $placeholder = 'Select an option', $limit =  20, $color =  'default', $class =  '', $outerClass =  '', $menuClass =  '', $label =  '', $icon =  null, $size =  'md'  , $searchPlaceholder =  'Type to search...', $emptyOptionsMessage =  'No results.', $allowClear =  false, $selectedLabelLimit =  false, $selectedLabelLimitText =  'and :num more...', $search =  false, $inlineSearch =  false, $selected =  '', $width =  false, $height =  false, $selectedLabelPrefix =  null, $selectedLabelSufix =  null, $selectedLabelGlue =  null, $native =  false, $dataSrc = null, $dataSrcMethod = null, $dataSrcParams = null, $prefetch = false, $termName = false, $limitName = null, $grouped = false, $lazyLoad =  false, $overflow =  false, $overlay =  false, $overlayColor =  false
+        $id = null, 
+        $name=null, 
+        $required=false, 
+        $disabled=false, 
+        $readonly=false,
+        $multiple=false,
+        
+        $dataOptions = [], 
+        $placeholder = 'Select an option', 
+        $limit =  20, 
+        $color =  'default', 
+        $class =  '', 
+        $outerClass =  '', 
+        $menuClass =  '', 
+        $label =  '', 
+        $icon =  null, 
+        $size =  'md'  , 
+        $searchPlaceholder =  'Type to search...', 
+        $emptyOptionsMessage =  'No results.', 
+        $allowClear =  false, 
+        $selectedLabelLimit =  false, 
+        $selectedLabelLimitText =  'and :num more...', 
+        $search =  false, 
+        $inlineSearch =  false, 
+        $selected =  '', 
+        $width =  false, 
+        $height =  false, 
+        $selectedLabelPrefix =  null, 
+        $selectedLabelSufix =  null, 
+        $selectedLabelGlue =  null, 
+        $native =  false, 
+        $dataSrc = null, 
+        $dataSrcMethod = null, 
+        $dataSrcParams = null,
+        $prefetch = false, 
+        $termName = false, 
+        $limitName = null, 
+        $grouped = false, 
+        $lazyLoad =  false,
+        $overflow =  false, 
+        $overlay =  false, 
+        $overlayColor =  false,
+        $wire =  false
        
-        )
-    {
-        parent::__construct($id , $name, $required, $disabled, $multiple);
-        // dd($this);
-        foreach(get_defined_vars() as $key=>$value){
-            if( !in_array($key, ['id','name','required','disabled','multiple']) && $value!= $this->{$key}) $this->{$key} = $value;
-        }
-       
-    //    dump($this);
+    ){
+
+        parent::__construct(get_defined_vars());
+
+            
     }
 
     

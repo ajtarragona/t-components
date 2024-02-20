@@ -28542,7 +28542,7 @@ document.addEventListener('alpine:init', function () {
       search: (_config$search = config.search) !== null && _config$search !== void 0 ? _config$search : false,
       inlineSearch: (_config$inlineSearch = config.inlineSearch) !== null && _config$inlineSearch !== void 0 ? _config$inlineSearch : false,
       options: {},
-      placeholder: config.placeholder,
+      placeholder: config.placeholder || 'Select an option',
       emptyOptionsMessage: config.emptyOptionsMessage || 'No results match your search.',
       searchPlaceholder: config.searchPlaceholder || 'Type to search...',
       loadingMessage: config.loadingMessage || 'Loading...',
@@ -28875,9 +28875,10 @@ document.addEventListener('alpine:init', function () {
                   return true;
                 });
 
-                // _d('prepareOptions after 1',  Object.keys(this.options).length);
+                // console.log('prepareOptions after 1', Alpine.raw(this.dataOptions), Alpine.raw(this.options),this.limit,parseInt(this.limit));
 
-                if (_this5.limit) {
+                if (parseInt(_this5.limit)) {
+                  // console.log("LIMIT",this.limit);
                   if (_this5.lazyLoad) {
                     // console.log('limiting page:'+ this.page,this.limit);
                     _this5.options = _this5.options.slice(0, _this5.page * _this5.limit);
@@ -28891,6 +28892,7 @@ document.addEventListener('alpine:init', function () {
                   options[key] = _this5.dataOptions[key];
                   return options;
                 }, {});
+                // console.log('prepareOptions after 3', Alpine.raw(this.options));
 
                 // _d('prepareOptions after 3',  Object.keys(this.options).length);
               case 4:
