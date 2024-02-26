@@ -7,11 +7,11 @@ use Livewire\Component;
 
 abstract class ModalComponent extends Component implements ModalContract
 {
-    public bool $forceClose = false;
+    public $forceClose = false;
 
-    public int $skipModals = 0;
+    public $skipModals = 0;
 
-    public bool $destroySkipped = false;
+    public $destroySkipped = false;
 
     public $closeOnClickOutside = false;
 

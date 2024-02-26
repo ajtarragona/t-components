@@ -13,9 +13,9 @@ use ReflectionClass;
 
 class Modals extends Component
 {
-    public ?string $activeComponent;
+    public $activeComponent;
 
-    public array $components = [];
+    public $components = [];
 
     public function getListeners(): array
     {
