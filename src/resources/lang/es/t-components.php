@@ -3,6 +3,9 @@
 return [
     'files'=>[
         "Afegir arxiu" =>"Añadir archivo",
+        "Arxius" =>"Archivos",
+        "Veure arxius"=>"Ver archivos",
+        "Esborrar"=>"Borrar",
         "Característiques"  =>"Características",
         "Tipus admesos"  =>"Tipos admitidos",
         'required'  =>"Obligatorio",
@@ -32,5 +35,6 @@ return [
     "Catàleg de tràmits" => "Catálogo de trámites",
     "Seu electrònica" =>"Sede electrónica",
     "Lloc web" => "Sitio web",
+    "Arxius" =>"Archivos"
 
 ];

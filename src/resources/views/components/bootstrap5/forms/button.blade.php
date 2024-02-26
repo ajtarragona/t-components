@@ -5,9 +5,17 @@
     'size'=>'md',
     'type'=>'button',
     'pill'=>false,
+    'ripple'=>false,
+    'href'=>null
 ])
 
-<button type="{{$type}}" {{$attributes->merge(['class'=> 'btn btn-'.$color.' btn-'.$size.' ' .($pill?'rounded-pill':'') ])}}>
+<{{$href?'a':'button'}} type="{{$href?'':$type}}" {!!$href?('href="'.$href.'"'):''!!} {{$attributes->merge(['class'=> 'btn btn-'.$color.' btn-'.$size.' ' .($pill?'rounded-pill':'').' '.($ripple?'ripple':'') ])}} 
+    x-data="tButton({
+        ripple: {{$ripple?'true':'false'}}
+    })" x-ref="button"
+    @click="createRipple(event)"
+
+    >
     @if($iconPosition=="left" && $icon)
     <x-t-icon :name="$icon" class="me-1"/> 
     @endif
@@ -15,4 +23,4 @@
     @if($iconPosition=="right" && $icon)
     <x-t-icon :name="$icon" class="ms-1"/> 
     @endif
-</button>
+</{{$href?'a':'button'}}>

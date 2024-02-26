@@ -2,6 +2,7 @@ window._ = require("lodash");
 import "bootstrap";
 
 import "./nightmode";
+import "./utils";
 
 import "./t-modal";
 import "./t-confirm";
@@ -11,6 +12,7 @@ import "./t-select";
 import "./t-file";
 import "./t-date";
 import "./t-icon";
+import "./t-button";
 import "./livewire";
 
 // var Turbolinks = require("turbolinks");

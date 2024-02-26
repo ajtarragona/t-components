@@ -1,0 +1,21 @@
+// .text-pingpong{
+
+    // overflow: hidden; /* Para ocultar el desbordamiento */
+    // white-space: nowrap; /* Para evitar saltos de línea */
+    // width: 100%; /* Ajusta el ancho según tus necesidades */
+    // animation: pingpong 5s infinite alternate; /* 5 segundos de duración, infinito y en sentido alterno */
+// }
+
+// @keyframes pingpong {
+//     0%, 100% {
+//       transform: translateX(0); /* Posición inicial y final */
+//     }
+//     50% {
+//       transform: translateX(-100%); /* Desplazamiento a la izquierda */
+//     }
+// }
+
+// .text-truncate:hover{
+//     overflow: visible;
+//     background-color: var(--bs-body-bg);
+// }

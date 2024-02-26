@@ -1,21 +1,24 @@
 
     document.addEventListener('alpine:init', () => {
         Alpine.data('tFile', (config) => ({
+
             imageUrl: '',
             placement:  config.placement??'left',
             required:  config.required??false,
             multiple:  config.multiple??false,
             label:  config.label??'',
-            form_text:  config.form_text??'',
-            container_class:  config.container_class??'',
+            formText:  config.formText??'',
+            containerClass:  config.containerClass??'',
             class:  config.class??'',
             maxsize:  config.maxsize??null,
             signed:  config.signed??false,
-            allowed_types : config.allowed_types??'',
-            auto_upload : config.auto_upload??false,
+            allowedTypes : config.allowedTypes??'',
+            autoUpload : config.autoUpload??false,
             files:config.files??null,
+            invalidFiles:null,
             dragover:false,
             clear:false,
+
             strings : {
                 required: 'Obligatori',
                 optional: 'Opcional',
@@ -29,6 +32,7 @@
                 select_single: 'Selecciona un arxiu',
                 select_multiple: 'Selecciona multiples arxius',
                 multiple_files: 'Multiples arxius',
+                invalid_file: 'Arxiu invàlid',
                 types : {
                     pdf: 'PDF',
                     word: 'Documents',
@@ -54,7 +58,7 @@
                 word : ['application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/msword','application/vnd.oasis.opendocument.text'],
                 excel : ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','application/vnd.ms-excel','application/xls','application/vnd.oasis.opendocument.spreadsheet'],
                 image : ['image/png','image/jpeg','image/jpg','image/gif','image/tiff'],
-                xml : ['application/xml'],
+                xml : ['application/xml','text/xml'],
                 txt : ['text/plain'],
             },
             init() {
@@ -68,14 +72,14 @@
                         // console.log(Alpine.raw(this.files));
                     }
                 }
-                // console.log('allowed_types',this.allowed_types);
+                
                 // console.log(this.getAllowedTypes());
             },
             placementRight(){
                 return this.placement=='right';
             },
-            containerClass(){
-                var ret=this.container_class;
+            getContainerClass(){
+                var ret=this.containerClass;
                 if(this.dragover) ret+=" dragover";
                 return ret;
             },
@@ -112,7 +116,9 @@
 
                     }else{
                         var file=this.files[0];
-                        return "<div><strong  class='d-block mb-1'>"+file.name + '</strong><small class="text-muted">'+ o.humanSize(file.size/1024)+"</small></div>";
+                        
+                        return "<div ><strong  class='d-block mb-1' title='"+file.name+"'>"+file.name + "</strong><small class='"+(this.validFile(file)?'text-muted':'text-danger')+"'>" + (this.validFile(file)? o.humanSize(file.size/1024) : this.strings['invalid_file']) +'</small></div>';
+                           
                     }
                     
                 }else{
@@ -121,7 +127,26 @@
                 
             },
             getAllowedTypes(){
-                return this.allowed_types ? this.allowed_types.split(',') : [];
+                return this.allowedTypes ? this.allowedTypes.split(',') : [];
+            },
+
+            getAllowedMimetypes(){
+                var allowed=this.getAllowedTypes();
+                var ret=[];
+                var o=this;
+                // console.log('getAllowedMimetypes', allowed);
+                if(allowed){
+                    allowed.forEach((type) => {
+                        // console.log(type, o.mimes[type]);
+                        if(o.mimes[type]){
+                            ret=ret.concat(o.mimes[type]);
+                        }else{
+                            ret.push(type);
+                        }
+                    });
+                }
+                // console.log('ret',ret);
+                return ret;
             },
             allowedImages(){
                 return this.getAllowedTypes().includes('image');
@@ -161,6 +186,16 @@
             hasFiles(){
                 return this.files ? this.files.length>0 : false;
             },
+            hasInvalidFiles(){
+                var o=this;
+                if(!this.files || this.files.length==0) return false;
+                // _d('hasInvalidFiles',this.files);
+                
+                return this.files.some((file)=>{
+                    // _d(file);
+                        return !o.validFile(file)
+                });
+            },
             humanSize(kilobytes) {
                 if(!kilobytes) return;
                 // console.log('humanSize',kilobytes);
@@ -177,21 +212,34 @@
                   }
             },
              setFiles(event) {
-                console.log('setFiles',event);
-                this.files = Object.values(event.target.files);
-                console.log('this.files',this.files);
+                // console.log('setFiles',event);
+                // this.validateFiles(Object.values(event.target.files));
+                this.files= Object.values(event.target.files);
+            
+                // console.log('this.files',this.files);
                 if(this.files.length==0){
+                    this.files=[];
                     this.doClear();
                 }else{
+                   
                     this.$refs.clearfile_input.value=null;
                     this.clear=false;
+
+                    
+                    
                 }
+                
              },
              drop(event) {
                 // console.log('drop',Array.from(event.dataTransfer.files));
                 if (!event.dataTransfer.files) return;
+
+                // this.validateFiles(Array.from(event.dataTransfer.files));
                 this.files=Array.from(event.dataTransfer.files);
                 this.dragover=false;
+ 
+                
+                 
                 // const formData = new FormData()
               
                 // for (let item of event.dataTransfer.items) {
@@ -209,15 +257,31 @@
               
                 //...
             },
+            validFile(file){
+                // _d('validFile',file);
+                return  this.validFileType(file) && this.validFileSize(file);
+            },
+            validFileType(file){
+                // _d('validFileType',file,this.allowedTypes);
+                if(!this.allowedTypes) return true;
+                const allowedMimes=this.getAllowedMimetypes();
+                return allowedMimes.includes(file.type);
+            },
+            validFileSize(file){
+                // _d('validFileSize',file,this.maxsize);
+                if(!this.maxsize) return true;
+                return file.size/1024 <= this.maxsize;
+            },
+            
             doClear(){
-                console.log('clear');
+                // console.log('clear');
                 this.files=null;
                 this.$refs.input.value='';
                 this.$refs.clearfile_input.value=1;
                 this.clear=true;
             },
             showFiles(){
-                console.log('showFiles',Alpine.raw(this.files));
+                // console.log('showFiles',Alpine.raw(this.files));
             },
             fileType(file){
                 return this.typeFromMime(file.type);

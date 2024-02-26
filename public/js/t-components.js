@@ -27678,6 +27678,58 @@ document.addEventListener('alpine:init', function () {
 
 /***/ }),
 
+/***/ "./src/resources/assets/js/t-button.js":
+/*!*********************************************!*\
+  !*** ./src/resources/assets/js/t-button.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.addEventListener('alpine:init', function () {
+  Alpine.data('tButton', function (config) {
+    var _config$ripple;
+    return {
+      ripple: (_config$ripple = config.ripple) !== null && _config$ripple !== void 0 ? _config$ripple : false,
+      init: function init() {},
+      createRipple: function createRipple(event) {
+        if (!this.ripple) return;
+
+        // console.log('createRipple',event);
+        var button = this.$refs.button;
+        var circle = document.createElement("span");
+        var diameter = Math.max(button.clientWidth, button.clientHeight);
+        var radius = diameter / 2;
+
+        // Obtiene la posición del ratón dentro del botón
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+
+        // Obtiene la posición del botón en relación a la ventana
+        var botonRect = button.getBoundingClientRect();
+        var botonX = botonRect.left; //+ window.scrollX;
+        var botonY = botonRect.top; // + window.scrollY;
+
+        // console.log('mouse',mouseX,mouseY);
+        // console.log('botonRect',botonRect);
+        // console.log('left',(mouseX - botonX  ), 'top', (mouseY - botonY  ));
+        circle.style.width = circle.style.height = "".concat(diameter, "px");
+        circle.style.left = mouseX - botonX - radius + 'px';
+        circle.style.top = mouseY - botonY - radius + 'px';
+        // circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+        // circle.style.top = `${event.clientY - button.offsetTop - document.documentElement.scrollTop - radius}px`;
+        circle.classList.add("ripple-fx");
+        var ripple = button.getElementsByClassName("ripple-fx")[0];
+        if (ripple) {
+          ripple.remove();
+        }
+        button.appendChild(circle);
+      }
+    };
+  });
+});
+
+/***/ }),
+
 /***/ "./src/resources/assets/js/t-components.js":
 /*!*************************************************!*\
   !*** ./src/resources/assets/js/t-components.js ***!
@@ -27690,23 +27742,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 /* harmony import */ var _nightmode__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nightmode */ "./src/resources/assets/js/nightmode.js");
 /* harmony import */ var _nightmode__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nightmode__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _t_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./t-modal */ "./src/resources/assets/js/t-modal.js");
-/* harmony import */ var _t_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_t_modal__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _t_confirm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./t-confirm */ "./src/resources/assets/js/t-confirm.js");
-/* harmony import */ var _t_confirm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_t_confirm__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./t-text */ "./src/resources/assets/js/t-text.js");
-/* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_t_text__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./t-texteditor */ "./src/resources/assets/js/t-texteditor.js");
-/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_t_texteditor__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./t-select */ "./src/resources/assets/js/t-select.js");
-/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_t_select__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _t_file__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./t-file */ "./src/resources/assets/js/t-file.js");
-/* harmony import */ var _t_file__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_t_file__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _t_date__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./t-date */ "./src/resources/assets/js/t-date.js");
-/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./t-icon */ "./src/resources/assets/js/t-icon.js");
-/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_t_icon__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./livewire */ "./src/resources/assets/js/livewire.js");
-/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_livewire__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ "./src/resources/assets/js/utils.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _t_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./t-modal */ "./src/resources/assets/js/t-modal.js");
+/* harmony import */ var _t_modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_t_modal__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _t_confirm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./t-confirm */ "./src/resources/assets/js/t-confirm.js");
+/* harmony import */ var _t_confirm__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_t_confirm__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./t-text */ "./src/resources/assets/js/t-text.js");
+/* harmony import */ var _t_text__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_t_text__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./t-texteditor */ "./src/resources/assets/js/t-texteditor.js");
+/* harmony import */ var _t_texteditor__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_t_texteditor__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./t-select */ "./src/resources/assets/js/t-select.js");
+/* harmony import */ var _t_select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_t_select__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _t_file__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./t-file */ "./src/resources/assets/js/t-file.js");
+/* harmony import */ var _t_file__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_t_file__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _t_date__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./t-date */ "./src/resources/assets/js/t-date.js");
+/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./t-icon */ "./src/resources/assets/js/t-icon.js");
+/* harmony import */ var _t_icon__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_t_icon__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _t_button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./t-button */ "./src/resources/assets/js/t-button.js");
+/* harmony import */ var _t_button__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_t_button__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./livewire */ "./src/resources/assets/js/livewire.js");
+/* harmony import */ var _livewire__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_livewire__WEBPACK_IMPORTED_MODULE_12__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -27714,6 +27770,8 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
+
 
 
 
@@ -27886,21 +27944,22 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 document.addEventListener('alpine:init', function () {
   Alpine.data('tFile', function (config) {
-    var _config$placement, _config$required, _config$multiple, _config$label, _config$form_text, _config$container_cla, _config$class, _config$maxsize, _config$signed, _config$allowed_types, _config$auto_upload, _config$files, _config$strings;
+    var _config$placement, _config$required, _config$multiple, _config$label, _config$formText, _config$containerClas, _config$class, _config$maxsize, _config$signed, _config$allowedTypes, _config$autoUpload, _config$files, _config$strings;
     return {
       imageUrl: '',
       placement: (_config$placement = config.placement) !== null && _config$placement !== void 0 ? _config$placement : 'left',
       required: (_config$required = config.required) !== null && _config$required !== void 0 ? _config$required : false,
       multiple: (_config$multiple = config.multiple) !== null && _config$multiple !== void 0 ? _config$multiple : false,
       label: (_config$label = config.label) !== null && _config$label !== void 0 ? _config$label : '',
-      form_text: (_config$form_text = config.form_text) !== null && _config$form_text !== void 0 ? _config$form_text : '',
-      container_class: (_config$container_cla = config.container_class) !== null && _config$container_cla !== void 0 ? _config$container_cla : '',
+      formText: (_config$formText = config.formText) !== null && _config$formText !== void 0 ? _config$formText : '',
+      containerClass: (_config$containerClas = config.containerClass) !== null && _config$containerClas !== void 0 ? _config$containerClas : '',
       "class": (_config$class = config["class"]) !== null && _config$class !== void 0 ? _config$class : '',
       maxsize: (_config$maxsize = config.maxsize) !== null && _config$maxsize !== void 0 ? _config$maxsize : null,
       signed: (_config$signed = config.signed) !== null && _config$signed !== void 0 ? _config$signed : false,
-      allowed_types: (_config$allowed_types = config.allowed_types) !== null && _config$allowed_types !== void 0 ? _config$allowed_types : '',
-      auto_upload: (_config$auto_upload = config.auto_upload) !== null && _config$auto_upload !== void 0 ? _config$auto_upload : false,
+      allowedTypes: (_config$allowedTypes = config.allowedTypes) !== null && _config$allowedTypes !== void 0 ? _config$allowedTypes : '',
+      autoUpload: (_config$autoUpload = config.autoUpload) !== null && _config$autoUpload !== void 0 ? _config$autoUpload : false,
       files: (_config$files = config.files) !== null && _config$files !== void 0 ? _config$files : null,
+      invalidFiles: null,
       dragover: false,
       clear: false,
       strings: _objectSpread({
@@ -27916,6 +27975,7 @@ document.addEventListener('alpine:init', function () {
         select_single: 'Selecciona un arxiu',
         select_multiple: 'Selecciona multiples arxius',
         multiple_files: 'Multiples arxius',
+        invalid_file: 'Arxiu invàlid',
         types: {
           pdf: 'PDF',
           word: 'Documents',
@@ -27939,7 +27999,7 @@ document.addEventListener('alpine:init', function () {
         word: ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword', 'application/vnd.oasis.opendocument.text'],
         excel: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel', 'application/xls', 'application/vnd.oasis.opendocument.spreadsheet'],
         image: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif', 'image/tiff'],
-        xml: ['application/xml'],
+        xml: ['application/xml', 'text/xml'],
         txt: ['text/plain']
       },
       init: function init() {
@@ -27954,14 +28014,14 @@ document.addEventListener('alpine:init', function () {
             // console.log(Alpine.raw(this.files));
           }
         }
-        // console.log('allowed_types',this.allowed_types);
+
         // console.log(this.getAllowedTypes());
       },
       placementRight: function placementRight() {
         return this.placement == 'right';
       },
-      containerClass: function containerClass() {
-        var ret = this.container_class;
+      getContainerClass: function getContainerClass() {
+        var ret = this.containerClass;
         if (this.dragover) ret += " dragover";
         return ret;
       },
@@ -27999,14 +28059,32 @@ document.addEventListener('alpine:init', function () {
             return "<div><strong class='d-block mb-1'>" + this.strings.multiple_files + '</strong><small class="text-muted">' + o.humanSize(size / 1024) + "</small></div>";
           } else {
             var file = this.files[0];
-            return "<div><strong  class='d-block mb-1'>" + file.name + '</strong><small class="text-muted">' + o.humanSize(file.size / 1024) + "</small></div>";
+            return "<div ><strong  class='d-block mb-1' title='" + file.name + "'>" + file.name + "</strong><small class='" + (this.validFile(file) ? 'text-muted' : 'text-danger') + "'>" + (this.validFile(file) ? o.humanSize(file.size / 1024) : this.strings['invalid_file']) + '</small></div>';
           }
         } else {
           return this.strings[this.multiple ? 'select_multiple' : 'select_single'] + "...";
         }
       },
       getAllowedTypes: function getAllowedTypes() {
-        return this.allowed_types ? this.allowed_types.split(',') : [];
+        return this.allowedTypes ? this.allowedTypes.split(',') : [];
+      },
+      getAllowedMimetypes: function getAllowedMimetypes() {
+        var allowed = this.getAllowedTypes();
+        var ret = [];
+        var o = this;
+        // console.log('getAllowedMimetypes', allowed);
+        if (allowed) {
+          allowed.forEach(function (type) {
+            // console.log(type, o.mimes[type]);
+            if (o.mimes[type]) {
+              ret = ret.concat(o.mimes[type]);
+            } else {
+              ret.push(type);
+            }
+          });
+        }
+        // console.log('ret',ret);
+        return ret;
       },
       allowedImages: function allowedImages() {
         return this.getAllowedTypes().includes('image');
@@ -28045,6 +28123,16 @@ document.addEventListener('alpine:init', function () {
       hasFiles: function hasFiles() {
         return this.files ? this.files.length > 0 : false;
       },
+      hasInvalidFiles: function hasInvalidFiles() {
+        var o = this;
+        if (!this.files || this.files.length == 0) return false;
+        // _d('hasInvalidFiles',this.files);
+
+        return this.files.some(function (file) {
+          // _d(file);
+          return !o.validFile(file);
+        });
+      },
       humanSize: function humanSize(kilobytes) {
         if (!kilobytes) return;
         // console.log('humanSize',kilobytes);
@@ -28060,10 +28148,13 @@ document.addEventListener('alpine:init', function () {
         }
       },
       setFiles: function setFiles(event) {
-        console.log('setFiles', event);
+        // console.log('setFiles',event);
+        // this.validateFiles(Object.values(event.target.files));
         this.files = Object.values(event.target.files);
-        console.log('this.files', this.files);
+
+        // console.log('this.files',this.files);
         if (this.files.length == 0) {
+          this.files = [];
           this.doClear();
         } else {
           this.$refs.clearfile_input.value = null;
@@ -28073,8 +28164,11 @@ document.addEventListener('alpine:init', function () {
       drop: function drop(event) {
         // console.log('drop',Array.from(event.dataTransfer.files));
         if (!event.dataTransfer.files) return;
+
+        // this.validateFiles(Array.from(event.dataTransfer.files));
         this.files = Array.from(event.dataTransfer.files);
         this.dragover = false;
+
         // const formData = new FormData()
 
         // for (let item of event.dataTransfer.items) {
@@ -28092,15 +28186,30 @@ document.addEventListener('alpine:init', function () {
 
         //...
       },
+      validFile: function validFile(file) {
+        // _d('validFile',file);
+        return this.validFileType(file) && this.validFileSize(file);
+      },
+      validFileType: function validFileType(file) {
+        // _d('validFileType',file,this.allowedTypes);
+        if (!this.allowedTypes) return true;
+        var allowedMimes = this.getAllowedMimetypes();
+        return allowedMimes.includes(file.type);
+      },
+      validFileSize: function validFileSize(file) {
+        // _d('validFileSize',file,this.maxsize);
+        if (!this.maxsize) return true;
+        return file.size / 1024 <= this.maxsize;
+      },
       doClear: function doClear() {
-        console.log('clear');
+        // console.log('clear');
         this.files = null;
         this.$refs.input.value = '';
         this.$refs.clearfile_input.value = 1;
         this.clear = true;
       },
       showFiles: function showFiles() {
-        console.log('showFiles', Alpine.raw(this.files));
+        // console.log('showFiles',Alpine.raw(this.files));
       },
       fileType: function fileType(file) {
         return this.typeFromMime(file.type);
@@ -29481,6 +29590,36 @@ document.addEventListener('alpine:init', function () {
     };
   });
 });
+
+/***/ }),
+
+/***/ "./src/resources/assets/js/utils.js":
+/*!******************************************!*\
+  !*** ./src/resources/assets/js/utils.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+_d = function _d() {
+  var _console;
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+  // args.forEach(arg => {
+  //     console.log(Alpine.raw(arg));
+  // });
+
+  var args = args.map(function (arg) {
+    return Alpine.raw(arg);
+  });
+  (_console = console).log.apply(_console, _toConsumableArray(args));
+};
 
 /***/ }),
 

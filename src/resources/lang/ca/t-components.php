@@ -3,6 +3,9 @@
 return [
     'files' => [
         "Afegir arxiu"  => "Afegir arxiu",
+        "Arxius" =>"Arxius",
+        "Veure arxius"=>"Veure arxius",
+        "Esborrar"=>"Esborrar",
         "Característiques"  => "Característiques",
         "Tipus admesos"  => "Tipus admesos",
         

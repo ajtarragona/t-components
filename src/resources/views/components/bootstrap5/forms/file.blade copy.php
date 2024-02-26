@@ -1,7 +1,64 @@
 
+@props([
+    'color'=>'',
+    'icon'=>null,
+    'size'=>'md',
+    'name'=>null,
+    'id'=>null,
+    'multiple'=>false,
+    'allowedTypes'=>'',
+    'maxsize'=>null,
+    'required'=>false,
+    'placement'=>'left',
+    'containerClass' =>'',
+    'class' =>'',
+    'readonly'=>false,
+    'label' =>'ddf',
+    'formText' =>'',
+    'signed' =>false,
+    'autoUpload' =>false,
+    'files'=>null
+])
+
+@php
+    //si no pasan el ID y sí el name, el ID será igual al name
+    if(!$id && $name) $id = $name;
+    if(!$name) $name=uniqid('field_');
+
+    $errorname=$name;
+    if($errorname){
+        $errorname=str_replace(["[","]"],[".",""],$errorname);
+    }
+
+    $input_name=$name;
+    if($multiple && ! ends_with($name, "[]")) $input_name.="[]";
+
+@endphp
 
 
-<div class=" t-input-file " :class="getContainerClass()" x-data='tFile({{ $properties() }})'>
+
+<div class=" t-input-file " :class="containerClass()" x-data='tFile({
+    placement: "{{$placement}}",
+    required:  {{$required?'true':'false'}},
+    multiple: {{$multiple?'true':'false'}},
+    signed: {{$signed?'true':'false'}},
+    maxsize: {{$maxsize?"'$maxsize'":'null'}},
+    label:  "{{$label}}",
+    form_text:  "{{$formText}}",
+    container_class :  "{{$containerClass}}",
+    allowed_types :  "{{$allowedTypes}}",
+    class :  "{{$class}}",
+    auto_upload :  {{$autoUpload?'true':'false'}},
+    files : @json($files??[]),
+    dragover: false,
+    strings : @json(__('t-components::t-components.files'))
+    
+   
+})'
+
+
+>
+{{-- @dump(__('t-components::t-components.files')) --}}
     
     <div class=""  id="file_container_{{str_slug($name)}}" >
 
@@ -14,24 +71,18 @@
                 >
                     
                     <template x-if="!hasFiles()" x-cloak >
-                        <i class="file-icon bi bi-plus" title="{{ __t('files.Afegir arxiu')}}" ></i>
+                        <i class="bi bi-plus" title="Afegir arxiu" ></i>
                     </template>
 
                     <template x-if="hasFiles()" x-cloak >
                         <div class="d-flex flex-column align-items-center justify-content-around">
-                            <i class="file-icon bi bi-x" @click.prevent.stop="doClear()" title="{{ __t('files.Esborrar')}}" ></i>
+                            <i class="bi bi-x" @click.prevent.stop="doClear()" title="Esborrar" ></i>
                             
-                            <i class="file-icon bi bi-plus" x-show="multiple" title="{{ __t('files.Afegir arxiu')}}"></i>
-                            <i class="file-icon bi bi-list-task" x-show="multiple" @click.prevent.stop="showFiles()"  data-bs-toggle="modal" data-bs-target="#file_detail_{{str_slug($name??'')}}" title="{{ __t('files.Veure arxius')}}"></i>
+                            <i class="bi bi-plus" x-show="multiple" title="{{ __t('filed.Afegir arxiu')}}"></i>
+                            <i class="bi bi-list-task" x-show="multiple" @click.prevent.stop="showFiles()"  data-bs-toggle="modal" data-bs-target="#file_detail_{{str_slug($name??'')}}" title="Veure arxius"></i>
                         </div>
                     </template>
-                    {{-- <span class="badge bg-primary rounded-pill " x-show="multiple && hasFiles()" x-cloak x-text="hasFiles()?files.length:0"></span> --}}
-
-                    <span class="badge  rounded-pill " :class="hasInvalidFiles()?'bg-danger':'bg-secondary'" x-show="multiple && hasFiles()" x-cloak >
-                        <span x-text="hasFiles()?files.length:0"></span>
-                        <i class="bi bi-exclamation-triangle-fill"  x-show="hasInvalidFiles()" x-cloak></i>
-          
-                      </span>
+                    <span class="badge bg-primary rounded-pill " x-show="multiple && hasFiles()" x-cloak x-text="hasFiles()?files.length:0"></span>
                 </label>
                 
                 <div class="opacity-50 text-center placeholders" x-show="!hasFiles()" x-cloak>
@@ -40,12 +91,12 @@
                     
                 </div>
                 <div class="text-truncate text-center selected-files" x-show="hasFiles()" x-cloak>
-                    <small x-html="selectedFilesLabel()" >
+                    <small x-html="selectedFilesLabel()">
                     </small>
                 </div>
 
-                <input type="hidden" name="clearfile_{{$inputname}}" value="" x-ref="clearfile_input" :disabled="!clear"/>
-                <input class="form-control" x-ref="input" hidden type="file" x-on:change="setFiles"  :accept="acceptedMimes()" id="file_{{str_slug($name)}}" name="{{$inputname}}" :multiple ="multiple">
+                <input type="hidden" name="clearfile_{{$input_name}}" value="" x-ref="clearfile_input" :disabled="!clear"/>
+                <input class="form-control" x-ref="input" hidden type="file" x-on:change="setFiles"  :accept="acceptedMimes()" id="file_{{str_slug($name)}}" name="{{$input_name}}" :multiple ="multiple">
             </div>
 
             <div class="col-file-detail pt-4 pt-md-0 " :class="colDetailClass()">
@@ -54,7 +105,7 @@
                     <span x-html="label"></span> <small class="text-gray-500" >(<span x-text="requiredLabel()"></span>)</small>
                 </label>
 
-                    <div class="form-text" x-show="formText" x-text="formText" x-cloak></div>
+                    <div class="form-text" x-show="form_text" x-text="form_text" x-cloak></div>
 
                     <div class="d-block d-lg-flex text-gray-500 mt-2 ">
                         <div class=" border-bottom border-bottom-lg-0 border-end-0 border-end-lg pe-0 pe-lg-3">
@@ -111,10 +162,13 @@
 
                                 </ul>
                                 </small>
-                               
                             </div>
                         </div>
                     </div>
+
+                {{-- @if ($form->file($name))
+                    @include('forms.common._file_detail',['file'=>$form->file($name)])
+                @endif --}}
                 
             </div>
         </div>

@@ -1,4 +1,3 @@
-     
     @if(!$native)
         {{-- {{ $attributes }} --}}
         <div class="flex-grow-1 t-select {{ $overlayColor?('overlay-'.$overlayColor) : '' }}" :class="{'overlay':overlay, 'opened':open,'with-search':search}"

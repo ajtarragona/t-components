@@ -37607,7 +37607,7 @@ html.select-opened .t-select.overlay .dropdown-menu {
   position: relative;
 }
 
-.t-input-file .file-btn i {
+.t-input-file .file-btn i.file-icon {
   font-size: 1.7rem;
 }
 
@@ -37631,6 +37631,7 @@ html.select-opened .t-select.overlay .dropdown-menu {
 .t-input-file .with-files .file-btn {
   border-color: var(--bs-gray-900);
   background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 .t-input-file .with-files.multiple .file-btn::after {
@@ -38742,6 +38743,28 @@ html.select-opened .t-select.overlay .dropdown-menu {
 [data-bs-theme=dark] .ql-bubble.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
 [data-bs-theme=dark] .ql-bubble .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
   fill: #212529;
+}
+
+/* Ripple effect */
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple span.ripple-fx {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 .stepwizard {

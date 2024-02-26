@@ -39,7 +39,7 @@
         text-align: center;
         position: relative;
 
-        i {
+        i.file-icon {
             font-size:1.7rem;
             // line-height:130px;
         }
@@ -67,6 +67,7 @@
         .file-btn{
             border-color: var(--bs-gray-900);
             background-color: rgba(255,255,255,0.5);
+            box-shadow: $box-shadow-sm;
         }
         &.multiple{
             .file-btn::after{

@@ -46,6 +46,20 @@
 
         <hr/>
 
+        <h5>Ripple</h5>
+        <x-t-button  color="primary" pill  icon="star" ripple>Primary</x-t-button>
+        <x-t-button  color="secondary" pill ripple>Secondary</x-t-button>
+        <x-t-button  color="succes" pill ripple>Success</x-t-button>
+        <x-t-button  color="danger" pill ripple >Danger</x-t-button>
+        <x-t-button  color="warning" pill ripple>Warning</x-t-button>
+        <x-t-button  color="info" pill ripple>Info</x-t-button>
+        <x-t-button  color="light" pill ripple>Light</x-t-button>
+        <x-t-button  color="dark" pill ripple>Dark</x-t-button>
+        <x-t-button  color="link" pill ripple> Link</x-t-button>
+        <br/>   
+        <x-t-button  color="primary" size="lg" ripple  icon="star">Large button</x-t-button>
+        <x-t-button  color="secondary" ripple  size="lg">Large button</x-t-button>
+
   
     
     </div>
