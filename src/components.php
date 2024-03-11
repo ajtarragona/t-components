@@ -1,32 +1,36 @@
 <?php
 
 
-$theme=config('t-components.theme');
+$theme=config('t-components.theme','bootstrap5');
+$prefix=config('t-components.prefix','');
+
+if($prefix) $prefix.="-";
+
 // dd($theme);
 return [
 	// 'container' => 'ajtarragona-web-components::components.'.$theme.'.container',
 	// 'row' => 'ajtarragona-web-components::components.'.$theme.'.row',
 	// 'col' => 'ajtarragona-web-components::components.'.$theme.'.col',
-	't-icon' => 't-components::components.icon',
-	't-nav' => 't-components::components.'.$theme.'.nav',
-	't-alert' => 't-components::components.'.$theme.'.alert',
-	't-modal' => 't-components::components.'.$theme.'.modal',
-	't-form' => 't-components::components.'.$theme.'.forms.form',
-	't-button' => 't-components::components.'.$theme.'.forms.button',
-	't-field' => 't-components::components.'.$theme.'.forms.field',
-	't-text' => 't-components::components.'.$theme.'.forms.text',
-	't-textarea' => 't-components::components.'.$theme.'.forms.textarea',
-	't-texteditor' => 't-components::components.'.$theme.'.forms.texteditor',
-	't-number' => 't-components::components.'.$theme.'.forms.number',
-	't-select' => Ajtarragona\TComponents\Components\Forms\Select::class,
+	$prefix.'icon' => 't-components::components.icon',
+	$prefix.'nav' => 't-components::components.'.$theme.'.nav',
+	$prefix.'alert' => 't-components::components.'.$theme.'.alert',
+	$prefix.'modal' => 't-components::components.'.$theme.'.modal',
+	$prefix.'form' => 't-components::components.'.$theme.'.forms.form',
+	$prefix.'button' => 't-components::components.'.$theme.'.forms.button',
+	$prefix.'field' => 't-components::components.'.$theme.'.forms.field',
+	$prefix.'text' => 't-components::components.'.$theme.'.forms.text',
+	$prefix.'textarea' => 't-components::components.'.$theme.'.forms.textarea',
+	$prefix.'texteditor' => 't-components::components.'.$theme.'.forms.texteditor',
+	$prefix.'number' => 't-components::components.'.$theme.'.forms.number',
+	$prefix.'select' => Ajtarragona\TComponents\Components\Forms\Select::class,
 	// 't-select' => 't-components::components.'.$theme.'.forms.select_old',
-	't-date' => 't-components::components.'.$theme.'.forms.date',
-	't-iconPicker' => 't-components::components.'.$theme.'.forms.iconPicker',
-	't-checkbox' => 't-components::components.'.$theme.'.forms.checkbox',
-	't-radio' => 't-components::components.'.$theme.'.forms.radio',
-	't-range' => 't-components::components.'.$theme.'.forms.range',
+	$prefix.'date' => 't-components::components.'.$theme.'.forms.date',
+	$prefix.'iconPicker' => 't-components::components.'.$theme.'.forms.iconPicker',
+	$prefix.'checkbox' => 't-components::components.'.$theme.'.forms.checkbox',
+	$prefix.'radio' => 't-components::components.'.$theme.'.forms.radio',
+	$prefix.'range' => 't-components::components.'.$theme.'.forms.range',
 	// 't-file' => 't-components::components.'.$theme.'.forms.file',
-	't-file' => Ajtarragona\TComponents\Components\Forms\File::class,
+	$prefix.'file' => Ajtarragona\TComponents\Components\Forms\File::class,
 	// 'badge' => 'ajtarragona-web-components::components.'.$theme.'.badge',
 	// 'card' => 'ajtarragona-web-components::components.'.$theme.'.card',
 	// 'listgroup' => 'ajtarragona-web-components::components.'.$theme.'.listgroup',

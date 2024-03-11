@@ -3,6 +3,7 @@
 return [
 	
 	'theme' => 'bootstrap5',
+	'prefix' => 't',
 	'autopublish' => true,
 	
 	'components'=>[

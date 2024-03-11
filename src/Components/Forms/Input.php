@@ -22,7 +22,9 @@ class Input extends Component
     public $inputname; //nombre final del input ( si es multiple se añadiran [] )
     public $errorname; //nombre del sistema de errors de laravel
     
-    
+    protected $strings = [];
+    protected $strings_path = null;
+
     public function __construct($attributes=[])
     {
        
@@ -50,6 +52,10 @@ class Input extends Component
                 $this->{$key} = $value;
             }
         }
+
+        if($this->strings_path ) $this->strings=__t($this->strings_path);
+
+
         // dd($this);
     }
 
@@ -84,6 +90,7 @@ class Input extends Component
             return $property != $model->{$key}??null;
         })->all();
         // dd($model, $ret);
+        if($this->strings) $ret["strings"] = $this->strings;
 
         return  str_replace("\"","'", json_encode( $ret, JSON_HEX_APOS|JSON_HEX_QUOT ));
         

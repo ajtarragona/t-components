@@ -7,6 +7,7 @@ return [
         "Veure arxius"=>"Ver archivos",
         "Esborrar"=>"Borrar",
         "Característiques"  =>"Características",
+        "Obligatori"  =>"Obligatorio",
         "Tipus admesos"  =>"Tipos admitidos",
         'required'  =>"Obligatorio",
         'optional'  =>"Opcional",

@@ -8,6 +8,7 @@ class File extends Input
 
 
     protected $view = 'forms.file';
+    protected $strings_path = 'files';
 
 
     public $color = '';
@@ -53,6 +54,7 @@ class File extends Input
         // dd(get_defined_vars());
         parent::__construct(get_defined_vars());
         // dd($this);
+        
             
     }
 

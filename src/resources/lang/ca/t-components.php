@@ -7,8 +7,8 @@ return [
         "Veure arxius"=>"Veure arxius",
         "Esborrar"=>"Esborrar",
         "Característiques"  => "Característiques",
+        "Obligatori"  =>"Obligatori",
         "Tipus admesos"  => "Tipus admesos",
-        
         'required'=> 'Obligatori',
         'optional'=> 'Opcional',
         'multiple'=> 'Admet múltiples arxius',
@@ -28,10 +28,7 @@ return [
             'image'=> 'Imatges',
             'other'=> 'Altres',
             'zip'=> 'Arxius comprimits',
-
         ]
-
-            
     ],
 
     "Normativa legal"  => "Normativa legal",
@@ -39,4 +36,5 @@ return [
     "Catàleg de tràmits" => "Catàleg de tràmits",
     "Seu electrònica" =>"Seu electrònica",
     "Lloc web" => "Lloc web",
+    "Arxius" =>"Arxius"
 ];
