@@ -26,7 +26,7 @@
             
             
             <x-t-checkbox id="ch1" name="ch1" >Default</x-t-checkbox>
-            <x-t-checkbox id="ch1-checked" name="ch1-checked[]" value="1" checked >Checked</x-t-checkbox>
+            <x-t-checkbox id="ch1-checked" name="ch1-checked[]" value="1" unchecked-value="0" checked >Checked</x-t-checkbox>
             <x-t-checkbox id="ch1-icon" name="ch1-checked[]" value="2"  icon="star">With icon</x-t-checkbox>
             <x-t-checkbox id="ch1-dis" name="ch1-checked[]" value="3"  disabled>Disabled</x-t-checkbox>
             <x-t-checkbox id="sw-1" name="ch1-checked[]" value="4"  switch >Switch</x-t-checkbox>

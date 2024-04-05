@@ -12,7 +12,8 @@
     'reverse'=>false,
     'checked'=>false,   
     'outerClass'=>false,   
-    'size'=>'md',   
+    'size'=>'md', 
+    'uncheckedValue'=>null,  
 ])
 
 @php
@@ -32,7 +33,9 @@
 
     class="form-check form-check-{{$size}} form-check-{{$color}} {{($switch?'form-switch':'')}} {{($inline?'form-check-inline':'')}} {{($reverse?'form-check-reverse':'')}} {{$outerClass}}"  >
 
-    
+    @if(!is_null($uncheckedValue))
+        <input type="hidden" value="{{$uncheckedValue}}" name="{{ $name }}"/>
+    @endif
     <input class="form-check-input" x-ref="input" type="checkbox" x-model="checked"  {{$switch?'role="switch"':''}} value="{{$value}}" {{$disabled?'disabled':''}} id="{{$id}}" name="{{ $name }}">
     @if($slot || $icon)
         <label class="form-check-label" for="{{$id}}">
