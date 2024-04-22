@@ -17,7 +17,9 @@
     'range'=>false,
     'disabled'=>false,
     'color'=>null,
-    
+    'size'=>'md',
+    'overlay'=>false,
+    'overlayColor'=>null,
     
 ])
 
@@ -54,7 +56,7 @@ wire:key="{{ rand() }}"
 x-modelable="value"
 {{ $attributes->whereStartsWith('x-') }}
 
- class="t-input flex-grow-1  {{$native?'':'flatpickr'}} {{$icon?'with-icon':''}} {{$attributes["outer-class"]??''}}"
+ class="t-input flex-grow-1  {{$overlay?'overlay':'' }} {{ $overlayColor?('overlay-'.$overlayColor) : '' }} {{$native?'':'flatpickr'}} {{$icon?'with-icon':''}} {{$attributes["outer-class"]??''}}"
     x-data="tDate({
         native: {{ $native ?'true':'false'}},
         allowClear: {{ $allowClear ? 'true':'false' }},
@@ -62,10 +64,11 @@ x-modelable="value"
 
 
     })"
+    :class="{'opened':opened}"
 >   
 
     <input placeholder="{{$placeholder}}" 
-        {{ $attributes->except(['type'])->merge(['class' => 'form-control '.(($errorname && $errors->has($errorname) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'').' t-form-control '.($color?('bg-'.$color .' text-bg-'.$color):'')]) }} 
+        {{ $attributes->except(['type'])->merge(['class' => 'form-control '.(($errorname && $errors->has($errorname) || ( $attributes->whereStartsWith('wire:model')->first() && $errors->has($attributes->whereStartsWith('wire:model')->first())  ))  ? 'is-invalid':'').' t-form-control form-control-'.$size .' '.($color?('bg-'.$color .' text-bg-'.$color):'')]) }} 
         
         
         {{-- :type="native?'date':'text'"  --}}

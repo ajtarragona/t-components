@@ -30,6 +30,10 @@
             <hr/>
 
             @include("t-components::docs._docs_section",['title'=>"Temps","path"=>"forms.dates.times"])
+            
+            <hr/>
+            
+            @include("t-components::docs._docs_section",['title'=>"Mides","path"=>"forms.dates.sizes"])
 
             <hr/>
 
@@ -66,7 +70,9 @@
 
             @include("t-components::docs._docs_section",['title'=>"Lligat amb Livewire","path"=>"forms.dates.livewire"])
 
-            
+            <hr/>
+             @include("t-components::docs._docs_section",['title'=>"Overlay","path"=>"forms.dates.overlay"])
+
            
     
     <x-t-button icon="save" type="submit" class="mt-3">Submit</x-t-button>

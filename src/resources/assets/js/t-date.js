@@ -7,6 +7,7 @@ document.addEventListener('alpine:init', () => {
         allowClear: config.allowClear ?? false,
         hasValue: false,
         instance :null,
+        opened:false,
         clear: function() {
             this.hasValue=false;
             this.value=null;
@@ -30,10 +31,12 @@ document.addEventListener('alpine:init', () => {
                         plugins: [labelPlugin()],
                         onOpen: function(selectedDates, dateStr, instance) { 
                             // d.focused=true;
+                            d.opened=true;
                             document.documentElement.classList.add('calendar-opened');
                          },
                         onClose: function(selectedDates, dateStr, instance) { 
                             // d.focused=false;
+                            d.opened=false;
                             document.documentElement.classList.remove('calendar-opened');
 
                          },

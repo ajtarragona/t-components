@@ -299,3 +299,48 @@
     //     }
     // }
 }
+
+
+
+html.calendar-opened{
+    // overflow: hidden;
+    
+    .flatpickr.overlay{
+
+        &::before{
+            content:' ';
+            background-color: rgba(0,0,0,0.6);
+            position: fixed;
+            top:0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            z-index:1045;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 200ms ease-out;
+        }
+
+
+        @each $color, $value in $theme-colors {
+            &.overlay-#{$color} {
+                &::before{
+                    background-color: rgba($value,0.6)
+                }
+            }
+          
+        }
+          
+        
+
+        &.opened::before{
+            pointer-events: all;
+            opacity:1;
+        }
+
+        .dropdown-menu{
+            // position:fixed !important;
+            z-index:1050;
+        }
+    }
+}
