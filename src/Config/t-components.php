@@ -4,7 +4,7 @@ return [
 	
 	'theme' => 'bootstrap5',
 	'prefix' => 't',
-	'autopublish' => true,
+	'autopublish' => false,
 	
 	'components'=>[
 		'modal' =>[

@@ -15,7 +15,7 @@
 		
 		<div class="d-flex flex-column align-items-start min-vh-100 offcanvas-body ">
 			<div class="offcanvas-header">
-				<a href="{{ route('home') }}" class="pb-3 text-decoration-none">
+				<a href="{{ route('t-components.docs') }}" class="pb-3 text-decoration-none">
 					{{ config('app.name')}}
 				</a>
 			</div>

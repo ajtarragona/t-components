@@ -11,6 +11,13 @@ class DocsController extends BaseController
 
   
 
+  public function test()
+  {
+    // $args=[];
+    // return $this->view('docs.home', $args);
+  }
+
+
   public function docs()
   {
     // $this->publishPackageAssets();

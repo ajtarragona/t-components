@@ -6,9 +6,7 @@ use \Artisan;
 class LiveFullPageComponent extends Component
 {
 
-    public $page_layout= "top-nav";
-    public $main_nav= [];
-    public $t_page= '';
+   
 
     
     protected function publishPackageAssets(){
@@ -22,6 +20,9 @@ class LiveFullPageComponent extends Component
   }
   
   public function view($view, $args=[]){
+    
+        $viewPath = view()->getFinder()->find("t-components::".$view);
+        dd($this, $viewPath, $this->page_layout, $args,$this->main_nav, $this->t_page);
       return view("t-components::".$view, $args)
         ->extends('t-components::layouts.'.$this->page_layout, [
             'main_nav'=>$this->main_nav,

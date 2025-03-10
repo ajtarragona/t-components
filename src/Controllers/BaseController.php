@@ -5,6 +5,7 @@ namespace Ajtarragona\TComponents\Controllers;
 
 use Illuminate\Http\Request;
 use \Artisan;
+use Exception;
 use Illuminate\Routing\Controller;
 
 class BaseController extends Controller
@@ -24,7 +25,17 @@ class BaseController extends Controller
 	}
 	
 	public function view($view, $args=[]){
-		return view("t-components::".$view, $args);
+		// dd($view);
+		
+		// $viewPath = view()->getFinder()->find("t-components::".$view);
+		
+		// dd($viewPath);
+		// try{
+			// $tmp=view("t-components::".$view, $args);
+			return view("t-components::".$view, $args);
+		// }catch(Exception $e){
+		// 	dd($e);
+		// }
 	}
 
 	// public function home(){ 

@@ -1,8 +1,9 @@
-<?php
+	<?php
 
 use Ajtarragona\TComponents\Livewire\Docs;
 
 Route::group(['prefix' => 'ajtarragona/t-components','middleware' => ['web']], function () {
+	
 	
 	
 	// Route::get('/{section?}', Docs::class)->name('t-components.docs.home')->where('section', '(.*)');
@@ -13,6 +14,8 @@ Route::group(['prefix' => 'ajtarragona/t-components','middleware' => ['web']], f
 	Route::post('/validatedForm', 'Ajtarragona\TComponents\Controllers\DocsController@validatedForm')->name('t-components.validatedForm');
 	Route::get('/layout/{layout}', 'Ajtarragona\TComponents\Controllers\DocsController@setLayout')->name('t-components.setLayout');
 	
+	Route::get('/test', 'Ajtarragona\TComponents\Controllers\DocsController@test')->name('t-components.test');
+
 	Route::get('/{t_page?}', Docs::class)->name('t-components.docs');
 	
 });
