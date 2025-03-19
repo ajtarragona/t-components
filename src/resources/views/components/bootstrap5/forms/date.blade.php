@@ -79,7 +79,7 @@ x-modelable="value"
         {{$disabled?'disabled':''}}
         @if(isTrue($altInput))
             data-alt-input="true"
-            data-date-format="Y-m-d" 
+            data-date-format="{{$enableTime?'Y-m-d H:i':'Y-m-d'}}" 
             data-alt-format="{{ (isTrue($enableDate)?$dateFormat:'') . (isTrue($enableDate)&&$enableDate?' ':'') . ($enableTime? $timeFormat :'')  }}" 
         @else
             data-alt-input="false"
