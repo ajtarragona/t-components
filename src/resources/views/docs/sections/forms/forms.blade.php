@@ -63,18 +63,5 @@
 
 
 
-    <h5>Multi step Form</h5>
-    @livewire('demo-wizard')
 
-
-
-    {{-- 
-    <x-t-form action="{{route('t-components.testForm')}}" method="patch"> 
-        <x-t-field label="Camp de text" for="text-field-1" class="mb-2">
-            <x-t-text id="text-field-1" name="text-field-1"/>
-        </x-t-field>
-
-        <x-t-button icon="save" type="submit">Submit</x-t-button>
-        
-    </x-t-form> --}}
 </div>

@@ -25,7 +25,7 @@
 <hr/>
 <h5>Livewire</h5>
 <div class="input-group">
-    <x-t-iconPicker wire:model="dummy" allow-clear placeholder="livewire"/> 
+    <x-t-iconPicker wire:model.live="dummy" allow-clear placeholder="livewire"/> 
     <span class="input-group-text" >@if($dummy)<i class="bi {{$dummy}}"></i>@endif</span>
 </div>
 

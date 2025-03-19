@@ -165,13 +165,13 @@ En mòbil les etiquetes laterals es colocaran verticalment.</p>
 <p >En mòbil s'ignorarà aquesta amplada perquè l'etiqueta es colocarà verticalment.</p>
 
 <x-t-field label="Amplada per defecte  {{$dummy}}" for="text-field-28" label-placement="start" class="mb-2">
-    <x-t-text id="text-field-28" placeholder="Type something..." wire:model="dummy"/>
+    <x-t-text id="text-field-28" placeholder="Type something..." wire:model.live="dummy"/>
 </x-t-field>
 <x-t-field label="Amplada 300px  {{$dummy}}" for="text-field-11" label-placement="start" label-width="300px" class="mb-2">
-    <x-t-text id="text-field-11" placeholder="label-width='300px'. Type something..." wire:model="dummy"/>
+    <x-t-text id="text-field-11" placeholder="label-width='300px'. Type something..." wire:model.live="dummy"/>
 </x-t-field>
 <x-t-field label="Amplada automàtica {{$dummy}}" for="text-field-12" label-placement="start" label-width="fit-content" class="mb-2">
-    <x-t-text id="text-field-13" placeholder="label-width='fit-content'. Type something..." wire:model="dummy"/>
+    <x-t-text id="text-field-13" placeholder="label-width='fit-content'. Type something..." wire:model.live="dummy"/>
 </x-t-field>
 
 <hr/>

@@ -4,7 +4,6 @@ import "bootstrap";
 import "./nightmode";
 import "./utils";
 
-import "./t-modal";
 import "./t-confirm";
 import "./t-text";
 import "./t-texteditor";

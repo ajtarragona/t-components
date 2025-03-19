@@ -3,37 +3,54 @@
 // Option B: Include parts of Bootstrap
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "~bootstrap/scss/functions";
+@use "bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
 
-@import "t-variables";
+// @import "t-variables";
 
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/variables-dark";
+@use "bootstrap/scss/variables" with(
+  $container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
+    // xxl: 1140px
+  ),
+  $primary: #a8113c,//#336437;
+  $font-family-base: "Montserrat, BlinkMacSystemFont, Roboto, Arial, sans-serif",
+  $font-weight-base : 500,
+  // $body-bg:#ededed;
+  // $enable-rounded: false;
+  $border-color:rgb(213, 213, 213),
+
+  $card-spacer-y: 1.25rem,
+);
+
+@use "bootstrap/scss/variables-dark";
 
 // 4. Include any default map overrides here
 
 
 // 5. Include remainder of required parts
-@import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/root";
+@use "bootstrap/scss/maps";
+@use "bootstrap/scss/mixins";
+@use "bootstrap/scss/root";
 
 
 
 
 // 6. Optionally include any other parts as needed
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/containers";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/helpers";
-@import "~bootstrap/scss/bootstrap";
+@use "bootstrap/scss/utilities";
+@use "bootstrap/scss/reboot";
+@use "bootstrap/scss/type";
+@use "bootstrap/scss/images";
+@use "bootstrap/scss/containers";
+@use "bootstrap/scss/grid";
+@use "bootstrap/scss/helpers";
+@use "bootstrap/scss/bootstrap";
 
 
 
@@ -89,7 +106,7 @@ $utilities: map-merge(
 
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "~bootstrap/scss/utilities/api";
+@use "bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
 

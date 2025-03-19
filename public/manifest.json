@@ -1,0 +1,45 @@
+{
+  "__commonjsHelpers.js": {
+    "file": "js/_commonjsHelpers.js",
+    "name": "_commonjsHelpers"
+  },
+  "src/resources/assets/fonts/simbols_web_AJtgn_bold.eot": {
+    "file": "assets/simbols_web_AJtgn_bold",
+    "src": "src/resources/assets/fonts/simbols_web_AJtgn_bold.eot"
+  },
+  "src/resources/assets/fonts/simbols_web_AJtgn_bold.svg": {
+    "file": "assets/simbols_web_AJtgn_bold4",
+    "src": "src/resources/assets/fonts/simbols_web_AJtgn_bold.svg"
+  },
+  "src/resources/assets/fonts/simbols_web_AJtgn_bold.ttf": {
+    "file": "assets/simbols_web_AJtgn_bold2",
+    "src": "src/resources/assets/fonts/simbols_web_AJtgn_bold.ttf"
+  },
+  "src/resources/assets/fonts/simbols_web_AJtgn_bold.woff": {
+    "file": "assets/simbols_web_AJtgn_bold3",
+    "src": "src/resources/assets/fonts/simbols_web_AJtgn_bold.woff"
+  },
+  "src/resources/assets/js/t-components.js": {
+    "file": "js/tComponents.js",
+    "name": "tComponents",
+    "src": "src/resources/assets/js/t-components.js",
+    "isEntry": true,
+    "imports": [
+      "__commonjsHelpers.js"
+    ]
+  },
+  "src/resources/assets/js/t-docs.js": {
+    "file": "js/tDocs.js",
+    "name": "tDocs",
+    "src": "src/resources/assets/js/t-docs.js",
+    "isEntry": true,
+    "imports": [
+      "__commonjsHelpers.js"
+    ]
+  },
+  "src/resources/assets/sass/t-components.scss": {
+    "file": "css/t-components-style.css",
+    "src": "src/resources/assets/sass/t-components.scss",
+    "isEntry": true
+  }
+}

@@ -10,8 +10,7 @@ Id ut dolor quis ea qui magna non ea aliqua enim nulla et.
 
 
 @section('js')
-<script src="{{ asset('vendor/ajtarragona/js/t-docs.js') }}"></script>
-
+<script src="{{ asset('vendor/ajtarragona/js/tDocs.js') }}"></script>
 @endsection
 
 @section('css')

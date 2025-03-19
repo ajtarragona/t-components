@@ -55,7 +55,7 @@ class PublishAssets extends Command
         
         //copy fonts to public
         $origin = public_path('vendor/ajtarragona/fonts');
-        $destination= public_path('fonts');
+        $destination= public_path('build/fonts');
         
         $this->line("Copying fonts ...");
         // dd($origin, $destination);
@@ -64,7 +64,7 @@ class PublishAssets extends Command
 
         //copy images to public
         $origin = public_path('vendor/ajtarragona/images');
-        $destination= public_path('images');
+        $destination= public_path('build/images');
         
         $this->line("Copying images ...");
         // dd($origin, $destination);

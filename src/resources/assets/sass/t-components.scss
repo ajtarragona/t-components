@@ -1,36 +1,37 @@
+// @import "t-variables";
+
+@use "bootstrap";
+
+// @import '~animate.css';
+// @import '~bootstrap-icons';
+// @import "~flatpickr";
+
+@use "tgn-iconfont";
+// @use "t-box-card";
+// @use "t-sidebar";
+// @use "t-ranges";
+// @use "t-numbers";
+// @use "t-checkboxes";
+// @use "t-dates";
+// @use "t-selects";
+// @use "t-files";
+// @use "t-forms";
+// @use "t-iconpicker";
+// @use "t-texteditors";
+// @use "t-buttons";
+// @use "t-wizard";
+// @use "t-utils";
+
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,800");
-@import "bootstrap";
 
+// body{
+//     background-color: vars.$gray-200
+// }
 
-@import '~animate.css';
-@import '~bootstrap-icons';
-@import "~flatpickr";
-
-@import "tgn-iconfont";
-@import "t-box-card";
-@import "t-sidebar";
-@import "t-modal";
-@import "t-ranges";
-@import "t-numbers";
-@import "t-checkboxes";
-@import "t-dates";
-@import "t-selects";
-@import "t-files";
-@import "t-forms";
-@import "t-iconpicker";
-@import "t-texteditors";
-@import "t-buttons";
-@import "t-wizard";
-@import "t-utils";
-
-body{
-    background-color: $gray-200
-}
-
-html[data-bs-theme=dark]{
-    body{
-        background-color: $gray-900
-    }
-}
+// html[data-bs-theme=dark]{
+//     body{
+//         background-color: vars.$gray-900
+//     }
+// }
 
 

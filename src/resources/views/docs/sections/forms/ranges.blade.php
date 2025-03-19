@@ -38,7 +38,7 @@
     </x-t-field>
 
     <x-t-field label="Livewire value({{ $dummyNumber }})" for="rg-wire" label-placement="start" boxed class="mb-2">
-        <x-t-range id="rg-wire" min="0" max="20" wire:model="dummyNumber"/>
+        <x-t-range id="rg-wire" min="0" max="20" wire:model.live="dummyNumber"/>
         
     </x-t-field>
 

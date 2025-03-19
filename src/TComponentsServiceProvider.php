@@ -3,7 +3,6 @@
 namespace Ajtarragona\TComponents;
 
 use Ajtarragona\TComponents\Commands\PublishAssets;
-use Ajtarragona\TComponents\Components\Modal\Modals;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
@@ -11,9 +10,8 @@ use Ajtarragona\TComponents\DirectivesRepository;
 use Livewire\Livewire;
 use Ajtarragona\TComponents\Livewire\Docs;
 use Ajtarragona\TComponents\Livewire\SrcViewer;
-use Ajtarragona\TComponents\Livewire\TestForm;
-use Ajtarragona\TComponents\Test\TestModal;
-use Ajtarragona\TComponents\Test\TestModal2;
+use Ajtarragona\TComponents\Livewire\Test;
+
 
 class TComponentsServiceProvider extends ServiceProvider
 {
@@ -112,20 +110,9 @@ class TComponentsServiceProvider extends ServiceProvider
 
     public function registerLivewireComponents(){
         Livewire::component('t-components-docs', Docs::class);
-        Livewire::component('t-components-test-modal', TestModal::class);
-        Livewire::component('t-components-test-modal-2', TestModal2::class);
-        Livewire::component('t-components-test-form', TestForm::class);
-        
-        /** the reusable components */
-        Livewire::component('t-modals-container', Modals::class);
+        Livewire::component('t-components-test-form', Test::class);
 
 
-        Livewire::component('demo-wizard', \Ajtarragona\TComponents\Livewire\Demo\DemoWizard::class);
-        Livewire::component('demo-step-1', \Ajtarragona\TComponents\Livewire\Demo\DemoStep1::class);
-        Livewire::component('demo-step-2', \Ajtarragona\TComponents\Livewire\Demo\DemoStep2::class);
-        
-        // Livewire::component('demo-step-3', \App\Http\Livewire\WizardComicis\StepConoce::class);
-        // Livewire::component('demo-step-4', \App\Http\Livewire\WizardComicis\StepResum::class);
 
     }
     

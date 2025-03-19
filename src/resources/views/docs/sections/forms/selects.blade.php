@@ -221,7 +221,7 @@ for($i=0;$i<100;$i++) $longData[$i+1]="Option ".($i+1);
 <p>Com en qualsevol control natiu, podem fer servir <code>wire:model</code> per lligar-ho amb Livewire.</p>
 
 <div class="input-group ">
-    <x-t-select width="100%" wire:model="dummy" placeholder="wire:model" :data-options="[
+    <x-t-select width="100%" wire:model.live="dummy" placeholder="wire:model" :data-options="[
         1 => 'aaaa aaa',
         2 => 'bbbb bbb',
         3 => 'cccc ccc',

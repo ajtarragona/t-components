@@ -14,7 +14,7 @@ return [
 	$prefix.'icon' => 't-components::components.icon',
 	$prefix.'nav' => 't-components::components.'.$theme.'.nav',
 	$prefix.'alert' => 't-components::components.'.$theme.'.alert',
-	$prefix.'modal' => 't-components::components.'.$theme.'.modal',
+	// $prefix.'modal' => 't-components::components.'.$theme.'.modal',
 	$prefix.'form' => 't-components::components.'.$theme.'.forms.form',
 	$prefix.'button' => 't-components::components.'.$theme.'.forms.button',
 	$prefix.'field' => 't-components::components.'.$theme.'.forms.field',
