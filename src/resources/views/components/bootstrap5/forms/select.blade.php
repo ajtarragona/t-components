@@ -5,6 +5,7 @@
             {{ $attributes->whereStartsWith('x-') }}
 
             x-on:t-select-set.window="setAttribute(event)"
+            x-on:t-select-options.window="setOptions(event)"
             x-on:t-select-reload.window="reload(event)"
 
             x-data="tSelectComponent({

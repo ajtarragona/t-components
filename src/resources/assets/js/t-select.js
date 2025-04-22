@@ -557,7 +557,8 @@ document.addEventListener('alpine:init', () => {
             return ret.join(" ");
         },
         btnClasses: function(){
-            let ret=[this.btnClass];
+
+            let ret=this.btnClass?this.btnClass.split(' ') : [];
             
             // if(this.open) ret.push('active');
             if(this.disabled) ret.push('disabled');
@@ -575,7 +576,7 @@ document.addEventListener('alpine:init', () => {
             }
             
             ret.push('btn-'+this.size);
-
+            //console.log('btnClasses',ret);
             return ret.join(" ");
         },
         
@@ -636,14 +637,35 @@ document.addEventListener('alpine:init', () => {
             return ret;
         },
 
+        _isCurrentTarget(target){
+            if (target.startsWith('#')) {
+                if (target.substring(1) == this.id) return true;
+            } else if (target.startsWith('.')) {
+                let classes=this.btnClasses().split(" ");
+                // console.log('classList',classes,target.substring(1));
+                if (classes.includes(target.substring(1))) return true;
+            }
+            return false;
+        },
+        
         setAttribute(e){
-            if(e.detail.target!=this.id) return;
+            if (!this._isCurrentTarget(e.detail.target)) return;
             this[e.detail.attribute] = e.detail.value;
+           
+        },
+        setOptions(e){
+            // console.log('setOptions pre' );
+            
+            if (!this._isCurrentTarget(e.detail.target)) return;
+            this.dataOptions=e.detail.options;
+            // console.log('setOptions post',this.dataOptions );
+            this.prepareData()
+            this.prepareOptions()
            
         },
         async reload(e){
 
-            if(e.detail.target!=this.id) return;
+            if (!this._isCurrentTarget(e.detail.target)) return;
 
             // _d('reload');
             var s=this;
