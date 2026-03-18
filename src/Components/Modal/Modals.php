@@ -10,6 +10,7 @@ use Illuminate\Support\Reflector;
 use Illuminate\View\View;
 use Livewire\Component;
 use ReflectionClass;
+use Livewire\Livewire;
 
 class Modals extends Component
 {
@@ -35,7 +36,9 @@ class Modals extends Component
     public function openModal($component, $attributes = []): void
     {
         $requiredInterface = ModalContract::class;
-        $componentClass = app('livewire')->getClass($component);
+        // dd($component, $attributes);
+        $componentClass = Livewire::getClass($component);
+
         // dd($componentClass);
         $reflect = new ReflectionClass($componentClass);
 
@@ -43,10 +46,10 @@ class Modals extends Component
             throw new Exception("[{$componentClass}] does not implement [{$requiredInterface}] interface.");
         }
 
-        $id = md5($component.serialize($attributes));
+        $id = md5($component . serialize($attributes));
 
-        $componentInstance=new $componentClass;
-        $attributes=array_merge($componentInstance->getPublicPropertiesDefinedBySubClass(), $attributes);
+        $componentInstance = new $componentClass;
+        $attributes = array_merge($componentInstance->getPublicPropertiesDefinedBySubClass(), $attributes);
 
         $this->components[$id] = [
             'name' => $component,
@@ -55,20 +58,20 @@ class Modals extends Component
 
         $this->activeComponent = $id;
 
-        $this->emit('activeModalComponentChanged', $id);
+        $this->dispatch('activeModalComponentChanged', id: $id);
     }
 
-    
+
     public function destroyComponent($id): void
     {
         unset($this->components[$id]);
     }
 
-   
+
     public function render(): View
     {
-        
-        $theme=config('t-components.theme');
+
+        $theme = config('t-components.theme');
         return view('t-components::layouts.modals', []);
     }
 }

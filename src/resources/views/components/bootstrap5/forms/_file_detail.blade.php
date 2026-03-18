@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" id="file_detail_{{str_slug($name??'')}}">
+<div class="modal" tabindex="-1" id="file_detail_{{\Illuminate\Support\Str::slug($name??'')}}">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">

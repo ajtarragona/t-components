@@ -4,7 +4,7 @@
     <input class="form-control" type="text" />
     
     @slot('footer')
-        <button class="btn btn-primary" wire:click="$emit('openModal', 't-components-test-modal-2',{{ json_encode(['closeOnClickOutside'=>true,'size'=>'lg','closeOnEscape'=>true,'text'=>'Jandemore']) }})">Open another modal</button>
+        <button class="btn btn-primary" wire:click="$dispatch('openModal', { component:'t-components-test-modal-2', attributes: {{ json_encode(['closeOnClickOutside'=>true,'size'=>'lg','closeOnEscape'=>true,'text'=>'Jandemore']) }} } )">Open another modal</button>
     @endslot
 
 </x-t-modal>
