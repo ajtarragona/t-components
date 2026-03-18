@@ -17,7 +17,7 @@
 ])
 
 @php
-    if(!$id) $id=str_slug($name)."_".$value;
+    if(!$id) $id=\Illuminate\Support\Str::slug($name)."_".$value;
 @endphp
 
 <div 

@@ -53,7 +53,7 @@
     <hr/>
 
 
-
+{{-- 
     <h5>Validació Livewire</h5>
     @livewire('t-components-test-form')
 
@@ -65,6 +65,8 @@
 
     <h5>Multi step Form</h5>
     @livewire('demo-wizard')
+ --}}
+
 
 
 

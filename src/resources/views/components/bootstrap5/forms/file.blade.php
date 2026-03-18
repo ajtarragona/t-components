@@ -3,11 +3,11 @@
 
 <div class=" t-input-file " :class="getContainerClass()" x-data='tFile({{ $properties() }})'>
     
-    <div class=""  id="file_container_{{str_slug($name)}}" >
+    <div class=""  id="file_container_{{\Illuminate\Support\Str::slug($name)}}" >
 
         <div class="d-block d-md-flex ">
             <div class="col-file-input dropend" :class="colInputClass()">
-                <label for="file_{{str_slug($name)}}" class="file-btn mb-2" 
+                <label for="file_{{\Illuminate\Support\Str::slug($name)}}" class="file-btn mb-2" 
                     @dragover.prevent="dragover = true"
                     @dragleave.prevent="dragover = false"
                     @drop.prevent="drop"
@@ -22,7 +22,7 @@
                             <i class="file-icon bi bi-x" @click.prevent.stop="doClear()" title="{{ __t('files.Esborrar')}}" ></i>
                             
                             <i class="file-icon bi bi-plus" x-show="multiple" title="{{ __t('files.Afegir arxiu')}}"></i>
-                            <i class="file-icon bi bi-list-task" x-show="multiple" @click.prevent.stop="showFiles()"  data-bs-toggle="modal" data-bs-target="#file_detail_{{str_slug($name??'')}}" title="{{ __t('files.Veure arxius')}}"></i>
+                            <i class="file-icon bi bi-list-task" x-show="multiple" @click.prevent.stop="showFiles()"  data-bs-toggle="modal" data-bs-target="#file_detail_{{\Illuminate\Support\Str::slug($name??'')}}" title="{{ __t('files.Veure arxius')}}"></i>
                         </div>
                     </template>
                     {{-- <span class="badge bg-primary rounded-pill " x-show="multiple && hasFiles()" x-cloak x-text="hasFiles()?files.length:0"></span> --}}
@@ -45,12 +45,12 @@
                 </div>
 
                 <input type="hidden" name="clearfile_{{$inputname}}" value="" x-ref="clearfile_input" :disabled="!clear"/>
-                <input class="form-control" x-ref="input" hidden type="file" x-on:change="setFiles"  :accept="acceptedMimes()" id="file_{{str_slug($name)}}" name="{{$inputname}}" :multiple ="multiple">
+                <input class="form-control" x-ref="input" hidden type="file" x-on:change="setFiles"  :accept="acceptedMimes()" id="file_{{\Illuminate\Support\Str::slug($name)}}" name="{{$inputname}}" :multiple ="multiple">
             </div>
 
             <div class="col-file-detail pt-4 pt-md-0 " :class="colDetailClass()">
 
-                <label for="file_{{str_slug($name)}}" class="form-label" x-show="label" x-cloak>
+                <label for="file_{{\Illuminate\Support\Str::slug($name)}}" class="form-label" x-show="label" x-cloak>
                     <span x-html="label"></span> <small class="text-gray-500" >(<span x-text="requiredLabel()"></span>)</small>
                 </label>
 

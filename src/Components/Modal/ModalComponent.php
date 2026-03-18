@@ -16,18 +16,18 @@ abstract class ModalComponent extends Component implements ModalContract
     public $closeOnClickOutside = false;
 
     public $closeOnEscape = true;
-    
+
     public $dispatchCloseEvent = true;
-    
+
     public $destroyOnClose = true;
-    
+
     public $size = 'md';
 
     public $title = null;
-    
+
     public $closer = true;
 
-    
+
     public function destroySkippedModals(): self
     {
         $this->destroySkipped = true;
@@ -59,7 +59,7 @@ abstract class ModalComponent extends Component implements ModalContract
 
     public function closeModal(): void
     {
-        $this->emit('closeModal', $this->forceClose, $this->skipModals, $this->destroySkipped);
+        $this->dispatch('closeModal', $this->forceClose, $this->skipModals, $this->destroySkipped);
     }
 
     public function closeModalWithEvents(array $events): void
@@ -68,9 +68,9 @@ abstract class ModalComponent extends Component implements ModalContract
         $this->closeModal();
     }
 
-  
-    
-  
+
+
+
 
     private function emitModalEvents(array $events): void
     {
@@ -87,7 +87,8 @@ abstract class ModalComponent extends Component implements ModalContract
         }
     }
 
-    protected function view($viewname, $attributes=[]){
+    protected function view($viewname, $attributes = [])
+    {
         // dd($viewname);
         return view($viewname, $attributes);
     }

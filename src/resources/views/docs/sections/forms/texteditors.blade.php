@@ -33,7 +33,7 @@
    
 
 
-    <x-t-texteditor  name="editor-wire" wire:model="dummy" outer-class="mb-2" placeholder="wire:model"/>
+    <x-t-texteditor  name="editor-wire" wire:model.live="dummy" outer-class="mb-2" placeholder="wire:model"/>
 
 
     <div>{{$dummy}}</div>

@@ -1,6 +1,7 @@
 <?php
 
 use Ajtarragona\TComponents\DirectivesRepository;
+use Illuminate\Support\Str;
 
 return [
 
@@ -11,13 +12,13 @@ return [
     */
 
     'istrue' => function ($expression) {
-        
+
         if (str_contains($expression, ',')) {
             $expression = DirectivesRepository::parseMultipleArgs($expression);
 
-            return  "<?php if (isset({$expression->get(0)}) && (bool) {$expression->get(0)} === true) : ?>".
-                    "<?php echo {$expression->get(1)}; ?>".
-                    '<?php endif; ?>';
+            return  "<?php if (isset({$expression->get(0)}) && (bool) {$expression->get(0)} === true) : ?>" .
+                "<?php echo {$expression->get(1)}; ?>" .
+                '<?php endif; ?>';
         }
 
         return "<?php if (isset({$expression}) && (bool) {$expression} === true) : ?>";
@@ -31,9 +32,9 @@ return [
         if (str_contains($expression, ',')) {
             $expression = DirectivesRepository::parseMultipleArgs($expression);
 
-            return  "<?php if (isset({$expression->get(0)}) && (bool) {$expression->get(0)} === false) : ?>".
-                    "<?php echo {$expression->get(1)}; ?>".
-                    '<?php endif; ?>';
+            return  "<?php if (isset({$expression->get(0)}) && (bool) {$expression->get(0)} === false) : ?>" .
+                "<?php echo {$expression->get(1)}; ?>" .
+                '<?php endif; ?>';
         }
 
         return "<?php if (isset({$expression}) && (bool) {$expression} === false) : ?>";
@@ -72,12 +73,12 @@ return [
     */
 
     'mix' => function ($expression) {
-        if (ends_with($expression, ".css'")) {
-            return '<link rel="stylesheet" href="<?php echo mix('.$expression.') ?>">';
+        if (Str::endsWith($expression, ".css'")) {
+            return '<link rel="stylesheet" href="<?php echo mix(' . $expression . ') ?>">';
         }
 
-        if (ends_with($expression, ".js'")) {
-            return '<script src="<?php echo mix('.$expression.') ?>"></script>';
+        if (Str::endsWith($expression, ".js'")) {
+            return '<script src="<?php echo mix(' . $expression . ') ?>"></script>';
         }
 
         return "<?php echo mix({$expression}); ?>";
@@ -91,7 +92,7 @@ return [
 
     'style' => function ($expression) {
         if (! empty($expression)) {
-            return '<link rel="stylesheet" href="'.DirectivesRepository::stripQuotes($expression).'">';
+            return '<link rel="stylesheet" href="' . DirectivesRepository::stripQuotes($expression) . '">';
         }
 
         return '<style>';
@@ -109,7 +110,7 @@ return [
 
     'script' => function ($expression) {
         if (! empty($expression)) {
-            return '<script src="'.DirectivesRepository::stripQuotes($expression).'"></script>';
+            return '<script src="' . DirectivesRepository::stripQuotes($expression) . '"></script>';
         }
 
         return '<script>';
@@ -130,9 +131,9 @@ return [
 
         $variable = DirectivesRepository::stripQuotes($expression->get(0));
 
-        return  "<script>\n".
-                "window.{$variable} = <?php echo is_array({$expression->get(1)}) ? json_encode({$expression->get(1)}) : '\''.{$expression->get(1)}.'\''; ?>;\n".
-                '</script>';
+        return  "<script>\n" .
+            "window.{$variable} = <?php echo is_array({$expression->get(1)}) ? json_encode({$expression->get(1)}) : '\''.{$expression->get(1)}.'\''; ?>;\n" .
+            '</script>';
     },
 
     /*
@@ -142,19 +143,19 @@ return [
     */
 
     'inline' => function ($expression) {
-        $include = "/* {$expression} */\n".
-                   "<?php include public_path({$expression}) ?>\n";
+        $include = "/* {$expression} */\n" .
+            "<?php include public_path({$expression}) ?>\n";
 
-        if (ends_with($expression, ".html'")) {
+        if (Str::endsWith($expression, ".html'")) {
             return $include;
         }
 
-        if (ends_with($expression, ".css'")) {
-            return "<style>\n".$include.'</style>';
+        if (Str::endsWith($expression, ".css'")) {
+            return "<style>\n" . $include . '</style>';
         }
 
-        if (ends_with($expression, ".js'")) {
-            return "<script>\n".$include.'</script>';
+        if (Str::endsWith($expression, ".js'")) {
+            return "<script>\n" . $include . '</script>';
         }
     },
 
@@ -235,7 +236,7 @@ return [
     'pushonce' => function ($expression) {
         list($pushName, $pushSub) = explode(':', trim(substr($expression, 1, -1)));
 
-        $key = '__pushonce_'.str_replace('-', '_', $pushName).'_'.str_replace('-', '_', $pushSub);
+        $key = '__pushonce_' . str_replace('-', '_', $pushName) . '_' . str_replace('-', '_', $pushSub);
 
         return "<?php if(! isset(\$__env->{$key})): \$__env->{$key} = 1; \$__env->startPush('{$pushName}'); ?>";
     },
@@ -265,7 +266,7 @@ return [
      */
 
     'data' => function ($expression) {
-        $output = 'collect((array) '.$expression.')
+        $output = 'collect((array) ' . $expression . ')
             ->map(function($value, $key) {
                 return "data-{$key}=\"{$value}\"";
             })
@@ -274,7 +275,7 @@ return [
         return "<?php echo $output; ?>";
     },
 
-    
+
 
     /*
     |---------------------------------------------------------------------
@@ -283,7 +284,7 @@ return [
     */
 
     'haserror' => function ($expression) {
-        return '<?php if (isset($errors) && $errors->has('.$expression.')): ?>';
+        return '<?php if (isset($errors) && $errors->has(' . $expression . ')): ?>';
     },
 
     'endhaserror' => function () {
@@ -297,7 +298,7 @@ return [
     | @view components
     |---------------------------------------------------------------------
     */
-   /*
+    /*
     'icon' => function ($expression) {
         return "<?php echo icon({$expression}); ?>";
     },
@@ -382,15 +383,13 @@ return [
     'appVersion' => function($expression) {
         return "<?php echo appVersion({$expression}); ?>";
     },  */
-    'currentpath' => function($expression) {
+    'currentpath' => function ($expression) {
         return "<?php echo currentpath({$expression}); ?>";
-    }, 
-    'svg' => function($expression) {
+    },
+    'svg' => function ($expression) {
         return "<?php echo svg({$expression}); ?>";
-    },  
+    },
 
 
 
 ];
-        
-

@@ -4,6 +4,7 @@ namespace Ajtarragona\TComponents\Components\Forms;
 
 use Illuminate\View\Component;
 use ReflectionClass;
+use Illuminate\Support\Str;
 
 class Input extends Component
 {
@@ -14,46 +15,46 @@ class Input extends Component
 
     public $id;
     public $required = false;
-    public $disabled= false;
-    public $readonly= false;
-    public $multiple= false;
-    public $name; 
+    public $disabled = false;
+    public $readonly = false;
+    public $multiple = false;
+    public $name;
 
     public $inputname; //nombre final del input ( si es multiple se añadiran [] )
     public $errorname; //nombre del sistema de errors de laravel
-    
+
     protected $strings = [];
     protected $strings_path = null;
 
-    public function __construct($attributes=[])
+    public function __construct($attributes = [])
     {
-       
+
         // dump($attributes);
         //siempre habrá ID
-        $this->id=isset($attributes["id"]) ?  str_replace(["[","]"],["_",""],$attributes["id"]) : uniqid('input_');
-        
-      
-        $this->name = $attributes["name"]??null;
-        $this->required = $attributes["required"]??false;
-        $this->disabled = $attributes["disabled"]??false;
-        $this->readonly = $attributes["readonly"]??false;
-        $this->multiple = $attributes["multiple"]??false;
+        $this->id = isset($attributes["id"]) ?  str_replace(["[", "]"], ["_", ""], $attributes["id"]) : uniqid('input_');
 
-        if($this->name){
-            $this->errorname=str_replace(["[","]"],[".",""],$this->name);
-            $this->inputname=$this->name;
+
+        $this->name = $attributes["name"] ?? null;
+        $this->required = $attributes["required"] ?? false;
+        $this->disabled = $attributes["disabled"] ?? false;
+        $this->readonly = $attributes["readonly"] ?? false;
+        $this->multiple = $attributes["multiple"] ?? false;
+
+        if ($this->name) {
+            $this->errorname = str_replace(["[", "]"], [".", ""], $this->name);
+            $this->inputname = $this->name;
         }
 
-        if($this->multiple && ! ends_with($this->inputname, "[]")) $this->inputname.="[]";
+        if ($this->multiple && ! Str::endsWith($this->inputname, "[]")) $this->inputname .= "[]";
 
-       
-        foreach($attributes as $key=>$value){
-            if( !in_array($key, ['id','name','required','disabled','readonly','multiple']) && $value!= $this->{$key}){
+
+        foreach ($attributes as $key => $value) {
+            if (!in_array($key, ['id', 'name', 'required', 'disabled', 'readonly', 'multiple']) && $value != $this->{$key}) {
                 $this->{$key} = $value;
             }
         }
 
-        if($this->strings_path ) $this->strings=__t($this->strings_path);
+        if ($this->strings_path) $this->strings = __t($this->strings_path);
 
 
         // dd($this);
@@ -61,8 +62,9 @@ class Input extends Component
 
 
 
-    private function getPublicProperties($obj=null, $inherited=true, $excluded = [] ){
-        if(!$obj) $obj=$this;
+    private function getPublicProperties($obj = null, $inherited = true, $excluded = [])
+    {
+        if (!$obj) $obj = $this;
 
         $reflect = new ReflectionClass(get_class($obj));
         // dump(get_class($this->wizard), $reflect);
@@ -70,11 +72,11 @@ class Input extends Component
         // dump($props);
         // $ownProps = [];
         // dump($props);   
-        $ret=[];    
+        $ret = [];
         foreach ($props as $property) {
             // dump($property->getName() ." > ". $property->getModifiers());
             if ($property->isPublic()) { //solo atributos publicos
-                if(!in_array($property->getName(), $excluded) &&($inherited || $property->getDeclaringClass()->getName() === get_class($obj))){ //si heredadas, todas, si no , solo de la clase actual
+                if (!in_array($property->getName(), $excluded) && ($inherited || $property->getDeclaringClass()->getName() === get_class($obj))) { //si heredadas, todas, si no , solo de la clase actual
                     $ret[$property->getName()] = $obj->{$property->getName()};
                 }
             }
@@ -84,24 +86,24 @@ class Input extends Component
         return $ret;
     }
 
-    public function properties($exclude=[]){
-        $model=new static;
-        $ret = collect($this->getPublicProperties($this, true, array_merge(['componentName','attributes'],$exclude)))->filter(function($property, $key) use($model){
-            return $property != $model->{$key}??null;
+    public function properties($exclude = [])
+    {
+        $model = new static;
+        $ret = collect($this->getPublicProperties($this, true, array_merge(['componentName', 'attributes'], $exclude)))->filter(function ($property, $key) use ($model) {
+            return $property != $model->{$key} ?? null;
         })->all();
         // dd($model, $ret);
-        if($this->strings) $ret["strings"] = $this->strings;
+        if ($this->strings) $ret["strings"] = $this->strings;
 
-        return  str_replace("\"","'", json_encode( $ret, JSON_HEX_APOS|JSON_HEX_QUOT ));
-        
+        return  str_replace("\"", "'", json_encode($ret, JSON_HEX_APOS | JSON_HEX_QUOT));
     }
 
-    protected function viewPath($view=null){
-        $theme=config('t-components.theme');
-        $ret='t-components::components.'.$theme;
-        if($view) $ret.=".".$view; 
+    protected function viewPath($view = null)
+    {
+        $theme = config('t-components.theme');
+        $ret = 't-components::components.' . $theme;
+        if ($view) $ret .= "." . $view;
         return $ret;
-
     }
 
     /**
