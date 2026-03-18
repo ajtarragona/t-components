@@ -1,1 +1,2 @@
-# Tarragona Components for Laravel 7
+# Tarragona Components for Laravel 12
+
